@@ -53,7 +53,7 @@ Kapukai Governance Lab exists to **correct that imbalance** — with evidence, l
 
 ## 🌐 Live Site
 
-[Visit Kapukai Governance Lab](https://example.com) *(replace with live site URL)*
+[Visit Kapukai Governance Lab](https://kapukai.org)
 
 ---
 
@@ -82,8 +82,8 @@ child protection, forced adoption, legal toolkit, truth as a public utility, sys
 ## 📬 Contact
 
 **Kapukai Governance Lab**  
-Email: info@kapukai.org *(replace with your contact)*  
-Website: [https://example.com](https://example.com) *(replace with live site URL)*
+Email: info@kapukai.org  
+Website: [https://kapukai.org](https://kapukai.org)
 
 ---
 
