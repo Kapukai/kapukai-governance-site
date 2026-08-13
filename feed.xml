@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kapukai Governance Lab — Research &amp; Standards</title>
+    <link>https://kapukai.org/</link>
+    <description>Public research, standards, and rights-to-remedy infrastructure from Kapukai Governance Lab.</description>
+    <language>en-us</language>
+    <atom:link href="https://raw.githubusercontent.com/Kapukai/kapukai-governance-site/main/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Minimum Safety Doctrine</title>
+      <link>https://kapukai.org/standard/</link>
+      <guid isPermaLink="true">https://kapukai.org/standard/</guid>
+      <description>Verification requirements for irreversible authority.</description>
+    </item>
+
+    <item>
+      <title>Recursive Truth Architecture</title>
+      <link>https://kapukai.org/recursive-truth-architecture/</link>
+      <guid isPermaLink="true">https://kapukai.org/recursive-truth-architecture/</guid>
+      <description>A framework for institutional memory, learning, and correction.</description>
+    </item>
+
+    <item>
+      <title>Rights to Remedy Infrastructure</title>
+      <link>https://kapukai.org/infrastructure/</link>
+      <guid isPermaLink="true">https://kapukai.org/infrastructure/</guid>
+      <description>Engineering the path from recognized rights to observable, executable remedy.</description>
+    </item>
+
+    <item>
+      <title>Jurisdictional Verification</title>
+      <link>https://kapukai.org/jurisdictional-verification/</link>
+      <guid isPermaLink="true">https://kapukai.org/jurisdictional-verification/</guid>
+      <description>Proof of authority before coercive or irreversible intervention.</description>
+    </item>
+
+    <item>
+      <title>Governance Memory Systems</title>
+      <link>https://kapukai.org/authority-os/</link>
+      <guid isPermaLink="true">https://kapukai.org/authority-os/</guid>
+      <description>Durable records, controlled updates, and institutional continuity.</description>
+    </item>
+
+    <item>
+      <title>Decision Integrity</title>
+      <link>https://kapukai.org/interlock/</link>
+      <guid isPermaLink="true">https://kapukai.org/interlock/</guid>
+      <description>Interlocking evidence, identity, custody, authority, and memory.</description>
+    </item>
+
+    <item>
+      <title>Evidence Architecture</title>
+      <link>https://kapukai.org/verified-incident-record/</link>
+      <guid isPermaLink="true">https://kapukai.org/verified-incident-record/</guid>
+      <description>Structured records designed for verification, audit, and remedy.</description>
+    </item>
+  </channel>
+</rss>
