@@ -1,0 +1,1 @@
+window.ASSURANCE_CONFIG = {"endpoint":"https://tbxfsjipkrdwyctepesf.supabase.co/functions/v1/assurance-connect","anonKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRieGZzamlwa3Jkd3ljdGVwZXNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5NTAxNjMsImV4cCI6MjEwMTUyNjE2M30.IF6vEmU0d6WjLUbbbJmz8B9VPT7NXzn7INnGMtWbpsU"};
