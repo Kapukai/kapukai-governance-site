@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "release_status": "reviewed-public-draft-not-deployed",
+  "collection_version": "1.0.0",
+  "review_cutoff": "2026-10-01",
+  "public_root": "public/evidence",
+  "private_records_included": false,
+  "publication_review": {
+    "reviewer": "AI-assisted source/provenance review",
+    "reviewed_at": "2026-10-01",
+    "approved_commit": null,
+    "rights_review": "required for redistributed third-party attachments",
+    "human_publication_approval": null
+  },
+  "remote_publication": {
+    "github_commit": null,
+    "pull_request_url": null,
+    "vercel_deployment_url": null,
+    "kapukai_slug_verified": false
+  },
+  "artifacts": [
+    {
+      "path": "public/evidence/app.js",
+      "bytes": 7255,
+      "sha256": "5767dc0d20c2f1434ddb5821eec0e6e614e7307ca92f821409e8f1fa35bbbf62"
+    },
+    {
+      "path": "public/evidence/atlas/control-architecture.png",
+      "bytes": 88444,
+      "sha256": "911ab59f8846f59296c4762ae013fc8d4ce59a5ebbaae9a69755d98e0cba1330"
+    },
+    {
+      "path": "public/evidence/atlas/documented-comparators.png",
+      "bytes": 75907,
+      "sha256": "604074d63a2cea51a1f3c5ae59217bd08230eda50f1ae91ea3d114c3679aab4a"
+    },
+    {
+      "path": "public/evidence/contribution-template.md",
+      "bytes": 1065,
+      "sha256": "eb4ad0fce319c9b3ee22d3bd8091d4fdd56f44ffb3dcee6ee6205067fd106170"
+    },
+    {
+      "path": "public/evidence/downloads/Kapukai_Connection_Atlas.pdf",
+      "bytes": 327859,
+      "sha256": "e07188d46eedb2dd781b895af1e07c5f195152bff6b46efcd1f8c94284a39d01"
+    },
+    {
+      "path": "public/evidence/downloads/Kapukai_Evidence_Dossier.pdf",
+      "bytes": 413178,
+      "sha256": "54f24b6d38ce7be212feca5f1efbfdff5bb4677dd4d2c724c42695f44d7e248d"
+    },
+    {
+      "path": "public/evidence/downloads/Kapukai_Evidence_Toolkit.pdf",
+      "bytes": 282007,
+      "sha256": "1a1fea65f5874493bbc2cfe3493a0c663c6d0fd269a5b8ec91586635a0a41025"
+    },
+    {
+      "path": "public/evidence/downloads/Kapukai_Overleaf_Project.zip",
+      "bytes": 1195596,
+      "sha256": "8482cc45038b2851d386191f3f3440b08e35c703bd432655046545da28d50a8c"
+    },
+    {
+      "path": "public/evidence/index.html",
+      "bytes": 8554,
+      "sha256": "0c90d9d60128960636bbb80b9112bca77aec1de382cdbb6bf57057a62e15afc1"
+    },
+    {
+      "path": "public/evidence/public-data.js",
+      "bytes": 91431,
+      "sha256": "5eff446104e29751d59d7477a4f63f6e9bb500209a0935efa46669ea3ee9347f"
+    },
+    {
+      "path": "public/evidence/public-data.json",
+      "bytes": 111555,
+      "sha256": "f1a9324b1ad86c0d9b1eaaed7c976bf480ecf5ace4ce7daa0bda2a5588aa7e18"
+    },
+    {
+      "path": "public/evidence/styles.css",
+      "bytes": 15933,
+      "sha256": "e522955671ec06e1f05aae54727b7c606aa2105488535ab10ace7664e38767c9"
+    }
+  ]
+}
