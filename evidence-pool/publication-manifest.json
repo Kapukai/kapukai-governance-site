@@ -14,9 +14,10 @@
   },
   "remote_publication": {
     "github_commit": null,
-    "pull_request_url": null,
+    "pull_request_url": "https://github.com/Kapukai/kapukai-governance-site/pull/1",
     "vercel_deployment_url": null,
-    "kapukai_slug_verified": false
+    "kapukai_slug_verified": false,
+    "github_branch": "evidence-pool-2026-10-01"
   },
   "artifacts": [
     {
@@ -66,13 +67,13 @@
     },
     {
       "path": "public/evidence/public-data.js",
-      "bytes": 91431,
-      "sha256": "5eff446104e29751d59d7477a4f63f6e9bb500209a0935efa46669ea3ee9347f"
+      "bytes": 89391,
+      "sha256": "31fbc7a2434f16358c925b06d4dca49a7caa4a0d77768c40a27787cd0f1c70f4"
     },
     {
       "path": "public/evidence/public-data.json",
-      "bytes": 111555,
-      "sha256": "f1a9324b1ad86c0d9b1eaaed7c976bf480ecf5ace4ce7daa0bda2a5588aa7e18"
+      "bytes": 108875,
+      "sha256": "49074b274ea3bbe96dc76342f65ffa50418cc60bc83a71d30e1a0ca5b3a80034"
     },
     {
       "path": "public/evidence/styles.css",

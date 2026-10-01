@@ -1178,8 +1178,7 @@
       "type": "Official congressional hearing and reproduced Church Committee findings",
       "locator": "Appendix A, original report pp. 389–399 and 403–404; PDF pp. 72–87; Olson section PDF pp. 77–82",
       "scope": "Documents nonconsensual LSD testing, Olson episode and institutional control failures.",
-      "limitations": "Retrospective government account; date/floor discrepancies with other records. Not a homicide verdict. Keep total derived prose from this source under 200 words.",
-      "ref": "turn3view1"
+      "limitations": "Retrospective government account; date/floor discrepancies with other records. Not a homicide verdict."
     },
     {
       "id": "H02",
@@ -1190,8 +1189,7 @@
       "type": "Contemporaneous official White House release",
       "locator": "Single page, paragraphs 1–2",
       "scope": "Apology, family request for disclosure and referral of compensation discussions.",
-      "limitations": "Acknowledges circumstances; does not resolve manner of death.",
-      "ref": "turn1view1"
+      "limitations": "Acknowledges circumstances; does not resolve manner of death."
     },
     {
       "id": "H03",
@@ -1203,7 +1201,6 @@
       "locator": "PDF page 7 of 7; statement dated October 12, 1976",
       "scope": "Army employment, death date, nonconsensual drug exposure and $750,000 relief.",
       "limitations": "Historical official account uses suicide framing; does not resolve subsequent forensic challenge.",
-      "ref": "turn41view0",
       "mirror_url": "https://www.presidency.ucsb.edu/documents/statement-signing-the-bill-providing-for-the-relief-the-survivors-dr-frank-r-olson"
     },
     {
@@ -1215,10 +1212,8 @@
       "type": "Judicial opinion, third-party reproduction",
       "locator": "Background pp. 1–5; analysis of limitations/settlement/immunity; conclusion",
       "scope": "Documents litigation, allegations about exhumation, settlement and dismissal.",
-      "limitations": "Background largely recites complaint; accepting allegations for motion practice is not a factual homicide finding. Keep derived narrative under 200 words.",
-      "ref": "turn3view0",
-      "pdf_url": "https://cases.justia.com/federal/district-courts/district-of-columbia/dcdce/1:2012cv01924/157085/21/0.pdf?ts=1411526323",
-      "pdf_ref": "turn41view1"
+      "limitations": "Background largely recites complaint; accepting allegations for motion practice is not a factual homicide finding.",
+      "pdf_url": "https://cases.justia.com/federal/district-courts/district-of-columbia/dcdce/1:2012cv01924/157085/21/0.pdf?ts=1411526323"
     },
     {
       "id": "H05",
@@ -1229,8 +1224,7 @@
       "type": "Contemporaneous participant statement",
       "locator": "PDF pp. 2–5 and 10–11",
       "scope": "Olson's supervisor describes performance before dosing, agitation afterward and discussions about quitting.",
-      "limitations": "Single involved witness, not independent forensic proof; OCR errors. Statement cannot establish Olson's complete motives.",
-      "ref": "turn20view3"
+      "limitations": "Single involved witness, not independent forensic proof; OCR errors. Statement cannot establish Olson's complete motives."
     },
     {
       "id": "H06",
@@ -1241,8 +1235,7 @@
       "type": "Scan of official autopsy report, third-party mirror",
       "locator": "PDF p. 1 identification; pp. 4–5 final diagnoses/opinion/signature",
       "scope": "Examiner opinion and findings.",
-      "limitations": "Third-party scan; obtain certified custodian copy. Keep all derived prose, including repeated assertions, under 200 words.",
-      "ref": "turn1view0"
+      "limitations": "Third-party scan; obtain certified custodian copy."
     },
     {
       "id": "H07",
@@ -1253,8 +1246,7 @@
       "type": "Official archived testimony transcript",
       "locator": "PDF pp. 5–9 (cover, contents, opening of testimony); succeeding transcript",
       "scope": "Confirms Colby testified before the Church Committee.",
-      "limitations": "Oversight participation supplies historical context, not a causal link to his death.",
-      "ref": "turn20view0"
+      "limitations": "Oversight participation supplies historical context, not a causal link to his death."
     },
     {
       "id": "H08",
@@ -1265,8 +1257,7 @@
       "type": "Official documentary edition with editorial notes",
       "locator": "Paragraphs 1–4 and editorial footnote 5",
       "scope": "Reporting directive concerning possible illegal activities; Family Jewels context and 2007 release.",
-      "limitations": "Editorial context is distinguished from original memo. No evidence here about Colby's death.",
-      "ref": "turn20view1"
+      "limitations": "Editorial context is distinguished from original memo. No evidence here about Colby's death."
     },
     {
       "id": "H09",
@@ -1277,8 +1268,7 @@
       "type": "Official hearing transcript, Serial 119-68",
       "locator": "Title page; opening statement printed pp. 1–3",
       "scope": "Documents renewed congressional attention and discussion of disclosure.",
-      "limitations": "Speakers' assertions are attributed testimony and political statements, not new judicial findings.",
-      "ref": "turn3view2"
+      "limitations": "Speakers' assertions are attributed testimony and political statements, not new judicial findings."
     },
     {
       "id": "R01",
@@ -1289,8 +1279,7 @@
       "type": "primary congressional correspondence",
       "locator": "pp. 1–2; opening paragraph, footnotes 1–8, briefing request",
       "scope": "Documents inquiry into unconfirmed reporting and requested April 27 briefing; does not establish a causal network.",
-      "limitations": "Underlying factual narrative substantially cites Daily Mail and New York Post reporting. An official letter repeating a press allegation is not independent corroboration of that allegation.",
-      "web_ref": "turn9view1"
+      "limitations": "Underlying factual narrative substantially cites Daily Mail and New York Post reporting. An official letter repeating a press allegation is not independent corroboration of that allegation."
     },
     {
       "id": "R02",
@@ -1301,8 +1290,7 @@
       "type": "primary congressional announcement",
       "locator": "Opening paragraphs and links to four agency letters",
       "scope": "Confirms congressional requests to FBI, NASA, Energy, and the department named War in the announcement.",
-      "limitations": "Same inquiry as R01; not independent corroboration. Its use of unconfirmed reporting is material.",
-      "web_ref": "turn9view0"
+      "limitations": "Same inquiry as R01; not independent corroboration. Its use of unconfirmed reporting is material."
     },
     {
       "id": "R03",
@@ -1313,8 +1301,7 @@
       "type": "primary investigative findings",
       "locator": "Conclusions, firearm analysis, motive assessment, final paragraph",
       "scope": "Finds Neves Valente acted alone in Brown and Loureiro shootings; no terrorism nexus; describes firearm correlation and recorded confessions.",
-      "limitations": "Published summary, not raw forensic exhibits. Motive is an FBI assessment; release says investigation remains ongoing after significant portion concluded.",
-      "web_ref": "turn15view0"
+      "limitations": "Published summary, not raw forensic exhibits. Motive is an FBI assessment; release says investigation remains ongoing after significant portion concluded."
     },
     {
       "id": "R04",
@@ -1325,8 +1312,7 @@
       "type": "primary employer memorial",
       "locator": "Opening paragraphs",
       "scope": "Confirms death on December 16 following December 15 shooting and academic role.",
-      "limitations": "Memorial is not a homicide investigative finding.",
-      "web_ref": "turn29view3"
+      "limitations": "Memorial is not a homicide investigative finding."
     },
     {
       "id": "R05",
@@ -1337,8 +1323,7 @@
       "type": "primary official biography",
       "locator": "Opening and assignments; 'Current as of April 2013'",
       "scope": "Verifies AFRL command and past space research, acquisition, and operations positions.",
-      "limitations": "Historical biography. Present-tense descriptions reflect 2013, not 2026 employment or clearance.",
-      "web_ref": "turn34search3"
+      "limitations": "Historical biography. Present-tense descriptions reflect 2013, not 2026 employment or clearance."
     },
     {
       "id": "R06",
@@ -1349,8 +1334,7 @@
       "type": "primary official missing-person notice, search-index retrieval",
       "locator": "Missing notice for William Neil McCasland",
       "scope": "Identifies missing-person case and last-seen date February 27, 2026.",
-      "limitations": "Full page returned 403; search-index text retrieved. No later resolution independently located. Do not use lack of search results as proof the case has had no developments.",
-      "web_ref": "turn11search5"
+      "limitations": "Full page returned 403; search-index text retrieved. No later resolution independently located. Do not use lack of search results as proof the case has had no developments."
     },
     {
       "id": "R07",
@@ -1361,8 +1345,7 @@
       "type": "professional society memorial",
       "locator": "Opening two paragraphs",
       "scope": "Death July 30, 2023; JPL work 1998–2022; comets, asteroids and listed missions.",
-      "limitations": "No medical cause supplied. An obituary's silence about cause of death is not evidence of homicide or concealment.",
-      "web_ref": "turn29view4"
+      "limitations": "No medical cause supplied. An obituary's silence about cause of death is not evidence of homicide or concealment."
     },
     {
       "id": "R08",
@@ -1373,8 +1356,7 @@
       "type": "primary employer memorial",
       "locator": "Opening; IPAC appointments and projects",
       "scope": "Confirms age 67, February 16 death, scientific work and IPAC employment.",
-      "limitations": "Does not establish motive or scientific-work connection to homicide.",
-      "web_ref": "turn32view1"
+      "limitations": "Does not establish motive or scientific-work connection to homicide."
     },
     {
       "id": "R09",
@@ -1385,8 +1367,7 @@
       "type": "primary prosecutor statement",
       "locator": "Case 26AVCF00232; arraignment and alleged sequence",
       "scope": "Freddy Snyder charged with murder, carjacking and residential burglary; May 26 not-guilty plea; prosecution alleges shooting outside Grillmair’s home.",
-      "limitations": "Charges and narrative are allegations, not convictions. Latest docket not obtained; do not present scheduled June 5 hearing as an event proved to have occurred.",
-      "web_ref": "turn37view0"
+      "limitations": "Charges and narrative are allegations, not convictions. Latest docket not obtained; do not present scheduled June 5 hearing as an event proved to have occurred."
     },
     {
       "id": "R10",
@@ -1397,8 +1378,7 @@
       "type": "primary missing-person listing",
       "locator": "Date Last Seen; reporting agency; case number",
       "scope": "Last contact June 22, 2025; LASD case 025-00905-1257-400.",
-      "limitations": "Missing-person listing does not determine cause of disappearance; active webpage can lag developments.",
-      "web_ref": "turn34view1"
+      "limitations": "Missing-person listing does not determine cause of disappearance; active webpage can lag developments."
     },
     {
       "id": "R11",
@@ -1409,8 +1389,7 @@
       "type": "primary police announcement",
       "locator": "Headline and announcement; linked full release",
       "scope": "Officially confirms identification of Casias’s remains.",
-      "limitations": "Website page is brief and links to a Facebook release not retrievable here. Full release reproduced in R12.",
-      "web_ref": "turn29view0"
+      "limitations": "Website page is brief and links to a Facebook release not retrievable here. Full release reproduced in R12."
     },
     {
       "id": "R12",
@@ -1421,8 +1400,7 @@
       "type": "primary statement reproduced by local publisher",
       "locator": "NMSP NEWS RELEASE, paragraphs 2–5",
       "scope": "May 28 remains discovery in Carson National Forest; handgun nearby; OMI identification; cause and manner then pending.",
-      "limitations": "Syndicated/reproduced statement; not independent corroboration of R11. May statement predates later autopsy reporting.",
-      "web_ref": "turn34view0"
+      "limitations": "Syndicated/reproduced statement; not independent corroboration of R11. May statement predates later autopsy reporting."
     },
     {
       "id": "R13",
@@ -1433,8 +1411,7 @@
       "type": "secondary reporting on autopsy",
       "locator": "Headline and opening, indexed source excerpt",
       "scope": "Reports gunshot wound to head as cause; manner of death undetermined.",
-      "limitations": "Underlying OMI report not acquired. Full page retrieval failed; indexed text checked alongside independent LA Times August 18 reporting. Do not convert undetermined manner to suicide or homicide.",
-      "web_ref": "turn40search0"
+      "limitations": "Underlying OMI report not acquired. Full page retrieval failed; indexed text checked alongside independent LA Times August 18 reporting. Do not convert undetermined manner to suicide or homicide."
     },
     {
       "id": "R14",
@@ -1445,8 +1422,7 @@
       "type": "primary police announcement",
       "locator": "Announcement paragraphs",
       "scope": "Confirms active search, review of surveillance and tips, and coordination.",
-      "limitations": "Historical search update, not current case-status certification or finding of foul play.",
-      "web_ref": "turn29view1"
+      "limitations": "Historical search update, not current case-status certification or finding of foul play."
     },
     {
       "id": "R15",
@@ -1457,8 +1433,7 @@
       "type": "primary missing-person listing, search-index retrieval",
       "locator": "Date Missing field",
       "scope": "Lists May 8, 2025, Los Alamos.",
-      "limitations": "Index-only evidence: full page content was not retrieved. A stray 2023 line also appears in listing; use explicit Date Missing field, and seek original police report to reconcile. Full-page availability limited.",
-      "web_ref": "turn25search10"
+      "limitations": "Index-only evidence: full page content was not retrieved. A stray 2023 line also appears in listing; use explicit Date Missing field, and seek original police report to reconcile. Full-page availability limited."
     },
     {
       "id": "R16",
@@ -1469,8 +1444,7 @@
       "type": "primary missing-person listing, search-index retrieval",
       "locator": "Date Missing and Missing from fields",
       "scope": "Lists August 28, 2025, Albuquerque.",
-      "limitations": "Does not verify employment, clearance, kidnapping or motive. Full-page retrieval failed; indexed text used.",
-      "web_ref": "turn25search3"
+      "limitations": "Does not verify employment, clearance, kidnapping or motive. Full-page retrieval failed; indexed text used."
     },
     {
       "id": "R17",
@@ -1481,8 +1455,7 @@
       "type": "primary preliminary investigative announcement, indexed text",
       "locator": "Opening; last two paragraphs",
       "scope": "Body provisionally believed to be Jason Thomas recovered March 17; reported missing December 13 after leaving December 12; no foul play suspected on preliminary information.",
-      "limitations": "Identity and cause/manner expressly referred to medical examiner. Do not label final drowning date or certified manner from this preliminary statement. Full-page retrieval failed; extensive indexed text retrieved.",
-      "web_ref": "turn34search1"
+      "limitations": "Identity and cause/manner expressly referred to medical examiner. Do not label final drowning date or certified manner from this preliminary statement. Full-page retrieval failed; extensive indexed text retrieved."
     },
     {
       "id": "R18",
@@ -1493,8 +1466,7 @@
       "type": "obituary",
       "locator": "Opening two paragraphs",
       "scope": "Reports death July 4, 2024, Los Angeles and JPL instrument-management work.",
-      "limitations": "States age 61 but birth June 24, 1964, implying age 60 in July 2024; record is internally inconsistent. Do not silently resolve discrepancy or treat omission of cause as suspicious evidence.",
-      "web_ref": "turn34view2"
+      "limitations": "States age 61 but birth June 24, 1964, implying age 60 in July 2024; record is internally inconsistent. Do not silently resolve discrepancy or treat omission of cause as suspicious evidence."
     },
     {
       "id": "R19",
@@ -1505,8 +1477,7 @@
       "type": "secondary reporting quoting medical examiner and legislator",
       "locator": "Medical-examiner report and letter reporting",
       "scope": "Reports Sullivan died May 12, 2024, at Falls Church, accidental intoxication; separately reports proposed testimony and legislative concern.",
-      "limitations": "Underlying medical examiner report, congressional scheduling record, and April 16 referral letter not acquired. Source is not proof of an exotic-technology program or silencing.",
-      "web_ref": "turn22search3"
+      "limitations": "Underlying medical examiner report, congressional scheduling record, and April 16 referral letter not acquired. Source is not proof of an exotic-technology program or silencing."
     },
     {
       "id": "R20",
@@ -1517,8 +1488,7 @@
       "type": "secondary multi-source fact check",
       "locator": "Named-person inventory and employment comparison; source list",
       "scope": "Tracks 14 names across changing online lists; not all are scientists or documented colleagues. Reports NASA April 20 position that nothing related to NASA indicated national-security threat then.",
-      "limitations": "Its April status entries predate Casias recovery and April 29 Loureiro findings. Background source, not substitute for later primary documents. Lists a KLFY date inconsistent with its own publication chronology.",
-      "web_ref": "turn15view2"
+      "limitations": "Its April status entries predate Casias recovery and April 29 Loureiro findings. Background source, not substitute for later primary documents. Lists a KLFY date inconsistent with its own publication chronology."
     },
     {
       "id": "R21",
@@ -1529,8 +1499,7 @@
       "type": "secondary reporting and interviews",
       "locator": "FBI statements; 'Who is involved?'",
       "scope": "Reports FBI and congressional investigations into possible connections, including scrutiny of foreign actors.",
-      "limitations": "Contains apparent errors: assigns Los Alamos to NASA and gives Maiwald July 7 rather than obituary July 4. Use only clearly attributed investigative-scope statement and limited employment context; does not verify a common perpetrator.",
-      "web_ref": "turn39view1"
+      "limitations": "Contains apparent errors: assigns Los Alamos to NASA and gives Maiwald July 7 rather than obituary July 4. Use only clearly attributed investigative-scope statement and limited employment context; does not verify a common perpetrator."
     },
     {
       "id": "R22",
@@ -1541,8 +1510,7 @@
       "type": "secondary reporting of public statement",
       "locator": "President’s April 30 update",
       "scope": "Trump reported no established connection at that point.",
-      "limitations": "Presidential statement as reported, not released FBI case file; short derivation only (25-word source limit).",
-      "web_ref": "turn40search3"
+      "limitations": "Presidential statement as reported, not released FBI case file."
     },
     {
       "id": "W01",
@@ -1553,9 +1521,7 @@
       "type": "Reported obituary",
       "locator": "Opening three paragraphs",
       "scope": "Death and attributed family account",
-      "limitations": "No medical records or causal investigation supplied; repeats newspaper interviews.",
-      "web_ref": "turn17search17",
-      "word_limit": 100
+      "limitations": "No medical records or causal investigation supplied; repeats newspaper interviews."
     },
     {
       "id": "W02",
@@ -1566,9 +1532,7 @@
       "type": "Primary intelligence assessment; recalled in 2026",
       "locator": "Printed pages 1–2; ICA 2023-02286-B",
       "scope": "Historical intelligence judgment",
-      "limitations": "RECALLED June 11, 2026; use only with W04. Public assessment is not a release of underlying classified evidence.",
-      "web_ref": "turn24view1",
-      "word_limit": 200
+      "limitations": "RECALLED June 11, 2026; use only with W04. Public assessment is not a release of underlying classified evidence."
     },
     {
       "id": "W03",
@@ -1579,9 +1543,7 @@
       "type": "Primary intelligence assessment; recalled in 2026",
       "locator": "Printed pages 1–2; ICA 2025-00008-B",
       "scope": "Historical majority and minority judgments",
-      "limitations": "RECALLED June 11, 2026; use only with W04. Distinguish possible capability, possible use, and identification of a perpetrator.",
-      "web_ref": "turn10view1",
-      "word_limit": 200
+      "limitations": "RECALLED June 11, 2026; use only with W04. Distinguish possible capability, possible use, and identification of a perpetrator."
     },
     {
       "id": "W04",
@@ -1592,9 +1554,7 @@
       "type": "Primary official recall memorandum",
       "locator": "Two pages, visually inspected",
       "scope": "Status change and ODNI reasons for recall",
-      "limitations": "Official findings about analytic process; does not identify the cause of a particular person's illness or name a proven perpetrator.",
-      "web_ref": "turn24view0",
-      "word_limit": 200
+      "limitations": "Official findings about analytic process; does not identify the cause of a particular person's illness or name a proven perpetrator."
     },
     {
       "id": "W05",
@@ -1605,9 +1565,7 @@
       "type": "Primary exploratory clinical research",
       "locator": "Abstract; Discussion; Limitations; DOI 10.1001/jama.2024.2413",
       "scope": "86 AHI participants and 30 controls",
-      "limitations": "Selection and recall bias, unblinded assessments, timing differences, limited biomarkers; not a perpetrator-attribution study. The 2026 recall memo raises ethics concerns about a medical study; do not silently equate that with a journal retraction.",
-      "web_ref": "turn24view2",
-      "word_limit": 200
+      "limitations": "Selection and recall bias, unblinded assessments, timing differences, limited biomarkers; not a perpetrator-attribution study. The 2026 recall memo raises ethics concerns about a medical study; do not silently equate that with a journal retraction."
     },
     {
       "id": "W06",
@@ -1618,9 +1576,7 @@
       "type": "Primary exploratory neuroimaging research",
       "locator": "Results; Limitations; DOI 10.1001/jama.2024.2424",
       "scope": "81 AHI participants and 48 controls",
-      "limitations": "Small sample, incomplete vocational matching, no scans earlier than 14 days; median delay 80 days. MRI findings cannot establish whether an undetected earlier injury occurred.",
-      "web_ref": "turn24view3",
-      "word_limit": 200
+      "limitations": "Small sample, incomplete vocational matching, no scans earlier than 14 days; median delay 80 days. MRI findings cannot establish whether an undetected earlier injury occurred."
     },
     {
       "id": "W07",
@@ -1631,9 +1587,7 @@
       "type": "Primary expert-panel assessment",
       "locator": "PDF pages 1–3: scope and findings",
       "scope": "Plausibility of mechanisms for selected core characteristics",
-      "limitations": "Expressly excluded attribution to an actor; information gaps remain. Plausibility is not proof that a mechanism caused any individual event.",
-      "web_ref": "turn30view0",
-      "word_limit": 200
+      "limitations": "Expressly excluded attribution to an actor; information gaps remain. Plausibility is not proof that a mechanism caused any individual event."
     },
     {
       "id": "W08",
@@ -1644,9 +1598,7 @@
       "type": "Contemporaneous news reporting",
       "locator": "Opening paragraphs; sources and official-response paragraphs",
       "scope": "Maganov death and conflicting contemporaneous explanations",
-      "limitations": "Anonymous sources; no autopsy or final investigative record provided.",
-      "web_ref": "turn10view4",
-      "word_limit": 100
+      "limitations": "Anonymous sources; no autopsy or final investigative record provided."
     },
     {
       "id": "W09",
@@ -1657,9 +1609,7 @@
       "type": "News chronology",
       "locator": "Sergei Protosenya entry",
       "scope": "Protosenya family deaths and reported police hypothesis",
-      "limitations": "Summary of contemporaneous reports; not a final judicial finding or autopsy.",
-      "web_ref": "turn10view5",
-      "word_limit": 100
+      "limitations": "Summary of contemporaneous reports; not a final judicial finding or autopsy."
     },
     {
       "id": "W10",
@@ -1670,9 +1620,7 @@
       "type": "Original reporting including police interview",
       "locator": "Police investigation paragraphs and 'A string of mysterious Russian deaths'",
       "scope": "Antov investigation, relevant records, and limits of connection claims",
-      "limitations": "Contemporaneous investigation status; no final disposition located in this research.",
-      "web_ref": "turn30view1",
-      "word_limit": 200
+      "limitations": "Contemporaneous investigation status; no final disposition located in this research."
     },
     {
       "id": "W11",
@@ -1683,9 +1631,7 @@
       "type": "Reporting describing autopsy reports",
       "locator": "Opening paragraphs and December 27 autopsy description; updated December 31",
       "scope": "Antov date and reported autopsy classification",
-      "limitations": "Reporter account of medical records; original certified reports not acquired.",
-      "web_ref": "turn24view5",
-      "word_limit": 200
+      "limitations": "Reporter account of medical records; original certified reports not acquired."
     },
     {
       "id": "W12",
@@ -1696,9 +1642,7 @@
       "type": "Primary committee chair statement",
       "locator": "Statement dated June 11, 2026",
       "scope": "Official corroboration of recall and chair's criticism",
-      "limitations": "Chair's characterizations are attributed positions, not findings of a court or independent medical review.",
-      "web_ref": "turn10view0",
-      "word_limit": 200
+      "limitations": "Chair's characterizations are attributed positions, not findings of a court or independent medical review."
     },
     {
       "id": "P01",
@@ -1753,8 +1697,7 @@
       "type": "technical standard",
       "locator": "Abstract and control families AC, IA, AU, PE",
       "scope": "Risk-based security/privacy controls, including access, physical security and auditability.",
-      "limitations": "A control catalog does not establish that a particular intrusion or abuse occurred.",
-      "web_ref": "turn23view0"
+      "limitations": "A control catalog does not establish that a particular intrusion or abuse occurred."
     },
     {
       "id": "C02",
@@ -1765,8 +1708,7 @@
       "type": "technical framework",
       "locator": "Appendix A: PR.AA, PR.PS, DE.CM, RS.AN",
       "scope": "Govern, identify, protect, detect, respond and recover outcomes.",
-      "limitations": "High-level outcomes require local implementation and evidence.",
-      "web_ref": "turn27view0"
+      "limitations": "High-level outcomes require local implementation and evidence."
     },
     {
       "id": "C03",
@@ -1777,8 +1719,7 @@
       "type": "technical guidance",
       "locator": "Abstract; sections 3 and 4",
       "scope": "Computer and network forensic process and data sources.",
-      "limitations": "IT guidance, not a complete law-enforcement manual or legal advice; older implementation examples.",
-      "web_ref": "turn18view1"
+      "limitations": "IT guidance, not a complete law-enforcement manual or legal advice; older implementation examples."
     },
     {
       "id": "C04",
@@ -1789,8 +1730,7 @@
       "type": "official cybersecurity guidance",
       "locator": "Summary and guidance for network defenders",
       "scope": "Communications infrastructure security and defensive visibility.",
-      "limitations": "Search-index summary verified; direct page retrieval returned HTTP 403. No inference that a particular individual was affected.",
-      "web_ref": "turn13search20"
+      "limitations": "Search-index summary verified; direct page retrieval returned HTTP 403. No inference that a particular individual was affected."
     },
     {
       "id": "C05",
@@ -1801,8 +1741,7 @@
       "type": "technical guidance",
       "locator": "Pages 1-4: overview, critical suppliers, supplier requirements",
       "scope": "Supplier risk, responsibilities and evidence requirements.",
-      "limitations": "Overview only; not proof of malicious supply-chain activity.",
-      "web_ref": "turn35view6"
+      "limitations": "Overview only; not proof of malicious supply-chain activity."
     },
     {
       "id": "C06",
@@ -1813,8 +1752,7 @@
       "type": "official legal guidance",
       "locator": "Whistleblower Retaliation; Other Retaliation; Accessing Medical Records",
       "scope": "Personnel retaliation elements and examples for covered federal employment.",
-      "limitations": "Coverage and remedies depend on employee status, disclosure and forum; examples are not case findings.",
-      "web_ref": "turn18view3"
+      "limitations": "Coverage and remedies depend on employee status, disclosure and forum; examples are not case findings."
     },
     {
       "id": "C07",
@@ -1825,8 +1763,7 @@
       "type": "official reporting guidance",
       "locator": "IC IG; How to report to the IC IG",
       "scope": "Current IC IG hotline route for intelligence-related wrongdoing and reprisal.",
-      "limitations": "Anyone may report, but some protections apply only to IC employees/contractors; confidentiality is not guaranteed anonymity.",
-      "web_ref": "turn27view11"
+      "limitations": "Anyone may report, but some protections apply only to IC employees/contractors; confidentiality is not guaranteed anonymity."
     },
     {
       "id": "C08",
@@ -1837,8 +1774,7 @@
       "type": "official records guidance",
       "locator": "44 USC 3106; 36 CFR Part 1230; reporting paragraph",
       "scope": "Unlawful or accidental removal, alteration and destruction of federal records.",
-      "limitations": "Federal-records jurisdiction; records loss alone does not establish intent.",
-      "web_ref": "turn27view2"
+      "limitations": "Federal-records jurisdiction; records loss alone does not establish intent."
     },
     {
       "id": "C09",
@@ -1849,8 +1785,7 @@
       "type": "regulation",
       "locator": "Paragraphs (d), (e), (f), (g), (h)",
       "scope": "Chemical hygiene plans, exposure monitoring, medical consultation and safety data sheets.",
-      "limitations": "Application depends on workplace and substance; no individual exposure or causation finding.",
-      "web_ref": "turn27view5"
+      "limitations": "Application depends on workplace and substance; no individual exposure or causation finding."
     },
     {
       "id": "C10",
@@ -1861,8 +1796,7 @@
       "type": "official patient-rights guidance",
       "locator": "Access; Corrections; limitations notice",
       "scope": "Access to covered medical/billing records and amendment or disagreement procedures.",
-      "limitations": "Exceptions apply; psychotherapy notes are separately restricted; guidance includes Ciox court-order qualification.",
-      "web_ref": "turn27view6"
+      "limitations": "Exceptions apply; psychotherapy notes are separately restricted; guidance includes Ciox court-order qualification."
     },
     {
       "id": "C11",
@@ -1873,8 +1807,7 @@
       "type": "official research-integrity guidance",
       "locator": "Definition",
       "scope": "Fabrication, falsification and plagiarism in research.",
-      "limitations": "Definition alone does not establish jurisdiction or a finding; not every scientific dispute is misconduct.",
-      "web_ref": "turn27view7"
+      "limitations": "Definition alone does not establish jurisdiction or a finding; not every scientific dispute is misconduct."
     },
     {
       "id": "C12",
@@ -1885,8 +1818,7 @@
       "type": "government internal-control standard",
       "locator": "Highlights; effective date",
       "scope": "Risk assessment, preventive controls, fraud/improper-payment risk and documentation.",
-      "limitations": "Internal-control framework does not itself prove fraud.",
-      "web_ref": "turn27view8"
+      "limitations": "Internal-control framework does not itself prove fraud."
     },
     {
       "id": "C13",
@@ -1897,8 +1829,7 @@
       "type": "official occupational-health service",
       "locator": "At a glance; steps to take",
       "scope": "Employee, employer or union request for workplace hazard evaluation.",
-      "limitations": "Workplace evaluation channel, not an emergency service or attribution of an intentional attack.",
-      "web_ref": "turn27view9"
+      "limitations": "Workplace evaluation channel, not an emergency service or attribution of an intentional attack."
     },
     {
       "id": "C14",
@@ -1909,8 +1840,7 @@
       "type": "technical framework",
       "locator": "Sections 3.1, 3.4 and 3.5",
       "scope": "Validity, reliability, monitoring, accountability and explanation of AI decisions.",
-      "limitations": "Voluntary risk framework; does not establish statutory rights or that a decision used AI.",
-      "web_ref": "turn35view4"
+      "limitations": "Voluntary risk framework; does not establish statutory rights or that a decision used AI."
     },
     {
       "id": "C15",
@@ -1921,8 +1851,7 @@
       "type": "official biosafety guidance",
       "locator": "Core principle: protocol-driven risk assessment",
       "scope": "Laboratory risk assessment and appropriate safeguards.",
-      "limitations": "Advisory guidance cannot identify every risk or establish deliberate exposure.",
-      "web_ref": "turn27view10"
+      "limitations": "Advisory guidance cannot identify every risk or establish deliberate exposure."
     },
     {
       "id": "C16",
@@ -1933,8 +1862,7 @@
       "type": "official records-request guidance",
       "locator": "Component routing paragraphs",
       "scope": "DOJ components process their own records requests.",
-      "limitations": "Response timing and releasability depend on records, exemptions and workload.",
-      "web_ref": "turn27view4"
+      "limitations": "Response timing and releasability depend on records, exemptions and workload."
     },
     {
       "id": "C17",
@@ -1945,8 +1873,7 @@
       "type": "official records-request guidance",
       "locator": "What can I ask for; who handles requests",
       "scope": "Requests concern existing agency records; agencies need not conduct new research or answer questions.",
-      "limitations": "Federal FOIA differs from state public-records law and court access procedures.",
-      "web_ref": "turn35view3"
+      "limitations": "Federal FOIA differs from state public-records law and court access procedures."
     },
     {
       "id": "C18",
@@ -1957,8 +1884,7 @@
       "type": "official reporting guidance",
       "locator": "Directorate overview",
       "scope": "DoD whistleblower reprisal investigation entry point.",
-      "limitations": "Search-index overview verified; direct retrieval returned HTTP 403. Confirm current eligibility and procedures at filing.",
-      "web_ref": "turn16search2"
+      "limitations": "Search-index overview verified; direct retrieval returned HTTP 403. Confirm current eligibility and procedures at filing."
     },
     {
       "id": "C19",
@@ -1969,8 +1895,7 @@
       "type": "official intake form",
       "locator": "Pages 1-2 and 4-5",
       "scope": "ICWPA urgent-concern criteria; classified-submission coordination; confidentiality exceptions.",
-      "limitations": "Archived form: use current IC IG entry point to confirm submission instructions.",
-      "web_ref": "turn18view4"
+      "limitations": "Archived form: use current IC IG entry point to confirm submission instructions."
     },
     {
       "id": "C20",
@@ -1981,8 +1906,7 @@
       "type": "technical guidance",
       "locator": "Abstract and scope",
       "scope": "Context-based protection from inappropriate access, use and disclosure of personal information.",
-      "limitations": "Older guidance; privacy risk remains contextual and cannot be eliminated by labels alone.",
-      "web_ref": "turn35view1"
+      "limitations": "Older guidance; privacy risk remains contextual and cannot be eliminated by labels alone."
     },
     {
       "id": "C21",
@@ -1993,8 +1917,7 @@
       "type": "technical guidance",
       "locator": "Abstract and scope",
       "scope": "Security of systems interacting with physical processes, with reliability and safety constraints.",
-      "limitations": "Rev. 3 is the cited final edition; search also surfaced a Rev. 4 draft, not substituted here.",
-      "web_ref": "turn35view2"
+      "limitations": "Rev. 3 is the cited final edition; search also surfaced a Rev. 4 draft, not substituted here."
     },
     {
       "id": "C22",
@@ -2005,8 +1928,7 @@
       "type": "official reporting guidance",
       "locator": "Disclosure Unit process",
       "scope": "Covered federal employee/applicant disclosures; agency investigation and OSC oversight.",
-      "limitations": "Wrongdoing disclosure process differs from retaliation complaint; OSC states it lacks independent investigative authority in these disclosure cases.",
-      "web_ref": "turn35view0"
+      "limitations": "Wrongdoing disclosure process differs from retaliation complaint; OSC states it lacks independent investigative authority in these disclosure cases."
     },
     {
       "id": "C23",
@@ -2017,8 +1939,7 @@
       "type": "official reporting guidance",
       "locator": "Time Limits for Filing a Complaint",
       "scope": "OSHA-administered retaliation statutes and filing options.",
-      "limitations": "Jurisdiction and deadlines vary; listed time limits include 30, 60, 90 and 180 days.",
-      "web_ref": "turn27view3"
+      "limitations": "Jurisdiction and deadlines vary; listed time limits include 30, 60, 90 and 180 days."
     },
     {
       "id": "C24",
@@ -2029,8 +1950,7 @@
       "type": "official reporting guidance",
       "locator": "Coordination of classified submissions",
       "scope": "Contact the Hotline to arrange appropriate classified submission procedures.",
-      "limitations": "Search-index summary verified; do not send classified content through ordinary web forms or unsecured calls.",
-      "web_ref": "turn16search10"
+      "limitations": "Search-index summary verified; do not send classified content through ordinary web forms or unsecured calls."
     }
   ],
   "domains": [
