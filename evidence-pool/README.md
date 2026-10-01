@@ -1,6 +1,6 @@
 # Kapukai Evidence & Transparency Pool
 
-A standalone, dependency-free static site at `/evidence/`, prepared for review. No remote publication has been performed by this package.
+A standalone, dependency-free static site at `/evidence/`, published for code and source review in a public draft pull request. Live-site deployment remains pending.
 
 ## Open locally
 
