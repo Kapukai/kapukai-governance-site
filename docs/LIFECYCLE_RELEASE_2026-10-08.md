@@ -23,4 +23,14 @@ The stale marketplace production is now explicitly an archive. Synthetic ratings
 
 Hosted Workshop verification and release IDs are recorded below when complete. Actual owner sign-in and the first owner-controlled review/offer/delivery journey remain distinct from local synthetic/provider-stub tests. No application update email was sent in this rollout.
 
+### Hosted evidence
+
+- Release source: `89137231219c74d35952727fddbf79a570536c53` on `Kapukai/kapukai-governance-site` main.
+- Preview: `dpl_G7kEJyQsJdMEqWMPi2yr3hqVAPFW`; production: `dpl_CAkDFkyveVqhgCCWrYLzMYCmZPJE` (READY).
+- All 11 changed public assets/pages returned HTTP 200 and matched their source bytes on both preview and stable production. Application and owner pages returned `Cache-Control: no-store`; owner page also returned `X-Robots-Tag: noindex, nofollow`.
+- The stable lifecycle page and signed-out owner console were visually verified. Screenshot: `docs/evidence/lifecycle-live-20261008.jpg`.
+- Live SQL verified anonymous/ordinary-account denial on the private helper schema, no service-role configuration/audit amendment permission, and RLS on every lifecycle table. A nonexistent owner/session returned `forbidden`.
+- Existing registry and application row digests were unchanged across the rollout. No applicant record, consent or private token was modified.
+- **Lifecycle decisions remain paused pending the first real owner sign-in and controlled acceptance journey.** Existing application intake, private inspection and withdrawal remain available. Do not describe synthetic tests as completed owner authentication or real email delivery.
+
 The canonical nginx host still needs authenticated installation access. No apex or email DNS was changed. No safe public mailing address was supplied, so no residential or inferred address was published. Paid/private work, qualified reviewer assignments, Adobe signing, public release, federation, trusts and tribunals remain separate gates described in the blueprint.
