@@ -35,4 +35,4 @@ The same Supabase registry, scoped consent service and Postmark sender are reuse
 
 ## Current cutover status
 
-kapukai.org still runs on its existing nginx server. This environment cannot reach that host over SSH. Keep the verified original Site and its confirmation-email destination active until the new kapukai.org paths are actually installed and checked.
+kapukai.org still runs on its existing nginx server. This environment cannot reach that host over SSH. Keep the original Site active for existing private links. New confirmation emails use the verified Vercel `/confirm/` page until the kapukai.org paths are actually installed and checked.

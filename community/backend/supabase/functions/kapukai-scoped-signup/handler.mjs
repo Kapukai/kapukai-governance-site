@@ -1,8 +1,9 @@
 export const CONSENT_VERSION = "kapukai-scoped-v2-2026-10-08";
 const LEGACY_CONSENT = "kapukai-scoped-v1-2026-10-05";
-export const SIGNUP_PAGE = "https://kapukai-join.christinehillier.chatgpt.site/join/";
+export const SIGNUP_PAGE = "https://kapukai-community.vercel.app/confirm/";
 export const ALLOWED_ORIGINS = new Set([
   "https://kapukai.org", "https://www.kapukai.org",
+  "https://kapukai-community.vercel.app",
   "https://kapukai-join.christinehillier.chatgpt.site"
 ]);
 export const TOPICS = Object.freeze({

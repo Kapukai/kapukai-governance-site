@@ -1,6 +1,5 @@
 > Historical implementation notes. Current migration and verified email status: see [community README](../README.md).
 
-> Original release status: see [October 8 release record](../RELEASE-2026-10-08.md). The notes below document the original candidate and are historical; the signup service is now deployed with additional independently consented community purposes. Real confirmation-email acceptance is pending.
 
 # Scoped signup candidate
 
