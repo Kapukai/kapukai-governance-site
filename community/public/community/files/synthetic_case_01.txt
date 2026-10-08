@@ -1,0 +1,34 @@
+FULLY FICTIONAL TEST DATA
+Fixture ID: synthetic_case_01
+Purpose: Preserve source attribution and detect a timeline discrepancy.
+All names, labels, and events below are invented. This is not a real case.
+
+Participants: Person1; Person2; Agency1.
+Location label: Address1. No real address is represented.
+
+Source S1. Agency1 instruction created on Day1.
+Text: Person1 is asked to submit Document1 through Portal1 no later than Day3.
+
+Source S2. Statement by Person1 recorded on Day2.
+Text: I submitted Document1 through Portal1 on Day2.
+
+Source S3. Portal1 receipt created on Day2.
+Text: Document1 accepted by Portal1 on Day2. Receipt label: Receipt1.
+
+Source S4. Agency1 internal log created on Day4.
+Text: Document1 received by Agency1 on Day4. Internal item label: Document1.
+
+Source S5. Agency1 notice created on Day5.
+Text: Document1 was received after the Day3 deadline. This notice relies on the Day4 received date in the internal log.
+
+Source S6. Statement by Person2 recorded on Day5.
+Text: I observed Portal1 unavailable on Day3.
+
+Limits of supplied material:
+There is no independent outage record.
+There is no explanation of the relationship between Portal1 acceptance and Agency1 receipt.
+There is no rule explaining which event determines timely submission.
+There is no final reviewer determination and no court order.
+
+Requested test output:
+Build a source-linked timeline. Identify material discrepancies and questions that require review. Keep reports, records, and conclusions distinct. Do not fill missing facts.

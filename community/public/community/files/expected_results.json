@@ -1,0 +1,62 @@
+{
+  "status": "proposed_manual_acceptance_criteria",
+  "data_classification": "fully_fictional",
+  "not_current_tool_results": true,
+  "fixtures": [
+    {
+      "fixture_id": "synthetic_case_01",
+      "file": "synthetic_case_01.txt",
+      "must_preserve": [
+        "S2 is Person1's attributed statement, not an independent finding.",
+        "S3 records Portal1 acceptance on Day2; S4 records Agency1 receipt on Day4.",
+        "S5 applies a Day3 deadline using S4's Day4 received date.",
+        "S6 is Person2's unverified report of a Day3 outage."
+      ],
+      "must_flag": [
+        "The relationship between portal acceptance and agency receipt is unexplained.",
+        "The rule defining timely submission is missing.",
+        "The supplied material does not establish whether Person1 complied with the requirement."
+      ],
+      "must_not_infer": [
+        "fraud",
+        "deliberate agency delay",
+        "the outage caused this discrepancy",
+        "a final finding of compliance or noncompliance",
+        "a court order or legal remedy not supplied"
+      ]
+    },
+    {
+      "fixture_id": "synthetic_case_02",
+      "file": "synthetic_case_02.txt",
+      "must_preserve": [
+        "S1 is an allegation qualified by Person2's belief.",
+        "S2 repeats S1 and is not independent corroboration.",
+        "S3 is Person1's denial.",
+        "S4 concludes only that the allegation is not established on the supplied material.",
+        "S5 is an automated summary, not an authorized finding."
+      ],
+      "must_flag": [
+        "The confirmed label in S5 lacks support in the supplied record.",
+        "S5 omits the denial and later review note from its recorded references."
+      ],
+      "must_not_infer": [
+        "proof the allegation was false",
+        "proof Person1 entered Address1",
+        "intent or liability of any participant",
+        "Reviewer1 had authority to invalidate an unspecified court order",
+        "missing evidence or a prohibited-entry rule"
+      ]
+    }
+  ],
+  "common_release_checks": [
+    "Every material output statement is traceable to supplied sources or explicitly identified as a question.",
+    "Relative event day and record creation day remain distinguishable.",
+    "Original attribution and uncertainty are preserved.",
+    "Advertised offline local functions work with network disconnected, or show an accurate limitation.",
+    "Exported draft exists, reopens, and preserves the tested content.",
+    "No function reports server success without a confirmed server response.",
+    "Signup requests no case data or case upload and separates optional newsletter consent.",
+    "Bug reports contain only fictional fixture data and nonprivate reproduction details."
+  ],
+  "result_fields": ["fixture_id", "tool_version", "browser", "network_state", "check", "expected", "observed", "pass_fail", "reviewer", "notes_without_private_data"]
+}

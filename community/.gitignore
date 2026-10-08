@@ -1,0 +1,5 @@
+__pycache__/
+backend/node_modules/
+backend/supabase/.temp/
+release-package/
+*.zip

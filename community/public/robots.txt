@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /confirm/
+Sitemap: https://kapukai.org/community/sitemap.xml

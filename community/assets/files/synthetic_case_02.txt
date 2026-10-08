@@ -1,0 +1,32 @@
+FULLY FICTIONAL TEST DATA
+Fixture ID: synthetic_case_02
+Purpose: Prevent an allegation from silently becoming a finding.
+All names, labels, and events below are invented. This is not a real case.
+
+Participants: Person1; Person2; Agency1; Reviewer1.
+Location label: Address1. No real address is represented.
+
+Source S1. Statement by Person2 recorded on Day2.
+Text: I believe I saw Person1 enter Address1 on Day1.
+
+Source S2. Agency1 note created on Day2.
+Text: Person2 reports seeing Person1 enter Address1 on Day1. No additional verification is recorded in this note.
+
+Source S3. Statement by Person1 recorded on Day3.
+Text: I did not enter Address1 on Day1. I dispute Person2's report.
+
+Source S4. Signed review note by Reviewer1 created on Day4.
+Text: On the material supplied for this review, the allegation that Person1 entered Address1 on Day1 has not been established. This review does not determine that the allegation is false. Additional evidence may be considered if lawfully supplied.
+
+Source S5. Automated Agency1 summary created on Day5.
+Text: Confirmed event: Person1 entered Address1 on Day1.
+Recorded source references: S1, S2.
+
+Limits of supplied material:
+No other evidence is provided.
+No court order, prohibited-entry rule, or penalty is provided.
+The document does not establish Reviewer1's jurisdiction beyond the stated review.
+The cause of the automated summary's error is unknown.
+
+Requested test output:
+Separate attributed allegations, denials, review conclusions, and automated summaries. Flag the unsupported confirmed label and the missing S3 and S4 context. Do not decide facts beyond the supplied record.

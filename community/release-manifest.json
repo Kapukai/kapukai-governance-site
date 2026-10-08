@@ -1,0 +1,24 @@
+{
+  "module": "kapukai-community",
+  "canonical_origin": "https://kapukai.org",
+  "vercel_project": "kapukai-community",
+  "files": {
+    "articles/tort-law-and-accountability/index.html": "826d28aa9b415a1b94511feb03dfcccba284c86fe87de7e02d698d5b259a424c",
+    "assets/community/app.js": "053b5092f2f9a6fb0073015465a15062bd13850a7cc6929b55b7e9301001d518",
+    "assets/community/favicon.svg": "6ab78025d5aca337d130ac502ac963b994d0b8a487776d7e5f56e7d2b8e34f50",
+    "assets/community/style.css": "6e70e7f0a7c03004f1faf3b5ad163dbe951a9429b125e02e34e92cb131151271",
+    "community/files/expected_results.json": "1fbdb182464d8ee5c3559ee4a4e40fab65b2ee2169cd8f6635685c3a56939461",
+    "community/files/synthetic_case_01.txt": "1e76478d234986f96b97875872f88432156e1bc6e642c31b7990bf36d2d2ef98",
+    "community/files/synthetic_case_02.txt": "dbcfa13993e1130592d1188018925f8af39954c1b79ad4e8996235daa3584722",
+    "community/files/synthetic_tester_guide.md": "e5e40f4f85e9ed5c9a6ff1be2fd49e4623d0a124c17bcff4bfc442ee81360d61",
+    "community/index.html": "d5768d817e44754ef0a30b8f5c24c4c9a4fc36605f301deef75cbe558f384409",
+    "community/practice/index.html": "cfd0edb36d1869c1818abd24ac4f1c9748d1b2c345ffe55450c0891f976aea3b",
+    "community/privacy/index.html": "902f10eec391256ca618daa53974ce945b25d336dd1675aa6f98de08d2081c5d",
+    "community/sitemap.xml": "1a0d9dfc97b384d2958852de0bcab5d7c318c89b42814af160264b4d9d3355ea",
+    "confirm/index.html": "1baa2cd58a7132e9e3a5bc0d4c4b4ec89c0046993e9a95991f850cda0bd457d3",
+    "join/index.html": "b505d573002fbd55a9df725834a66feb1346cb3aea5390e12e13ab869895669d",
+    "newsletter/index.html": "d6d2646bae4c5cd35741178fc038261c2e3434df9c329d4a9affebf6c0b65624",
+    "testers/index.html": "3c07e703c4d2126f2d171e9a6ded60986a43caeead0a619a1686661c5a48e06a",
+    "tort/index.html": "30f764b34ecadd0f6a9ee3fd72323df836f537f7604376e59af2bea82d327313"
+  }
+}

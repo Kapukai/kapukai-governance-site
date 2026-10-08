@@ -1,0 +1,3 @@
+[functions.kapukai-scoped-signup]
+verify_jwt = false
+entrypoint = "./functions/kapukai-scoped-signup/index.ts"
