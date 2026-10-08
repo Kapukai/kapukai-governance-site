@@ -2,6 +2,9 @@
   "module": "kapukai-community",
   "canonical_origin": "https://kapukai.org",
   "vercel_project": "kapukai-community",
+  "replaces": {
+    "join/index.html": "af8fd9aa6396f4aaffcc858730199a205c0b6cfd858a5cb6f22cbb00d4328210"
+  },
   "files": {
     "articles/tort-law-and-accountability/index.html": "826d28aa9b415a1b94511feb03dfcccba284c86fe87de7e02d698d5b259a424c",
     "assets/community/app.js": "053b5092f2f9a6fb0073015465a15062bd13850a7cc6929b55b7e9301001d518",

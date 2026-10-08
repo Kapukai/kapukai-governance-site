@@ -22,7 +22,7 @@ def prepare():
             if name.startswith(PREFIXES):
                 files[name] = digest(path)
     manifest = {'module': 'kapukai-community', 'canonical_origin': 'https://kapukai.org',
-                'vercel_project': 'kapukai-community', 'files': files}
+                'vercel_project': 'kapukai-community', 'replaces': {'join/index.html': 'af8fd9aa6396f4aaffcc858730199a205c0b6cfd858a5cb6f22cbb00d4328210'}, 'files': files}
     (BASE / 'release-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     return manifest
 
@@ -60,8 +60,10 @@ def main():
     if args.web_root is None or not args.web_root.is_dir():
         parser.error('--web-root must be an existing directory')
     root, entries = validate(args.web_root)
+    manifest = json.loads((BASE / 'release-manifest.json').read_text())
     conflicts = [name for name, source, target in entries
-                 if target.exists() and digest(source) != digest(target)]
+                 if target.exists() and digest(source) != digest(target)
+                 and digest(target) != manifest.get('replaces', {}).get(name)]
     print(json.dumps({'files': len(entries), 'conflicting_existing_files': conflicts,
                       'homepage_changed': False, 'nginx_reload_required': False}))
     if args.action == 'plan':

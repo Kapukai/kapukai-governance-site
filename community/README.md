@@ -8,7 +8,7 @@ Public source moved from the original Join Kapukai Site into the existing public
 2. Run the HTML/link checks and `npm --prefix backend ci --ignore-scripts && npm --prefix backend test`.
 3. Commit the exact source and built `public` files. Deploy the `community` directory to the Vercel `kapukai-community` project.
 4. Verify Vercel routes, assets and signup behavior.
-5. Install the same release files into the existing kapukai.org web root with `deploy.py`. It installs only declared module paths, takes a backup and leaves the main homepage and other applications alone.
+5. Install the same release files into the existing kapukai.org web root with `deploy.py`. It installs only declared module paths, takes a backup and leaves the main homepage and other applications alone. The observed `/join/` page is a 62-byte email-only placeholder; its exact hash is the only preapproved conflicting replacement. Other conflicts stop installation for review.
 6. Verify HTTPS and signup on kapukai.org. Only then change new confirmation-email links to `https://kapukai.org/confirm/` and redirect the old Site while preserving URL fragments.
 
 ## Public paths
