@@ -23,7 +23,13 @@ Public source moved from the original Join Kapukai Site into the existing public
 | Testers | `/testers/` |
 | Newsletter | `/newsletter/` |
 | Practice material | `/community/practice/` |
-| Signup privacy | `/community/privacy/` |
+| Signup and application privacy | `/community/privacy/` |
+| Free or discounted assistance | `/community/assistance/` |
+| Reviewer and observation volunteer applications | `/community/reviewers/` |
+| Application confirmation and withdrawal | `/community/apply/` |
+| Learning | `/community/learn/` |
+| Contact and public tool directory | `/community/contact/` and `/contact/` |
+| Scope and availability | `/community/about/` and `/community/status/` |
 
 Shared assets use `/assets/community/`; downloads use `/community/files/`. No root assets or existing homepage need to be replaced.
 
@@ -36,3 +42,11 @@ The same Supabase registry, scoped consent service and Postmark sender are reuse
 ## Current cutover status
 
 kapukai.org still runs on its existing nginx server. This environment cannot reach that host over SSH. Keep the original Site active for existing private links. New confirmation emails use the verified Vercel `/confirm/` page until the kapukai.org paths are actually installed and checked.
+
+## Approved Workshop release — October 8, 2026
+
+The Workshop entry pages and private applications reuse the existing contact registry. Application confirmation creates only a human-review request. It does not create membership, subscribe to a newsletter, grant assistance, appoint a reviewer, or issue credentials. See `../docs/community-applications.md` for the separate versioned consent and operations.
+
+The public contact page lists verified web destinations and architect@kapukai.org. No physical mailing address was supplied or verified; none has been invented. `/contact/` is included in this module’s installer so the currently forbidden contact route can be replaced once server access is available and destination conflicts have been reviewed.
+
+Vercel headers do not configure nginx. Before public application links move to kapukai.org, configure equivalent CSP, Referrer-Policy, nosniff and no-store/noindex headers for the confirmation routes on the actual host, then verify them. Preserve existing legacy confirmation links and fragment tokens.

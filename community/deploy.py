@@ -3,12 +3,14 @@
 import argparse
 import hashlib
 import json
+import os
 import shutil
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-PREFIXES = ('community/', 'join/', 'confirm/', 'testers/', 'newsletter/',
+PREFIXES = ('community/', 'contact/', 'join/', 'confirm/', 'testers/', 'newsletter/',
             'articles/tort-law-and-accountability/', 'tort/', 'assets/community/')
 
 def digest(path):
@@ -91,10 +93,17 @@ def main():
             if name not in created and name not in replaced:
                 continue
             target.parent.mkdir(parents=True, exist_ok=True)
-            temporary = target.with_name(target.name + '.kapukai-new')
-            shutil.copyfile(source, temporary)
-            temporary.chmod(0o644)
-            temporary.replace(target)
+            fd, temporary_name = tempfile.mkstemp(prefix='.kapukai-', dir=target.parent)
+            temporary = Path(temporary_name)
+            try:
+                with os.fdopen(fd, 'wb') as output, source.open('rb') as incoming:
+                    shutil.copyfileobj(incoming, output)
+                    output.flush()
+                    os.fsync(output.fileno())
+                    os.fchmod(output.fileno(), 0o644)
+                temporary.replace(target)
+            finally:
+                temporary.unlink(missing_ok=True)
             if digest(target) != digest(source):
                 raise ValueError('Installed hash mismatch: ' + name)
     except Exception:

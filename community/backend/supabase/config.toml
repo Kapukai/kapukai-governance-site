@@ -1,3 +1,7 @@
 [functions.kapukai-scoped-signup]
 verify_jwt = false
 entrypoint = "./functions/kapukai-scoped-signup/index.ts"
+
+[functions.kapukai-community-apply]
+verify_jwt = false
+entrypoint = "./functions/kapukai-community-apply/index.ts"

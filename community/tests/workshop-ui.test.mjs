@@ -1,0 +1,50 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile,readdir} from 'node:fs/promises';
+import {validateRequest} from '../backend/supabase/functions/kapukai-community-apply/handler.mjs';
+import {JSDOM} from '../backend/node_modules/jsdom/lib/api.js';
+const root=new URL('../public/',import.meta.url);
+const script=await readFile(new URL('assets/community/applications.js',root),'utf8');
+const tick=()=>new Promise(resolve=>setTimeout(resolve,15));
+async function ui(route,fetcher,hash=''){
+ const html=await readFile(new URL(route+'index.html',root),'utf8');
+ const dom=new JSDOM(html,{url:'https://kapukai.org/'+route+hash,runScripts:'outside-only'});
+ dom.window.fetch=fetcher;dom.window.AbortSignal=AbortSignal;dom.window.eval(script);return dom;
+}
+function valid(w){const f=w.document.querySelector('form');f.elements.email.value='workshop@example.invalid';for(const n of ['adult','privacy_acknowledged','human_review_acknowledged'])f.elements.namedItem(n).checked=true;return f;}
+function submit(w,f){f.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));}
+const accepted=()=>({status:202,ok:true,json:async()=>({ok:true,result:'REQUEST_RECEIVED'})});
+test('assistance requires explicit acknowledgements, accepts an alias without financial proof, and sends no newsletter consent',async()=>{
+ const calls=[];const dom=await ui('community/assistance/',async(u,o)=>{calls.push(JSON.parse(o.body));return accepted();});
+ try{const w=dom.window,d=w.document,f=d.querySelector('form');f.elements.email.value='workshop@example.invalid';submit(w,f);await tick();assert.equal(calls.length,0);valid(w);f.elements.display_alias.value='Alias 1';submit(w,f);await tick();assert.equal(calls.length,1);const b=calls[0];assert.equal(b.kind,'assistance');assert.ok(validateRequest(b,b.started_at+2000).value);assert.equal(b.profession,null);assert.equal(b.availability,null);assert.equal(b.requested_support,'free');assert.equal(b.display_alias,'Alias 1');assert.equal(b.source_path,'/community/assistance');assert.equal(b.consent_version,'kapukai-applications-v1-2026-10-08');assert.equal(b.adult,true);assert.equal(b.privacy_acknowledged,true);assert.equal(b.human_review_acknowledged,true);assert.equal('topics'in b,false);assert.equal(d.querySelector('input[type=file]'),null);assert.equal(d.querySelector('textarea'),null);assert.match(d.querySelector('#application-status').textContent,/Only then does it enter human review/);assert.equal(d.querySelector('button[type=submit]').disabled,true);}finally{dom.window.close();}
+});
+test('network failure preserves entries, keeps retry identity stable, and rejects non-202 success',async()=>{
+ const calls=[];let mode='network';const dom=await ui('community/assistance/',async(u,o)=>{calls.push(JSON.parse(o.body));if(mode==='network')throw Error('offline');if(mode==='bad-success')return{status:200,ok:true,json:async()=>({ok:true})};return accepted();});
+ try{const w=dom.window,d=w.document,f=valid(w);f.elements.display_alias.value='Alias 2';submit(w,f);await tick();assert.match(d.querySelector('#application-status').textContent,/could not be reached/);assert.equal(f.elements.email.value,'workshop@example.invalid');assert.equal(f.elements.display_alias.value,'Alias 2');assert.equal(d.querySelector('button[type=submit]').disabled,false);mode='bad-success';submit(w,f);await tick();assert.match(d.querySelector('#application-status').textContent,/did not confirm receipt/);mode='ok';submit(w,f);await tick();assert.equal(calls.length,3);assert.equal(calls[0].request_id,calls[1].request_id);assert.equal(calls[1].request_id,calls[2].request_id);}finally{dom.window.close();}
+});
+test('closed gate is shown as paused, never as receipt or approval',async()=>{
+ const dom=await ui('community/assistance/',async()=>({status:503,ok:false,json:async()=>({ok:false,error:'APPLICATIONS_PAUSED'})}));
+ try{const w=dom.window,d=w.document,f=valid(w);submit(w,f);await tick();assert.match(d.querySelector('#application-status').textContent,/temporarily paused/);assert.equal(d.querySelector('button[type=submit]').disabled,false);assert.doesNotMatch(d.querySelector('#application-status').textContent,/Request received/);}finally{dom.window.close();}
+});
+test('witness and reviewer applications use separate roles and only broad optional fields',async()=>{
+ const calls=[];const dom=await ui('community/reviewers/',async(u,o)=>{calls.push(JSON.parse(o.body));return accepted();});
+ try{const w=dom.window,f=valid(w);f.elements.kind.value='witness';f.elements.profession.value='education';f.elements.availability.value='monthly';submit(w,f);await tick();assert.equal(calls[0].kind,'witness');assert.ok(validateRequest(calls[0],calls[0].started_at+2000).value);assert.equal(calls[0].requested_support,null);assert.equal(calls[0].profession,'education');assert.equal(calls[0].availability,'monthly');assert.equal(calls[0].source_path,'/community/reviewers');assert.deepEqual([...f.querySelectorAll('input:not([type=checkbox])')].map(x=>x.name),['email','display_alias','website']);}finally{dom.window.close();}
+});
+test('application links inspect without confirmation, remove fragment, and confirm/withdraw only deliberately',async()=>{
+ const calls=[];let state='awaiting_email';const dom=await ui('community/apply/',async(u,o)=>{const b=JSON.parse(o.body);calls.push(b);if(b.action==='confirm')state='awaiting_human_review';if(b.action==='withdraw')state='withdrawn';return{status:200,ok:true,json:async()=>b.action==='inspect'?{ok:true,result:'valid',state,kind:'assistance',service_interest:'tools',requested_support:'free',can_confirm:state==='awaiting_email',can_withdraw:state!=='withdrawn',blocked:false}:{ok:true,result:b.action==='confirm'?'confirmed':'withdrawn',state}};},'#app_token='+'b'.repeat(43));
+ try{const w=dom.window,d=w.document;await tick();assert.deepEqual(calls.map(x=>x.action),['inspect']);assert.equal(w.location.hash,'');assert.match(d.querySelector('#application-manage-status').textContent,/has not confirmed/);d.querySelector('#application-confirm').click();await tick();assert.equal(state,'awaiting_human_review');assert.match(d.querySelector('#application-manage-status').textContent,/awaiting human review/);assert.equal(d.querySelector('#application-confirm').hidden,true);d.querySelector('#application-withdraw').click();await tick();assert.equal(state,'withdrawn');assert.equal(d.querySelector('#application-withdraw').hidden,true);assert.deepEqual(calls.map(x=>x.action),['inspect','confirm','inspect','withdraw','inspect']);assert.ok(calls.every(x=>x.token==='b'.repeat(43)));}finally{dom.window.close();}
+});
+test('suppressed or unsubscribed applicants retain the backend-authorized withdrawal control',async()=>{
+ const calls=[];let state='awaiting_human_review';const dom=await ui('community/apply/',async(u,o)=>{const b=JSON.parse(o.body);calls.push(b);if(b.action==='withdraw')state='withdrawn';return{status:200,ok:true,json:async()=>b.action==='inspect'?{ok:true,result:'valid',state,kind:'assistance',service_interest:'tools',requested_support:'free',can_confirm:false,can_withdraw:state!=='withdrawn',blocked:true}:{ok:true,result:'withdrawn',state}};},'#app_token='+'d'.repeat(43));
+ try{const d=dom.window.document;await tick();assert.equal(d.querySelector('#application-confirm').hidden,true);assert.equal(d.querySelector('#application-withdraw').hidden,false);assert.match(d.querySelector('#application-manage-status').textContent,/can still withdraw/);d.querySelector('#application-withdraw').click();await tick();assert.equal(state,'withdrawn');assert.equal(d.querySelector('#application-withdraw').hidden,true);assert.deepEqual(calls.map(x=>x.action),['inspect','withdraw','inspect']);assert.match(d.querySelector('#application-manage-status').textContent,/has been withdrawn/);}finally{dom.window.close();}
+});
+test('absent or expired link does not expose application controls',async()=>{
+ let calls=0;const no=await ui('community/apply/',async()=>{calls++;});
+ try{await tick();assert.equal(calls,0);assert.equal(no.window.document.querySelector('#application-details').hidden,true);}finally{no.window.close();}
+ const expired=await ui('community/apply/',async()=>({status:410,ok:false,json:async()=>({ok:false})}),'#app_token='+'c'.repeat(43));
+ try{await tick();assert.equal(expired.window.document.querySelector('#application-details').hidden,true);assert.match(expired.window.document.querySelector('#application-manage-status').textContent,/cannot be used now/);}finally{expired.window.close();}
+});
+test('all module links, download files, labels and landmarks resolve; no inline executable scripts',async()=>{
+ const pages=[];async function walk(dir=''){for(const e of await readdir(new URL(dir,root),{withFileTypes:true})){if(e.isDirectory())await walk(dir+e.name+'/');else if(e.name==='index.html')pages.push(dir+e.name);}}await walk();
+ for(const path of pages){const dom=new JSDOM(await readFile(new URL(path,root),'utf8'));const d=dom.window.document;try{for(const a of d.querySelectorAll('a[href^="/"]')){const url=new URL(a.getAttribute('href'),'https://kapukai.org/'+path);let target=url.pathname.slice(1);if(target.endsWith('/'))target+='index.html';const content=await readFile(new URL(target,root),'utf8');if(url.hash){const dest=new JSDOM(content);assert.ok(dest.window.document.getElementById(decodeURIComponent(url.hash.slice(1))),`${path}: missing anchor ${url.href}`);dest.window.close();}}for(const el of d.querySelectorAll('input:not([name=website]),select,textarea'))assert.ok(el.closest('label')||d.querySelector(`label[for="${el.id}"]`),`${path}: unlabeled control ${el.outerHTML}`);assert.equal(d.querySelectorAll('script:not([src]):not([type="application/ld+json"])').length,0);if(!['index.html','tort/index.html','contact/index.html'].includes(path)){assert.equal(d.querySelectorAll('main').length,1);assert.equal(d.querySelectorAll('h1').length,1);assert.ok(d.querySelector('nav[aria-label="Main"]'));}}finally{dom.window.close();}}
+});

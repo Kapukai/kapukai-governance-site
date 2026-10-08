@@ -14,3 +14,14 @@ Christine's publishing convention, October 8, 2026:
 ## Known production boundary
 
 kapukai.org is currently served by nginx at the existing 1984 host. Vercel access does not grant access to that server. Verify the destination and keep a backup before installing a release. Static publication does not require changing DNS or reloading nginx.
+
+## Approved community implementation, October 8, 2026
+
+- Use the approved Workshop direction: ivory, navy, teal actions, decorative gold, and the shared Tools / Explore / Learn / Participate / About navigation.
+- Keep interest filters separate from room membership, profile discovery, and publication consent. A post has one audience even when several interest tags match it.
+- The owner approved implementing the prior blueprint and requested repeated verification. New public application capture may support assistance, reviewers and witnesses; only a human can decide assignments or assistance. Applying never grants community access, expert status, or publication permission.
+- Keep private case records, financial proof, precise locations, and completed agreements out of this public repository and the initial applications.
+- Local concept fixtures and tests do not establish production authentication, privacy, real email delivery, signature validity, or court admissibility. State each feature's actual release status.
+- Preserve existing signup purposes, token links and withdrawal behavior when adding applications.
+- New federation structures, trusts, tribunals and cross-community information-sharing initiatives remain exploration. Agreement templates are drafts for legal review, not effective terms or authority to request signatures.
+- Publish and verify on Vercel first; install the exact tested module on the existing kapukai.org host when authenticated deployment access is available. Do not replace the apex with a partial site or alter mail DNS.
