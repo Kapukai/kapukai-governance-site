@@ -1,0 +1,15 @@
+{
+  "release_commit": "6a61ce0da65e86bbde7a558e960099ee1154a2cf",
+  "git_tree": "63c38482357f93a2c516420c7da9bba9ee172cd9",
+  "vercel_project": "kapukai-community",
+  "vercel_production_deployment": "dpl_HPTA295cLcLDyMpfTNK5Xx7vabCs",
+  "vercel_origin": "https://kapukai-community.vercel.app",
+  "module_manifest_sha256": "a496e7ab2dab31882ac83ab842fc2d4c69f4e82bbe8a70ed9e651f4369053274",
+  "module_file_count": 26,
+  "supabase_function": "kapukai-community-apply",
+  "supabase_function_version": 1,
+  "applications_enabled": true,
+  "apex_installation": "blocked: no existing nginx host access",
+  "apex_dns_changed": false,
+  "tested_at": "2026-10-08"
+}
