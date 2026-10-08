@@ -7,7 +7,7 @@
   "trailingSlash": true,
   "redirects": [
     {"source": "/", "destination": "/community/", "permanent": false},
-    {"source": "/tort", "destination": "/articles/tort-law-and-accountability/", "permanent": true}
+    {"source": "/tort/", "destination": "/articles/tort-law-and-accountability/", "permanent": true}
   ],
   "headers": [
     {"source": "/(.*)", "headers": [
