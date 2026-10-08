@@ -6,6 +6,7 @@ export const KINDS = Object.freeze(["assistance","reviewer","witness"]);
 export const SERVICES = Object.freeze(["tools","timeline","evidence_dossier","affidavit_formatting","training","independent_review"]);
 export const PROFESSIONS = Object.freeze(["engineering","education","research","administration","community","other","prefer_not_to_say"]);
 export const AVAILABILITY = Object.freeze(["occasional","monthly","weekly","unsure"]);
+export const LIFECYCLE_COMMANDS=Object.freeze(["clarify","accept_offer","decline_offer","delivery_received","reconsider","close","feedback","correction"]);
 const KEYS=new Set(["action","email","display_alias","kind","service_interest","requested_support","profession","availability","request_id","consent_version","source_path","started_at","privacy_acknowledged","adult","human_review_acknowledged","website"]);
 const TOKEN_RE=/^[A-Za-z0-9_-]{43}$/;
 const UUID_RE=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -79,6 +80,13 @@ export function createHandler({rpc,sendConfirmation,rateFingerprint,enabled=fals
     }else if(!["duplicate","suppressed","paused"].includes(result?.result))throw new Error("REQUEST_RESULT");
     if(result?.result==="paused")return json(503,{ok:false,code:"NOT_OPEN"},origin);
     return json(202,GENERIC,origin);
+   }
+   if(body?.action==="lifecycle"){
+    if(Array.isArray(body) || Object.keys(body).some(k=>!["action","token","command","expected_revision","request_id","payload"].includes(k)) || !TOKEN_RE.test(body.token||"") || !LIFECYCLE_COMMANDS.includes(body.command) || !Number.isSafeInteger(body.expected_revision) || body.expected_revision<0 || !UUID_RE.test(body.request_id||"") || !body.payload || typeof body.payload!=="object" || Array.isArray(body.payload))return json(400,{ok:false,code:"INVALID_REQUEST"},origin);
+    const result=await rpc("kapukai_workshop_applicant",{p_token_hash:await hashToken(body.token),p_action:body.command,p_expected_revision:body.expected_revision,p_request_id:body.request_id,p_payload:body.payload});
+    const ok=["updated","duplicate"].includes(result?.result);
+    const status=ok?200:({stale_revision:409,idempotency_conflict:409,transition_denied:409,capacity_full:409,expired:410,suppressed:403,paused:503,not_found:404,rate_limited:429})[result?.result]||400;
+    return json(status,{ok,...result,...(result?.result==='rate_limited'?{message:"The daily update limit has been reached. Please try again tomorrow. Closing or withdrawing remains available."}:{})},origin);
    }
    if(!body || typeof body!=="object" || Array.isArray(body) || Object.keys(body).some(k=>!["action","token"].includes(k)) || !["inspect","confirm","withdraw"].includes(body.action) || !TOKEN_RE.test(body.token||""))return json(400,{ok:false,code:"INVALID_REQUEST"},origin);
    const result=await rpc("kapukai_application_token",{p_token_hash:await hashToken(body.token),p_action:body.action});

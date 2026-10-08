@@ -34,16 +34,18 @@ page('community', 'Join, volunteer and learn', 'Sign up for free classes and web
 
 from workshop_pages import build_workshop
 build_workshop(page)
+from lifecycle_pages import build_lifecycle
+build_lifecycle(page)
 
-routes=[public_path(x) for x in ['','community','testers','newsletter','practice','privacy',ARTICLE]] + ['community/'+x for x in ['assistance','reviewers','learn','about','contact','status']]
+routes=[public_path(x) for x in ['','community','testers','newsletter','practice','privacy',ARTICLE]] + ['community/'+x for x in ['assistance','reviewers','learn','about','contact','status','lifecycle']]
 (P/'community'/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+ORIGIN+('/'+route+'/' if route else '/')+'</loc></url>' for route in routes)+'</urlset>')
-(P/'robots.txt').write_text('User-agent: *\nAllow: /\nDisallow: /confirm/\nSitemap: '+ORIGIN+'/community/sitemap.xml\n')
+(P/'robots.txt').write_text('User-agent: *\nAllow: /\nDisallow: /confirm/\nDisallow: /community/apply/\nDisallow: /community/operate/\nSitemap: '+ORIGIN+'/community/sitemap.xml\n')
 print('Article, community signup, homepage and discovery metadata built.')
 
 import shutil
 assets_out=P/'assets'/'community'
 assets_out.mkdir(parents=True,exist_ok=True)
-for name in ['style.css','app.js','applications.js','favicon.svg']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
+for name in ['style.css','app.js','applications.js','operations.js','favicon.svg']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
 for route,target in [('', '/community/'), ('tort','/articles/tort-law-and-accountability/')]:
     d=P/route;d.mkdir(parents=True,exist_ok=True)
     (d/'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url='+target+'"><title>Kapukai Governance Lab</title><link rel="canonical" href="'+ORIGIN+target+'"><a href="'+target+'">Continue to Kapukai</a></html>')

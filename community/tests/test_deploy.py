@@ -23,7 +23,7 @@ class DeployTests(unittest.TestCase):
         (self.root/'unrelated').mkdir()
         (self.root/'unrelated/app.js').write_text('EXISTING UNRELATED APP')
         self.manifest = json.loads((self.module/'release-manifest.json').read_text())
-        self.assertEqual(len(self.manifest['files']),26)
+        self.assertEqual(set(self.manifest['files']), {str(path.relative_to(self.module/'public')) for path in (self.module/'public').rglob('*') if path.is_file() and any(str(path.relative_to(self.module/'public')).startswith(prefix) for prefix in ('community/','contact/','join/','confirm/','testers/','newsletter/','articles/tort-law-and-accountability/','tort/','assets/community/'))})
     def tearDown(self):
         self.temp.cleanup()
     def run_deploy(self,*args):

@@ -25,3 +25,10 @@ kapukai.org is currently served by nginx at the existing 1984 host. Vercel acces
 - Preserve existing signup purposes, token links and withdrawal behavior when adding applications.
 - New federation structures, trusts, tribunals and cross-community information-sharing initiatives remain exploration. Agreement templates are drafts for legal review, not effective terms or authority to request signatures.
 - Publish and verify on Vercel first; install the exact tested module on the existing kapukai.org host when authenticated deployment access is available. Do not replace the apex with a partial site or alter mail DNS.
+
+## Workshop lifecycle operations, October 8, 2026
+
+- The Workshop lifecycle uses the existing Supabase principal and a separate, revocable `community:applications:review` capability scoped to `community:workshop`. Ordinary accounts and application tokens do not grant owner authority.
+- Keep owner decisions human-confirmed. A decision does not send mail; the fixed notice requires a separate preview and explicit sending action. Never retry an uncertain provider handoff automatically.
+- The current offer/delivery loop is for bounded free public resources and practice/orientation. Do not imply paid engagements, private case uploads, qualifications, signatures or appointments are included.
+- Preserve correction after closure, reconsideration, withdrawal, capacity release, version-bound feedback and legacy consent boundaries. See `docs/workshop-lifecycle-operations.md`, `docs/LIFECYCLE_OPERATING_BLUEPRINT.md` and `docs/LIFECYCLE_RELEASE_2026-10-08.md` for operating and release evidence.

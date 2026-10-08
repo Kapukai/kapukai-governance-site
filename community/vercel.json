@@ -20,6 +20,10 @@
       {"key": "Cache-Control", "value": "no-store"},
       {"key": "X-Robots-Tag", "value": "noindex, nofollow"}
     ]},
+    {"source": "/community/operate/(.*)", "headers": [
+      {"key": "Cache-Control", "value": "no-store"},
+      {"key": "X-Robots-Tag", "value": "noindex, nofollow"}
+    ]},
     {"source": "/confirm/(.*)", "headers": [
       {"key": "Cache-Control", "value": "no-store"},
       {"key": "X-Robots-Tag", "value": "noindex, nofollow"}

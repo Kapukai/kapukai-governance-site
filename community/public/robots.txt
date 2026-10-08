@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /confirm/
+Disallow: /community/apply/
+Disallow: /community/operate/
 Sitemap: https://kapukai.org/community/sitemap.xml
