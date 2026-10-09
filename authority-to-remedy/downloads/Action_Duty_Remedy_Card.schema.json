@@ -1,0 +1,449 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kapukai Action Duty Remedy Card v0.1",
+  "description": "Data shape for educational authority tracing. Schema validity never establishes legal sufficiency, jurisdiction or entitlement to relief.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "card_id",
+    "version",
+    "purpose",
+    "decision",
+    "authority",
+    "duties",
+    "routes",
+    "deadlines",
+    "remedy"
+  ],
+  "properties": {
+    "card_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "const": "0.1"
+    },
+    "purpose": {
+      "enum": [
+        "fictional_training",
+        "private_research"
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "required": [
+        "actor",
+        "action_or_omission",
+        "observed_consequence",
+        "evidence_status"
+      ],
+      "properties": {
+        "actor": {
+          "type": "string"
+        },
+        "office": {
+          "type": "string"
+        },
+        "action_or_omission": {
+          "type": "string"
+        },
+        "event_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_consequence": {
+          "type": "string"
+        },
+        "evidence_status": {
+          "type": "string",
+          "enum": [
+            "unresearched",
+            "source_checked",
+            "applicability_unresolved",
+            "supported",
+            "disputed",
+            "unknown"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contrary_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unknowns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "jurisdiction",
+        "source_ids",
+        "scope",
+        "predicates",
+        "status"
+      ],
+      "properties": {
+        "jurisdiction": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope": {
+          "type": "string"
+        },
+        "delegation_or_appointment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "predicates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "condition",
+              "status"
+            ],
+            "properties": {
+              "condition": {
+                "type": "string"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "unresearched",
+                  "source_checked",
+                  "applicability_unresolved",
+                  "supported",
+                  "disputed",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "unresearched",
+            "source_checked",
+            "applicability_unresolved",
+            "supported",
+            "disputed",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "duties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "duty_id",
+          "holder",
+          "required_act",
+          "classification",
+          "source_id",
+          "pinpoint",
+          "trigger",
+          "status"
+        ],
+        "properties": {
+          "duty_id": {
+            "type": "string"
+          },
+          "holder": {
+            "type": "string"
+          },
+          "required_act": {
+            "type": "string"
+          },
+          "classification": {
+            "enum": [
+              "mandatory",
+              "conditional_mandatory",
+              "discretionary",
+              "prohibited",
+              "request_right",
+              "proposed_assurance",
+              "fictional_training_rule",
+              "unresolved"
+            ]
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "pinpoint": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          },
+          "trigger_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expected_output": {
+            "type": "string"
+          },
+          "exceptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "unresearched",
+              "source_checked",
+              "applicability_unresolved",
+              "supported",
+              "disputed",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "forum",
+          "requested_relief",
+          "source_ids",
+          "prerequisites",
+          "status"
+        ],
+        "properties": {
+          "forum": {
+            "type": "string"
+          },
+          "route_type": {
+            "enum": [
+              "internal_request",
+              "existing_case_motion",
+              "statutory_review",
+              "appeal",
+              "extraordinary_writ",
+              "independent_claim",
+              "oversight",
+              "unresolved"
+            ]
+          },
+          "requested_relief": {
+            "type": "string"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prerequisites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "document_sequence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "actor": {
+                  "type": "string"
+                },
+                "document": {
+                  "type": "string"
+                },
+                "required_or_optional": {
+                  "type": "string"
+                },
+                "source_id": {
+                  "type": "string"
+                },
+                "receipt_or_service": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "unresearched",
+              "source_checked",
+              "applicability_unresolved",
+              "supported",
+              "disputed",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "deadlines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "purpose",
+          "trigger",
+          "source_id",
+          "counting_rule",
+          "tolling_rule",
+          "calculation_status"
+        ],
+        "properties": {
+          "purpose": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          },
+          "trigger_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "counting_rule": {
+            "type": "string"
+          },
+          "tolling_rule": {
+            "type": "string"
+          },
+          "exceptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "derived_date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "calculation_status": {
+            "enum": [
+              "not_calculated",
+              "training_only",
+              "requires_qualified_review",
+              "reviewed"
+            ]
+          },
+          "reviewer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "remedy": {
+      "type": "object",
+      "required": [
+        "requested_result",
+        "legally_required_outputs",
+        "additional_assurance_checks",
+        "implementation_status"
+      ],
+      "properties": {
+        "requested_result": {
+          "type": "string"
+        },
+        "legally_required_outputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "additional_assurance_checks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "known_recipients": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependent_decisions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "implementation_status": {
+          "enum": [
+            "not_requested",
+            "pending",
+            "denied",
+            "partly_ordered",
+            "ordered",
+            "partly_implemented",
+            "implemented_unverified",
+            "verified",
+            "unresolved"
+          ]
+        },
+        "verification_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remaining_gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
