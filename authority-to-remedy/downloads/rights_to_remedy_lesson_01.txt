@@ -1,0 +1,75 @@
+Authority to Remedy Trace — Module 01
+Kapukai Governance Lab
+Synthetic narration. Educational material. Reviewed October 9, 2026 (UTC).
+
+01. Trace one consequential decision
+
+This lesson starts with one consequential decision: a specific person or institution uses power in a way that affects another person. Our task is to make that decision traceable. Who acted? What authority permitted the action? Which conditions had to be met? What evidence shows whether they were met? And what authorized procedure can address a failure? We will practice five steps: record, classify, invoke a documented duty, seek authorized enforcement, and verify the remedy. The goal is a usable trace supported by sources. It is not a promise that every grievance has the same legal route or outcome.
+
+02. People → institutions → bounded authority
+
+The Declaration of Independence describes government as deriving its just powers from the consent of the governed. That is a political foundation. For a legal trace, we identify the governing constitutional structure and the law that authorizes this actor to make this decision. Federal authority and state authority follow different paths. A state agency often traces through its state constitution, an enabling statute, valid rules, and applicable orders, while remaining subject to federal constitutional limits. The Declaration alone does not supply every cause of action. Our map must connect the principle of public power to the source governing the act.
+
+03. Follow both the power and its conditions
+
+A title identifies a role, but it does not establish unlimited authority. Trace the source that authorizes the particular action, its scope, and the conditions attached to its use. Some conditions concern jurisdiction. Others concern required findings, evidence, notice, participation, timing, or the type of decision allowed. Constitutional constraints can apply across that chain. A policy cannot simply enlarge authority beyond the law that permits it. When a source is missing or disputed, record that gap. Do not replace it with an assumption that the action is automatically lawful, automatically void, or enforceable through whichever court is closest.
+
+04. One decision, one trace card
+
+Use one card for one action or omission. Begin with a sentence that another person could verify: on this date, this actor changed this status, imposed this restriction, or failed to issue this required response. Describe the effect separately from your interpretation. Then add the authority source, the conditions to check, the evidence, and anything still unknown. Finally identify the recipient, procedure, deadline, and exact relief being considered. This small unit prevents a long history from becoming an untestable accusation. Several cards can connect into a larger chronology, but each card must remain clear enough to review independently.
+
+05. Record: preserve source and context
+
+Recording in this model means preserving information you lawfully obtain. Save the original notice, the source record, the submission, and evidence of receipt. Keep dates and version history, and distinguish a quotation from your own observation or inference. Audio recording has jurisdiction-specific consent, privacy, and courtroom rules; do not assume permission. A written declaration can organize what a person knows, but it does not create government powers, a court order, or a debt. For this class, use only the fictional packet. Our objective is a reliable evidence trail that another reviewer can follow without exposing a real child's private records.
+
+06. Classify conduct before attributing intent
+
+Classification helps select a relevant question and route. Is this an affirmative decision, an alleged failure to act, an information error, or a barrier to participation? What is the evidence status: reported, supported, disputed, or unresolved? A wrong identifier may establish a mismatch without establishing deliberate misconduct. A missed appointment may reflect refusal, but it may also reflect an unavailable service. Multiple summaries may repeat one source rather than independently confirm it. State the narrowest conclusion the evidence supports. Then ask what information could change it. That question helps keep a working hypothesis from hardening into an unsupported label.
+
+07. A duty is an actor + act + trigger
+
+A duty statement names the actor, the required act, the triggering conditions, and any deadline or exception. Read the whole governing provision, including definitions and context. A duty may be mandatory once a valid request arrives, while the decision's outcome remains discretionary. Must issue a determination is different from must approve an application. We also distinguish an existing legal requirement from an assurance measure we recommend, such as obtaining downstream confirmation of a correction. That measure becomes legally required only if an applicable source makes it so. Invoke a duty established by law; do not invent one through a notice.
+
+08. Read the predicate before the consequence
+
+Read this real Florida provision separately from the fictional practice rules. Section thirty-nine point seven-oh-one, subsection two, paragraph D, subparagraph three, starts with a court determination that a social service agency has failed to comply with its written case-plan obligations. The court may find the agency in contempt. It shall order compliance plans and require the agency to show why the child cannot safely return home. These consequences depend on the statutory predicate. They do not mean automatic return. A participant’s notice does not supply the court finding. Read the full provision and applicable procedure before choosing a filing.
+
+09. Invoke: satisfy the procedure's trigger
+
+A well-written complaint does not necessarily activate the process you need. The governing procedure may require a particular recipient, form, information, filing method, or service on other parties. Record each requirement and its source. Then preserve evidence of submission and check what the acknowledgement actually proves. Receipt is not always completeness, acceptance, proper service, or a favorable decision. Keep separate clocks for different routes. A records-correction request may not extend an appeal deadline. We use the phrase invoke documented duty because the obligation comes from an applicable source and a legally sufficient trigger, not from the force of our wording.
+
+10. Choose the route before the court
+
+The court atlas is a routing map, not a list of interchangeable destinations. Start with the challenged act and its governing review scheme. An agency's internal correction process, a request in an existing court case, statutory judicial review, and a separate legal claim have different purposes and prerequisites. The federal Administrative Procedure Act is not a universal route against government actors. Section nineteen eighty-three is not an all-purpose appeal from an unwanted order. Before proposing a filing, verify jurisdiction, reviewability, deadlines, service, available relief, and any exhaustion or other prerequisite. Mark missing information as unknown instead of inventing a route.
+
+11. Build a conditional document sequence
+
+There is no single document sequence for every remedy. Build a sequence from the actual procedure. It often starts with evidence and a required request, followed by proof of filing or service. Next comes a response, or an omission that meets the conditions for further action. The governing law then determines whether review is available and what document starts it. A decision still needs implementation evidence. Every box should name an owner, a source, a required input, an expected output, and a time rule. Branches matter: an incomplete request, emergency issue, or discretionary response may require a different next step.
+
+12. Seek enforcement within the forum's power
+
+An enforcement request should connect a duty to evidence of a specific failure and to relief the selected decision-maker can lawfully grant. That might mean a request for a required determination, compliance with an existing order, or review of an adverse decision. It does not mean that sanctions, damages, or a desired outcome arise automatically. Identify the legal basis for each requested form of relief. Where an order is already in effect, asking to change it does not by itself change it. Check available interim procedures and keep track of continuing obligations, deadlines, and the consequences of waiting for review.
+
+13. Verify the remedy where the consequence occurs
+
+A favorable letter or order is a checkpoint, not always the end. Verify what changed in the active source record, what known recipients received, which dependent decisions were reconsidered, and whether practical access changed. These are separate checks. If the remedy was issuance of a decision, an unfavorable decision may fulfill that narrow process duty while leaving a separate review question. If the remedy was a corrected status, a note in a file may be insufficient to change an active restriction. Distinguish legally required implementation from additional assurance checks, and record unresolved gaps with a responsible owner and next checkpoint.
+
+14. Practice A: wrong record, two clocks
+
+Our fictional packet contains a wrong account number. Three summaries all repeat the same imported error, so they do not provide three independent confirmations. The correction request was received on day six and the training rule gives ten days for a determination, making day sixteen the deadline. But the adverse decision's internal-review deadline is day fifteen. The correction request does not pause it. Today is day eight. The correction response is not overdue, and waiting for it could lose the other route. Draft two separate actions, then identify how you would verify the source correction and the downstream transport decision.
+
+15. Practice B: referral is not service access
+
+The packet separates two people's duties. Jordan contacted the agency on day two, within the required period. The agency was directed to make an approved course available by day seven, but the only provider reports no approved place before day forty-five. An entry says failed to engage. That entry omits context. Preserve the order, contact receipt, and provider response. Request a usable approved service and correction of the incomplete record. Under this exercise's procedural card, a request to clarify, modify, or enforce the order goes into the existing case. An email to the agency does not amend the court's order.
+
+16. Practice C: must decide ≠ must approve
+
+The fictional agency acknowledged a complete application and a determination due on day twenty. On day twenty-four, the record still shows pending. Check whether a decision exists, whether delivery failed, and whether an exception applies. The possible omission is specific: a required written determination. It is not automatically a right to approval. The Supreme Court's Norton decision distinguishes discrete action legally required from broad demands for better administration. Any court route still needs its other legal prerequisites. Reject the downloaded template claiming silence creates consent or automatic damages. Our evidence and governing law, not invented consequences, must control the request.
+
+17. Bring a trace. Leave with proof of skill.
+
+Before class, complete one fictional Action Trace, one Duty Card, and one question about a missing route or source. In person, teams rotate five roles: fact recorder, authority researcher, procedural navigator, independent reviewer, and affected-person perspective with timekeeping. Your group will build a trace, challenge another group's assumptions, and revise it after new evidence arrives. Success means you can show the source, satisfy the trigger, preserve the right clock, request authorized relief, and define proof that the remedy worked. You will also identify what remains unknown. The skill is disciplined navigation from a consequence to a supported and reviewable remedy.
+
+18. Sources, practice and next steps
+
+The source notes identify the primary materials used in this lesson. Check their current text and the procedure for any real matter. Use the fictional packet for practice. This lesson uses synthetic narration. The editable slides, transcript and worksheets let you review the content at your own pace.

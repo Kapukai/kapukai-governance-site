@@ -1,0 +1,362 @@
+{
+  "title": "Authority to Remedy Trace",
+  "subtitle": "Module 01 · Trace one consequential decision",
+  "brand": "Kapukai Governance Lab",
+  "version": "1.0 · 2026-10-09 · 17 teaching slides + source endcard",
+  "audience": "Adult learners; foundation class in tracing public authority, evidence, procedure and remedy",
+  "sequence": [
+    "Record",
+    "Classify",
+    "Invoke documented duty",
+    "Seek authorized enforcement",
+    "Verify remedy"
+  ],
+  "narration_direction": "Warm, clear, measured teacher voice. Target 125 words per minute. Speak abbreviations in full. Avoid dramatic courtroom or emergency delivery. Pause briefly after questions. Musical bed, if used, should be sparse and quiet with no vocals.",
+  "duration_note": "Approximately14–16minutes at125words per minute, including90seconds of guided practice pauses and an8second source-card hold. Actual narrated duration determines export timing.",
+  "training_notice": "Educational model; verify the law and procedure for the actual jurisdiction and decision. All three case packets and their numbered-day deadlines are fictional training examples.",
+  "slides": [
+    {
+      "number": 1,
+      "title": "Trace one consequential decision",
+      "bullets": [
+        "Who exercised power, over whom, with what consequence?",
+        "What authorized the action and required its conditions?",
+        "What route can produce a verifiable remedy?"
+      ],
+      "visual_notes": "Five connected editable boxes: Record → Classify → Invoke duty → Seek enforcement → Verify remedy. Place one decision card above the chain; avoid imagery of a child in distress.",
+      "narration": "This lesson starts with one consequential decision: a specific person or institution uses power in a way that affects another person. Our task is to make that decision traceable. Who acted? What authority permitted the action? Which conditions had to be met? What evidence shows whether they were met? And what authorized procedure can address a failure? We will practice five steps: record, classify, invoke a documented duty, seek authorized enforcement, and verify the remedy. The goal is a usable trace supported by sources. It is not a promise that every grievance has the same legal route or outcome.",
+      "speaker_notes": "Learning objective: produce a bounded, reviewable trace for one action or omission. Show the five steps throughout the lesson with the active step highlighted.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 2,
+      "title": "People → institutions → bounded authority",
+      "bullets": [
+        "The Declaration states a political foundation of consent",
+        "Federal and state constitutions establish powers and limits",
+        "Statutes, rules and valid orders supply operational authority"
+      ],
+      "visual_notes": "Top: People. Below: Declaration as political foundation beside constitutional structure. Branch constitutional structure into federal and state lanes; statutory/rule/order layers descend within the appropriate lane. Do not draw the Declaration as a direct court-remedy statute.",
+      "narration": "The Declaration of Independence describes government as deriving its just powers from the consent of the governed. That is a political foundation. For a legal trace, we identify the governing constitutional structure and the law that authorizes this actor to make this decision. Federal authority and state authority follow different paths. A state agency often traces through its state constitution, an enabling statute, valid rules, and applicable orders, while remaining subject to federal constitutional limits. The Declaration alone does not supply every cause of action. Our map must connect the principle of public power to the source governing the act.",
+      "speaker_notes": "Keep political legitimacy distinct from an operational legal cause of action. Read sources in the source appendix. Do not imply all state power is delegated by a federal statute.",
+      "source_ids": [
+        "declaration",
+        "constitution",
+        "tenth_amendment",
+        "fourteenth_amendment"
+      ],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 3,
+      "title": "Follow both the power and its conditions",
+      "bullets": [
+        "Actor and role: who may act?",
+        "Source and scope: what may they do?",
+        "Predicates and process: when and how may they do it?"
+      ],
+      "visual_notes": "Editable two-column chain: authority source → authorized role → specific action; adjacent condition checks feed each stage. A constitutional-rights band spans the whole diagram.",
+      "narration": "A title identifies a role, but it does not establish unlimited authority. Trace the source that authorizes the particular action, its scope, and the conditions attached to its use. Some conditions concern jurisdiction. Others concern required findings, evidence, notice, participation, timing, or the type of decision allowed. Constitutional constraints can apply across that chain. A policy cannot simply enlarge authority beyond the law that permits it. When a source is missing or disputed, record that gap. Do not replace it with an assumption that the action is automatically lawful, automatically void, or enforceable through whichever court is closest.",
+      "speaker_notes": "Model the difference between authenticated role and decision-specific authority. A source can be a constraint without being a direct source of delegated power.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 4,
+      "title": "One decision, one trace card",
+      "bullets": [
+        "Action or omission + actor + date + consequence",
+        "Authority + conditions + evidence + uncertainty",
+        "Recipient + procedure + clock + requested remedy"
+      ],
+      "visual_notes": "Large editable Action Trace card with three rows matching bullets; small footer: Source version • Evidence ID • Responsible reviewer. Avoid a dense legal-document screenshot.",
+      "narration": "Use one card for one action or omission. Begin with a sentence that another person could verify: on this date, this actor changed this status, imposed this restriction, or failed to issue this required response. Describe the effect separately from your interpretation. Then add the authority source, the conditions to check, the evidence, and anything still unknown. Finally identify the recipient, procedure, deadline, and exact relief being considered. This small unit prevents a long history from becoming an untestable accusation. Several cards can connect into a larger chronology, but each card must remain clear enough to review independently.",
+      "speaker_notes": "Home workbook: Action Trace template. Pause for learner to draft a single factual action sentence from a fictional case.",
+      "source_ids": [],
+      "pause_after_seconds": 20
+    },
+    {
+      "number": 5,
+      "title": "Record: preserve source and context",
+      "bullets": [
+        "Preserve lawful originals, dates and proof of receipt",
+        "Separate observation, quotation and inference",
+        "Retain source history; protect private information"
+      ],
+      "visual_notes": "Three evidence cards: original notice; source record; receipt. Connect them to evidence IDs E1, E2 and E3. Display a short label: 'Record' does not automatically mean audio-record.",
+      "narration": "Recording in this model means preserving information you lawfully obtain. Save the original notice, the source record, the submission, and evidence of receipt. Keep dates and version history, and distinguish a quotation from your own observation or inference. Audio recording has jurisdiction-specific consent, privacy, and courtroom rules; do not assume permission. A written declaration can organize what a person knows, but it does not create government powers, a court order, or a debt. For this class, use only the fictional packet. Our objective is a reliable evidence trail that another reviewer can follow without exposing a real child's private records.",
+      "speaker_notes": "Do not record classroom participants without an agreed, lawful process. No real family records, identifying narratives, case numbers or private screenshots in group work.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 6,
+      "title": "Classify conduct before attributing intent",
+      "bullets": [
+        "Action, omission, information error or access barrier?",
+        "Reported, supported, disputed or still unknown?",
+        "What evidence could change the classification?"
+      ],
+      "visual_notes": "Four editable conduct tiles feeding a status selector. Show 'source supports mismatch' separately from 'intent unknown'.",
+      "narration": "Classification helps select a relevant question and route. Is this an affirmative decision, an alleged failure to act, an information error, or a barrier to participation? What is the evidence status: reported, supported, disputed, or unresolved? A wrong identifier may establish a mismatch without establishing deliberate misconduct. A missed appointment may reflect refusal, but it may also reflect an unavailable service. Multiple summaries may repeat one source rather than independently confirm it. State the narrowest conclusion the evidence supports. Then ask what information could change it. That question helps keep a working hypothesis from hardening into an unsupported label.",
+      "speaker_notes": "Classification must stay revisable. Intention, causation and legal liability are separate questions; do not infer one merely from the other.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 7,
+      "title": "A duty is an actor + act + trigger",
+      "bullets": [
+        "Mandatory, conditional mandatory or discretionary?",
+        "What activates the duty, and when is it due?",
+        "Separate existing law from proposed safeguards"
+      ],
+      "visual_notes": "Duty Card with Actor / Required act / Trigger / Deadline / Exceptions / Source. Below, two contrasting labels: 'Must decide' and 'May grant'.",
+      "narration": "A duty statement names the actor, the required act, the triggering conditions, and any deadline or exception. Read the whole governing provision, including definitions and context. A duty may be mandatory once a valid request arrives, while the decision's outcome remains discretionary. Must issue a determination is different from must approve an application. We also distinguish an existing legal requirement from an assurance measure we recommend, such as obtaining downstream confirmation of a correction. That measure becomes legally required only if an applicable source makes it so. Invoke a duty established by law; do not invent one through a notice.",
+      "speaker_notes": "Suggested duty labels: mandatory; conditional mandatory; discretionary; proposed assurance control; unknown. 'Shall' is a cue, not a substitute for legal interpretation of the full provision.",
+      "source_ids": [
+        "norton"
+      ],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 8,
+      "title": "Read the predicate before the consequence",
+      "bullets": [
+        "Florida § 39.701(2)(d)3: court finds written case-plan noncompliance",
+        "MAY find contempt; SHALL order compliance plans",
+        "SHALL require showing why the child could not safely return home"
+      ],
+      "visual_notes": "Exact editable branching diagram: court determination of social service agency noncompliance with written case-plan obligations → MAY contempt (discretionary) and SHALL compliance plans + SHALL show why child could not safely return home (conditional mandatory). Footer: Not automatic return; court finding required. Cite Florida Statutes §39.701(2)(d)3 (2026).",
+      "narration": "Read this real Florida provision separately from the fictional practice rules. Section thirty-nine point seven-oh-one, subsection two, paragraph D, subparagraph three, starts with a court determination that a social service agency has failed to comply with its written case-plan obligations. The court may find the agency in contempt. It shall order compliance plans and require the agency to show why the child cannot safely return home. These consequences depend on the statutory predicate. They do not mean automatic return. A participant’s notice does not supply the court finding. Read the full provision and applicable procedure before choosing a filing.",
+      "speaker_notes": "Primary source verified October9,2026 UTC from official Online Sunshine2026 statute. Exact predicate: If, in the opinion of the court, the social service agency has not complied with its obligations as specified in the written case plan. The court MAY find contempt, SHALL order the agency to submit plans for compliance with the agreement, and SHALL require a showing why the child could not safely be returned to the parents’ home. Keep distinct from adjacent §39.701(2)(d)1–2 return-home findings. Do not infer automatic contempt, automatic return, a filing method or a deadline from subparagraph3 alone.",
+      "source_ids": [
+        "fl_39_701"
+      ],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 9,
+      "title": "Invoke: satisfy the procedure's trigger",
+      "bullets": [
+        "Use the correct recipient, vehicle and required content",
+        "Verify filing, service, receipt and completeness separately",
+        "Track every clock; do not assume one request pauses another"
+      ],
+      "visual_notes": "A procedural gate with four inputs: right recipient; required document; required delivery; timing. Outputs: receipt and next checkpoint. Side clock: another deadline may keep running.",
+      "narration": "A well-written complaint does not necessarily activate the process you need. The governing procedure may require a particular recipient, form, information, filing method, or service on other parties. Record each requirement and its source. Then preserve evidence of submission and check what the acknowledgement actually proves. Receipt is not always completeness, acceptance, proper service, or a favorable decision. Keep separate clocks for different routes. A records-correction request may not extend an appeal deadline. We use the phrase invoke documented duty because the obligation comes from an applicable source and a legally sufficient trigger, not from the force of our wording.",
+      "speaker_notes": "Homework task: identify two parallel clocks in Case A. Never substitute the training clock for real time-computation rules.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 10,
+      "title": "Choose the route before the court",
+      "bullets": [
+        "Agency decision, existing court order or another act?",
+        "Which review scheme and remedy fit that act?",
+        "Verify forum, power, deadline and procedural prerequisites"
+      ],
+      "visual_notes": "Four route cards, not a linear ladder: internal correction/review; existing court case; statutory judicial review; separate authorized claim. Each card asks 'Source? Prerequisites? Relief?'.",
+      "narration": "The court atlas is a routing map, not a list of interchangeable destinations. Start with the challenged act and its governing review scheme. An agency's internal correction process, a request in an existing court case, statutory judicial review, and a separate legal claim have different purposes and prerequisites. The federal Administrative Procedure Act is not a universal route against government actors. Section nineteen eighty-three is not an all-purpose appeal from an unwanted order. Before proposing a filing, verify jurisdiction, reviewability, deadlines, service, available relief, and any exhaustion or other prerequisite. Mark missing information as unknown instead of inventing a route.",
+      "speaker_notes": "Misroute challenge: a state dependency order is not a federal APA agency action. A rights claim requires its own legal analysis and is not interchangeable with direct appeal.",
+      "source_ids": [
+        "apa_701",
+        "apa_704",
+        "section_1983"
+      ],
+      "pause_after_seconds": 15
+    },
+    {
+      "number": 11,
+      "title": "Build a conditional document sequence",
+      "bullets": [
+        "Evidence → required request → filing/service proof",
+        "Response or qualifying omission → authorized review",
+        "Decision → implementation proof → closure check"
+      ],
+      "visual_notes": "Top-down branching workflow. Request branches to response or no response; both enter a source-specific review check, then decision and verification. Put 'sequence varies by law' directly on the diagram.",
+      "narration": "There is no single document sequence for every remedy. Build a sequence from the actual procedure. It often starts with evidence and a required request, followed by proof of filing or service. Next comes a response, or an omission that meets the conditions for further action. The governing law then determines whether review is available and what document starts it. A decision still needs implementation evidence. Every box should name an owner, a source, a required input, an expected output, and a time rule. Branches matter: an incomplete request, emergency issue, or discretionary response may require a different next step.",
+      "speaker_notes": "A court order, subpoena or writ must come from an actor empowered to issue it. Private templates cannot supply that authority. Sequence is a source-driven workflow, not a guaranteed escalation ladder.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 12,
+      "title": "Seek enforcement within the forum's power",
+      "bullets": [
+        "Name the exact duty and supported failure",
+        "Request relief that this decision-maker can grant",
+        "Preserve applicable orders and deadlines while seeking review"
+      ],
+      "visual_notes": "Three aligned editable columns: established duty / shown failure / requested authorized relief. Bottom band: unresolved prerequisites remain visible.",
+      "narration": "An enforcement request should connect a duty to evidence of a specific failure and to relief the selected decision-maker can lawfully grant. That might mean a request for a required determination, compliance with an existing order, or review of an adverse decision. It does not mean that sanctions, damages, or a desired outcome arise automatically. Identify the legal basis for each requested form of relief. Where an order is already in effect, asking to change it does not by itself change it. Check available interim procedures and keep track of continuing obligations, deadlines, and the consequences of waiting for review.",
+      "speaker_notes": "Avoid teaching self-help noncompliance. Do not imply every violation supports contempt or money damages. The relevant forum and source determine available relief.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 13,
+      "title": "Verify the remedy where the consequence occurs",
+      "bullets": [
+        "Source corrected or required act completed?",
+        "Dependent decisions and known recipients addressed?",
+        "Practical access restored, or remaining gaps recorded?"
+      ],
+      "visual_notes": "Remedy verification dashboard with Source / Recipients / Dependent decisions / Practical outcome, each showing evidence needed rather than invented completed ticks.",
+      "narration": "A favorable letter or order is a checkpoint, not always the end. Verify what changed in the active source record, what known recipients received, which dependent decisions were reconsidered, and whether practical access changed. These are separate checks. If the remedy was issuance of a decision, an unfavorable decision may fulfill that narrow process duty while leaving a separate review question. If the remedy was a corrected status, a note in a file may be insufficient to change an active restriction. Distinguish legally required implementation from additional assurance checks, and record unresolved gaps with a responsible owner and next checkpoint.",
+      "speaker_notes": "Correction propagation is a proposed control unless a governing source establishes the duty. Case A's fictional rule expressly requires notice to known recipients, but recipient acknowledgement is a verification measure.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 14,
+      "title": "Practice A: wrong record, two clocks",
+      "bullets": [
+        "R-814 was imported into R-184",
+        "Correction determination: D16; internal review: D15",
+        "Correction receipt does not preserve the review route"
+      ],
+      "visual_notes": "Large R-814 → R-184 mismatch marker; two separate horizontal clocks ending D15 and D16. Label 'fictional training days' in the visible footer.",
+      "narration": "Our fictional packet contains a wrong account number. Three summaries all repeat the same imported error, so they do not provide three independent confirmations. The correction request was received on day six and the training rule gives ten days for a determination, making day sixteen the deadline. But the adverse decision's internal-review deadline is day fifteen. The correction request does not pause it. Today is day eight. The correction response is not overdue, and waiting for it could lose the other route. Draft two separate actions, then identify how you would verify the source correction and the downstream transport decision.",
+      "speaker_notes": "Use packet ART-01-A. No actual legal deadlines are taught here. Answers: source mismatch supported; intent unknown; preserve internal review by D15; correction dueD16; judicial route not supplied.",
+      "source_ids": [],
+      "pause_after_seconds": 20
+    },
+    {
+      "number": 15,
+      "title": "Practice B: referral is not service access",
+      "bullets": [
+        "Parent contacted agency on D2",
+        "Agency service due D7; no approved place until D45",
+        "Existing case: request supported relief and verify delivery"
+      ],
+      "visual_notes": "Two actor lanes: parent contact duty metD2; agency availability dueD7. D45 availability conflicts with D30 attendance window. Keep real court imagery out of the fictional diagram.",
+      "narration": "The packet separates two people's duties. Jordan contacted the agency on day two, within the required period. The agency was directed to make an approved course available by day seven, but the only provider reports no approved place before day forty-five. An entry says failed to engage. That entry omits context. Preserve the order, contact receipt, and provider response. Request a usable approved service and correction of the incomplete record. Under this exercise's procedural card, a request to clarify, modify, or enforce the order goes into the existing case. An email to the agency does not amend the court's order.",
+      "speaker_notes": "Use ART-01-B. Current dayD12; reviewD21; original attendance windowD30. Ask what unknowns could alter the analysis: other referral, amended order, actual approved availability.",
+      "source_ids": [],
+      "pause_after_seconds": 20
+    },
+    {
+      "number": 16,
+      "title": "Practice C: must decide ≠ must approve",
+      "bullets": [
+        "Complete application acknowledged D0; decision due D20",
+        "On D24, verify omission and any applicable exception",
+        "Research review prerequisites; reject invented consequences"
+      ],
+      "visual_notes": "Duty fork: issue written determination / grant requested status. Show first as required after trigger; second as separate merits question. Redline fictional template assertions 'silence=consent' and 'automatic damages'.",
+      "narration": "The fictional agency acknowledged a complete application and a determination due on day twenty. On day twenty-four, the record still shows pending. Check whether a decision exists, whether delivery failed, and whether an exception applies. The possible omission is specific: a required written determination. It is not automatically a right to approval. The Supreme Court's Norton decision distinguishes discrete action legally required from broad demands for better administration. Any court route still needs its other legal prerequisites. Reject the downloaded template claiming silence creates consent or automatic damages. Our evidence and governing law, not invented consequences, must control the request.",
+      "speaker_notes": "Use ART-01-C. Source anchor: Norton v. Southern Utah Wilderness Alliance, 542 U.S.55 (2004), and 5USC706(1). The invented agency and its20-day rule do not represent an actual program.",
+      "source_ids": [
+        "norton",
+        "apa_706"
+      ],
+      "pause_after_seconds": 15
+    },
+    {
+      "number": 17,
+      "title": "Bring a trace. Leave with proof of skill.",
+      "bullets": [
+        "Homework: one card, one duty, one route question",
+        "Class: rotate five roles and challenge another team's trace",
+        "Exit: justify the trigger, route, relief and closure evidence"
+      ],
+      "visual_notes": "Five group role chips around one case card: recorder; authority researcher; procedural navigator; independent reviewer; affected-person perspective/timekeeper. Closing caption: Rights become operational through a verified route.",
+      "narration": "Before class, complete one fictional Action Trace, one Duty Card, and one question about a missing route or source. In person, teams rotate five roles: fact recorder, authority researcher, procedural navigator, independent reviewer, and affected-person perspective with timekeeping. Your group will build a trace, challenge another group's assumptions, and revise it after new evidence arrives. Success means you can show the source, satisfy the trigger, preserve the right clock, request authorized relief, and define proof that the remedy worked. You will also identify what remains unknown. The skill is disciplined navigation from a consequence to a supported and reviewable remedy.",
+      "speaker_notes": "Follow the90-minute facilitator plan in curriculum.md. Exit proof is individual,5 minutes, using a changed fact from a new microcase. No promise of favorable real-world legal outcomes.",
+      "source_ids": [],
+      "pause_after_seconds": 0
+    },
+    {
+      "number": 18,
+      "title": "Sources, practice and next steps",
+      "bullets": [
+        "Read primary sources and their current context",
+        "Use the fictional packet to practice the five-step trace",
+        "Synthetic narration; editable slides and transcript available"
+      ],
+      "visual_notes": "Clean source endcard listing Constitution and Declaration; Florida§39.701;5USC701/704/706;Norton542US55;42USC1983. Add final captions disclosure and links in accompanying source appendix. Do not add imagery behind small text.",
+      "narration": "The source notes identify the primary materials used in this lesson. Check their current text and the procedure for any real matter. Use the fictional packet for practice. This lesson uses synthetic narration. The editable slides, transcript and worksheets let you review the content at your own pace.",
+      "speaker_notes": "Endcard can hold an additional8seconds after narration. In notes include all source URLs from the source register. Music optional and very quiet. Display synthetic narration disclosure visibly.",
+      "source_ids": [
+        "declaration",
+        "constitution",
+        "tenth_amendment",
+        "fourteenth_amendment",
+        "apa_701",
+        "apa_704",
+        "apa_706",
+        "norton",
+        "section_1983",
+        "fl_39_701"
+      ],
+      "pause_after_seconds": 8
+    }
+  ],
+  "sources": [
+    {
+      "id": "declaration",
+      "title": "Declaration of Independence: transcript",
+      "url": "https://www.archives.gov/founding-docs/declaration-transcript",
+      "use": "Political foundation of consent; distinguish from operational cause of action"
+    },
+    {
+      "id": "constitution",
+      "title": "Constitution of the United States: transcript",
+      "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+      "use": "Constitutional institutions, powers and limits"
+    },
+    {
+      "id": "tenth_amendment",
+      "title": "Constitution Annotated: Tenth Amendment",
+      "url": "https://constitution.congress.gov/browse/amendment-10/",
+      "use": "Federal/state distinction"
+    },
+    {
+      "id": "fourteenth_amendment",
+      "title": "Constitution Annotated: Fourteenth Amendment",
+      "url": "https://constitution.congress.gov/browse/amendment-14/",
+      "use": "Federal constitutional constraints on states"
+    },
+    {
+      "id": "apa_701",
+      "title": "5 USC 701: Application; definitions",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section701&num=0&edition=prelim",
+      "use": "APA scope and exceptions"
+    },
+    {
+      "id": "apa_704",
+      "title": "5 USC 704: Actions reviewable",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section704&num=0&edition=prelim",
+      "use": "Reviewability and adequate-remedy checks"
+    },
+    {
+      "id": "apa_706",
+      "title": "5 USC 706: Scope of review",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section706&num=0&edition=prelim",
+      "use": "Required agency action unlawfully withheld or unreasonably delayed"
+    },
+    {
+      "id": "norton",
+      "title": "Norton v. Southern Utah Wilderness Alliance, 542 U.S.55 (2004)",
+      "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep542/usrep542055/usrep542055.pdf",
+      "use": "Discrete action legally required; cannot simply dictate a discretionary result"
+    },
+    {
+      "id": "section_1983",
+      "title": "42 USC 1983: Civil action for deprivation of rights",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section1983&num=0&edition=prelim",
+      "use": "Separate claim requiring its own elements and limitations, not generic appeal"
+    },
+    {
+      "id": "fl_39_701",
+      "title": "Florida Statutes §39.701(2)(d)3, Judicial review (2026)",
+      "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0039/Sections/0039.701.html",
+      "use": "Court determination of written case-plan noncompliance; MAY contempt; SHALL compliance plans and showing why child could not safely return home",
+      "verified": "2026-10-09 UTC",
+      "web_ref": "turn31view0"
+    }
+  ]
+}

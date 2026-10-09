@@ -59,8 +59,16 @@ window.KAPUKAI_ASSETS = [
   {
     "title": "Narrated lesson",
     "format": "VIDEO + CAPTIONS",
-    "status": "preparing",
-    "description": "Exact slides, stock AI narration, quiet original music and captions. Final playback check in progress.",
-    "file": null
+    "status": "ready",
+    "description": "15:15 · 1080p · exact slides, stock AI narration, quiet original music and corrected captions. The share page includes a download option.",
+    "file": "https://share.descript.com/view/cxTblq6pT40",
+    "external": true
+  },
+  {
+    "title": "Lesson transcript",
+    "format": "TEXT",
+    "status": "ready",
+    "description": "Accessible reading alternative that matches the frozen narration word for word.",
+    "file": "./downloads/rights_to_remedy_lesson_01.txt"
   }
 ];

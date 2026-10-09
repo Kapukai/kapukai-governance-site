@@ -3,6 +3,7 @@
   "version": "1.0",
   "date": "2026-10-09",
   "scope": "Educational pilot: federal agency and Florida dependency examples",
+  "playback_url": "https://share.descript.com/view/cxTblq6pT40",
   "files": [
     {
       "path": "INSTALL.md",
@@ -18,15 +19,15 @@
     },
     {
       "path": "app.js",
-      "size": 30369,
-      "sha256": "cb0911b107ae23df4432b88f19c406b381fab20d7b443fae7c8d10dfe5f37919",
-      "sha1": "ad68fe06b7b837831ad9c0e2726ca096f3535f43"
+      "size": 30442,
+      "sha256": "a94a283bd67418bed286fb4d9a08fee5d134b7315f215e2e4608f9648ad2d4b9",
+      "sha1": "fb7b47845867cd165e5af32b83e2de1eeecc707f"
     },
     {
       "path": "assets.js",
-      "size": 2364,
-      "sha256": "f452ae9fcd95edbb601553e38b749f606a83228ccf7e52bae003e1f1e2b82f1a",
-      "sha1": "98f4283fd1bc89aeea809e04318716e1e28183fa"
+      "size": 2707,
+      "sha256": "46389574574bbc1702071e8971e5ddb038bc3c4e808e2b03730f0e639d752e22",
+      "sha1": "c607bdf9d1337f88559043bef8f708851d1c3921"
     },
     {
       "path": "downloads/Action_Duty_Remedy_Card.schema.json",
@@ -101,10 +102,28 @@
       "sha1": "582161812d7416a75e5445ed6460bf91b5ae1e01"
     },
     {
+      "path": "downloads/rights_to_remedy_lesson_01.srt",
+      "size": 18738,
+      "sha256": "bad2dc03b68bc41b02f9d12f513aeaa76cbcd296b17816f293f894dedecf9b72",
+      "sha1": "c3bb0cb61154c7ec1278472ef2d4bb3b0bfa8ab4"
+    },
+    {
+      "path": "downloads/rights_to_remedy_lesson_01.txt",
+      "size": 12481,
+      "sha256": "4114934fc979f61e4399c194883272593f5671941f0000e645695e8c3b2a5700",
+      "sha1": "b08fbb70af1b69118a274da488733577e58cf87a"
+    },
+    {
+      "path": "downloads/rights_to_remedy_lesson_01.vtt",
+      "size": 18746,
+      "sha256": "4cbda5ac4bce7351dfd1c35606c7996e99a3be56524c776e7a83090219040cd0",
+      "sha1": "ac047c38bd5d395eda3053862e593c3d68832dd5"
+    },
+    {
       "path": "index.html",
-      "size": 28622,
-      "sha256": "f33211c1f2f334c7337bc39a5546e887337b5c91200634683a7877da631b0a6c",
-      "sha1": "88b9c4ebad5088b8a376eed352d41bc4eb9e6d48"
+      "size": 29432,
+      "sha256": "fe12ffb99bea79520e52bc30dc5401242b28cd202b95b6150f2112e4490f5b9d",
+      "sha1": "fabc372a2c3dccc20c375b1aacf4c54de08afa1a"
     },
     {
       "path": "source-data.js",
@@ -114,9 +133,9 @@
     },
     {
       "path": "styles.css",
-      "size": 32709,
-      "sha256": "29004ba35033283edca2d1b794088acfa3bd55d06b575e200b46e8354cacad72",
-      "sha1": "0dcc8e14f0f3f02706c456864a94ee6a3af0d8e5"
+      "size": 32994,
+      "sha256": "95f97d475c3d2f162d72877c9f972b8b3b02d6ced50954f5e9326445df147133",
+      "sha1": "a9b908a67508f345a1dae2324c979aa551d56c19"
     },
     {
       "path": "vercel.json",
