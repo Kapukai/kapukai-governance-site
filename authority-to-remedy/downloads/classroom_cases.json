@@ -1,0 +1,80 @@
+{
+  "title": "Authority to Remedy Trace: fictional practice cases",
+  "warning": "Every person, agency, rule, deadline, document and event in these practice packets is fictional. Training rules are not filing instructions or statements of applicable law. Do not submit these documents to a real court or agency.",
+  "clock_rule": "For these exercises only, D0 is receipt of the identified starting document. Count each subsequent numbered day as one training day. Actual deadline computation must be verified under the governing rules.",
+  "cases": [
+    {
+      "id": "ART-01-A",
+      "title": "A copied record changes the wrong family's status",
+      "learning_focus": ["Identity matching", "Independent sources", "Parallel correction and review clocks", "Downstream verification"],
+      "people": {"caregiver": "Alex Reed, family account R-184", "other_account": "A. Reid, family account R-814", "child": "Child A"},
+      "current_day": "D8",
+      "packet": [
+        {"id": "A1", "type": "Adverse administrative notice", "date": "D0", "text": "Riverton Family Services labels account R-184 as repeated missed child pickup and changes its supported transport booking priority. The stated basis is three incident entries. The notice offers internal review if a review request is received by D15."},
+        {"id": "A2", "type": "Original pickup log", "date": "Before D0", "text": "All three incident rows carry account R-814 and the name A. Reid. No incident row identifies account R-184."},
+        {"id": "A3", "type": "Exported summary", "date": "Before D0", "text": "A spreadsheet import changed R-814 to R-184. Three later summaries quote that imported spreadsheet and identify no additional witnesses or incidents."},
+        {"id": "A4", "type": "Correction request and receipt", "date": "D6", "text": "Alex submits the two account numbers, notice and source log to the Records Officer. Receipt C-206 is issued on D6. The request asks for correction but does not expressly request internal review of the transport-priority decision."},
+        {"id": "A5", "type": "Known downstream recipient", "date": "D7", "text": "The Transport Contractor confirms that it received the R-184 flag from Riverton Family Services. It has not received any correction."},
+        {"id": "A6", "type": "Fictional training rule card", "date": "Current", "text": "TR-A1: Records Officer must issue a written accuracy determination within 10 training days after a sufficiently identified correction request. TR-A2: Review Officer accepts an internal review request received within 15 training days after the adverse notice. A correction request does not pause this review period. TR-A3: Review Officer may suspend the transport-priority change pending review; suspension is discretionary. TR-A4: If the Records Officer confirms an erroneous flag, the Officer must correct the active source entry and notify every known recipient of that flag within 3 training days. The card does not identify any judicial appeal route."}
+      ],
+      "assignment": "Prepare one Action Trace, one Duty Card, a two-clock deadline register and a bounded proposed request. Separate correction of data from review of the resulting transport decision. Identify the authority gap for any court filing.",
+      "answer_key": {
+        "classification": "Documented identity mismatch affecting an administrative decision; not proof of deliberate misconduct. The three summaries are derivative, not independent corroboration.",
+        "duty": "TR-A1 is a conditional mandatory duty triggered by a sufficiently identified correction request. On these facts it was received D6, so the written determination is due D16. It is not overdue on D8.",
+        "parallel_route": "TR-A2 review deadline is D15. Preserve this route separately; do not wait for the D16 correction determination. Receipt C-206 proves correction-request receipt, not acceptance of an internal appeal.",
+        "proposed_relief": "Ask for a written accuracy determination and correction if confirmed; request internal review of the transport decision; request, without assuming entitlement to, an interim suspension under TR-A3.",
+        "enforcement_limit": "The packet establishes internal routes but supplies no judicial-review authority. Mark court route unknown and identify the missing enabling law, forum, standing, reviewability, deadline and procedure before proposing a filing.",
+        "closure": "Obtain corrected active source status, TR-A4 notice to the known contractor, and the separate result of transport-priority review. Ask the contractor to confirm its operational record changed; that acknowledgement is a verification measure, not an additional duty established by the card.",
+        "common_errors": ["Treating correction receipt as an appeal", "Missing D15 while waiting for D16", "Calling copied reports independent evidence", "Assuming bad intent", "Calling an appended note a completed operational correction"]
+      }
+    },
+    {
+      "id": "ART-01-B",
+      "title": "A required service cannot be accessed",
+      "learning_focus": ["Separate actor duties", "Barrier versus refusal", "Existing order remains operative", "Court-specific procedure"],
+      "people": {"caregiver": "Jordan Lane", "agency": "Westhaven Family Support Agency", "child": "Child B"},
+      "current_day": "D12",
+      "packet": [
+        {"id": "B1", "type": "Fictional court order", "date": "D0", "text": "The assigned family court orders Jordan to contact the agency within 3 training days and attend an available approved course within 30 training days. The agency shall make an approved course available without participant cost within 7 training days. The next review hearing is D21. Changes to the order require court approval."},
+        {"id": "B2", "type": "Contact confirmation", "date": "D2", "text": "Jordan emails the named caseworker asking to enroll, gives availability and asks for the agency to arrange the approved course. The caseworker acknowledges receipt the same day."},
+        {"id": "B3", "type": "Provider response", "date": "D5", "text": "The single referred provider reports that no approved course place exists before D45. The provider offers a different paid class but confirms it is not on the court's approved list."},
+        {"id": "B4", "type": "Agency case entry", "date": "D9", "text": "A case entry states: Parent failed to engage with services. It does not mention B2 or B3. No other provider referral appears in the supplied packet."},
+        {"id": "B5", "type": "Fictional procedural card", "date": "Current", "text": "TR-B1: In this exercise, requests to clarify, modify or enforce the existing order are filed in the same case with the assigned court. A written request identifies the order and relief, attaches relevant exhibits and is delivered to all listed parties under the exercise service instructions. Clerk acknowledgement establishes receipt, not that the court granted relief. TR-B2: A supported request can ask the court to direct agency compliance and consider a revised attendance deadline. The decision remains for the court. TR-B3: The agency's record-correction process is available separately; the packet supplies no correction-response deadline."}
+      ],
+      "assignment": "Create separate Duty Cards for Jordan and the agency. Build an event chronology and propose a supported request addressing the unavailable service. Identify what must continue while a request is pending.",
+      "answer_key": {
+        "classification": "Evidence supports timely contact and a service-access barrier. On the supplied record, failed to engage is an unsupported or incomplete characterization. Do not conclude intentional obstruction without more evidence.",
+        "duties": "Jordan's contact duty was met D2 before D3. The attendance obligation is conditioned on an available approved course. The agency's course-availability duty was due D7 and appears unmet on the supplied record; check for missing referrals or a later order.",
+        "route": "Ask the agency in writing for an available approved option and correction of the incomplete case entry. Use TR-B1 to present a request in the existing case seeking agency compliance, clarification and any necessary deadline modification. The agency email alone does not amend the court order.",
+        "proposed_relief": "An available approved course without participant cost, accurate recording of the access barrier, and a court decision on how the attendance deadline should operate given the unavailability.",
+        "enforcement_limit": "Do not self-declare the entire order void, invent sanctions, or assume a federal civil-rights lawsuit is the next step. Preserve the D21 review and comply with unaffected duties.",
+        "closure": "Confirm an actual approved place, its start date and accessibility; confirm the court's operative instructions; correct the case entry where appropriate; later verify participation against the revised facts and requirements.",
+        "common_errors": ["Calling unavailable service a refusal", "Counting referral as delivery", "Treating an email as modification of an order", "Seeking a sanction without source authority", "Measuring success only by winning a hearing"]
+      }
+    },
+    {
+      "id": "ART-01-C",
+      "title": "A discrete agency duty has no recorded response",
+      "learning_focus": ["Required act versus preferred outcome", "Proof of trigger", "Omission versus discretion", "Missing jurisdiction and review prerequisites"],
+      "people": {"applicant": "Taylor Brooks", "agency": "Federal Family Records Review Office (invented for training)"},
+      "current_day": "D24",
+      "packet": [
+        {"id": "C1", "type": "Fictional training statute card", "date": "Current", "text": "TR-C1: After receiving a complete status-review application, the Office shall issue a written determination within 20 training days. The Office may grant the requested status when it concludes that the specified eligibility criteria are satisfied. The rule does not guarantee a grant."},
+        {"id": "C2", "type": "Application and completeness acknowledgement", "date": "D0", "text": "Submission reference F-300 includes the required form and attachments. The Office acknowledges receipt and states: Application complete; written determination due D20."},
+        {"id": "C3", "type": "Status record", "date": "D24", "text": "The portal shows complete, pending determination. The applicant's supplied message history contains no written determination or delay notice. No evidence establishes whether an internal decision was issued but failed to reach the applicant."},
+        {"id": "C4", "type": "Template found online", "date": "D23", "text": "An unverified template tells the applicant that silence proves agreement, automatically creates damages of $10,000 per day and requires any federal judge to approve the requested status."},
+        {"id": "C5", "type": "Missing information card", "date": "Current", "text": "The packet does not establish special statutory review provisions, an available adequate alternative remedy, any required exhaustion, judicial filing rules, standing details, venue, service requirements or whether an extension or exception applies. Participants must identify these gaps rather than supply invented answers."}
+      ],
+      "assignment": "Name the precise potentially overdue act, show how the duty was triggered, reject unsupported consequences in C4, and create a research-gated escalation plan. Distinguish a request to obtain a determination from a request to win that determination.",
+      "answer_key": {
+        "classification": "Potential omission: a discrete written determination appears overdue after an acknowledged complete application. First verify whether a determination exists, whether transmission failed, and whether an applicable exception changes the deadline.",
+        "duty": "TR-C1 makes issuance of a written determination conditional mandatory once completeness is established. Granting the requested status is a separate eligibility-based decision; the packet supplies no entitlement to the preferred outcome.",
+        "trigger": "C2 proves receipt and the agency's completeness acknowledgement. The supplied exercise deadline is D20; on D24 the determination appears 4 training days late.",
+        "route": "Request the written determination or an explanation identifying any applicable exception, preserve receipt evidence and research the governing review scheme. A real federal APA failure-to-act route requires analysis; it is not selected merely because the actor is a government employee.",
+        "enforcement_limit": "5 USC 706(1) and Norton are legal research anchors for compelling discrete action legally required, subject to other judicial prerequisites. They do not automatically authorize a court to dictate a discretionary result. State courts are not federal APA agencies. C4 supplies no valid authority for consent, money, sanctions or jurisdiction.",
+        "closure": "Verify receipt of a lawful determination and separately assess any review route for its substance. If relief requested was a decision, an adverse decision can satisfy that narrow process remedy without satisfying the applicant's broader objective.",
+        "common_errors": ["Treating shall decide as shall approve", "Assuming receipt proves judicial review is available", "Demanding broad good governance instead of a specific act", "Treating silence as consent or automatic liability", "Inventing a deadline or court route absent from the packet"]
+      }
+    }
+  ]
+}

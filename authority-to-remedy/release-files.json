@@ -1,0 +1,128 @@
+{
+  "lesson": "authority-to-remedy-01",
+  "version": "1.0",
+  "date": "2026-10-09",
+  "scope": "Educational pilot: federal agency and Florida dependency examples",
+  "files": [
+    {
+      "path": "INSTALL.md",
+      "size": 1581,
+      "sha256": "f7cd7d22665e205155678de103a6986fcf4160e316855657c52d23b7dabbd10a",
+      "sha1": "8ac928bb3a3cc8add0b0cebbc9f3fe9bc4a11550"
+    },
+    {
+      "path": "README.md",
+      "size": 2077,
+      "sha256": "8645d4a9391eddec28d18a912fef4c573fd29bb92e51adb36d2b1643f06dcdb3",
+      "sha1": "0040b6c69554407c5dc7f856725df2f4100ba92c"
+    },
+    {
+      "path": "app.js",
+      "size": 30369,
+      "sha256": "cb0911b107ae23df4432b88f19c406b381fab20d7b443fae7c8d10dfe5f37919",
+      "sha1": "ad68fe06b7b837831ad9c0e2726ca096f3535f43"
+    },
+    {
+      "path": "assets.js",
+      "size": 2364,
+      "sha256": "f452ae9fcd95edbb601553e38b749f606a83228ccf7e52bae003e1f1e2b82f1a",
+      "sha1": "98f4283fd1bc89aeea809e04318716e1e28183fa"
+    },
+    {
+      "path": "downloads/Action_Duty_Remedy_Card.schema.json",
+      "size": 10155,
+      "sha256": "14d21357e10143c2ec2dd3a0acef82d918da115da4c1daf48075195edb67a950",
+      "sha1": "49cfb180d842b8caa5192f3f6aa42ab45e11f0c1"
+    },
+    {
+      "path": "downloads/Florida_Case_Plan_Duty_Worked_Example.json",
+      "size": 5746,
+      "sha256": "dba3a18b7ac2d0332fe3c42739d3cbc593912a7e8bdc82a5fdf6177514442553",
+      "sha1": "89876f76146fdc84499ec3ea4b8d91018edb946b"
+    },
+    {
+      "path": "downloads/Kapukai_Authority_to_Remedy_Blueprint.md",
+      "size": 12466,
+      "sha256": "1a9a584a59049e73f38bc19a541bd2c233996314cb156cb21bcbeb3823676c8d",
+      "sha1": "bcdf817ea1304ffda3a516a9544abbac191f43b0"
+    },
+    {
+      "path": "downloads/Kapukai_Authority_to_Remedy_Fieldbook.docx",
+      "size": 63696,
+      "sha256": "b64b6270a6b1317549148fee58687f2994dc9c9d254a2e1b8d1cc8eb9c8158f9",
+      "sha1": "d6792f9600a4a313d1e49359b8ccb384e19333a4"
+    },
+    {
+      "path": "downloads/Kapukai_Authority_to_Remedy_Fieldbook.pdf",
+      "size": 481745,
+      "sha256": "de98f4191e10fb8e38bf928b21b83eb502672629e99786fefa0aefde39e234ab",
+      "sha1": "ddc19fd5b83f5758f87f1758b0f2cb61afeaa349"
+    },
+    {
+      "path": "downloads/Kapukai_Authority_to_Remedy_Lesson_01.pdf",
+      "size": 2283170,
+      "sha256": "472e060ff1a1963145cddb4802e426c0cd98e4646eef295b1ff99e684ab36a9d",
+      "sha1": "8e038073be5486345744c9c17d0f38f5598b64f6"
+    },
+    {
+      "path": "downloads/Kapukai_Authority_to_Remedy_Lesson_01.pptx",
+      "size": 91207,
+      "sha256": "61db6980108ac1fde4721d3ec1bde0bc6f2589dbef1c39a3b81d833d9efa6f0e",
+      "sha1": "461ebf36355999284e3cfa47358281b7a81409b7"
+    },
+    {
+      "path": "downloads/classroom_cases.json",
+      "size": 13650,
+      "sha256": "1c8c5128c6c3ffff6a9a0c293f2024f49efcb6f058a1ca3c6f7955900706eda8",
+      "sha1": "b4ea025f5608c8bc8e1912b6be8648a98b60a070"
+    },
+    {
+      "path": "downloads/curriculum.md",
+      "size": 30216,
+      "sha256": "869d86f02bf2d8415fb7ce03560813e941f506b5241302223008ece2c5e18eb9",
+      "sha1": "66d12d5fa326defeb0bb5c2fc4c54bc434fca9fc"
+    },
+    {
+      "path": "downloads/legal_authority.md",
+      "size": 27858,
+      "sha256": "e623be5dc84bb131dd5b31eaccb2b4a0c8cd7e110683689c10036c4b2d389b3c",
+      "sha1": "be99ed52c1c7cfc515d2f0c222693885dfa66aed"
+    },
+    {
+      "path": "downloads/legal_sources.json",
+      "size": 21442,
+      "sha256": "2fa197f5f051b7d7248339b8baf17d3ec2f75f002672ff0b08c0e9a6d095d391",
+      "sha1": "a29af08b16a88fcfc8dbd8b55878caf975967d91"
+    },
+    {
+      "path": "downloads/narration_transcript.md",
+      "size": 12707,
+      "sha256": "14af08ede4553489f208d3754e8dc014cd4c602d393601c038b7d4b7b900a0ce",
+      "sha1": "582161812d7416a75e5445ed6460bf91b5ae1e01"
+    },
+    {
+      "path": "index.html",
+      "size": 28622,
+      "sha256": "f33211c1f2f334c7337bc39a5546e887337b5c91200634683a7877da631b0a6c",
+      "sha1": "88b9c4ebad5088b8a376eed352d41bc4eb9e6d48"
+    },
+    {
+      "path": "source-data.js",
+      "size": 32080,
+      "sha256": "be4dc8a34c134b50638b21f2270c11f715b0645c8fdedbc81fb70ff4c0b03a42",
+      "sha1": "02d1bd6d9ba27b1f35e46d12356dc3a3cd89720d"
+    },
+    {
+      "path": "styles.css",
+      "size": 32709,
+      "sha256": "29004ba35033283edca2d1b794088acfa3bd55d06b575e200b46e8354cacad72",
+      "sha1": "0dcc8e14f0f3f02706c456864a94ee6a3af0d8e5"
+    },
+    {
+      "path": "vercel.json",
+      "size": 250,
+      "sha256": "76bf24207967b88ba79545967348f7ee27dbc348c7742b9eae3cdcd7abfbc422",
+      "sha1": "f080926d071f2f1ae301448687ad1073e76896d9"
+    }
+  ]
+}
