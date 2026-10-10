@@ -32,3 +32,11 @@ kapukai.org is currently served by nginx at the existing 1984 host. Vercel acces
 - Keep owner decisions human-confirmed. A decision does not send mail; the fixed notice requires a separate preview and explicit sending action. Never retry an uncertain provider handoff automatically.
 - The current offer/delivery loop is for bounded free public resources and practice/orientation. Do not imply paid engagements, private case uploads, qualifications, signatures or appointments are included.
 - Preserve correction after closure, reconsideration, withdrawal, capacity release, version-bound feedback and legacy consent boundaries. See `docs/workshop-lifecycle-operations.md`, `docs/LIFECYCLE_OPERATING_BLUEPRINT.md` and `docs/LIFECYCLE_RELEASE_2026-10-08.md` for operating and release evidence.
+
+## Signup CRM lifecycle — owner request, October 10, 2026
+
+- Every signup must also reach HubSpot through the shared Supabase CRM outbox. Add future signup sources and lifecycle changes to the projection, trigger coverage and meaningful integration tests; do not introduce independent page-level CRM writes.
+- Supabase remains authoritative for consent, identity and access. A HubSpot contact is a relationship record, never newsletter consent, a qualification or a grant of access. Keep source-specific confirmations, withdrawals and suppressions separate.
+- Mirror only approved contact facts and fixed lifecycle states. Private narratives, child/case records, application details, credentials and documents must never enter the CRM projection.
+- Use the dedicated `KAPUKAI_HUBSPOT_ACCESS_TOKEN` secret and Vault-authenticated worker. Do not set the older shared HubSpot credential names, which can activate legacy direct-write paths.
+- See `docs/signup-crm-blueprint.md` for actual release evidence and remaining activation gates. A deployed but paused worker or passing fixture tests do not establish a live connection.

@@ -5,3 +5,8 @@ entrypoint = "./functions/kapukai-scoped-signup/index.ts"
 [functions.kapukai-community-apply]
 verify_jwt = false
 entrypoint = "./functions/kapukai-community-apply/index.ts"
+
+[functions.kapukai-hubspot-sync]
+# Authenticated internally with a dedicated worker bearer, never a browser key.
+verify_jwt = false
+entrypoint = "./functions/kapukai-hubspot-sync/index.ts"
