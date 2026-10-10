@@ -1,6 +1,6 @@
 # Kapukai signup → HubSpot blueprint
 
-Release candidate: October 10, 2026. The initial backend is deployed and paused, with eight contact identities queued. The final scheduler security migration was declined by the deployment approval flow without a reason. Its tested implementation is saved for review. The prior worker authorization hash has been cleared, and the HubSpot credential is not configured. This is not yet an active CRM connection.
+Release candidate: October 10, 2026. The backend and single-use scheduler security migration are deployed, with eight contact identities queued and delivery paused. Worker version 2 is ACTIVE, and production verification confirmed that a dispatch ticket was consumed. The HubSpot credential is not configured, so no CRM synchronization has succeeded. This is not yet an active CRM connection.
 
 ## Outcome and ownership
 
@@ -119,7 +119,7 @@ Supabase's `supabase_admin` role owns `net.http_request_queue` and `net._http_re
 
 The hardening migration `20261010165450_signup_crm_single_use_dispatch.sql` replaces that persistent bearer with a random job ticket valid for 120 seconds and one successful authorization. Only its hash is retained in the restricted `public.kapukai_crm_worker_tickets` table; `kapukai_crm_authorize_worker` consumes it with an atomic deletion. The service role can consume tickets but cannot mint them. A copied ticket cannot be replayed after consumption or expiry. The migration clears the old authorization hash; the former Vault secret remains unused. The queued header contains neither the HubSpot credential nor a reusable worker credential.
 
-Keeping `net` outside the Data API's exposed schemas is an activation precondition, checked through a release preflight rather than a SQL runtime gate. The live preflight returned `PGRST106` for `Accept-Profile: net`; only `public` and `graphql_public` were exposed. Repeat this check after any API schema configuration change. The design also assumes direct database login roles are trusted: a live ticket can still be read or a queued request disrupted by such a role before consumption. This is a platform boundary, not a claim that queue ACLs were repaired. Hardening deployment remains pending in the evidence table.
+Keeping `net` outside the Data API's exposed schemas is an activation precondition, checked through a release preflight rather than a SQL runtime gate. The live preflight returned `PGRST106` for `Accept-Profile: net`; only `public` and `graphql_public` were exposed. Repeat this check after any API schema configuration change. The design also assumes direct database login roles are trusted: a live ticket can still be read or a queued request disrupted by such a role before consumption. This is a platform boundary, not a claim that queue ACLs were repaired. The hardening migration is applied, and production ticket permissions and consumption are recorded below.
 
 ## Consent and inbound HubSpot changes
 
@@ -152,11 +152,12 @@ Fill this section with observed results for the exact release. Until then, activ
 
 | Evidence | Status / reference |
 | --- | --- |
-| Public website/backend Git commit and pull request | Initial deployed code commit `e2e62316b8c6e219ef74324a17dc47c2678502a1`; [public website/backend PR #4](https://github.com/Kapukai/kapukai-governance-site/pull/4) also holds the reviewed follow-up security migration |
+| Public website/backend Git commit and pull request | Initial deployed code commit `e2e62316b8c6e219ef74324a17dc47c2678502a1`; [public website/backend PR #4](https://github.com/Kapukai/kapukai-governance-site/pull/4) also holds the applied follow-up security migration. Current worker artifact identified below |
 | Core and scheduler migrations | Initial two migrations applied in production; integration remains disabled. Source-trigger coverage defined in the migration |
-| Scheduler authentication hardening | Migration `20261010165450` is ready; 3/3 isolated tests and the final 31-test worker/integration/dispatch run passed. Deployment returned `Migration was declined` without a reason. Production ticket table remains absent. The previous authorization hash was cleared and delivery remains disabled; `pg_net` grants were not repaired |
+| Scheduler authentication hardening | Migration `20261010165450` successfully applied after renewed user authorization. Earlier evidence: 3/3 isolated tests and the final 31-test worker/integration/dispatch run passed. The previous authorization hash is null and delivery remains disabled; `pg_net` grants were not repaired |
+| Production ticket permissions | Ticket table RLS=true; `anon`/`authenticated` SELECT=false; `service_role` SELECT=true and INSERT=false. Worker-authorization EXECUTE: `anon`=false, `service_role`=true. Private dispatch EXECUTE for `service_role`=false |
 | Data API schema preflight | Live `Accept-Profile: net` probe rejected with `PGRST106`; exposed schemas reported as `public` and `graphql_public`. This is a release check, not a permanent runtime guarantee |
-| Worker deployment ID/version | `kapukai-hubspot-sync` version 1 is ACTIVE; CRM configuration is paused |
+| Worker deployment ID/version | `kapukai-hubspot-sync` version 2 is ACTIVE from current files; artifact SHA-256 `f7985d37e90138818529ab86aec7954df4f76ab93fa023ffa04054fe5105dd27`. CRM configuration is paused |
 | Required credential and account verified without exposing secret | Missing HubSpot Service Key; account identity and live CRM writes remain unverified |
 | HubSpot properties verified | Pending |
 | Existing backend/frontend regression results | Final full backend suite: 129 tests passed, 0 failed, including single-use dispatch hardening. Existing 10 frontend checks and assurance checks passed |
@@ -164,9 +165,9 @@ Fill this section with observed results for the exact release. Until then, activ
 | Independent integration review | Mock-provider end-to-end review passed; no blocker found for deploying the disabled foundation. This is not live HubSpot evidence |
 | Controlled contact create/match and contact ID | Pending |
 | Confirmation, withdrawal, retry and duplicate replay verified | Pending |
-| Backfill totals and synthetic exclusions | Eight contacts queued; external delivery disabled. No live contact-sync success claimed |
-| Cron and reconciliation execution observed | Initial schedules installed; hardened authenticated dispatch verification pending |
-| Health and endpoint protection | Eight pending identities, zero successful CRM syncs. Initial unauthenticated worker request returned 401; initial authenticated attempt returned 503 `HUBSPOT_CREDENTIAL_MISSING`. After the declined migration, health records `DISPATCH_HARDENING_NOT_APPLIED`, enabled=false, credential_ready=false, and the old authorization hash is null |
+| Backfill totals and synthetic exclusions | All eight contact identities remain queued; external delivery disabled and zero successful CRM syncs |
+| Cron and authenticated dispatch | Schedules installed; delivery remains paused. Admin `private.kapukai_crm_send_worker(true)` probes `13018` and `13019` (after version 2 deployment) returned HTTP 503 `HUBSPOT_CREDENTIAL_MISSING`, with no timeout. Zero tickets remained afterward, confirming consumption; these probes did not enable delivery |
+| Health and endpoint protection | Eight pending identities, zero successful CRM syncs. Unauthenticated worker request returned 401. Current authenticated probe returned 503 `HUBSPOT_CREDENTIAL_MISSING`; health records enabled=false, credential_ready=false, old authorization hash=null and error=`HUBSPOT_CREDENTIAL_MISSING` |
 | Signup/privacy Vercel deployment and live routes | Pending |
 | Platform signup/privacy candidate | [Kapukai platform PR #41](https://github.com/Kapukai/kapukai-platform/pull/41): three copy-only files; not deployed and no full-build claim |
 | kapukai.org exact release installed | Pending; separate existing-host access required |
