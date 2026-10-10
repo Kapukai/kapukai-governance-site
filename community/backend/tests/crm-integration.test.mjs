@@ -4,19 +4,20 @@ import {readFile} from "node:fs/promises";
 import {PGlite} from "@electric-sql/pglite";
 import {createHandler, PROPERTY_DEFINITIONS} from "../supabase/functions/kapukai-hubspot-sync/handler.mjs";
 
-const [fixture, migration] = await Promise.all([
+const [fixture, migration, dispatchHardening] = await Promise.all([
   readFile(new URL("./crm-fixture.sql", import.meta.url), "utf8"),
   readFile(new URL("../supabase/migrations/20261010162458_signup_crm_outbox.sql", import.meta.url), "utf8"),
+  readFile(new URL("../supabase/migrations/20261010165450_signup_crm_single_use_dispatch.sql", import.meta.url), "utf8"),
 ]);
 const response = (status, value = {}) => new Response(JSON.stringify(value), {status});
 
 test("real SQL triggers and worker RPCs deliver pending → confirmed → withdrawal to one verified CRM contact", async () => {
   const db = new PGlite();
   try {
-    await db.exec(fixture); await db.exec(migration);
-    const email = "lifecycle@registrants.dev", token = "integration_test_worker_0123456789abcdef";
-    await db.query("update kapukai_crm_config set enabled=true,worker_token_hash=encode(sha256(convert_to($1,'UTF8')),'hex')", [token]);
-    let contact = null; const externalWrites = [], rpcCalls = [];
+    await db.exec(fixture); await db.exec(migration); await db.exec(dispatchHardening);
+    const email = "lifecycle@registrants.dev";
+    await db.exec("update kapukai_crm_config set enabled=true");
+    let contact = null, lastDispatchToken; const externalWrites = [], rpcCalls = [];
     async function rpc(name, args) {
       assert.match(name, /^kapukai_crm_[a-z_]+$/);
       const keys = Object.keys(args); keys.forEach(key => assert.match(key, /^p_[a-z_]+$/));
@@ -48,6 +49,10 @@ test("real SQL triggers and worker RPCs deliver pending → confirmed → withdr
     }
     const worker = createHandler({rpc, fetch, hubspotToken: "test_only_hubspot_key", random: () => 0});
     async function run() {
+      // Cron mints each random capability server-side; only its hash is stored.
+      const token = Array.from(crypto.getRandomValues(new Uint8Array(48)), value => value.toString(16).padStart(2, "0")).join("");
+      await db.query("insert into kapukai_crm_worker_tickets(token_hash,expires_at) values(encode(sha256(convert_to($1,'UTF8')),'hex'),now()+interval '120 seconds')", [token]);
+      lastDispatchToken = token;
       const result = await worker(new Request("https://test.invalid/worker", {method: "POST", headers: {Authorization: "Bearer " + token}}));
       const body = await result.json(); assert.equal(result.status, 200, JSON.stringify(body)); return body;
     }
@@ -64,6 +69,11 @@ test("real SQL triggers and worker RPCs deliver pending → confirmed → withdr
     assert.equal(queue.hubspot_contact_id, "81234"); assert.equal(queue.hubspot_email_optout, true);
     assert.equal(queue.generation, queue.synced_generation);
     const firstGeneration = queue.generation;
+    const writesBeforeReplay = externalWrites.length;
+    const replay = await worker(new Request("https://test.invalid/worker", {method: "POST", headers: {Authorization: "Bearer " + lastDispatchToken}}));
+    assert.equal(replay.status, 401);
+    assert.equal(externalWrites.length, writesBeforeReplay);
+    assert.equal((await db.query("select count(*)::integer as count from kapukai_crm_worker_tickets")).rows[0].count, 0);
 
     await db.exec("begin");
     await db.query("update kapukai_scoped_intents set state='confirmed' where registry_id=$1", [id]);

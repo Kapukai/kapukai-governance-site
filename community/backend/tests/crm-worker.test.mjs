@@ -228,7 +228,7 @@ test("unauthenticated callers cannot query health, trigger RPC work, or learn cr
   assert.equal(await constantTimeEqual(WORKER_TOKEN, WORKER_TOKEN + "x"), false);
 });
 
-test("Vault-authorized worker fallback only receives the bearer server-side", async () => {
+test("database-authorized worker only receives the dispatch bearer server-side", async () => {
   const api = fakeApi(), db = fakeDb();
   const response = await invoke(workerFor(db, api, {workerToken: ""}), "GET");
   assert.equal(response.status, 200); assert.equal(db.calls[0].name, "kapukai_crm_authorize_worker");

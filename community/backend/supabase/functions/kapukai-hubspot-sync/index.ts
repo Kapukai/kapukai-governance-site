@@ -19,7 +19,7 @@ async function rpc(name: string, parameters: unknown, options: {timeoutMs?: numb
   return body ? JSON.parse(body) : null;
 }
 Deno.serve(createHandler({rpc, databaseReady: Boolean(key && base),
-  // Production authorizes only the dedicated Vault-backed worker token via RPC.
+  // Production atomically consumes a single-use dispatch ticket through the RPC.
   // Deliberately never reuse the older kapukai-connect credential names.
   hubspotToken: env("KAPUKAI_HUBSPOT_ACCESS_TOKEN"),
   expectedPortalId: env("KAPUKAI_HUBSPOT_PORTAL_ID") || "245840109",

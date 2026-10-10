@@ -1,6 +1,6 @@
 # Kapukai signup → HubSpot blueprint
 
-Release candidate: October 10, 2026. This document covers the contact and signup lifecycle. The release evidence below determines what is actually live; a design or a passing local test is not proof that production is connected.
+Release candidate: October 10, 2026. The initial backend is deployed and paused, with eight contact identities queued. The final scheduler security migration was declined by the deployment approval flow without a reason. Its tested implementation is saved for review. The prior worker authorization hash has been cleared, and the HubSpot credential is not configured. This is not yet an active CRM connection.
 
 ## Outcome and ownership
 
@@ -111,7 +111,15 @@ The `kapukai-hubspot-sync` worker handles at most ten contacts sequentially per 
 
 Health exposes enabled/configured state, last worker heartbeat, pending/retrying/blocked/failed counts, oldest due work, last successful synchronization, shared retry cooldown and safe error categories. An available health query is not an alert delivery system. Until an alert destination is explicitly configured and verified, the owner must review health directly. Do not put emails, access tokens or raw provider response bodies in public logs.
 
-Service-only operations are `kapukai_crm_health`, `kapukai_crm_heartbeat`, `kapukai_crm_reconcile`, `kapukai_crm_retry` and `kapukai_crm_exclude`; worker operations are `kapukai_crm_authorize_worker`, `kapukai_crm_claim`, `kapukai_crm_lease_current`, `kapukai_crm_checkpoint` and `kapukai_crm_complete`. The protected worker `GET` returns aggregate health, while `POST` attempts queued work. RLS and explicit grants deny these tables and operations to anonymous and ordinary signed-in users.
+Service-only operations are `kapukai_crm_health`, `kapukai_crm_heartbeat`, `kapukai_crm_reconcile`, `kapukai_crm_retry` and `kapukai_crm_exclude`; worker operations are `kapukai_crm_authorize_worker`, `kapukai_crm_claim`, `kapukai_crm_lease_current`, `kapukai_crm_checkpoint` and `kapukai_crm_complete`. The protected worker `GET` returns aggregate health, while `POST` attempts queued work. RLS and explicit grants protect the CRM-owned tables and operations from anonymous and ordinary signed-in users. These controls do not change Supabase's platform-owned `pg_net` grants.
+
+### Scheduler authentication hardening
+
+Supabase's `supabase_admin` role owns `net.http_request_queue` and `net._http_response`. A `REVOKE` issued as `postgres` can appear successful without changing their platform-granted privileges. Request headers remain visible to roles that can connect directly to the database. A secret read from Vault is still plaintext once placed in those headers; the initial static Vault bearer design must not be activated.
+
+The hardening migration `20261010165450_signup_crm_single_use_dispatch.sql` replaces that persistent bearer with a random job ticket valid for 120 seconds and one successful authorization. Only its hash is retained in the restricted `public.kapukai_crm_worker_tickets` table; `kapukai_crm_authorize_worker` consumes it with an atomic deletion. The service role can consume tickets but cannot mint them. A copied ticket cannot be replayed after consumption or expiry. The migration clears the old authorization hash; the former Vault secret remains unused. The queued header contains neither the HubSpot credential nor a reusable worker credential.
+
+Keeping `net` outside the Data API's exposed schemas is an activation precondition, checked through a release preflight rather than a SQL runtime gate. The live preflight returned `PGRST106` for `Accept-Profile: net`; only `public` and `graphql_public` were exposed. Repeat this check after any API schema configuration change. The design also assumes direct database login roles are trusted: a live ticket can still be read or a queued request disrupted by such a role before consumption. This is a platform boundary, not a claim that queue ACLs were repaired. Hardening deployment remains pending in the evidence table.
 
 ## Consent and inbound HubSpot changes
 
@@ -126,7 +134,7 @@ Target HubSpot account: `245840109`. Target Supabase project: `tbxfsjipkrdwyctep
 1. Review the worker's owned-property definitions and the migration; run the isolated backend tests and inspect the source coverage list. Do not reapply historical schema files.
 2. Use a dedicated HubSpot **Service Key**, named **Kapukai Signup Sync**, in the target account. The current documented path is Development → Keys → Service keys. The contact runtime requires `crm.objects.contacts.read` and `crm.objects.contacts.write`. Property setup also requires `crm.schemas.contacts.read` and `crm.schemas.contacts.write`. Grant no marketing-send or unrelated record scopes. HubSpot is retiring new legacy private-app creation; do not depend on that old UI being available. Service Keys support the REST calls used here, not webhook authentication.
 3. An authorized administrator enters the key directly into Supabase Edge Function Secrets as `KAPUKAI_HUBSPOT_ACCESS_TOKEN`. Do not paste it into chat, Git, a public `.env`, a frontend build or an API response. ChatGPT's HubSpot connection does not supply a deployable server credential. Do not use the old `HUBSPOT_ACCESS_TOKEN` or `HUBSPOT_PRIVATE_APP_TOKEN` names: an existing legacy function consumes those names and could activate a separate direct-write path.
-4. Deploy both reviewed migrations and the `kapukai-hubspot-sync` worker while the CRM configuration remains disabled. The scheduler uses the dedicated `kapukai_crm_worker_token` generated and stored in Supabase Vault; `kapukai_crm_authorize_worker` validates the request against its stored hash. Production has no environment-token override and needs no second manually copied Edge secret. The browser's public Supabase key must not authorize queue access.
+4. Keep the CRM configuration disabled until the core, schedule and job-ticket hardening migrations are deployed and verified. Confirm that `net` is absent from Data API exposed schemas and that direct database login roles are trusted. The scheduler must use a 120-second, single-use job ticket consumed by `kapukai_crm_authorize_worker`, with no reusable bearer or provider credential in `pg_net`. Production has no environment-token override and needs no second manually copied Edge secret. The browser's public Supabase key must not authorize queue access.
 5. Set `KAPUKAI_HUBSPOT_PORTAL_ID=245840109` (also the code default), verify that the Service Key can access the account identity endpoint, and verify all required custom properties. Each worker run checks `/integrations/v1/me` against that expected account before contact writes; inability to verify must block activation. Then verify a controlled owner contact through create/match, confirmation, withdrawal and replay. Confirm that there is only one contact and that unrelated HubSpot fields and marketing subscriptions were not changed.
 6. Review existing identities and explicit test exclusions, then perform backfill through the same queue. Enable the scheduled worker and reconciliation, confirm both run, and inspect blocked/failed rows. Count parity alone does not prove the correct identities or consent states.
 7. Publish the exact tested signup/privacy disclosure on Vercel. Follow `AGENTS.md` for any later kapukai.org installation; Vercel access does not provide access to the existing nginx host.
@@ -144,19 +152,21 @@ Fill this section with observed results for the exact release. Until then, activ
 
 | Evidence | Status / reference |
 | --- | --- |
-| Public website/backend Git commit and pull request | Pending |
-| Migration applied and source triggers inspected | Pending |
-| Worker deployment ID/version | Pending |
-| Required credential and account verified without exposing secret | Pending |
+| Public website/backend Git commit and pull request | Initial deployed code commit `e2e62316b8c6e219ef74324a17dc47c2678502a1`; [public website/backend PR #4](https://github.com/Kapukai/kapukai-governance-site/pull/4) also holds the reviewed follow-up security migration |
+| Core and scheduler migrations | Initial two migrations applied in production; integration remains disabled. Source-trigger coverage defined in the migration |
+| Scheduler authentication hardening | Migration `20261010165450` is ready; 3/3 isolated tests and the final 31-test worker/integration/dispatch run passed. Deployment returned `Migration was declined` without a reason. Production ticket table remains absent. The previous authorization hash was cleared and delivery remains disabled; `pg_net` grants were not repaired |
+| Data API schema preflight | Live `Accept-Profile: net` probe rejected with `PGRST106`; exposed schemas reported as `public` and `graphql_public`. This is a release check, not a permanent runtime guarantee |
+| Worker deployment ID/version | `kapukai-hubspot-sync` version 1 is ACTIVE; CRM configuration is paused |
+| Required credential and account verified without exposing secret | Missing HubSpot Service Key; account identity and live CRM writes remain unverified |
 | HubSpot properties verified | Pending |
-| Existing backend/frontend regression results | Baseline: 87 backend tests and 10 frontend checks passed; final full suite pending |
+| Existing backend/frontend regression results | Final full backend suite: 129 tests passed, 0 failed, including single-use dispatch hardening. Existing 10 frontend checks and assurance checks passed |
 | CRM database and worker test results | 11 database tests and 28 worker tests passed, including the real SQL RPC/PGlite pending → confirmation → withdrawal flow with a mocked HubSpot API. Deno entrypoint check passed; production CRM verification pending |
 | Independent integration review | Mock-provider end-to-end review passed; no blocker found for deploying the disabled foundation. This is not live HubSpot evidence |
 | Controlled contact create/match and contact ID | Pending |
 | Confirmation, withdrawal, retry and duplicate replay verified | Pending |
-| Backfill totals and synthetic exclusions | Pending |
-| Cron and reconciliation execution observed | Pending |
-| Health: last success, oldest pending, blocked and failed counts | Pending |
+| Backfill totals and synthetic exclusions | Eight contacts queued; external delivery disabled. No live contact-sync success claimed |
+| Cron and reconciliation execution observed | Initial schedules installed; hardened authenticated dispatch verification pending |
+| Health and endpoint protection | Eight pending identities, zero successful CRM syncs. Initial unauthenticated worker request returned 401; initial authenticated attempt returned 503 `HUBSPOT_CREDENTIAL_MISSING`. After the declined migration, health records `DISPATCH_HARDENING_NOT_APPLIED`, enabled=false, credential_ready=false, and the old authorization hash is null |
 | Signup/privacy Vercel deployment and live routes | Pending |
 | Platform signup/privacy candidate | [Kapukai platform PR #41](https://github.com/Kapukai/kapukai-platform/pull/41): three copy-only files; not deployed and no full-build claim |
 | kapukai.org exact release installed | Pending; separate existing-host access required |
@@ -167,7 +177,8 @@ Fill this section with observed results for the exact release. Until then, activ
 
 - [Supabase Edge Function secrets](https://supabase.com/docs/guides/functions/secrets)
 - [Supabase scheduling Edge Functions](https://supabase.com/docs/guides/functions/schedule-functions)
-- [Supabase Vault](https://supabase.com/docs/guides/database/vault)
+- [Supabase pg_net privilege constraint](https://supabase.com/docs/guides/troubleshooting/revoking-access-to-pg_net-objects-has-no-effect-0bbc16)
+- [Supabase queued request header visibility](https://supabase.com/docs/guides/troubleshooting/database-roles-can-read-request-headers-queued-by-pg_net-ad6357)
 - [HubSpot contact object guide](https://developers.hubspot.com/blog/a-developers-guide-to-hubspot-crm-objects-contacts-object)
 - [HubSpot properties API](https://developers.hubspot.com/docs/api-reference/legacy/crm/properties/guide)
 - [HubSpot Service Keys](https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/account-service-keys)
