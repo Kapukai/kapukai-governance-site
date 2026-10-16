@@ -50,3 +50,11 @@ The Workshop entry pages and private applications reuse the existing contact reg
 The public contact page lists verified web destinations and architect@kapukai.org. No physical mailing address was supplied or verified; none has been invented. `/contact/` is included in this module’s installer so the currently forbidden contact route can be replaced once server access is available and destination conflicts have been reviewed.
 
 Vercel headers do not configure nginx. Before public application links move to kapukai.org, configure equivalent CSP, Referrer-Policy, nosniff and no-store/noindex headers for the confirmation routes on the actual host, then verify them. Preserve existing legacy confirmation links and fragment tokens.
+
+## Architecture of Power — October 16, 2026
+
+The public research page is `/architecture-of-power/`; its static institutional appendix is `/architecture-of-power/atlas/`. Sources are `architecture-body.html`, `architecture-map.html`, `architecture_page.py`, and `architecture_atlas.py`. The evidence map progressively enhances static findings using `assets/architecture-map.js`; it uses no external scripts or data requests. Both atlas PDFs are included under `/community/files/architecture-of-power/`.
+
+The page separates official dated findings, documented requirements, observed outcomes, and Kapukai proposals. It does not rank present danger, countries or corruption. The procedure-reduction method measures burden separately from effective protection.
+
+Build with the existing `build_community.py` workflow. `deploy.py` owns the new `architecture-of-power/` prefix in addition to its existing scopes. This does not grant access to, or replace, the separately hosted kapukai.org homepage.

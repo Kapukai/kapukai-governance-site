@@ -11,7 +11,8 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 PREFIXES = ('community/', 'contact/', 'join/', 'confirm/', 'testers/', 'newsletter/',
-            'articles/tort-law-and-accountability/', 'tort/', 'assets/community/')
+            'articles/tort-law-and-accountability/', 'tort/', 'assets/community/',
+            'architecture-of-power/')
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
