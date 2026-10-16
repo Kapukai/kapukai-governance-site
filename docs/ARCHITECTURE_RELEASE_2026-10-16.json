@@ -1,0 +1,42 @@
+{
+  "content_commit": "4279ae3fdabfae304282f68243df53abfc742c21",
+  "content_tree": "936230d06638d03a1ccfdb7ae5dafd06daf3bd72",
+  "vercel_project": "kapukai-community",
+  "vercel_deployment_id": "dpl_BVMhtKZ3harzCT4fgdp6KoaUHUxA",
+  "immutable_deployment": "https://kapukai-community-3bqbigcg1-kapukais-projects.vercel.app",
+  "public_article": "https://kapukai-community.vercel.app/architecture-of-power/",
+  "intended_canonical_article": "https://kapukai.org/architecture-of-power/",
+  "manifest_sha256": "2ac3aded3b655a877a1a9202f1ec7b13c0a0928cf5df4b1e3a9d89a5f8c2159e",
+  "manifest_file_count": 37,
+  "verification": {
+    "served_file_hashes_matched": 36,
+    "expected_redirect_verified": "/tort/ -> /articles/tort-law-and-accountability/",
+    "existing_backend_tests": 87,
+    "existing_ui_and_link_tests": 8,
+    "installer_tests": 10,
+    "heatmap_selections_checked": 48,
+    "static_no_javascript_records": 8,
+    "graphical_browser_qa": "not completed: control-browser unavailable; no Chromium executable",
+    "pdf_integrity": "source copies byte-identical; 14 and 12 pages"
+  },
+  "canonical_installation": "pending existing nginx host access; no server credentials or authenticated deployment route available in this session",
+  "canonical_probes": {
+    "tort": {
+      "status": 308,
+      "location": "/articles/tort-law-and-accountability/",
+      "server": "Vercel"
+    },
+    "canonical_home": {
+      "status": 200,
+      "location": null,
+      "server": "nginx/1.22.1"
+    },
+    "canonical_article": {
+      "status": 404,
+      "location": null,
+      "server": "nginx/1.22.1"
+    }
+  },
+  "dns_changed": false,
+  "verified_at": "2026-10-16T21:53:55.216287+00:00"
+}
