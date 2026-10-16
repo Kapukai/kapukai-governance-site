@@ -1,0 +1,31 @@
+{
+  "content_commit": "fccbc7319baa8a25288fd2825cbf240ea75be707",
+  "content_tree": "52ebdccf27ce769669f5f8906656cfd714f0f0d6",
+  "vercel_project": "kapukai-community",
+  "vercel_deployment_id": "dpl_BYQfvZ1vdQNQ4XNK1hwayvJX9rV4",
+  "immutable_deployment": "https://kapukai-community-hysu5lbd0-kapukais-projects.vercel.app",
+  "public_library": "https://kapukai-community.vercel.app/architecture-of-power/patterns/",
+  "manifest_sha256": "332275a8e7578a747aae462daf4e74d4cb68b06196ef0c2872ff52ccfb66f6fc",
+  "manifest_file_count": 60,
+  "kit_sha256": "111f475bb60d9c3632e4db64f892afe268c8cb91ac73ea095b378aa83f0ee1ae",
+  "kit_bytes": 877998,
+  "verification": {
+    "served_file_hashes_matched": 59,
+    "unchanged_redirect_previously_verified": "/tort/ -> /articles/tort-law-and-accountability/",
+    "backend_tests": 87,
+    "ui_and_link_tests": 8,
+    "installer_tests": 10,
+    "pattern_selections": 8,
+    "focus_filter_states": 4,
+    "deep_links": "card and show-all overview verified",
+    "no_javascript": "all 8 cards and downloads visible",
+    "svg_and_png_pairs": 8,
+    "png_dimensions": "1080 x 1350",
+    "archive_entries_verified": 19,
+    "visual_qa": "all eight diagram exports inspected; card labels at least 28 px",
+    "graphical_browser_qa": "not completed: no control-browser or Chromium available"
+  },
+  "canonical_installation": "not installed: existing kapukai.org nginx host access unavailable in this session",
+  "dns_changed": false,
+  "verified_at": "2026-10-16T22:13:41.881637+00:00"
+}
