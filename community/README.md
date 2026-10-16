@@ -58,3 +58,9 @@ The public research page is `/architecture-of-power/`; its static institutional 
 The page separates official dated findings, documented requirements, observed outcomes, and Kapukai proposals. It does not rank present danger, countries or corruption. The procedure-reduction method measures burden separately from effective protection.
 
 Build with the existing `build_community.py` workflow. `deploy.py` owns the new `architecture-of-power/` prefix in addition to its existing scopes. This does not grant access to, or replace, the separately hosted kapukai.org homepage.
+
+### Visual pattern kit
+
+`/architecture-of-power/patterns/` adds eight conceptual patterns and proposed tests, with three focus groups, deep links, full no-JavaScript content, and SVG/PNG downloads. `pattern-library.json` is the content source; `pattern_art.py` produces the diagram masters and images. `pattern_library.py` builds the page and deterministic ZIP archive. Download files are under `/community/files/architecture-of-power/pattern-kit/`. The existing CC BY-NC-ND 4.0 public license is preserved; no unrestricted adaptation permission is added.
+
+To regenerate illustrations after a content edit, call `generate_cards(data['patterns'], output_dir)` from `pattern_art`, where `data` is the parsed `pattern-library.json` and `output_dir` is `assets/files/architecture-of-power/pattern-kit`. Then run the normal page build. Illustration generation is separate from the page build, so serving the reviewed masters does not depend on image-rendering libraries.

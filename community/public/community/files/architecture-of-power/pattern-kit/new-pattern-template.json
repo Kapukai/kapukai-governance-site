@@ -1,0 +1,24 @@
+{
+  "id": "P09",
+  "version": "0.1-draft",
+  "title": "",
+  "group": "",
+  "insight": "",
+  "observe": "",
+  "evidence_needed": "",
+  "measure": "",
+  "repair": "",
+  "tradeoff": "",
+  "counterexample": "",
+  "image_description": "",
+  "source_ids": [],
+  "claim_type": "conceptual illustration and proposed tests",
+  "verification_state": "unassessed",
+  "scope": {
+    "institution": "",
+    "decision_type": "",
+    "period": "",
+    "authority": ""
+  },
+  "editorial_gate": "Add only a distinct mechanism that changes what a reader would inspect and offers a repair that can be tested."
+}

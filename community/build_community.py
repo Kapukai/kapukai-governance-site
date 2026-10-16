@@ -40,8 +40,10 @@ from architecture_page import build_architecture
 build_architecture(page, P)
 from architecture_atlas import build_atlas
 build_atlas(page, P)
+from pattern_library import build_patterns
+build_patterns(page, P)
 
-routes=[public_path(x) for x in ['','community','testers','newsletter','practice','privacy',ARTICLE]] + ['community/'+x for x in ['assistance','reviewers','learn','about','contact','status','lifecycle']] + ['architecture-of-power', 'architecture-of-power/atlas']
+routes=[public_path(x) for x in ['','community','testers','newsletter','practice','privacy',ARTICLE]] + ['community/'+x for x in ['assistance','reviewers','learn','about','contact','status','lifecycle']] + ['architecture-of-power', 'architecture-of-power/atlas', 'architecture-of-power/patterns']
 (P/'community'/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+ORIGIN+('/'+route+'/' if route else '/')+'</loc></url>' for route in routes)+'</urlset>')
 (P/'robots.txt').write_text('User-agent: *\nAllow: /\nDisallow: /confirm/\nDisallow: /community/apply/\nDisallow: /community/operate/\nSitemap: '+ORIGIN+'/community/sitemap.xml\n')
 print('Article, community signup, homepage and discovery metadata built.')

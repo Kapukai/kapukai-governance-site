@@ -1,0 +1,273 @@
+{
+  "title": "Kapukai Visual Pattern Library",
+  "version": "1.0",
+  "published": "2026-10-16",
+  "scope": "These are design questions, not findings about every institution or proof of intent. Sources support the underlying principles; the tests are proposed here.",
+  "license": "CC BY-NC-ND 4.0",
+  "patterns": [
+    {
+      "id": "P01",
+      "title": "Correction must reach the consequence",
+      "insight": "A correction may arrive at the source while consequences continue wherever the earlier information traveled.",
+      "observe": "Trace one accepted correction through every known recipient that used the earlier information.",
+      "measure": "Compare recipients updated, restrictions removed, and elapsed time with the original information’s reach.",
+      "repair": "Assign correction owners, confirm recipient updates, and check whether downstream consequences actually end.",
+      "tradeoff": "Fast propagation helps timely action; it also needs reliable correction paths and limits on unnecessary sharing.",
+      "slug": "correction-reach",
+      "group": "information",
+      "evidence_needed": "Recipient lists, correction decisions, delivery acknowledgments, updated records, and evidence that downstream restrictions changed.",
+      "counterexample": "Every affected recipient updates promptly, and verified consequences end without the obsolete information reappearing.",
+      "source_ids": [
+        "stpa-handbook-2018"
+      ],
+      "image_description": "Illustrative paired networks: an original decision reaches several recipients; the correction route must reach each place where consequences persist.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    },
+    {
+      "id": "P02",
+      "title": "The unowned handoff",
+      "insight": "A referral can move the paperwork without transferring responsibility for the next decision.",
+      "observe": "At each transfer, identify who accepts the task and who can resolve a stalled handoff.",
+      "measure": "Count transfers without acknowledgment, unresolved ownership disputes, and time spent waiting between offices.",
+      "repair": "Name the receiving owner, require acceptance, and define escalation when responsibility remains disputed.",
+      "tradeoff": "Specialization can improve decisions, but additional handoffs need explicit responsibility and enough context.",
+      "slug": "unowned-handoff",
+      "group": "responsibility",
+      "evidence_needed": "Transfer logs, acceptance records, delegated authority, escalation rules, and elapsed time between responsible owners.",
+      "counterexample": "A referral is accepted by a named owner who has authority and resources to resolve it.",
+      "source_ids": [
+        "stpa-handbook-2018"
+      ],
+      "image_description": "Illustrative handoff between offices: a referral reaches a boundary, but responsibility must be accepted by a receiving owner.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    },
+    {
+      "id": "P03",
+      "title": "Copies are not independent corroboration",
+      "insight": "Several matching records may repeat one assertion rather than provide several independent reasons to believe it.",
+      "observe": "Follow each supporting record back to its originating evidence and later transformations.",
+      "measure": "Count independent source observations separately from copies, summaries, and records derived from the same source.",
+      "repair": "Preserve provenance and distinguish independent support from repeated claims before weighing the evidence.",
+      "tradeoff": "Sharing improves access, but repetition must not be treated as additional independent evidence.",
+      "slug": "copied-corroboration",
+      "group": "information",
+      "evidence_needed": "Original observations, source identifiers, derivation history, timestamps, and reasons for treating sources as independent.",
+      "counterexample": "Matching records come from separate observations with independent evidentiary support.",
+      "source_ids": [
+        "w3c-prov-overview"
+      ],
+      "image_description": "Illustrative provenance network: one source is copied into several records; copies are distinguished from independent observations.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    },
+    {
+      "id": "P04",
+      "title": "Labels outrun their evidence",
+      "insight": "A tentative label can acquire greater authority as it travels even when its supporting evidence has not changed.",
+      "observe": "Track where an allegation, provisional assessment, or confirmed finding changes category or triggers a stronger response.",
+      "measure": "Count escalations without a traceable evidentiary basis, applicable rule, or authorized review.",
+      "repair": "Keep allegations, assessments, and findings distinct; require evidence and authorized review before changing status.",
+      "tradeoff": "Early warnings can support protection; provisional status and timely review help limit unsupported consequences.",
+      "slug": "label-escalation",
+      "group": "information",
+      "evidence_needed": "Original wording, status changes, supporting evidence, applicable criteria, authorizations, and triggered actions.",
+      "counterexample": "A stronger classification follows new evidence and documented review under the applicable rule.",
+      "source_ids": [
+        "stpa-handbook-2018"
+      ],
+      "image_description": "Illustrative label history: a provisional assertion becomes a stronger classification without visible new support, prompting an evidence check.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    },
+    {
+      "id": "P05",
+      "title": "Closed ticket, unresolved consequence",
+      "insight": "Closing a complaint or completing a task does not, by itself, show that the underlying problem was repaired.",
+      "observe": "Check the affected person’s situation after administrative closure, including any continuing restrictions.",
+      "measure": "Report closure separately from verified repair, time to relief, and recurrence of the same problem.",
+      "repair": "Define the outcome required for resolution, verify it, and reopen cases when the problem persists.",
+      "tradeoff": "Outcome verification takes resources; prioritize serious consequences and avoid making affected people repeatedly prove the same unresolved harm.",
+      "slug": "closure-without-repair",
+      "group": "responsibility",
+      "evidence_needed": "Closure criteria, follow-up records, restored access, remaining restrictions, and recurrence checks.",
+      "counterexample": "Closure follows verified repair, and later monitoring finds no continuing consequence from the original error.",
+      "source_ids": [
+        "gao-green-book-2025"
+      ],
+      "image_description": "Illustrative outcome chain: administrative closure is separated from verified restoration of the affected person’s situation.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    },
+    {
+      "id": "P06",
+      "title": "Less burden. Effective protection.",
+      "insight": "A procedural step should be judged by the protection it provides alongside the effort and delay it imposes.",
+      "observe": "Ask what risk each requirement addresses and who bears its time, cost, and accessibility demands.",
+      "measure": "Compare errors prevented with completion time, repeated submissions, abandonment, and unequal access.",
+      "repair": "Remove duplication, offer accessible routes, and retain safeguards that demonstrably protect rights or public interests.",
+      "tradeoff": "Simplification can remove friction or remove protection; assess both before changing a requirement.",
+      "slug": "burden-and-protection",
+      "group": "incentives",
+      "evidence_needed": "Requirement purpose, completion and abandonment data, user effort, accessibility evidence, and measured protection.",
+      "counterexample": "A demanding requirement demonstrably prevents serious harm, with accessible assistance and proportionate exceptions.",
+      "source_ids": [
+        "oecd-regulatory-policy-governance",
+        "oecd-human-centred-services-2024"
+      ],
+      "image_description": "A conceptual two-axis matrix comparing procedural burden and verified protection. No agencies or measured values are plotted.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    },
+    {
+      "id": "P07",
+      "title": "Independent review, connected repair",
+      "insight": "Independent review needs connected repair and a clearly assigned, lawful route to interim protection where available.",
+      "observe": "Who has lawful authority to pause harmful action pending review, under what conditions and response time?",
+      "measure": "Track pause requests, response times, review dates, justified refusals, and whether authorized relief reaches every responsible office.",
+      "repair": "Preserve independent review; define lawful pause conditions, deadlines, review, and connected repair without unnecessary data sharing.",
+      "tradeoff": "A pause can prevent worsening harm or interrupt needed protection; define proportionate conditions and prompt review.",
+      "slug": "separation-and-feedback",
+      "group": "responsibility",
+      "evidence_needed": "Governing authority, pause criteria, request logs, reasons, review deadlines, and evidence of downstream implementation.",
+      "counterexample": "A boundary preserves impartial review while a separately authorized official promptly implements temporary relief.",
+      "source_ids": [
+        "nist-systems-engineering-2022",
+        "oecd-human-centred-services-2024"
+      ],
+      "image_description": "A conceptual map preserving independent review while connecting authorized interim protection and implementation of a remedy.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    },
+    {
+      "id": "P08",
+      "title": "Metrics shape choices",
+      "insight": "Targets can direct attention toward fast completion while leaving accuracy, access, or lasting repair less visible.",
+      "observe": "Compare rewarded targets with the outcomes the service is supposed to deliver.",
+      "measure": "Review speed and volume alongside error rates, unresolved harm, repeat work, and access across groups.",
+      "repair": "Balance output targets with outcome checks, review workload pressures, and investigate unexpected changes in reported performance.",
+      "tradeoff": "More measures can reveal blind spots but increase reporting work; keep the set small and decision-relevant.",
+      "slug": "metrics-shape-choices",
+      "group": "incentives",
+      "evidence_needed": "Target definitions, performance reviews, workload data, validation samples, outcome trends, and documented responses to missed targets.",
+      "counterexample": "Balanced measures reward accurate, timely outcomes, and independent checks confirm that reported improvements persist.",
+      "source_ids": [
+        "gao-green-book-2025"
+      ],
+      "image_description": "A conceptual feedback loop linking performance targets, staff choices, measured outputs and checks of human outcomes.",
+      "claim_type": "conceptual illustration and proposed tests",
+      "verification_state": "not an empirical finding",
+      "version": "1.0",
+      "updated": "2026-10-16"
+    }
+  ],
+  "sources": {
+    "stpa-handbook-2018": {
+      "label": "STPA Handbook · feedback and execution",
+      "url": "https://psas.scripts.mit.edu/home/get_file.php?name=STPA_handbook.pdf",
+      "scope": "Analyzes missing, delayed, incorrect, and unapplied feedback; this card applies that principle to correction propagation. Calls for checking responsibilities, controls, and feedback for conflicts and gaps. Analyzes decisions based on incorrect, misinterpreted, conflicting, or missing information; label escalation is a proposed application.",
+      "anchors": [
+        {
+          "pattern_id": "P01",
+          "locator": "Chapter 2, printed pages 46–49",
+          "support": "Analyzes missing, delayed, incorrect, and unapplied feedback; this card applies that principle to correction propagation."
+        },
+        {
+          "pattern_id": "P02",
+          "locator": "Chapter 2, printed pages 25–26 and 34",
+          "support": "Calls for checking responsibilities, controls, and feedback for conflicts and gaps."
+        },
+        {
+          "pattern_id": "P04",
+          "locator": "Chapter 2, printed pages 45–48",
+          "support": "Analyzes decisions based on incorrect, misinterpreted, conflicting, or missing information; label escalation is a proposed application."
+        }
+      ]
+    },
+    "w3c-prov-overview": {
+      "label": "W3C PROV · origins and derivation",
+      "url": "https://www.w3.org/TR/prov-overview/",
+      "scope": "Provides a framework for recording sources, agents, processing, versioning, and derivation; the corroboration test is our application.",
+      "anchors": [
+        {
+          "pattern_id": "P03",
+          "locator": "Section 1, Introduction",
+          "support": "Provides a framework for recording sources, agents, processing, versioning, and derivation; the corroboration test is our application."
+        }
+      ]
+    },
+    "gao-green-book-2025": {
+      "label": "GAO Green Book · remediation",
+      "url": "https://www.gao.gov/assets/890/882014.pdf",
+      "scope": "Requires timely corrective action and addresses measurable remediation progress; this card proposes a person-level outcome check. Addresses excessive goal-related pressures and whether measures appropriately evaluate objectives.",
+      "anchors": [
+        {
+          "pattern_id": "P05",
+          "locator": "2025 revision, paragraphs 17.05–17.08",
+          "support": "Requires timely corrective action and addresses measurable remediation progress; this card proposes a person-level outcome check."
+        },
+        {
+          "pattern_id": "P08",
+          "locator": "2025 revision, paragraphs 5.07–5.08 and 6.07",
+          "support": "Addresses excessive goal-related pressures and whether measures appropriately evaluate objectives."
+        }
+      ]
+    },
+    "oecd-regulatory-policy-governance": {
+      "label": "OECD · regulatory policy and governance",
+      "url": "https://legalinstruments.oecd.org/public/doc/273/26c0733a-b832-43c6-8d1a-1296171e4e4d.html",
+      "scope": "Recommends reducing unnecessary burdens while preserving legitimate objectives and evaluating public outcomes.",
+      "anchors": [
+        {
+          "pattern_id": "P06",
+          "locator": "Annex, paragraphs 1.2 and 5.4–6.4",
+          "support": "Recommends reducing unnecessary burdens while preserving legitimate objectives and evaluating public outcomes."
+        }
+      ]
+    },
+    "oecd-human-centred-services-2024": {
+      "label": "OECD · public service rights",
+      "url": "https://legalinstruments.oecd.org/api/print?ids=729&lang=en",
+      "scope": "Connects service design with proportionality, privacy, procedural guarantees, review, and timely remedy. Supports lawful, proportionate administration, independent review, and timely remedy; this card asks who can lawfully provide interim protection without asserting a universal pause power.",
+      "anchors": [
+        {
+          "pattern_id": "P06",
+          "locator": "Recommendation adopted September 17, 2024, section III",
+          "support": "Connects service design with proportionality, privacy, procedural guarantees, review, and timely remedy."
+        },
+        {
+          "pattern_id": "P07",
+          "locator": "Section III, paragraphs 1–5",
+          "support": "Supports lawful, proportionate administration, independent review, and timely remedy; this card asks who can lawfully provide interim protection without asserting a universal pause power."
+        }
+      ]
+    },
+    "nist-systems-engineering-2022": {
+      "label": "NIST · isolation and limited sharing",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160v1r1.pdf",
+      "scope": "Explains isolation, necessary interfaces, least privilege, and least sharing; applying these to institutional boundaries is an analogy.",
+      "anchors": [
+        {
+          "pattern_id": "P07",
+          "locator": "November 2022, sections E.13 and E.16–E.17",
+          "support": "Explains isolation, necessary interfaces, least privilege, and least sharing; applying these to institutional boundaries is an analogy."
+        }
+      ]
+    }
+  }
+}
