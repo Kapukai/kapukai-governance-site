@@ -1,0 +1,25 @@
+{
+  "module": "privacy-boundary",
+  "source_commit": "f26a99f05b3304a21f67e7afd717559a40487d17",
+  "source_repository": "Kapukai/kapukai-governance-site",
+  "branch": "work/privacy-boundary",
+  "deployment_id": "dpl_4agFjiVa5YcRJRLxMmKVPFuRm7XS",
+  "review_url": "https://kapukai-community-drfvjucq3-kapukais-projects.vercel.app/privacy-boundary/",
+  "intended_canonical_url": "https://kapukai.org/privacy-boundary/",
+  "canonical_installation": "blocked: authenticated existing-host access unavailable",
+  "files": {
+    "privacy-boundary/style.css": "f2fffd4875c06a1d478272e9cd43682fca518d4f571a921d5bebcb38331f6598",
+    "privacy-boundary/index.html": "f5082e17ee9a1b0ca1aed1394e5dfe24e3925b4de10031a9d73168b25c40f186",
+    "privacy-boundary/app.js": "3709ab4262f109fa6483e1245c116e9c2e661318e449fa8a6f28b25a8babc858",
+    "privacy-boundary/trustee-questions.txt": "dcfaf45046fb6f7945bb96c58a55ca33ffd6bea79bafa55deaead701f5d98524"
+  },
+  "checks": [
+    "JavaScript syntax",
+    "local links and assets",
+    "map switching",
+    "all-map print generation",
+    "text-only outline download",
+    "unknown evidence markers"
+  ],
+  "verification_limit": "No browser rendering inspection; browser-control capability unavailable."
+}
