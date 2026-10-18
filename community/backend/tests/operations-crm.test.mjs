@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {syncContact,OPERATION_FIELDS} from '../supabase/functions/kapukai-hubspot-sync/handler.mjs';
+const job={email:'test@example.invalid',generation:1,lease_id:'lease',hubspot_contact_id:'123',payload:{email:'test@example.invalid',email_verified:true,source_present:true,suppressed:false,consent_status:'confirmed',signup_sources:[],source_states:[],confirmed_topics:[]}};
+test('operation fields are read back and arbitrary RPC keys never reach CRM',async()=>{let props={email:job.email};let reads=0;const summary=Object.fromEntries(Object.keys(OPERATION_FIELDS).map(k=>[k,'']));summary.kapukai_next_action='Review test';summary.hs_email_optout='false';
+ const rpc=async(name)=>name==='kapukai_operations_contact_summary'?summary:true;
+ const client={get:async()=>{reads++;return{id:'123',properties:{...props}};},update:async(id,p)=>{props={...props,...p};}};
+ const result=await syncContact(job,{rpc,client});assert.equal(result.contactId,'123');assert.equal(props.kapukai_next_action,'Review test');assert.equal(props.hs_email_optout,undefined);assert.equal(reads,2);
+});
+test('invalid summary blocks CRM writes',async()=>{await assert.rejects(syncContact(job,{rpc:async()=>({}),client:{get:()=>{throw Error('must not read')}}}),/INVALID_OPERATIONS_SUMMARY/);});

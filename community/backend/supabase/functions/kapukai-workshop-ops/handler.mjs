@@ -1,3 +1,4 @@
+import { brandMessage } from "./kapukai-email.mjs";
 import { OpsError, publicAuthConfig, UUID_RE } from "./auth.mjs";
 
 export const ALLOWED_ORIGINS = new Set(["https://kapukai.org", "https://www.kapukai.org", "https://kapukai-community.vercel.app"]);
@@ -85,7 +86,7 @@ export function createNoticeSender({ providerToken, from, fetchImpl = fetch }) {
       response = await fetchImpl("https://api.postmarkapp.com/email", {
         method: "POST", redirect: "error", signal: AbortSignal.timeout(10000),
         headers: { Accept: "application/json", "Content-Type": "application/json", "X-Postmark-Server-Token": providerToken },
-        body: JSON.stringify({ From: from, To: email, ReplyTo: "architect@kapukai.org", Subject: NOTICE_MESSAGE.subject, TextBody: NOTICE_MESSAGE.text, MessageStream: "outbound", Tag: "kapukai-application-update", TrackOpens: false, TrackLinks: "None", Metadata: { application_id: applicationId, notice_id: noticeId, template_version: NOTICE_VERSION } }),
+        body: JSON.stringify({ From: from, To: email, ReplyTo: "architect@kapukai.org", Subject: NOTICE_MESSAGE.subject, TextBody: NOTICE_MESSAGE.text, HtmlBody: brandMessage({Subject: NOTICE_MESSAGE.subject, TextBody: NOTICE_MESSAGE.text}).HtmlBody, MessageStream: "outbound", Tag: "kapukai-application-update", TrackOpens: false, TrackLinks: "None", Metadata: { application_id: applicationId, notice_id: noticeId, template_version: NOTICE_VERSION } }),
       });
     } catch { return { state: "unknown", providerMessageId: null }; }
     let value;

@@ -1,3 +1,4 @@
+import { brandMessage } from "./kapukai-email.mjs";
 import { createHandler } from "./handler.mjs";
 
 // Existing project-wide secrets are reused only inside this server function.
@@ -31,7 +32,7 @@ async function sendConfirmation(message: {email:string,intentId:string,subject:s
     method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json",
       "X-Postmark-Server-Token":providerToken},
     body:JSON.stringify({From:from,To:message.email,ReplyTo:"architect@kapukai.org",
-      Subject:message.subject,TextBody:message.text,MessageStream:"outbound",
+      Subject:message.subject,TextBody:message.text,HtmlBody:brandMessage({Subject:message.subject,TextBody:message.text}).HtmlBody,MessageStream:"outbound",
       Tag:"kapukai-scoped-confirmation",TrackOpens:false,TrackLinks:"None",
       Metadata:{scoped_intent_id:message.intentId,message_type:"scoped_confirmation"}}),
     signal:AbortSignal.timeout(10000)
@@ -44,4 +45,3 @@ async function sendConfirmation(message: {email:string,intentId:string,subject:s
 }
 Deno.serve(createHandler({rpc,sendConfirmation,rateFingerprint,
   isOpen:async()=>configured && await rpc("kapukai_scoped_is_open",{})===true}));
-

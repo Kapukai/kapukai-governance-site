@@ -156,4 +156,3 @@ export function createHandler({rpc,sendConfirmation,rateFingerprint,enabled=fals
     }
   };
 }
-
