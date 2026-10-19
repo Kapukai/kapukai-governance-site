@@ -16,5 +16,29 @@
     "vercel-governance-evolution/assets/social-preview.png": "88303d8878710fe4dfae42e3cd90726ed0e9d0aae59960df880afad97dabaa32",
     "vercel-governance-evolution/assets/style.css": "e227d7275b5c072ec3ea9093fe7808a860db76d0490bd2dddbe9d8e3fecf48b0",
     "vercel-governance-evolution/index.html": "517aceec487649f2fb11a734c75b3e2600d3a97b772be05520417f525491d5ef"
+  },
+  "publication": {
+    "content_commit": "ed6033bd0afac58de186974cc8c2021b1bac43be",
+    "source_repository": "Kapukai/kapukai-governance-site",
+    "source_branch": "work/governance-evolution",
+    "vercel_project_id": "prj_XzchF6aPy3etKMSDi3AURjlVMbof",
+    "vercel_deployment_id": "dpl_BMKsgAqycjgxmzySo5KvVXxSf1vx",
+    "vercel_deployment_state": "READY",
+    "immutable_origin": "https://kapukai-governance-evolution-65ljfbx4z-kapukais-projects.vercel.app",
+    "review_url": "https://kapukai-governance-evolution.vercel.app/vercel-governance-evolution/",
+    "canonical_installation": "pending_existing_nginx_host_access",
+    "canonical_http_status": 404,
+    "canonical_files_installed": [],
+    "verification": {
+      "served_files_hash_matched": 12,
+      "interaction_combinations_passed": 8,
+      "reset_passed": true,
+      "internal_links_passed": true,
+      "svg_xml_valid": true,
+      "zip_contents_passed": true,
+      "installer_hashes_homepage_preservation_idempotence_passed": true,
+      "graphical_browser_qa": "Unavailable: supported control-browser capability not present. Diagram PNGs visually reviewed."
+    },
+    "verified_at": "2026-10-19T00:23:00.743999+00:00"
   }
 }

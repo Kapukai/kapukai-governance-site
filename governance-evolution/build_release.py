@@ -41,5 +41,10 @@ files = {path.relative_to(PUBLIC).as_posix(): hashlib.sha256(path.read_bytes()).
 manifest = {'module': 'kapukai-governance-evolution', 'version': '1.0',
             'canonical_url': 'https://kapukai.org/vercel-governance-evolution/',
             'vercel_project': 'kapukai-governance-evolution', 'files': files}
+existing_manifest = BASE / 'release-manifest.json'
+if existing_manifest.exists():
+    previous = json.loads(existing_manifest.read_text())
+    if previous.get('files') == files and 'publication' in previous:
+        manifest['publication'] = previous['publication']
 (BASE / 'release-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
 print(json.dumps({'file_count': len(files), 'total_bytes': sum(path.stat().st_size for path in PUBLIC.rglob('*') if path.is_file())}))
