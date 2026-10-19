@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Protection is a designed boundary</title>
+  <desc id="desc">A governance metaphor inspired by a membrane. A person remains at the center. Purpose, consent where appropriate, and legal authority govern what enters. Decisions must be explainable and open to challenge. Correction returns to the systems that received an error.</desc>
+  <defs>
+    <radialGradient id="halo"><stop offset="0" stop-color="#d8e7df"/><stop offset="1" stop-color="#f5f2e9" stop-opacity="0"/></radialGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#163d48"/><stop offset="1" stop-color="#102d3b"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto"><path d="M1 1 7 4 1 7" fill="none" stroke="#176b65" stroke-width="1.5"/></marker>
+    <marker id="goldArrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto"><path d="M1 1 7 4 1 7" fill="none" stroke="#ba8b42" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="1200" height="800" rx="28" fill="#f5f2e9"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="62" y="62" font-size="14" font-weight="700" letter-spacing="2.6" fill="#176b65">01 / THE HUMAN BOUNDARY</text>
+    <text x="62" y="111" font-size="38" font-weight="700" fill="#102d3b">Protection is a designed boundary.</text>
+    <text x="62" y="145" font-size="19" fill="#45616a">Let useful information move. Make consequential power pass a gate.</text>
+    <ellipse cx="600" cy="455" rx="390" ry="315" fill="url(#halo)"/>
+    <circle cx="600" cy="455" r="265" fill="none" stroke="#102d3b" stroke-opacity=".08" stroke-width="1"/>
+    <circle cx="600" cy="455" r="225" fill="none" stroke="#176b65" stroke-opacity=".12" stroke-width="26"/>
+    <circle cx="600" cy="455" r="225" fill="none" stroke="#176b65" stroke-width="2"/>
+    <circle cx="600" cy="455" r="181" fill="none" stroke="#176b65" stroke-opacity=".26" stroke-dasharray="3 10" stroke-linecap="round"/>
+    <circle cx="600" cy="455" r="139" fill="url(#core)"/>
+    <circle cx="600" cy="399" r="21" fill="none" stroke="#f5f2e9" stroke-width="2.4"/>
+    <path d="M561 453c0-51 78-51 78 0" fill="none" stroke="#f5f2e9" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="600" y="494" text-anchor="middle" font-size="29" font-weight="700" fill="#f5f2e9">A person</text>
+    <text x="600" y="527" text-anchor="middle" font-size="16" fill="#d3e5df">Privacy · dignity · agency</text>
+    <path d="M175 455H351" fill="none" stroke="#176b65" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="350" y="421" width="50" height="68" rx="16" fill="#f5f2e9" stroke="#176b65" stroke-width="2"/>
+    <path d="M367 440v30m16-30v30" stroke="#176b65" stroke-width="3" stroke-linecap="round"/>
+    <text x="81" y="389" font-size="20" font-weight="700" fill="#102d3b">Information</text>
+    <text x="81" y="416" font-size="16" fill="#45616a">From people and systems</text>
+    <text x="285" y="527" text-anchor="middle" font-size="17" font-weight="700" fill="#176b65">Purpose</text>
+    <text x="285" y="550" text-anchor="middle" font-size="15" fill="#45616a">Limit collection</text>
+    <path d="M600 185v27" stroke="#176b65" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="562" y="209" width="76" height="42" rx="14" fill="#f5f2e9" stroke="#176b65" stroke-width="2"/>
+    <path d="m587 231 9 8 17-17" fill="none" stroke="#176b65" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="655" y="222" font-size="17" font-weight="700" fill="#176b65">Authority + evidence</text>
+    <text x="655" y="246" font-size="15" fill="#45616a">Before consequential action</text>
+    <rect x="800" y="421" width="50" height="68" rx="16" fill="#f5f2e9" stroke="#ba8b42" stroke-width="2"/>
+    <path d="M815 455h20m-12-8 8 8-8 8" fill="none" stroke="#ba8b42" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M855 455h168" stroke="#ba8b42" stroke-width="2" marker-end="url(#goldArrow)"/>
+    <text x="926" y="389" font-size="20" font-weight="700" fill="#102d3b">Accountability</text>
+    <text x="926" y="416" font-size="16" fill="#45616a">Reasons people can inspect</text>
+    <text x="920" y="527" text-anchor="middle" font-size="17" font-weight="700" fill="#916a31">Challenge</text>
+    <text x="920" y="550" text-anchor="middle" font-size="15" fill="#45616a">A usable route to review</text>
+    <path d="M1038 478h87v157q0 27-27 27H901" fill="none" stroke="#ba8b42" stroke-width="1.8" marker-end="url(#goldArrow)"/>
+    <text x="935" y="611" font-size="17" font-weight="700" fill="#916a31">Correction travels</text>
+    <text x="935" y="635" font-size="15" fill="#45616a">to every affected recipient</text>
+    <circle cx="600" cy="680" r="10" fill="#176b65" stroke="#f5f2e9" stroke-width="5"/>
+    <path d="M62 730H1138" stroke="#102d3b" stroke-opacity=".15"/>
+    <text x="62" y="761" font-size="14" fill="#45616a">A design metaphor, not a biological equivalence.</text>
+    <text x="1138" y="761" font-size="14" text-anchor="end" font-weight="700" letter-spacing="1.5" fill="#102d3b">KAPUKAI</text>
+  </g>
+</svg>

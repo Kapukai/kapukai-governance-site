@@ -1,0 +1,20 @@
+{
+  "module": "kapukai-governance-evolution",
+  "version": "1.0",
+  "canonical_url": "https://kapukai.org/vercel-governance-evolution/",
+  "vercel_project": "kapukai-governance-evolution",
+  "files": {
+    "vercel-governance-evolution/assets/app.js": "061468e00c693bdd38bdcc3cc2ce3c0a7951155aef04e1e6b379452acf32f071",
+    "vercel-governance-evolution/assets/decision-gate.png": "7753dedc4997856d33ac343f3f722610841904d20a55ff1ad9e0ef8a860e9f12",
+    "vercel-governance-evolution/assets/decision-gate.svg": "79e9eede9ddc922456492982f28ba5c289d4a06a9d8c3ab3de09a445ccfb0e0f",
+    "vercel-governance-evolution/assets/ecosystem.png": "25a1ce9e978840bce7dde602c0abc04081a19e758fcde8612ccc6989b2f73f34",
+    "vercel-governance-evolution/assets/ecosystem.svg": "c432094c4bfc93b628429685f430e9bfd2d07432968fc41346d85e4e6e3a148b",
+    "vercel-governance-evolution/assets/hero.svg": "24cdeed4d1981e42276a05eb16e2d289f95ff50927fe0a0fe3e6bb14ae2021bc",
+    "vercel-governance-evolution/assets/kapukai-governance-visual-library.zip": "6e3a1605681d182431489ae42d8de67fd5c9539822898d872c9a1cb472adbb73",
+    "vercel-governance-evolution/assets/membrane.png": "4895be6e74e5e6bc53c6407f503e80723a93271b421d256a88ac258ad73bdbae",
+    "vercel-governance-evolution/assets/membrane.svg": "63892d77d9a28f0bd6a4f7eed02809ee8afcdf1f912b158e98650270036e798c",
+    "vercel-governance-evolution/assets/social-preview.png": "88303d8878710fe4dfae42e3cd90726ed0e9d0aae59960df880afad97dabaa32",
+    "vercel-governance-evolution/assets/style.css": "e227d7275b5c072ec3ea9093fe7808a860db76d0490bd2dddbe9d8e3fecf48b0",
+    "vercel-governance-evolution/index.html": "9ad58e78be9acc456e358491195f3ac69a3f299ad894f1a8d3b1e713b6df19be"
+  }
+}

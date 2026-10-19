@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Make every consequential decision answerable</title>
+  <desc id="desc">A decision circuit. Authority and evidence enter a verification gate. An unmet requirement pauses action. A verified decision provides reasons and a route to challenge. Independent review can lead to correction, which must reach affected recipients and be verified as received.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M2 1.5 7.5 4.5 2 7.5" fill="none" stroke="#176b65" stroke-width="1.6"/></marker>
+    <marker id="goldArrow" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M2 1.5 7.5 4.5 2 7.5" fill="none" stroke="#ba8b42" stroke-width="1.6"/></marker>
+  </defs>
+  <rect width="1200" height="800" rx="28" fill="#f5f2e9"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="62" y="62" font-size="14" font-weight="700" letter-spacing="2.6" fill="#176b65">02 / THE DECISION GATE</text>
+    <text x="62" y="111" font-size="38" font-weight="700" fill="#102d3b">Power must show its working.</text>
+    <text x="62" y="145" font-size="19" fill="#45616a">A record becomes actionable only after the requirements are satisfied.</text>
+    <path d="M292 288h48q20 0 20 20v78h40M292 432h48q20 0 20-20v-26" stroke="#176b65" stroke-width="2" fill="none"/>
+    <path d="M602 386h63" stroke="#176b65" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M859 386h68" stroke="#176b65" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="62" y="238" width="230" height="100" rx="18" fill="#e8eee7" stroke="#176b65" stroke-opacity=".25"/>
+    <text x="88" y="277" font-size="23" font-weight="700" fill="#102d3b">Authority</text>
+    <text x="88" y="308" font-size="16" fill="#45616a">Who may do what?</text>
+    <rect x="62" y="382" width="230" height="100" rx="18" fill="#e8eee7" stroke="#176b65" stroke-opacity=".25"/>
+    <text x="88" y="421" font-size="23" font-weight="700" fill="#102d3b">Evidence</text>
+    <text x="88" y="452" font-size="16" fill="#45616a">What supports this action?</text>
+    <rect x="402" y="280" width="200" height="210" rx="28" fill="#102d3b"/>
+    <circle cx="502" cy="330" r="20" fill="none" stroke="#d1e2da" stroke-width="1.8"/>
+    <path d="m492 330 7 7 13-15" fill="none" stroke="#d1e2da" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="502" y="385" text-anchor="middle" font-size="27" font-weight="700" fill="#f5f2e9">Verify</text>
+    <text x="502" y="416" text-anchor="middle" font-size="16" fill="#d1e2da">Scope · facts · process</text>
+    <text x="502" y="451" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.2" fill="#d8b87f">BEFORE ACTION</text>
+    <rect x="667" y="318" width="192" height="136" rx="21" fill="#176b65"/>
+    <text x="763" y="369" text-anchor="middle" font-size="25" font-weight="700" fill="#f5f2e9">Decision</text>
+    <text x="763" y="400" text-anchor="middle" font-size="16" fill="#e3ede6">Reasons + provenance</text>
+    <text x="763" y="426" text-anchor="middle" font-size="14" fill="#e3ede6">A visible owner</text>
+    <rect x="930" y="318" width="208" height="136" rx="21" fill="#f5f2e9" stroke="#176b65" stroke-width="2"/>
+    <text x="1034" y="369" text-anchor="middle" font-size="25" font-weight="700" fill="#102d3b">Challenge</text>
+    <text x="1034" y="400" text-anchor="middle" font-size="16" fill="#45616a">Accessible review</text>
+    <text x="1034" y="426" text-anchor="middle" font-size="14" fill="#45616a">A real path to remedy</text>
+    <path d="M502 491v57" stroke="#ba8b42" stroke-width="2" marker-end="url(#goldArrow)"/>
+    <rect x="402" y="552" width="200" height="79" rx="17" fill="#eee4d0"/>
+    <text x="502" y="584" text-anchor="middle" font-size="20" font-weight="700" fill="#795521">Pause the action</text>
+    <text x="502" y="610" text-anchor="middle" font-size="15" fill="#795521">Requirement unmet</text>
+    <path d="M1034 455v99q0 25-25 25H929" stroke="#ba8b42" stroke-width="2" fill="none" marker-end="url(#goldArrow)"/>
+    <rect x="668" y="535" width="258" height="88" rx="18" fill="#eee4d0" stroke="#ba8b42" stroke-opacity=".4"/>
+    <text x="797" y="570" text-anchor="middle" font-size="23" font-weight="700" fill="#795521">Correction</text>
+    <text x="797" y="599" text-anchor="middle" font-size="15" fill="#795521">When review finds an error</text>
+    <path d="M797 624v40q0 21 21 21h139" stroke="#ba8b42" stroke-width="2" fill="none" marker-end="url(#goldArrow)"/>
+    <circle cx="980" cy="685" r="19" fill="#f5f2e9" stroke="#ba8b42" stroke-width="1.7"/>
+    <circle cx="1037" cy="685" r="19" fill="#f5f2e9" stroke="#ba8b42" stroke-width="1.7"/>
+    <circle cx="1094" cy="685" r="19" fill="#f5f2e9" stroke="#ba8b42" stroke-width="1.7"/>
+    <path d="m972 685 5 5 10-11m42 6 5 5 10-11m42 6 5 5 10-11" fill="none" stroke="#ba8b42" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="62" y="667" font-size="21" font-weight="700" fill="#102d3b">Correction must travel as far as the error.</text>
+    <text x="62" y="696" font-size="16" fill="#45616a">Reach affected recipients. Verify receipt. Preserve the audit trail.</text>
+    <path d="M62 730H1138" stroke="#102d3b" stroke-opacity=".15"/>
+    <text x="62" y="761" font-size="14" fill="#45616a">Proposed governance architecture. The applicable legal requirements vary.</text>
+    <text x="1138" y="761" font-size="14" text-anchor="end" font-weight="700" letter-spacing="1.5" fill="#102d3b">KAPUKAI</text>
+  </g>
+</svg>

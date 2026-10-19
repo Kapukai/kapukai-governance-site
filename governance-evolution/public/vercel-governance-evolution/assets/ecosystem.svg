@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">An ecosystem that keeps the person at the center</title>
+  <desc id="desc">A proposed Kapukai ecosystem connects a person with useful tools, public rules, independent review, community, and institutions. The connections are bidirectional: people can act and ask questions, while institutions must provide reasons and correction. Shared infrastructure supports the relationships.</desc>
+  <defs>
+    <radialGradient id="halo"><stop offset="0" stop-color="#d8e7df"/><stop offset="1" stop-color="#f5f2e9" stop-opacity="0"/></radialGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="#176b65" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="1200" height="800" rx="28" fill="#f5f2e9"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="62" y="62" font-size="14" font-weight="700" letter-spacing="2.6" fill="#176b65">03 / THE LIVING ECOSYSTEM</text>
+    <text x="62" y="111" font-size="38" font-weight="700" fill="#102d3b">A person needs a working ecosystem.</text>
+    <text x="62" y="145" font-size="19" fill="#45616a">Tools become useful when people, rules, review, and institutions connect.</text>
+    <ellipse cx="600" cy="438" rx="410" ry="265" fill="url(#halo)"/>
+    <ellipse cx="600" cy="440" rx="350" ry="230" fill="none" stroke="#176b65" stroke-opacity=".18" stroke-width="1.5"/>
+    <ellipse cx="600" cy="440" rx="405" ry="245" fill="none" stroke="#176b65" stroke-opacity=".1" stroke-dasharray="3 10" stroke-linecap="round"/>
+    <path d="M486 400 356 340M600 321v-14M714 400l130-60M681 531l65 41M519 531l-65 41" stroke="#176b65" stroke-opacity=".65" stroke-width="1.8" fill="none" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <circle cx="600" cy="440" r="111" fill="#102d3b"/>
+    <circle cx="600" cy="404" r="18" fill="none" stroke="#f5f2e9" stroke-width="2"/>
+    <path d="M567 450c0-43 66-43 66 0" fill="none" stroke="#f5f2e9" stroke-width="2" stroke-linecap="round"/>
+    <text x="600" y="487" text-anchor="middle" font-size="27" font-weight="700" fill="#f5f2e9">The person</text>
+    <text x="600" y="515" text-anchor="middle" font-size="14" fill="#d1e2da">Voice · choice · agency</text>
+    <rect x="466" y="200" width="268" height="99" rx="24" fill="#f5f2e9" stroke="#176b65" stroke-width="1.5"/>
+    <circle cx="501" cy="235" r="10" fill="#176b65" fill-opacity=".13"/>
+    <path d="M497 235h8m-4-4v8" stroke="#176b65" stroke-width="1.5"/>
+    <text x="600" y="242" text-anchor="middle" font-size="24" font-weight="700" fill="#102d3b">Public rules</text>
+    <text x="600" y="272" text-anchor="middle" font-size="16" fill="#45616a">Readable · versioned · reusable</text>
+    <rect x="98" y="279" width="248" height="112" rx="24" fill="#f5f2e9" stroke="#176b65" stroke-width="1.5"/>
+    <text x="222" y="323" text-anchor="middle" font-size="24" font-weight="700" fill="#102d3b">Useful tools</text>
+    <text x="222" y="354" text-anchor="middle" font-size="16" fill="#45616a">Record · organize · explain</text>
+    <rect x="854" y="279" width="248" height="112" rx="24" fill="#f5f2e9" stroke="#176b65" stroke-width="1.5"/>
+    <text x="978" y="323" text-anchor="middle" font-size="23" font-weight="700" fill="#102d3b">Independent review</text>
+    <text x="978" y="354" text-anchor="middle" font-size="16" fill="#45616a">Check · question · correct</text>
+    <rect x="198" y="563" width="248" height="112" rx="24" fill="#f5f2e9" stroke="#176b65" stroke-width="1.5"/>
+    <text x="322" y="607" text-anchor="middle" font-size="24" font-weight="700" fill="#102d3b">Community</text>
+    <text x="322" y="638" text-anchor="middle" font-size="16" fill="#45616a">Learn · contribute · support</text>
+    <rect x="754" y="563" width="248" height="112" rx="24" fill="#f5f2e9" stroke="#ba8b42" stroke-width="1.5"/>
+    <text x="878" y="607" text-anchor="middle" font-size="24" font-weight="700" fill="#102d3b">Institutions</text>
+    <text x="878" y="638" text-anchor="middle" font-size="16" fill="#45616a">Give reasons · deliver remedy</text>
+    <circle cx="423" cy="257" r="5" fill="#ba8b42"/>
+    <circle cx="778" cy="257" r="5" fill="#ba8b42"/>
+    <circle cx="259" cy="480" r="5" fill="#ba8b42"/>
+    <circle cx="941" cy="480" r="5" fill="#ba8b42"/>
+    <text x="600" y="639" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.1" fill="#176b65">SHARED INFRASTRUCTURE</text>
+    <text x="600" y="664" text-anchor="middle" font-size="15" fill="#45616a">Connect. Maintain. Improve.</text>
+    <path d="M62 730H1138" stroke="#102d3b" stroke-opacity=".15"/>
+    <text x="62" y="761" font-size="14" fill="#45616a">An ecosystem direction: capabilities must be built, tested, and maintained.</text>
+    <text x="1138" y="761" font-size="14" text-anchor="end" font-weight="700" letter-spacing="1.5" fill="#102d3b">KAPUKAI</text>
+  </g>
+</svg>

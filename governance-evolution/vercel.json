@@ -1,0 +1,13 @@
+{
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": "public",
+  "trailingSlash": true,
+  "redirects": [{"source": "/", "destination": "/vercel-governance-evolution/", "permanent": false}],
+  "headers": [{"source": "/(.*)", "headers": [
+    {"key": "X-Content-Type-Options", "value": "nosniff"},
+    {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+    {"key": "Content-Security-Policy", "value": "default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"}
+  ]}]
+}

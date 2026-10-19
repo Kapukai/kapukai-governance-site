@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="760" viewBox="0 0 800 760" role="img" aria-labelledby="title desc">
+  <title id="title">The person at the center</title>
+  <desc id="desc">A person protected by concentric boundaries. Privacy, evidence, review and correction connect the person with an outer network.</desc>
+  <defs>
+    <radialGradient id="halo"><stop offset="0" stop-color="#d3e5dc"/><stop offset=".72" stop-color="#e9eee2"/><stop offset="1" stop-color="#f5f2e9"/></radialGradient>
+    <linearGradient id="core" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#204851"/><stop offset="1" stop-color="#102d3b"/></linearGradient>
+  </defs>
+  <rect width="800" height="760" fill="#f5f2e9"/>
+  <circle cx="400" cy="380" r="332" fill="url(#halo)"/>
+  <g fill="none" stroke="#176b65">
+    <circle cx="400" cy="380" r="285" stroke-opacity=".16"/>
+    <circle cx="400" cy="380" r="242" stroke-width="24" stroke-opacity=".065"/>
+    <circle cx="400" cy="380" r="242" stroke-width="1.8" stroke-opacity=".65"/>
+    <circle cx="400" cy="380" r="196" stroke-width="1.5" stroke-dasharray="2 12" stroke-linecap="round" stroke-opacity=".42"/>
+    <path d="m164 220-65 69 37 188 91 128M638 221l57 86-34 196-91 90M299 113l97-46 116 49" stroke-opacity=".16" stroke-width="1.5"/>
+    <path d="M164 220 205 265M136 477l66-21M227 605l53-58M638 221l-47 46M661 503l-68-45M570 593l-44-51M396 67l4 70" stroke-opacity=".16" stroke-width="1.5"/>
+  </g>
+  <g fill="#f5f2e9" stroke="#176b65" stroke-opacity=".45" stroke-width="1.5">
+    <circle cx="164" cy="220" r="8"/><circle cx="99" cy="289" r="5"/><circle cx="136" cy="477" r="7"/><circle cx="227" cy="605" r="6"/>
+    <circle cx="638" cy="221" r="8"/><circle cx="695" cy="307" r="5"/><circle cx="661" cy="503" r="7"/><circle cx="570" cy="593" r="6"/>
+    <circle cx="299" cy="113" r="5"/><circle cx="396" cy="67" r="7"/><circle cx="512" cy="116" r="5"/>
+  </g>
+  <circle cx="400" cy="380" r="149" fill="url(#core)"/>
+  <circle cx="400" cy="329" r="31" fill="#f5f2e9"/>
+  <path d="M341 412c0-65 118-65 118 0v7H341z" fill="#f5f2e9"/>
+  <text x="400" y="471" fill="#f5f2e9" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-weight="700" font-size="28" letter-spacing="3">THE PERSON</text>
+  <g fill="#f5f2e9" stroke="#176b65" stroke-width="1.6">
+    <circle cx="400" cy="138" r="13"/><circle cx="158" cy="380" r="13"/><circle cx="642" cy="380" r="13"/>
+  </g>
+  <circle cx="400" cy="622" r="13" fill="#ba8b42" stroke="#f5f2e9" stroke-width="5"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" fill="#176b65" text-anchor="middle">
+    <rect x="329" y="164" width="142" height="47" rx="23.5" fill="#f5f2e9"/>
+    <text x="400" y="196">Evidence</text>
+    <rect x="35" y="401" width="129" height="47" rx="23.5" fill="#f5f2e9"/>
+    <text x="100" y="433">Privacy</text>
+    <rect x="639" y="401" width="126" height="47" rx="23.5" fill="#f5f2e9"/>
+    <text x="702" y="433">Review</text>
+    <text x="400" y="681" fill="#916a31">Correction</text>
+  </g>
+</svg>
