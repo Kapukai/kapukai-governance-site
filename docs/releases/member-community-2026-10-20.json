@@ -1,0 +1,319 @@
+{
+  "recorded_at_utc": "2026-10-20T01:29:23.301Z",
+  "status": "production_invitation_only_enabled",
+  "git_commit": "21d629bcb534d7debdd214c7b114543cc256007d",
+  "git_tree": "2bde23ea51ca317f61c50dad572efd737a558c8b",
+  "pull_request": "https://github.com/Kapukai/kapukai-governance-site/pull/5",
+  "vercel": {
+    "project": "kapukai-community",
+    "deployment_id": "dpl_FXmwfDeuC9v9Hn5gJmUjzzJaA2Wr",
+    "deployment_url": "https://kapukai-community-l61zg5vzi-kapukais-projects.vercel.app",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "target": "production",
+    "state": "READY"
+  },
+  "database": {
+    "enabled": true,
+    "max_members": 25,
+    "operators": 1,
+    "members": 0,
+    "invitations": 0,
+    "synthetic_users": 0,
+    "public_feed": {
+      "result": "ok",
+      "feedback": [],
+      "credentials": []
+    },
+    "migrations": [
+      {
+        "version": "20261020011354",
+        "name": "member_tables_locked"
+      },
+      {
+        "version": "20261020012329",
+        "name": "member_private_helpers"
+      },
+      {
+        "version": "20261020012346",
+        "name": "member_private_snapshot"
+      },
+      {
+        "version": "20261020012350",
+        "name": "member_private_export"
+      },
+      {
+        "version": "20261020012418",
+        "name": "member_command_locked"
+      },
+      {
+        "version": "20261020012419",
+        "name": "member_feeds_locked"
+      },
+      {
+        "version": "20261020012420",
+        "name": "member_service_grants"
+      }
+    ]
+  },
+  "edge": {
+    "name": "kapukai-members",
+    "version": 1,
+    "bundle_sha256": "7ea8b95aa57a063d7519d06be8068c1da9fba9b3e78a69d11eae600a88497275"
+  },
+  "verification": {
+    "backend_tests_passed": 146,
+    "existing_ui_tests_passed": 8,
+    "live_sql_assertion_groups_passed": 11,
+    "synthetic_transaction_rolled_back": true,
+    "independent_review": "no known blocking code finding",
+    "security_advisor_new_warnings": 0,
+    "api_boundary_checks": {
+      "checked_at_utc": "2026-10-20T01:25:33Z",
+      "endpoint": "https://tbxfsjipkrdwyctepesf.supabase.co/functions/v1/kapukai-members",
+      "probes": [
+        {
+          "name": "config",
+          "status": 200,
+          "origin": "https://kapukai.org",
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "https://kapukai.org",
+            "referrer-policy": "no-referrer",
+            "x-content-type-options": "nosniff",
+            "vary": "Accept-Encoding, Origin"
+          },
+          "body": {
+            "ok": true,
+            "supabase_url": "https://tbxfsjipkrdwyctepesf.supabase.co",
+            "session_seconds": 1800,
+            "publishable_key_present": true,
+            "publishable_key_kind": "publishable"
+          },
+          "pass": true,
+          "checks": {
+            "status": true,
+            "no_store": true,
+            "cors": true,
+            "safe_public_config": true
+          }
+        },
+        {
+          "name": "public",
+          "status": 200,
+          "origin": "https://kapukai.org",
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "https://kapukai.org",
+            "referrer-policy": "no-referrer",
+            "x-content-type-options": "nosniff",
+            "vary": "Accept-Encoding, Origin"
+          },
+          "body": {
+            "result": "ok",
+            "feedback": [],
+            "credentials": [],
+            "ok": true
+          },
+          "pass": true,
+          "checks": {
+            "status": true,
+            "no_store": true,
+            "cors": true,
+            "empty_public_feed": true
+          }
+        },
+        {
+          "name": "unauth_state",
+          "status": 401,
+          "origin": "https://kapukai.org",
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "https://kapukai.org",
+            "referrer-policy": "no-referrer",
+            "x-content-type-options": "nosniff",
+            "vary": "Accept-Encoding, Origin"
+          },
+          "body": {
+            "ok": false,
+            "code": "AUTHENTICATION_REQUIRED"
+          },
+          "pass": true,
+          "checks": {
+            "status": true,
+            "no_store": true,
+            "cors": true
+          }
+        },
+        {
+          "name": "forged_state",
+          "status": 401,
+          "origin": "https://kapukai.org",
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "https://kapukai.org",
+            "referrer-policy": "no-referrer",
+            "x-content-type-options": "nosniff",
+            "vary": "Accept-Encoding, Origin"
+          },
+          "body": {
+            "ok": false,
+            "code": "AUTHENTICATION_REQUIRED"
+          },
+          "pass": true,
+          "checks": {
+            "status": true,
+            "no_store": true,
+            "cors": true
+          }
+        },
+        {
+          "name": "invalid_action",
+          "status": 400,
+          "origin": "https://kapukai.org",
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "https://kapukai.org",
+            "referrer-policy": "no-referrer",
+            "x-content-type-options": "nosniff",
+            "vary": "Accept-Encoding, Origin"
+          },
+          "body": {
+            "ok": false,
+            "code": "INVALID_REQUEST"
+          },
+          "pass": true,
+          "checks": {
+            "status": true,
+            "no_store": true,
+            "cors": true
+          }
+        },
+        {
+          "name": "disallowed_origin",
+          "status": 403,
+          "origin": "https://untrusted.example.invalid",
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "cache-control": "no-store",
+            "access-control-allow-origin": null,
+            "referrer-policy": "no-referrer",
+            "x-content-type-options": "nosniff",
+            "vary": "Accept-Encoding, Origin"
+          },
+          "body": {
+            "ok": false,
+            "code": "ORIGIN_DENIED"
+          },
+          "pass": true,
+          "checks": {
+            "status": true,
+            "no_store": true,
+            "cors": true
+          }
+        }
+      ],
+      "verdict": "PASS",
+      "failed_probes": [],
+      "scope": "Read-only/nonmutating API boundary probes; no signup, Auth accounts or messages."
+    },
+    "production_files": [
+      {
+        "path": "/community/members/",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "no-store",
+        "robots": "noindex, nofollow"
+      },
+      {
+        "path": "/community/voices/",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "public, max-age=0, must-revalidate",
+        "robots": null
+      },
+      {
+        "path": "/community/privacy/",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "public, max-age=0, must-revalidate",
+        "robots": null
+      },
+      {
+        "path": "/community/status/",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "public, max-age=0, must-revalidate",
+        "robots": null
+      },
+      {
+        "path": "/assets/community/members.js",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "public, max-age=0, must-revalidate",
+        "robots": null
+      },
+      {
+        "path": "/assets/community/members.css",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "public, max-age=0, must-revalidate",
+        "robots": null
+      },
+      {
+        "path": "/join/",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "public, max-age=0, must-revalidate",
+        "robots": null
+      },
+      {
+        "path": "/confirm/",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "no-store",
+        "robots": "noindex, nofollow"
+      },
+      {
+        "path": "/community/apply/",
+        "status": 200,
+        "same_sha256": true,
+        "cache_control": "no-store",
+        "robots": "noindex, nofollow"
+      }
+    ],
+    "activated_public_feed": {
+      "checked_at_utc": "2026-10-20T01:28:54.077492+00:00",
+      "status": 200,
+      "cors": "https://kapukai-community.vercel.app",
+      "cache": "no-store",
+      "body": {
+        "result": "ok",
+        "feedback": [],
+        "credentials": [],
+        "ok": true
+      }
+    }
+  },
+  "limits": {
+    "actual_email_receipt_verified": false,
+    "graphical_device_acceptance_verified": false,
+    "real_member_signin_observed": false,
+    "canonical_nginx_installation_performed": false
+  },
+  "release_actions": {
+    "invitations_created": 0,
+    "emails_sent": 0,
+    "member_profiles_created": 0,
+    "newsletter_permissions_changed": 0
+  },
+  "rollback": {
+    "pause_pilot": "Set only kapukai_members.config.enabled=false through the operator control or authorized database access; retain withdraw/export/close.",
+    "previous_production_deployment": "dpl_7zWjfY73fLDowDR8xSP6wyPVe9fq",
+    "preserve": "Retain member schema/audit and separate Auth, subscription, application and CRM data."
+  }
+}

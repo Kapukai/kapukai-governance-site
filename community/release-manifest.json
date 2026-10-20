@@ -70,5 +70,14 @@
     "newsletter/index.html": "fdf93bd205001d64fb6d8a4c537c67678cfd10b2372a069ce77ef85517ae523d",
     "testers/index.html": "5f790fe2640dbf654e63e0339239c1395bbd7e02768bdbac30f113763881c8bd",
     "tort/index.html": "30f764b34ecadd0f6a9ee3fd72323df836f537f7604376e59af2bea82d327313"
+  },
+  "member_pilot_release": {
+    "status": "production_invitation_only_enabled",
+    "git_commit": "21d629bcb534d7debdd214c7b114543cc256007d",
+    "vercel_deployment": "dpl_FXmwfDeuC9v9Hn5gJmUjzzJaA2Wr",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "max_members": 25,
+    "evidence": "docs/releases/member-community-2026-10-20.json",
+    "canonical_nginx_new_routes_installed": false
   }
 }

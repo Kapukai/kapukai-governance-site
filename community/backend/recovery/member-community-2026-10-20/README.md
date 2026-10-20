@@ -1,6 +1,8 @@
 # Member community migration recovery
 
-Updated 20 October 2026. **All seven database installation stages are complete.** The release integrator completed 11 live acceptance groups in a rollback-only transaction, verified cleanup, and separately bootstrapped one authorized operator. The pilot remains **disabled**, with `max_members=25`, zero members and zero invitations.
+Final release update: the production frontend is deployed and the invitation-only pilot is enabled with a 25-member cap. See `docs/releases/member-community-2026-10-20.json` for the final receipt. Installation and bootstrap are complete; this directory preserves the reviewed installation history and must not be rerun.
+
+Updated 20 October 2026. **All seven database installation stages are complete.** The release integrator completed 11 live acceptance groups in a rollback-only transaction, verified cleanup, and separately bootstrapped one authorized operator. Immediately after bootstrap the pilot was disabled, with `max_members=25`, zero members and zero invitations; the final release update above records subsequent activation.
 
 **Do not rerun the partition migrations or operator bootstrap against this installation.** The earlier partial-installation checkpoint below has been superseded. The installation guards deliberately require zero operators; do not remove them to replay a completed stage. Consult the current release record at `docs/MEMBER_RELEASE_2026-10-19.md` and read-only migration history before any future recovery work.
 
@@ -18,7 +20,7 @@ Updated 20 October 2026. **All seven database installation stages are complete.*
 
 Stage 1's recorded migration-history entry is `member_tables_locked`, version `20261020011354`. Stages 2–7 subsequently completed; consult the live migration history for their exact versions rather than reusing the earlier checkpoint.
 
-The release integrator reported all 11 live database acceptance groups passing. After rollback, readback confirmed zero synthetic Auth, CRM and outbox records, plus zero members, invitations and operators. The subsequent, separate operator bootstrap succeeded with exactly one operator. That bootstrap did not enable the pilot or create membership. The resulting gate remains `enabled=false`, `max_members=25`.
+The release integrator reported all 11 live database acceptance groups passing. After rollback, readback confirmed zero synthetic Auth, CRM and outbox records, plus zero members, invitations and operators. The subsequent, separate operator bootstrap succeeded with exactly one operator. That bootstrap did not enable the pilot or create membership. The bootstrap snapshot was `enabled=false`, `max_members=25`; activation was a separate, later verified operation.
 
 The Edge deployment also passed public configuration HTTP 200, unauthenticated access HTTP 401, and denied-origin HTTP 403 checks. The previously recorded local verification was 146 backend tests and eight UI tests passing. These results distinguish local verification, live database acceptance and deployed API boundaries; real participant onboarding, browser acceptance and email receipt remain separate observations.
 
@@ -43,4 +45,4 @@ Before any future change, inspect the current catalog, migration history, source
 
 The completed bootstrap resolved exactly one current verified Auth identity through the existing active Supabase identity, subject, tenant and scoped steward grant. Zero or multiple candidates would abort. It used no email, name, user metadata, first-member rule, remembered UUID or copied account identifier. It created only the separate operator grant: no membership, consent, room enrollment, publication, email or unrelated service change.
 
-Keep activation separate from installation and bootstrap. The pilot stays disabled until the release owner completes the authorized activation step after the required production gates. If a later release needs rollback, preserve schema and audit data, pause participation, and follow the release record. Do not drop member tables or alter unrelated Auth, newsletters, applications, CRM, DNS or email routing.
+Activation was kept separate from installation and bootstrap and completed after the required production gates. For a future fresh installation, keep the pilot disabled until its authorized activation step. If a later release needs rollback, preserve schema and audit data, pause participation, and follow the release record. Do not drop member tables or alter unrelated Auth, newsletters, applications, CRM, DNS or email routing.

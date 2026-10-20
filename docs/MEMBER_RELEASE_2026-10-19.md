@@ -29,7 +29,7 @@ No production replacement of existing auth, signup, application, CRM, email-work
 
 ## Verification evidence
 
-Status on 20 October 2026: implementation and database installation complete. All seven migration stages succeeded after the owner renewed approval. Live rollback acceptance passed all 11 assertion groups. The verified existing steward received the separate operator grant; no membership, invitation or consent was created. Production deployment and activation receipts are recorded below when completed.
+Status on 20 October 2026: implementation and database installation complete. All seven migration stages succeeded after the owner renewed approval. Live rollback acceptance passed all 11 assertion groups. The verified existing steward received the separate operator grant; no membership, invitation or consent was created. The frontend is deployed and the invitation-only pilot is enabled with a 25-member cap. No invitations or emails were sent by this release.
 
 - Frozen backend suite: **146 passed, 0 failed** (`node --test backend/tests/*.test.mjs`).
 - Existing Workshop interface/link/accessibility suite: **8 passed, 0 failed** (`node --test tests/workshop-ui.test.mjs`).
@@ -63,3 +63,18 @@ The existing nginx host at kapukai.org is a separate publication destination. Ve
 - Workspace preview: https://kapukai-community-1sge0n2k8-kapukais-projects.vercel.app/community/members/ . It is a static interface preview; the production API intentionally excludes preview origins. Use the production workspace for member operations after release.
 - Live preview HTTP checks returned 200 and byte-identical SHA-256 content for members, voices, member JS/CSS and join routes. Member route returned `Cache-Control: no-store` and `X-Robots-Tag: noindex, nofollow`.
 - The prior production rollback identifier is `dpl_7zWjfY73fLDowDR8xSP6wyPVe9fq`.
+
+## Production receipt
+
+Verified at 2026-10-20 01:28 UTC (October 19 in America/New_York).
+
+- Production commit: `21d629bcb534d7debdd214c7b114543cc256007d`; deployment `dpl_FXmwfDeuC9v9Hn5gJmUjzzJaA2Wr`, READY, production aliases assigned.
+- Live member workspace: https://kapukai-community.vercel.app/community/members/ . Existing verified steward account can sign in and use the Operator controls; operator authority does not require enrolling a member profile.
+- Public approved contributions: https://kapukai-community.vercel.app/community/voices/ . Empty is the correct initial state; no testimonial or credential was fabricated or automatically published.
+- Final database readback: `enabled=true`, capacity 25, one verified operator, zero members and zero invitations. No synthetic Auth users remain.
+- Nine production routes/assets returned HTTP 200 and matched the tested file hashes: members, voices, privacy, status, member JS/CSS, join, confirm and applications. Private member, confirmation and application routes returned `no-store` and `noindex, nofollow`.
+- Six live API boundary probes passed. After activation, the public endpoint also returned 200, an empty approved feed, exact production-origin CORS and `no-store`.
+- Detailed machine-readable evidence: `docs/releases/member-community-2026-10-20.json`. The shared `community/release-manifest.json` links this evidence to the implementation commit/deployment and all static file hashes.
+- The final evidence update is documentation/manifest only. It may produce a later Vercel deployment with identical public files; the identifiers above describe the verified functional release.
+
+Real email receipt, graphical acceptance on real devices and a real member sign-in have not been observed. The release is an invitation-only pilot, with human invitations and publication decisions. The requested Vercel destination is live; no authenticated access to the separate kapukai.org nginx host was available for installing the new member routes there.
