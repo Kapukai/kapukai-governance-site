@@ -3,4 +3,5 @@ Allow: /
 Disallow: /confirm/
 Disallow: /community/apply/
 Disallow: /community/operate/
+Disallow: /community/members/
 Sitemap: https://kapukai.org/community/sitemap.xml
