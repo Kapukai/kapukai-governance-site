@@ -5,3 +5,9 @@ entrypoint = "./functions/kapukai-scoped-signup/index.ts"
 [functions.kapukai-community-apply]
 verify_jwt = false
 entrypoint = "./functions/kapukai-community-apply/index.ts"
+
+# Each private action verifies the token with Supabase Auth and rechecks the
+# current session, member status and capability in the database.
+[functions.kapukai-members]
+verify_jwt = false
+entrypoint = "./functions/kapukai-members/index.ts"

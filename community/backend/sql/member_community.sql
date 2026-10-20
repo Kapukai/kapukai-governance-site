@@ -1,0 +1,335 @@
+-- Additive private member pilot. No legacy subscriptions/applications are changed.
+begin;
+create schema kapukai_members;
+revoke all on schema kapukai_members from public, anon, authenticated, service_role;
+create table kapukai_members.config(id boolean primary key default true check(id),enabled boolean not null default false,max_members integer not null default 25 check(max_members between 1 and 30));
+insert into kapukai_members.config default values;
+create table kapukai_members.operators(user_id uuid primary key references auth.users(id),granted_at timestamptz not null default now());
+create table kapukai_members.members(
+ id uuid primary key references auth.users(id), display_name text not null check(length(display_name) between 1 and 60), bio text not null default '' check(length(bio)<=500),
+ interests text[] not null default '{}', discoverable boolean not null default false,reviewer_opt_in boolean not null default false,reviewer_scopes text[] not null default '{}',
+ status text not null default 'active' check(status in ('active','suspended','closed')),joined_at timestamptz not null default now(),updated_at timestamptz not null default now());
+create table kapukai_members.invitations(id uuid primary key default gen_random_uuid(),email_hash text not null,token_hash text not null unique,expires_at timestamptz not null,created_by uuid not null references auth.users,claimed_by uuid references auth.users,revoked boolean not null default false,created_at timestamptz not null default now());
+create table kapukai_members.rooms(id text primary key,name text not null);
+insert into kapukai_members.rooms values('commons','Welcome & connections'),('tools','Tools & feedback'),('review','Learning circle');
+create table kapukai_members.room_members(room_id text references kapukai_members.rooms,member_id uuid references kapukai_members.members,joined_at timestamptz not null default now(),primary key(room_id,member_id));
+create table kapukai_members.posts(id uuid primary key default gen_random_uuid(),room_id text not null references kapukai_members.rooms,author_id uuid not null references kapukai_members.members,body text not null check(length(body) between 1 and 2000),hidden boolean not null default false,deleted boolean not null default false,created_at timestamptz not null default now());
+create table kapukai_members.reports(id uuid primary key default gen_random_uuid(),post_id uuid not null references kapukai_members.posts,reporter_id uuid not null references kapukai_members.members,reason text not null check(length(reason) between 1 and 300),resolved boolean not null default false,created_at timestamptz not null default now(),unique(post_id,reporter_id));
+create table kapukai_members.blocks(member_id uuid references kapukai_members.members,blocked_id uuid references kapukai_members.members,created_at timestamptz not null default now(),primary key(member_id,blocked_id),check(member_id<>blocked_id));
+create table kapukai_members.introductions(id uuid primary key default gen_random_uuid(),requester_id uuid not null references kapukai_members.members,recipient_id uuid not null references kapukai_members.members,status text not null default 'pending' check(status in ('pending','accepted','declined','cancelled')),created_at timestamptz not null default now(),check(requester_id<>recipient_id));
+create unique index kapukai_member_intro_pair on kapukai_members.introductions(least(requester_id,recipient_id),greatest(requester_id,recipient_id)) where status in ('pending','accepted');
+create table kapukai_members.requests(id uuid primary key default gen_random_uuid(),owner_id uuid not null references kapukai_members.members,title text not null check(length(title) between 1 and 100),summary text not null check(length(summary) between 1 and 600),scope text not null,status text not null default 'open' check(status in ('open','closed')),created_at timestamptz not null default now());
+create table kapukai_members.credentials(id uuid primary key default gen_random_uuid(),member_id uuid not null references kapukai_members.members,title text not null check(length(title) between 1 and 100),issuer text not null check(length(issuer) between 1 and 120),source_url text not null check(length(source_url)<=500),scopes text[] not null default '{}',status text not null default 'claimed' check(status in ('claimed','verified','revoked')),verified_at timestamptz,verified_by uuid references auth.users,public_consent boolean not null default false,created_at timestamptz not null default now());
+create table kapukai_members.assignments(id uuid primary key default gen_random_uuid(),request_id uuid not null references kapukai_members.requests,reviewer_id uuid not null references kapukai_members.members,status text not null default 'proposed' check(status in ('proposed','accepted','declined','cancelled')),conflict_free boolean not null default false,created_at timestamptz not null default now());
+create unique index kapukai_member_assignment_open on kapukai_members.assignments(request_id) where status in ('proposed','accepted');
+create table kapukai_members.events(id uuid primary key default gen_random_uuid(),organizer_id uuid not null references kapukai_members.members,invitee_id uuid not null references kapukai_members.members,title text not null check(length(title) between 1 and 100),starts_at timestamptz not null,ends_at timestamptz not null,status text not null default 'offered' check(status in ('offered','accepted','declined','cancelled')),created_at timestamptz not null default now(),check(organizer_id<>invitee_id),check(ends_at>starts_at));
+create table kapukai_members.feedback(id uuid primary key default gen_random_uuid(),member_id uuid not null references kapukai_members.members,body text not null check(length(body) between 1 and 2000),excerpt text,version integer not null default 1,consent_version integer,status text not null default 'private' check(status in ('private','proposed','consented','published','withdrawn')),published_at timestamptz,proposed_by uuid references auth.users,published_by uuid references auth.users,created_at timestamptz not null default now());
+create table kapukai_members.signup_attempts(id bigint generated always as identity primary key,invitation_id uuid not null references kapukai_members.invitations,created_at timestamptz not null default now());
+create table kapukai_members.audit(id bigint generated always as identity primary key,actor_id uuid not null references auth.users,action text not null,target_id uuid,reason_code text,created_at timestamptz not null default now());
+create index kapukai_member_audit_rate on kapukai_members.audit(actor_id,created_at);
+create index kapukai_member_posts_room on kapukai_members.posts(room_id,created_at);
+
+create function kapukai_members.live_session(p_user uuid,p_session uuid) returns boolean language sql stable security definer set search_path='' as $$
+ select exists(select 1 from auth.sessions s join auth.users u on u.id=s.user_id where s.id=p_session and s.user_id=p_user and s.created_at>now()-interval '30 minutes' and (s.not_after is null or s.not_after>now()) and coalesce(u.is_anonymous,false)=false and u.role='authenticated' and u.email_confirmed_at is not null and (u.banned_until is null or u.banned_until<=now()) and u.deleted_at is null);
+$$;
+create function kapukai_members.hash(p_value text) returns text language sql immutable set search_path='' as $$ select encode(sha256(convert_to(p_value,'UTF8')),'hex'); $$;
+create function kapukai_members.blocked(a uuid,b uuid) returns boolean language sql stable set search_path='' as $$ select exists(select 1 from kapukai_members.blocks where (member_id=a and blocked_id=b) or (member_id=b and blocked_id=a)); $$;
+create function kapukai_members.text_ok(v text,max_len integer,empty_ok boolean default false) returns boolean language sql immutable set search_path='' as $$ select v is not null and length(btrim(v)) between case when empty_ok then 0 else 1 end and max_len and translate(v,E'\n\r\t','') !~ '[[:cntrl:]<>]'; $$;
+create function kapukai_members.scope_ok(v text) returns boolean language sql immutable set search_path='' as $$ select coalesce(v=any(array['tools','timeline','evidence_dossier','affidavit_formatting','training','independent_review']),false); $$;
+create function kapukai_members.scopes(v jsonb) returns text[] language plpgsql immutable set search_path='' as $$
+ declare a text[];
+ begin
+ if jsonb_typeof(v) is distinct from 'array' or jsonb_array_length(v)>6 then raise exception 'invalid scopes' using errcode='22023';end if;
+ if exists(select 1 from jsonb_array_elements(v) e where jsonb_typeof(e)<>'string' or not kapukai_members.scope_ok(e#>>'{}')) then raise exception 'invalid scopes' using errcode='22023';end if;
+ select coalesce(array_agg(distinct x),'{}') into a from jsonb_array_elements_text(v) x;return a;
+ end $$;
+create function kapukai_members.eligible(p_member uuid,p_scope text) returns boolean language sql stable set search_path='' as $$
+ select exists(select 1 from kapukai_members.members m where m.id=p_member and m.status='active' and m.reviewer_opt_in and p_scope=any(m.reviewer_scopes) and exists(select 1 from kapukai_members.credentials c where c.member_id=m.id and c.status='verified' and p_scope=any(c.scopes)));
+$$;
+create function kapukai_members.prune_events() returns void language sql set search_path='' as $$
+ update kapukai_members.events e set status='cancelled' where e.status in ('offered','accepted') and not exists(select 1 from kapukai_members.introductions i where i.status='accepted' and e.organizer_id in(i.requester_id,i.recipient_id) and e.invitee_id in(i.requester_id,i.recipient_id)) and not exists(select 1 from kapukai_members.assignments a join kapukai_members.requests r on r.id=a.request_id where a.status='accepted' and r.status='open' and kapukai_members.eligible(a.reviewer_id,r.scope) and ((r.owner_id=e.organizer_id and a.reviewer_id=e.invitee_id) or(r.owner_id=e.invitee_id and a.reviewer_id=e.organizer_id)));
+ $$;
+
+create function kapukai_members.detach(p_member uuid) returns void language plpgsql set search_path='' as $$
+ begin
+ update kapukai_members.members set discoverable=false,reviewer_opt_in=false where id=p_member;
+ delete from kapukai_members.room_members where member_id=p_member;
+ update kapukai_members.introductions set status='cancelled' where status in ('pending','accepted') and p_member in (requester_id,recipient_id);
+ update kapukai_members.assignments a set status='cancelled',conflict_free=false where a.status in ('proposed','accepted') and (a.reviewer_id=p_member or exists(select 1 from kapukai_members.requests r where r.id=a.request_id and r.owner_id=p_member));
+ update kapukai_members.requests set status='closed' where owner_id=p_member;
+ update kapukai_members.events set status='cancelled' where status in ('offered','accepted') and p_member in (organizer_id,invitee_id);
+ update kapukai_members.feedback set status='withdrawn',consent_version=null,published_at=null where member_id=p_member;
+ update kapukai_members.credentials set public_consent=false where member_id=p_member;
+ end $$;
+
+create function kapukai_members.snapshot(p_user uuid,p_operator boolean) returns jsonb language plpgsql stable set search_path='' as $$
+ declare j jsonb;
+ begin
+ select jsonb_build_object('result','ok','snapshot_limit',100,'enabled',(select enabled from kapukai_members.config),'is_operator',p_operator,'max_members',(select max_members from kapukai_members.config),
+ 'profile',(select to_jsonb(m) from kapukai_members.members m where m.id=p_user),
+ 'rooms',coalesce((select jsonb_agg(jsonb_build_object('id',r.id,'name',r.name,'joined',exists(select 1 from kapukai_members.room_members rm where rm.room_id=r.id and rm.member_id=p_user)) order by r.id) from kapukai_members.rooms r),'[]'::jsonb),
+ 'discovery',coalesce((select jsonb_agg(jsonb_build_object('id',m.id,'display_name',m.display_name,'bio',m.bio,'shared_interests',array(select unnest(m.interests) intersect select unnest(me.interests)),'reviewer_scopes',array(select scope from unnest(m.reviewer_scopes) scope where kapukai_members.eligible(m.id,scope)),'reviewer_eligible',exists(select 1 from unnest(m.reviewer_scopes) s where kapukai_members.eligible(m.id,s)))) from kapukai_members.members m join kapukai_members.members me on me.id=p_user where m.id<>p_user and m.status='active' and me.status='active' and m.discoverable and me.discoverable and m.interests && me.interests and not kapukai_members.blocked(p_user,m.id)),'[]'::jsonb),
+ 'introductions',coalesce((select jsonb_agg(to_jsonb(i)||jsonb_build_object('other_name',m.display_name) order by i.created_at desc) from (select * from kapukai_members.introductions where p_user in(requester_id,recipient_id) order by created_at desc limit 100) i join kapukai_members.members m on m.id=case when i.requester_id=p_user then i.recipient_id else i.requester_id end where m.status='active' and not kapukai_members.blocked(p_user,m.id)),'[]'::jsonb),
+ 'requests',coalesce((select jsonb_agg(to_jsonb(r) order by r.created_at desc) from (select r.* from kapukai_members.requests r where r.owner_id=p_user or exists(select 1 from kapukai_members.assignments x where x.request_id=r.id and x.reviewer_id=p_user) order by r.created_at desc limit 100) r where r.owner_id=p_user or (r.status='open' and exists(select 1 from kapukai_members.assignments a join kapukai_members.members owner on owner.id=r.owner_id where a.request_id=r.id and a.reviewer_id=p_user and a.status in ('proposed','accepted') and owner.status='active' and kapukai_members.eligible(p_user,r.scope) and not kapukai_members.blocked(p_user,r.owner_id)))),'[]'::jsonb),
+ 'assignments',coalesce((select jsonb_agg(to_jsonb(a)||jsonb_build_object('reviewer_name',m.display_name) order by a.created_at desc) from (select a.* from kapukai_members.assignments a join kapukai_members.requests r on r.id=a.request_id where a.reviewer_id=p_user or r.owner_id=p_user order by a.created_at desc limit 100) a join kapukai_members.requests r on r.id=a.request_id join kapukai_members.members m on m.id=a.reviewer_id where r.owner_id=p_user or (a.reviewer_id=p_user and a.status in ('proposed','accepted') and r.status='open' and kapukai_members.eligible(p_user,r.scope) and not kapukai_members.blocked(p_user,r.owner_id))),'[]'::jsonb),
+ 'events',coalesce((select jsonb_agg(to_jsonb(e)||jsonb_build_object('other_name',m.display_name) order by e.starts_at) from (select * from kapukai_members.events where p_user in(organizer_id,invitee_id) order by starts_at desc limit 100) e join kapukai_members.members m on m.id=case when e.organizer_id=p_user then e.invitee_id else e.organizer_id end where p_user in (e.organizer_id,e.invitee_id) and m.status='active' and not kapukai_members.blocked(p_user,m.id)),'[]'::jsonb),
+ 'feedback',coalesce((select jsonb_agg(to_jsonb(f)-'proposed_by'-'published_by' order by f.created_at desc) from (select * from kapukai_members.feedback where member_id=p_user order by created_at desc limit 100) f where f.member_id=p_user),'[]'::jsonb),
+ 'credentials',coalesce((select jsonb_agg(to_jsonb(c)-'verified_by' order by c.created_at desc) from (select * from kapukai_members.credentials where member_id=p_user order by created_at desc limit 100) c where c.member_id=p_user),'[]'::jsonb),
+ 'blocks',coalesce((select jsonb_agg(jsonb_build_object('member_id',b.blocked_id,'display_name',m.display_name)) from kapukai_members.blocks b join kapukai_members.members m on m.id=b.blocked_id where b.member_id=p_user),'[]'::jsonb)) into j;
+ if p_operator then
+ j:=j||jsonb_build_object('operator_queue',jsonb_build_object(
+ 'invitations',coalesce((select jsonb_agg(to_jsonb(i)-'email_hash'-'token_hash') from (select * from kapukai_members.invitations order by created_at desc limit 100) i),'[]'::jsonb),
+ 'members',coalesce((select jsonb_agg(jsonb_build_object('id',m.id,'display_name',m.display_name,'status',m.status)) from (select * from kapukai_members.members order by joined_at desc limit 100) m),'[]'::jsonb),
+ 'reports',coalesce((select jsonb_agg(to_jsonb(r)||jsonb_build_object('post_body',p.body,'room_id',p.room_id,'post_hidden',p.hidden)) from (select * from kapukai_members.reports where not resolved order by created_at desc limit 100) r join kapukai_members.posts p on p.id=r.post_id where not r.resolved),'[]'::jsonb),
+ 'feedback',coalesce((select jsonb_agg(to_jsonb(f)||jsonb_build_object('display_name',m.display_name)) from (select f.* from kapukai_members.feedback f join kapukai_members.members m on m.id=f.member_id where m.status='active' and f.status<>'withdrawn' order by f.created_at desc limit 100) f join kapukai_members.members m on m.id=f.member_id where m.status='active' and f.status<>'withdrawn'),'[]'::jsonb),
+ 'credentials',coalesce((select jsonb_agg(to_jsonb(c)||jsonb_build_object('display_name',m.display_name)) from (select c.* from kapukai_members.credentials c join kapukai_members.members m on m.id=c.member_id where m.status='active' order by c.created_at desc limit 100) c join kapukai_members.members m on m.id=c.member_id where m.status='active'),'[]'::jsonb)));
+ end if;return j;
+ end $$;
+
+create function kapukai_members.export_data(p_user uuid,p_page integer) returns jsonb language sql stable set search_path='' as $$
+ select jsonb_build_object('result','ok','exported_at',now(),'next_page',case when exists(select to_jsonb(p) j from kapukai_members.posts p where p.author_id=p_user order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(r) j from kapukai_members.requests r where r.owner_id=p_user order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(f)-'proposed_by'-'published_by' j from kapukai_members.feedback f where f.member_id=p_user order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(c)-'verified_by' j from kapukai_members.credentials c where c.member_id=p_user order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(rm) j from kapukai_members.room_members rm where rm.member_id=p_user order by joined_at,room_id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(i) j from kapukai_members.introductions i where p_user in(i.requester_id,i.recipient_id) order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(e) j from kapukai_members.events e where p_user in(e.organizer_id,e.invitee_id) order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(a) j from kapukai_members.assignments a join kapukai_members.requests r on r.id=a.request_id where a.reviewer_id=p_user or r.owner_id=p_user order by a.created_at,a.id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(b) j from kapukai_members.blocks b where b.member_id=p_user order by created_at,blocked_id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(r) j from kapukai_members.reports r where r.reporter_id=p_user order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(a) j from kapukai_members.audit a where a.actor_id=p_user order by created_at,id offset (p_page+1)*100 limit 1) or exists(select to_jsonb(i)-'email_hash'-'token_hash' j from kapukai_members.invitations i where i.claimed_by=p_user order by created_at,id offset (p_page+1)*100 limit 1) then p_page+1 else null end,'data',jsonb_build_object('profile',(select to_jsonb(m) from kapukai_members.members m where m.id=p_user),'posts',coalesce((select jsonb_agg(x.j) from (select to_jsonb(p) j from kapukai_members.posts p where p.author_id=p_user order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'requests',coalesce((select jsonb_agg(x.j) from (select to_jsonb(r) j from kapukai_members.requests r where r.owner_id=p_user order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'feedback',coalesce((select jsonb_agg(x.j) from (select to_jsonb(f)-'proposed_by'-'published_by' j from kapukai_members.feedback f where f.member_id=p_user order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'credentials',coalesce((select jsonb_agg(x.j) from (select to_jsonb(c)-'verified_by' j from kapukai_members.credentials c where c.member_id=p_user order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'room_memberships',coalesce((select jsonb_agg(x.j) from (select to_jsonb(rm) j from kapukai_members.room_members rm where rm.member_id=p_user order by joined_at,room_id limit 100 offset p_page*100) x),'[]'::jsonb),'introductions',coalesce((select jsonb_agg(x.j) from (select to_jsonb(i) j from kapukai_members.introductions i where p_user in(i.requester_id,i.recipient_id) order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'events',coalesce((select jsonb_agg(x.j) from (select to_jsonb(e) j from kapukai_members.events e where p_user in(e.organizer_id,e.invitee_id) order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'assignments',coalesce((select jsonb_agg(x.j) from (select to_jsonb(a) j from kapukai_members.assignments a join kapukai_members.requests r on r.id=a.request_id where a.reviewer_id=p_user or r.owner_id=p_user order by a.created_at,a.id limit 100 offset p_page*100) x),'[]'::jsonb),'blocks',coalesce((select jsonb_agg(x.j) from (select to_jsonb(b) j from kapukai_members.blocks b where b.member_id=p_user order by created_at,blocked_id limit 100 offset p_page*100) x),'[]'::jsonb),'reports',coalesce((select jsonb_agg(x.j) from (select to_jsonb(r) j from kapukai_members.reports r where r.reporter_id=p_user order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'audit',coalesce((select jsonb_agg(x.j) from (select to_jsonb(a) j from kapukai_members.audit a where a.actor_id=p_user order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb),'invitations',coalesce((select jsonb_agg(x.j) from (select to_jsonb(i)-'email_hash'-'token_hash' j from kapukai_members.invitations i where i.claimed_by=p_user order by created_at,id limit 100 offset p_page*100) x),'[]'::jsonb)));
+$$;
+
+create function public.kapukai_member_command(p_user_id uuid,p_session_id uuid,p_action text,p_payload jsonb default '{}'::jsonb)
+ returns jsonb language plpgsql security definer set search_path='' as $$
+ declare op boolean; me kapukai_members.members%rowtype; other kapukai_members.members%rowtype; cfg kapukai_members.config%rowtype;
+ inv kapukai_members.invitations%rowtype; req kapukai_members.requests%rowtype; ass kapukai_members.assignments%rowtype; ev kapukai_members.events%rowtype; fb kapukai_members.feedback%rowtype; cr kapukai_members.credentials%rowtype;
+ allowed text[]; required text[]; uid uuid; tid uuid; rid uuid; token text; email text; txt text; st timestamptz; en timestamptz; a text[]; b text[]; withdraw_action boolean; target uuid; j jsonb;
+ begin
+ -- All commands share the bounded-pilot transaction lock, before authorization reads.
+ perform pg_advisory_xact_lock(1792367556);
+ if not kapukai_members.live_session(p_user_id,p_session_id) then return jsonb_build_object('result','forbidden');end if;
+ if p_payload is null or jsonb_typeof(p_payload)<>'object' or length(p_payload::text)>10000 then return jsonb_build_object('result','invalid');end if;
+ select exists(select 1 from kapukai_members.operators where user_id=p_user_id) into op;
+ select * into me from kapukai_members.members where id=p_user_id;
+ select * into cfg from kapukai_members.config;
+ allowed:=case p_action
+ when 'state' then array[]::text[] when 'export' then array['page'] when 'close' then array[]::text[]
+ when 'join' then array['invite_token','display_name','adult','privacy_acknowledged']
+ when 'profile_save' then array['display_name','bio','interests','discoverable','reviewer_opt_in','reviewer_scopes']
+ when 'room_join' then array['room_id'] when 'room_leave' then array['room_id'] when 'room_posts' then array['room_id']
+ when 'post_create' then array['room_id','body'] when 'post_delete' then array['post_id'] when 'post_report' then array['post_id','reason']
+ when 'member_block' then array['member_id','blocked'] when 'introduction_request' then array['member_id'] when 'introduction_respond' then array['introduction_id','accept']
+ when 'request_create' then array['title','summary','scope'] when 'request_close' then array['request_id']
+ when 'assignment_propose' then array['request_id','reviewer_id'] when 'assignment_respond' then array['assignment_id','accept','conflict_free'] when 'assignment_cancel' then array['assignment_id']
+ when 'event_offer' then array['invitee_id','title','starts_at','ends_at'] when 'event_respond' then array['event_id','accept'] when 'event_cancel' then array['event_id']
+ when 'feedback_save' then array['feedback_id','body'] when 'feedback_consent' then array['feedback_id','version','consent'] when 'feedback_withdraw' then array['feedback_id']
+ when 'credential_submit' then array['title','issuer','source_url'] when 'credential_consent' then array['credential_id','consent']
+ when 'operator_config' then array['enabled','max_members'] when 'operator_invite' then array['email','expires_days'] when 'operator_invite_revoke' then array['invitation_id']
+ when 'operator_post_moderate' then array['post_id','hide','reason'] when 'operator_member_suspend' then array['member_id','suspended']
+ when 'operator_feedback_propose' then array['feedback_id','excerpt'] when 'operator_feedback_publish' then array['feedback_id','version']
+ when 'operator_credential_review' then array['credential_id','verified','scopes','source_url'] else null end;
+ if allowed is null then return jsonb_build_object('result','invalid');end if;
+ required:=case when p_action='feedback_save' then array['body'] when p_action='export' then array[]::text[] else allowed end;
+ if exists(select 1 from jsonb_object_keys(p_payload) k where not(k=any(allowed))) or exists(select 1 from unnest(required) k where not(p_payload?k) or p_payload->k='null'::jsonb) then return jsonb_build_object('result','invalid');end if;
+ if exists(select 1 from jsonb_each(p_payload) e where e.key=any(array['adult','privacy_acknowledged','discoverable','reviewer_opt_in','blocked','accept','conflict_free','consent','enabled','hide','suspended','verified']) and jsonb_typeof(e.value)<>'boolean') then return jsonb_build_object('result','invalid');end if;
+ if exists(select 1 from jsonb_each(p_payload) e where e.key<>all(array['adult','privacy_acknowledged','discoverable','reviewer_opt_in','blocked','accept','conflict_free','consent','enabled','hide','suspended','verified','interests','reviewer_scopes','scopes','max_members','expires_days','version','page']) and jsonb_typeof(e.value)<>'string') or exists(select 1 from jsonb_each(p_payload) e where e.key=any(array['max_members','expires_days','version','page']) and (jsonb_typeof(e.value)<>'number' or e.value::text !~ '^[0-9]+$')) then return jsonb_build_object('result','invalid');end if;
+ if p_action like 'operator_%' and not op then return jsonb_build_object('result','forbidden');end if;
+ if p_action not in ('state','join') and p_action not like 'operator_%' and me.id is null then return jsonb_build_object('result','forbidden');end if;
+ if p_action not in ('state','export','close','join') and p_action not like 'operator_%' and me.status<>'active' then return jsonb_build_object('result','forbidden');end if;
+ withdraw_action:=p_action in ('close','room_leave','post_delete','request_close','event_cancel','assignment_cancel','feedback_withdraw') or (p_action='member_block' and p_payload->'blocked'='true'::jsonb) or (p_action in ('introduction_respond','assignment_respond') and p_payload->'accept'='false'::jsonb) or (p_action in ('credential_consent','feedback_consent') and p_payload->'consent'='false'::jsonb);
+ if not cfg.enabled and p_action not in ('state','export') and not coalesce(withdraw_action,false) and p_action not like 'operator_%' then return jsonb_build_object('result','paused');end if;
+ if p_action='state' then
+ if me.id is not null and me.status<>'active' then return jsonb_build_object('result','ok','enabled',cfg.enabled,'profile',to_jsonb(me),'is_operator',op);end if;
+ return kapukai_members.snapshot(p_user_id,op);
+ end if;
+ if p_action='export' then
+ if coalesce((p_payload->>'page')::integer,0)>100000 then return jsonb_build_object('result','invalid');end if;
+ return kapukai_members.export_data(p_user_id,coalesce((p_payload->>'page')::integer,0));
+ end if;
+ -- Serialize pilot writes: bounded at 30 members; this also prevents calendar/consent TOCTOU races.
+ select * into me from kapukai_members.members where id=p_user_id;
+ if p_action<>'room_posts' and not coalesce(withdraw_action,false) then
+ if (select count(*) from kapukai_members.audit where actor_id=p_user_id and created_at>now()-interval '1 minute')>=60 or (p_action='post_create' and (select count(*) from kapukai_members.audit where actor_id=p_user_id and action=p_action and created_at>now()-interval '1 minute')>=10) or (p_action='introduction_request' and (select count(*) from kapukai_members.audit where actor_id=p_user_id and action=p_action and created_at>now()-interval '1 day')>=10) then return jsonb_build_object('result','rate_limited');end if;
+ end if;
+ if p_action='operator_config' then
+ if jsonb_typeof(p_payload->'max_members')<>'number' or (p_payload->>'max_members') !~ '^[0-9]+$' or (p_payload->>'max_members')::integer not between 1 and 30 then return jsonb_build_object('result','invalid');end if;
+ if (select count(*) from kapukai_members.members where status='active')>(p_payload->>'max_members')::integer then return jsonb_build_object('result','conflict');end if;
+ update kapukai_members.config set enabled=(p_payload->>'enabled')::boolean,max_members=(p_payload->>'max_members')::integer;
+ elsif p_action='operator_invite' then
+ email:=lower(btrim(p_payload->>'email'));
+ if email is null or length(email)>254 or email !~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$' or (p_payload->>'expires_days') !~ '^[0-9]+$' or (p_payload->>'expires_days')::integer not between 1 and 14 then return jsonb_build_object('result','invalid');end if;
+ token:=replace(gen_random_uuid()::text||gen_random_uuid()::text,'-','');
+ insert into kapukai_members.invitations(email_hash,token_hash,expires_at,created_by) values(kapukai_members.hash(email),kapukai_members.hash(token),now()+make_interval(days=>(p_payload->>'expires_days')::integer),p_user_id) returning id into target;
+ insert into kapukai_members.audit(actor_id,action,target_id) values(p_user_id,p_action,target);
+ return jsonb_build_object('result','ok','invitation_id',target,'invite_token',token);
+ elsif p_action='operator_invite_revoke' then
+ update kapukai_members.invitations set revoked=true where id=(p_payload->>'invitation_id')::uuid and claimed_by is null returning id into target;
+ if target is null then return jsonb_build_object('result','not_found');end if;
+ elsif p_action='join' then
+ if me.id is not null then return jsonb_build_object('result','conflict');end if;
+ if p_payload->'adult' is distinct from 'true'::jsonb or p_payload->'privacy_acknowledged' is distinct from 'true'::jsonb or not kapukai_members.text_ok(p_payload->>'display_name',60) or p_payload->>'invite_token' !~ '^[0-9a-f]{64}$' then return jsonb_build_object('result','invalid');end if;
+ select * into cfg from kapukai_members.config for update;
+ if not cfg.enabled then return jsonb_build_object('result','paused');end if;
+ if (select count(*) from kapukai_members.members where status='active')>=cfg.max_members then return jsonb_build_object('result','capacity_full');end if;
+ select lower(btrim(u.email)) into email from auth.users u where u.id=p_user_id;
+ select * into inv from kapukai_members.invitations where token_hash=kapukai_members.hash(p_payload->>'invite_token') and email_hash=kapukai_members.hash(email) and not revoked and claimed_by is null and expires_at>now() for update;
+ if inv.id is null then return jsonb_build_object('result','forbidden');end if;
+ insert into kapukai_members.members(id,display_name) values(p_user_id,btrim(p_payload->>'display_name'));
+ update kapukai_members.invitations set claimed_by=p_user_id where id=inv.id; target:=p_user_id;
+ elsif p_action='profile_save' then
+ if not kapukai_members.text_ok(p_payload->>'display_name',60) or not kapukai_members.text_ok(p_payload->>'bio',500,true) then return jsonb_build_object('result','invalid');end if;
+ a:=kapukai_members.scopes(p_payload->'interests');b:=kapukai_members.scopes(p_payload->'reviewer_scopes');
+ if btrim(p_payload->>'display_name') is distinct from me.display_name then
+ update kapukai_members.feedback set status=case when excerpt is not null then 'proposed' else 'private' end,version=version+1,consent_version=null,published_at=null,published_by=null where member_id=p_user_id and status<>'withdrawn';
+ update kapukai_members.credentials set public_consent=false where member_id=p_user_id;end if;
+ update kapukai_members.members set display_name=btrim(p_payload->>'display_name'),bio=btrim(p_payload->>'bio'),interests=a,discoverable=(p_payload->>'discoverable')::boolean,reviewer_opt_in=(p_payload->>'reviewer_opt_in')::boolean,reviewer_scopes=b,updated_at=now() where id=p_user_id;
+ update kapukai_members.assignments x set status='cancelled',conflict_free=false from kapukai_members.requests r where x.request_id=r.id and x.reviewer_id=p_user_id and x.status in ('proposed','accepted') and not kapukai_members.eligible(p_user_id,r.scope);target:=p_user_id;
+ elsif p_action in ('room_join','room_leave','room_posts','post_create') then
+ txt:=p_payload->>'room_id';if not exists(select 1 from kapukai_members.rooms where id=txt) then return jsonb_build_object('result','invalid');end if;
+ if p_action='room_join' then insert into kapukai_members.room_members(room_id,member_id) values(txt,p_user_id) on conflict do nothing;
+ elsif p_action='room_leave' then delete from kapukai_members.room_members where room_id=txt and member_id=p_user_id;
+ else
+ if not exists(select 1 from kapukai_members.room_members where room_id=txt and member_id=p_user_id) then return jsonb_build_object('result','forbidden');end if;
+ if p_action='room_posts' then return jsonb_build_object('result','ok','posts',coalesce((select jsonb_agg(to_jsonb(p) order by p.created_at) from (select p.id,p.author_id,m.display_name author_name,p.body,p.created_at from kapukai_members.posts p join kapukai_members.members m on m.id=p.author_id where p.room_id=txt and not p.hidden and not p.deleted and m.status='active' and not kapukai_members.blocked(p_user_id,p.author_id) order by p.created_at desc limit 100) p),'[]'::jsonb));end if;
+ if not kapukai_members.text_ok(p_payload->>'body',2000) then return jsonb_build_object('result','invalid');end if;
+ insert into kapukai_members.posts(room_id,author_id,body) values(txt,p_user_id,btrim(p_payload->>'body')) returning id into target;
+ end if;
+ elsif p_action='post_delete' then
+ update kapukai_members.posts set deleted=true where id=(p_payload->>'post_id')::uuid and author_id=p_user_id returning id into target;if target is null then return jsonb_build_object('result','not_found');end if;
+ elsif p_action='post_report' then
+ target:=(p_payload->>'post_id')::uuid;if not kapukai_members.text_ok(p_payload->>'reason',300) then return jsonb_build_object('result','invalid');end if;
+ if not exists(select 1 from kapukai_members.posts p join kapukai_members.room_members rm on rm.room_id=p.room_id and rm.member_id=p_user_id where p.id=target and not p.deleted and not p.hidden and not kapukai_members.blocked(p_user_id,p.author_id)) then return jsonb_build_object('result','not_found');end if;
+ insert into kapukai_members.reports(post_id,reporter_id,reason) values(target,p_user_id,btrim(p_payload->>'reason')) on conflict(post_id,reporter_id) do update set reason=excluded.reason,resolved=false;
+ elsif p_action='operator_post_moderate' then
+ if p_payload->>'reason' not in ('privacy','conduct','off_topic','restored') then return jsonb_build_object('result','invalid');end if;
+ target:=(p_payload->>'post_id')::uuid;update kapukai_members.posts set hidden=(p_payload->>'hide')::boolean where id=target and not deleted;if not found then return jsonb_build_object('result','not_found');end if;
+ update kapukai_members.reports set resolved=true where post_id=target;
+ elsif p_action='member_block' then
+ target:=(p_payload->>'member_id')::uuid;if target=p_user_id or not exists(select 1 from kapukai_members.members where id=target) then return jsonb_build_object('result','invalid');end if;
+ if (p_payload->>'blocked')::boolean then
+ insert into kapukai_members.blocks(member_id,blocked_id) values(p_user_id,target) on conflict do nothing;
+ update kapukai_members.introductions set status='cancelled' where status in ('pending','accepted') and p_user_id in (requester_id,recipient_id) and target in (requester_id,recipient_id);
+ update kapukai_members.events set status='cancelled' where status in ('offered','accepted') and p_user_id in (organizer_id,invitee_id) and target in (organizer_id,invitee_id);
+ update kapukai_members.assignments x set status='cancelled',conflict_free=false from kapukai_members.requests r where x.request_id=r.id and x.status in ('proposed','accepted') and ((r.owner_id=p_user_id and x.reviewer_id=target) or (r.owner_id=target and x.reviewer_id=p_user_id));
+ else delete from kapukai_members.blocks where member_id=p_user_id and blocked_id=target;end if;
+ elsif p_action='introduction_request' then
+ uid:=(p_payload->>'member_id')::uuid;select * into other from kapukai_members.members where id=uid;
+ if uid=p_user_id or other.id is null or other.status<>'active' or not other.discoverable or not me.discoverable or not(me.interests&&other.interests) or kapukai_members.blocked(p_user_id,uid) then return jsonb_build_object('result','forbidden');end if;
+ if exists(select 1 from kapukai_members.introductions where status in ('pending','accepted') and p_user_id in (requester_id,recipient_id) and uid in (requester_id,recipient_id)) then return jsonb_build_object('result','conflict');end if;
+ insert into kapukai_members.introductions(requester_id,recipient_id) values(p_user_id,uid) returning id into target;
+ elsif p_action='introduction_respond' then
+ target:=(p_payload->>'introduction_id')::uuid;
+ update kapukai_members.introductions i set status=case when (p_payload->>'accept')::boolean then 'accepted' else 'declined' end where i.id=target and i.recipient_id=p_user_id and i.status='pending' and not kapukai_members.blocked(i.requester_id,p_user_id) and exists(select 1 from kapukai_members.members m where m.id=i.requester_id and m.status='active');if not found then return jsonb_build_object('result','not_found');end if;
+ elsif p_action='request_create' then
+ if not kapukai_members.text_ok(p_payload->>'title',100) or not kapukai_members.text_ok(p_payload->>'summary',600) or not kapukai_members.scope_ok(p_payload->>'scope') then return jsonb_build_object('result','invalid');end if;
+ if (select count(*) from kapukai_members.requests where owner_id=p_user_id and status='open')>=5 then return jsonb_build_object('result','capacity_full');end if;
+ insert into kapukai_members.requests(owner_id,title,summary,scope) values(p_user_id,btrim(p_payload->>'title'),btrim(p_payload->>'summary'),p_payload->>'scope') returning id into target;
+ elsif p_action='request_close' then
+ target:=(p_payload->>'request_id')::uuid;update kapukai_members.requests set status='closed' where id=target and owner_id=p_user_id;if not found then return jsonb_build_object('result','not_found');end if;
+ update kapukai_members.assignments set status='cancelled',conflict_free=false where request_id=target and status in ('proposed','accepted');
+ elsif p_action='assignment_propose' then
+ select * into req from kapukai_members.requests where id=(p_payload->>'request_id')::uuid and owner_id=p_user_id and status='open';uid:=(p_payload->>'reviewer_id')::uuid;
+ if req.id is null then return jsonb_build_object('result','not_found');end if;
+ if uid=p_user_id or not kapukai_members.eligible(uid,req.scope) or kapukai_members.blocked(p_user_id,uid) or not exists(select 1 from kapukai_members.members m where m.id=uid and m.discoverable and me.discoverable and m.interests&&me.interests) then return jsonb_build_object('result','forbidden');end if;
+ if exists(select 1 from kapukai_members.assignments where request_id=req.id and status in ('proposed','accepted')) then return jsonb_build_object('result','conflict');end if;
+ insert into kapukai_members.assignments(request_id,reviewer_id) values(req.id,uid) returning id into target;
+ elsif p_action='assignment_cancel' then
+ target:=(p_payload->>'assignment_id')::uuid;update kapukai_members.assignments a set status='cancelled',conflict_free=false where a.id=target and a.status in ('proposed','accepted') and (a.reviewer_id=p_user_id or exists(select 1 from kapukai_members.requests r where r.id=a.request_id and r.owner_id=p_user_id));if not found then return jsonb_build_object('result','not_found');end if;
+ elsif p_action='assignment_respond' then
+ select * into ass from kapukai_members.assignments where id=(p_payload->>'assignment_id')::uuid and reviewer_id=p_user_id and status='proposed';if ass.id is null then return jsonb_build_object('result','not_found');end if;
+ select * into req from kapukai_members.requests where id=ass.request_id;
+ if req.status<>'open' or not kapukai_members.eligible(p_user_id,req.scope) or kapukai_members.blocked(p_user_id,req.owner_id) or not exists(select 1 from kapukai_members.members where id=req.owner_id and status='active') then return jsonb_build_object('result','forbidden');end if;
+ if (p_payload->>'accept')::boolean and p_payload->'conflict_free' is distinct from 'true'::jsonb then return jsonb_build_object('result','invalid');end if;
+ update kapukai_members.assignments set status=case when (p_payload->>'accept')::boolean then 'accepted' else 'declined' end,conflict_free=(p_payload->>'accept')::boolean and (p_payload->>'conflict_free')::boolean where id=ass.id;target:=ass.id;
+ elsif p_action='event_offer' then
+ uid:=(p_payload->>'invitee_id')::uuid;st:=(p_payload->>'starts_at')::timestamptz;en:=(p_payload->>'ends_at')::timestamptz;
+ if not kapukai_members.text_ok(p_payload->>'title',100) or st<=now() or st>now()+interval '180 days' or en<=st or en>st+interval '4 hours' or p_payload->>'starts_at' !~ '(Z|[+]00:00)$' or p_payload->>'ends_at' !~ '(Z|[+]00:00)$' then return jsonb_build_object('result','invalid');end if;
+ if uid=p_user_id or kapukai_members.blocked(p_user_id,uid) or not exists(select 1 from kapukai_members.members where id=uid and status='active') then return jsonb_build_object('result','forbidden');end if;
+ if not exists(select 1 from kapukai_members.introductions where status='accepted' and p_user_id in (requester_id,recipient_id) and uid in (requester_id,recipient_id)) and not exists(select 1 from kapukai_members.assignments x join kapukai_members.requests r on r.id=x.request_id where x.status='accepted' and r.status='open' and kapukai_members.eligible(x.reviewer_id,r.scope) and ((r.owner_id=p_user_id and x.reviewer_id=uid) or(r.owner_id=uid and x.reviewer_id=p_user_id))) then return jsonb_build_object('result','forbidden');end if;
+ if exists(select 1 from kapukai_members.events where status='accepted' and (p_user_id in (organizer_id,invitee_id) or uid in (organizer_id,invitee_id)) and starts_at<en and ends_at>st) then return jsonb_build_object('result','conflict');end if;
+ insert into kapukai_members.events(organizer_id,invitee_id,title,starts_at,ends_at) values(p_user_id,uid,btrim(p_payload->>'title'),st,en) returning id into target;
+ elsif p_action in ('event_respond','event_cancel') then
+ select * into ev from kapukai_members.events where id=(p_payload->>'event_id')::uuid and p_user_id in (organizer_id,invitee_id);
+ if ev.id is null then return jsonb_build_object('result','not_found');end if;target:=ev.id;
+ if p_action='event_cancel' then update kapukai_members.events set status='cancelled' where id=ev.id;
+ else
+ if ev.invitee_id<>p_user_id or ev.status<>'offered' then return jsonb_build_object('result','not_found');end if;
+ if kapukai_members.blocked(ev.organizer_id,ev.invitee_id) or not exists(select 1 from kapukai_members.members where id=ev.organizer_id and status='active') then return jsonb_build_object('result','forbidden');end if;
+ if (p_payload->>'accept')::boolean and not exists(select 1 from kapukai_members.introductions i where i.status='accepted' and ev.organizer_id in(i.requester_id,i.recipient_id) and ev.invitee_id in(i.requester_id,i.recipient_id)) and not exists(select 1 from kapukai_members.assignments a join kapukai_members.requests r on r.id=a.request_id where a.status='accepted' and r.status='open' and kapukai_members.eligible(a.reviewer_id,r.scope) and ((r.owner_id=ev.organizer_id and a.reviewer_id=ev.invitee_id) or(r.owner_id=ev.invitee_id and a.reviewer_id=ev.organizer_id))) then return jsonb_build_object('result','forbidden');end if;
+ if (p_payload->>'accept')::boolean and (ev.starts_at<=now() or exists(select 1 from kapukai_members.events e where e.id<>ev.id and e.status='accepted' and (ev.organizer_id in (e.organizer_id,e.invitee_id) or ev.invitee_id in (e.organizer_id,e.invitee_id)) and e.starts_at<ev.ends_at and e.ends_at>ev.starts_at)) then return jsonb_build_object('result','conflict');end if;
+ update kapukai_members.events set status=case when (p_payload->>'accept')::boolean then 'accepted' else 'declined' end where id=ev.id;
+ end if;
+ elsif p_action='feedback_save' then
+ if not kapukai_members.text_ok(p_payload->>'body',2000) then return jsonb_build_object('result','invalid');end if;
+ if p_payload?'feedback_id' then target:=(p_payload->>'feedback_id')::uuid;update kapukai_members.feedback set body=btrim(p_payload->>'body'),excerpt=null,version=version+1,consent_version=null,status='private',published_at=null,published_by=null,proposed_by=null where id=target and member_id=p_user_id;if not found then return jsonb_build_object('result','not_found');end if;
+ else insert into kapukai_members.feedback(member_id,body) values(p_user_id,btrim(p_payload->>'body')) returning id into target;end if;
+ elsif p_action in ('feedback_consent','feedback_withdraw','operator_feedback_propose','operator_feedback_publish') then
+ target:=(p_payload->>'feedback_id')::uuid;select * into fb from kapukai_members.feedback where id=target;
+ if fb.id is null or (p_action not like 'operator_%' and fb.member_id<>p_user_id) then return jsonb_build_object('result','not_found');end if;
+ if p_action='feedback_withdraw' then update kapukai_members.feedback set status='withdrawn',consent_version=null,published_at=null,published_by=null where id=target;
+ elsif p_action='operator_feedback_propose' then
+ if not kapukai_members.text_ok(p_payload->>'excerpt',600) then return jsonb_build_object('result','invalid');end if;
+ if fb.status='withdrawn' or not exists(select 1 from kapukai_members.members where id=fb.member_id and status='active') then return jsonb_build_object('result','conflict');end if;
+ update kapukai_members.feedback set excerpt=btrim(p_payload->>'excerpt'),version=version+1,consent_version=null,status='proposed',published_at=null,published_by=null,proposed_by=p_user_id where id=target;
+ else
+ if (p_payload->>'version') !~ '^[0-9]+$' or (p_payload->>'version')::integer<>fb.version then return jsonb_build_object('result','conflict');end if;
+ if p_action='feedback_consent' then
+ if fb.excerpt is null or fb.status not in ('proposed','consented','published') then return jsonb_build_object('result','conflict');end if;
+ update kapukai_members.feedback set consent_version=case when (p_payload->>'consent')::boolean then version else null end,status=case when (p_payload->>'consent')::boolean then 'consented' else 'proposed' end,published_at=null,published_by=null where id=target;
+ else
+ if fb.status<>'consented' or fb.consent_version is distinct from fb.version or not exists(select 1 from kapukai_members.members where id=fb.member_id and status='active') then return jsonb_build_object('result','conflict');end if;
+ update kapukai_members.feedback set status='published',published_at=now(),published_by=p_user_id where id=target;
+ end if;end if;
+ elsif p_action='credential_submit' then
+ if not kapukai_members.text_ok(p_payload->>'title',100) or not kapukai_members.text_ok(p_payload->>'issuer',120) or not kapukai_members.text_ok(p_payload->>'source_url',500) or p_payload->>'source_url' !~ '^https://[^[:space:]@]+$' then return jsonb_build_object('result','invalid');end if;
+ insert into kapukai_members.credentials(member_id,title,issuer,source_url) values(p_user_id,btrim(p_payload->>'title'),btrim(p_payload->>'issuer'),p_payload->>'source_url') returning id into target;
+ elsif p_action in ('credential_consent','operator_credential_review') then
+ target:=(p_payload->>'credential_id')::uuid;select * into cr from kapukai_members.credentials where id=target;
+ if cr.id is null or (p_action='credential_consent' and cr.member_id<>p_user_id) then return jsonb_build_object('result','not_found');end if;
+ if p_action='credential_consent' then
+ if (p_payload->>'consent')::boolean and cr.status<>'verified' then return jsonb_build_object('result','conflict');end if;
+ update kapukai_members.credentials set public_consent=(p_payload->>'consent')::boolean where id=target;
+ else
+ a:=kapukai_members.scopes(p_payload->'scopes');
+ if not kapukai_members.text_ok(p_payload->>'source_url',500) or p_payload->>'source_url' !~ '^https://[^[:space:]@]+$' or not exists(select 1 from kapukai_members.members where id=cr.member_id and status='active') then return jsonb_build_object('result','invalid');end if;
+ update kapukai_members.credentials set status=case when (p_payload->>'verified')::boolean then 'verified' else 'revoked' end,scopes=a,source_url=p_payload->>'source_url',verified_at=case when (p_payload->>'verified')::boolean then now() else null end,verified_by=p_user_id,public_consent=false where id=target;
+ update kapukai_members.assignments x set status='cancelled',conflict_free=false from kapukai_members.requests r where x.request_id=r.id and x.reviewer_id=cr.member_id and x.status in ('proposed','accepted') and not kapukai_members.eligible(cr.member_id,r.scope);
+ end if;
+ elsif p_action in ('close','operator_member_suspend') then
+ target:=case when p_action='close' then p_user_id else (p_payload->>'member_id')::uuid end;
+ if p_action='close' then
+ update kapukai_members.members set status='closed',updated_at=now() where id=target;perform kapukai_members.detach(target);
+ elsif (p_payload->>'suspended')::boolean then
+ if target=p_user_id then return jsonb_build_object('result','invalid');end if;
+ update kapukai_members.members set status='suspended',updated_at=now() where id=target and status<>'closed';if not found then return jsonb_build_object('result','not_found');end if;perform kapukai_members.detach(target);
+ else if (select count(*) from kapukai_members.members where status='active')>=cfg.max_members then return jsonb_build_object('result','capacity_full');end if; update kapukai_members.members set status='active',updated_at=now() where id=target and status='suspended';if not found then return jsonb_build_object('result','not_found');end if;end if;
+ else return jsonb_build_object('result','invalid');end if;
+ if p_action in ('profile_save','operator_credential_review','request_close','assignment_cancel') then perform kapukai_members.prune_events();end if;
+ insert into kapukai_members.audit(actor_id,action,target_id,reason_code) values(p_user_id,p_action,target,case when p_action='operator_post_moderate' then p_payload->>'reason' else null end);
+ return jsonb_build_object('result','ok','id',target);
+ exception when invalid_text_representation or invalid_datetime_format or datetime_field_overflow or numeric_value_out_of_range or invalid_parameter_value or check_violation or not_null_violation then return jsonb_build_object('result','invalid');when unique_violation then return jsonb_build_object('result','conflict');
+ end $$;
+
+create function public.kapukai_member_signup_check(p_email text,p_invite_token text) returns jsonb language plpgsql security definer set search_path='' as $$
+ declare inv kapukai_members.invitations%rowtype;cfg kapukai_members.config%rowtype;
+ begin
+ perform pg_advisory_xact_lock(1792367556);
+ if p_email is null or length(p_email)>254 or lower(btrim(p_email))<>p_email or p_email !~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$' or p_invite_token is null or p_invite_token !~ '^[0-9a-f]{64}$' then return jsonb_build_object('result','forbidden');end if;
+ select * into cfg from kapukai_members.config;
+ if not cfg.enabled then return jsonb_build_object('result','paused');end if;
+ if (select count(*) from kapukai_members.members where status='active')>=cfg.max_members then return jsonb_build_object('result','capacity_full');end if;
+ select * into inv from kapukai_members.invitations where email_hash=kapukai_members.hash(p_email) and token_hash=kapukai_members.hash(p_invite_token) and not revoked and claimed_by is null and expires_at>now();
+ if inv.id is null then return jsonb_build_object('result','forbidden');end if;
+ if (select count(*) from kapukai_members.signup_attempts a where a.invitation_id=inv.id and a.created_at>now()-interval '1 hour')>=3 then return jsonb_build_object('result','rate_limited');end if;
+ insert into kapukai_members.signup_attempts(invitation_id) values(inv.id);
+ return jsonb_build_object('result','ok');
+ end $$;
+
+create function public.kapukai_member_public() returns jsonb language sql stable security definer set search_path='' as $$
+ select jsonb_build_object('result','ok',
+ 'feedback',coalesce((select jsonb_agg(x.j) from (select jsonb_build_object('id',f.id,'excerpt',f.excerpt,'version',f.version,'published_at',f.published_at,'display_name',m.display_name) j from kapukai_members.feedback f join kapukai_members.members m on m.id=f.member_id where (select enabled from kapukai_members.config) and m.status='active' and f.status='published' and f.consent_version=f.version and f.published_by is not null order by f.published_at desc limit 100) x),'[]'::jsonb),
+ 'credentials',coalesce((select jsonb_agg(x.j) from (select jsonb_build_object('id',c.id,'title',c.title,'issuer',c.issuer,'source_url',c.source_url,'scopes',c.scopes,'verified_at',c.verified_at,'display_name',m.display_name) j from kapukai_members.credentials c join kapukai_members.members m on m.id=c.member_id where (select enabled from kapukai_members.config) and m.status='active' and c.status='verified' and c.public_consent and c.verified_at is not null and c.verified_by is not null order by c.verified_at desc limit 100) x),'[]'::jsonb));
+ $$;
+
+do $$ declare t record;begin for t in select tablename from pg_tables where schemaname='kapukai_members' loop execute format('alter table kapukai_members.%I enable row level security',t.tablename);end loop;end $$;
+revoke all on all tables in schema kapukai_members from public,anon,authenticated,service_role;
+revoke all on all sequences in schema kapukai_members from public,anon,authenticated,service_role;
+revoke all on all functions in schema kapukai_members from public,anon,authenticated,service_role;
+revoke all on function public.kapukai_member_command(uuid,uuid,text,jsonb) from public,anon,authenticated;
+revoke all on function public.kapukai_member_public() from public,anon,authenticated;
+grant execute on function public.kapukai_member_command(uuid,uuid,text,jsonb) to service_role;
+grant execute on function public.kapukai_member_public() to service_role;
+revoke all on function public.kapukai_member_signup_check(text,text) from public,anon,authenticated;
+grant execute on function public.kapukai_member_signup_check(text,text) to service_role;
+commit;

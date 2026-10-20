@@ -1,0 +1,71 @@
+{
+  "source_sha256": "957bda5750e0136312ea3ff689b632ff7a6d19a25f37dbfc78b4e7ae6a2e976c",
+  "stages": [
+    {
+      "stage": 1,
+      "name": "member_tables_locked",
+      "disabled": true,
+      "private_acl_denied": true,
+      "rls_enabled": true,
+      "public_rpc_service_only": false,
+      "public_rpc_denied": true
+    },
+    {
+      "stage": 2,
+      "name": "member_private_helpers",
+      "disabled": true,
+      "private_acl_denied": true,
+      "rls_enabled": true,
+      "public_rpc_service_only": false,
+      "public_rpc_denied": true
+    },
+    {
+      "stage": 3,
+      "name": "member_private_snapshot",
+      "disabled": true,
+      "private_acl_denied": true,
+      "rls_enabled": true,
+      "public_rpc_service_only": false,
+      "public_rpc_denied": true
+    },
+    {
+      "stage": 4,
+      "name": "member_private_export",
+      "disabled": true,
+      "private_acl_denied": true,
+      "rls_enabled": true,
+      "public_rpc_service_only": false,
+      "public_rpc_denied": true
+    },
+    {
+      "stage": 5,
+      "name": "member_command_locked",
+      "disabled": true,
+      "private_acl_denied": true,
+      "rls_enabled": true,
+      "public_rpc_service_only": false,
+      "public_rpc_denied": true
+    },
+    {
+      "stage": 6,
+      "name": "member_feeds_locked",
+      "disabled": true,
+      "private_acl_denied": true,
+      "rls_enabled": true,
+      "public_rpc_service_only": false,
+      "public_rpc_denied": true
+    },
+    {
+      "stage": 7,
+      "name": "member_service_grants",
+      "disabled": true,
+      "private_acl_denied": true,
+      "rls_enabled": true,
+      "public_rpc_service_only": true,
+      "public_rpc_denied": false
+    }
+  ],
+  "final_catalog_equivalent_to_atomic_source": true,
+  "external_execution": false,
+  "verification_scope": "Local PGlite only; all seven stages installed in an isolated fixture and compared with the full atomic source. This is not production deployment evidence."
+}

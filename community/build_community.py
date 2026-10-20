@@ -20,7 +20,7 @@ page('', 'Learn, connect and contribute', 'Join Kapukai for free classes and web
 
 page('community', 'Join, volunteer and learn', 'Sign up for free classes and webinars coming soon, volunteer opportunities, collaboration or The Remedy Brief. Choose each interest separately.', '''
 <div class="layout"><section><p class="eyebrow">A place to contribute</p><h1>Your curiosity.<br>Your skills.<br>Your choice.</h1><p class="lede">Join Kapukai for learning and practical work on systems people can inspect, question and correct.</p><div class="notice"><strong>Free classes and webinars are coming soon.</strong><br>We will announce dates and registration details. This is an interest list, not a booked place.</div><h2>Volunteers welcome.</h2><p>Help test tools, check public sources, improve accessible learning materials, or express interest in independent observation.</p><p>Volunteer assignments and any access to private information require separate onboarding and consent. Observing a person give an account does not verify every event described.</p><p>Want to collaborate or teach? Choose “Connect with Kapukai.” We can follow up about your interests.</p><p class="small">No payment or sensitive history is needed. This form is for adults 18 and older. Kapukai is not a law firm and does not provide legal advice.</p><p><a href="/articles/tort-law-and-accountability/">Read the article that started this invitation</a></p></section>
-<section class="panel" id="signup"><h2>Choose how to take part.</h2><p>Enter your email, choose your interests, and confirm the link we send.</p><form id="signup-form" data-source="/community"><div class="field"><label for="email">Email address</label><input type="email" id="email" name="email" autocomplete="email" maxlength="254" required></div><fieldset><legend>Email me about (choose at least one)</legend>
+<section class="panel" id="signup"><h2>Choose how to take part.</h2><p>Enter your email, choose your interests, and confirm the link we send.</p><p class="small">Already invited to the member pilot? <a href="/community/members/">Create your account or sign in</a>. These email interests remain separate.</p><form id="signup-form" data-source="/community"><div class="field"><label for="email">Email address</label><input type="email" id="email" name="email" autocomplete="email" maxlength="254" required></div><fieldset><legend>Email me about (choose at least one)</legend>
 <label class="check"><input type="checkbox" name="topic" value="free_classes"><span><strong>Free classes and webinars</strong><br>Dates and registration details when announced.</span></label>
 <label class="check"><input type="checkbox" name="topic" value="volunteer"><span><strong>Volunteer opportunities</strong><br>Invitations to contribute, with each role explained.</span></label>
 <label class="check"><input type="checkbox" name="topic" value="connect"><span><strong>Connect with Kapukai</strong><br>Follow up about collaboration, teaching or contributing.</span></label>
@@ -36,6 +36,8 @@ from workshop_pages import build_workshop
 build_workshop(page)
 from lifecycle_pages import build_lifecycle
 build_lifecycle(page)
+from member_pages import build_members
+build_members(page)
 from architecture_page import build_architecture
 build_architecture(page, P)
 from architecture_atlas import build_atlas
@@ -43,15 +45,15 @@ build_atlas(page, P)
 from pattern_library import build_patterns
 build_patterns(page, P)
 
-routes=[public_path(x) for x in ['','community','testers','newsletter','practice','privacy',ARTICLE]] + ['community/'+x for x in ['assistance','reviewers','learn','about','contact','status','lifecycle']] + ['architecture-of-power', 'architecture-of-power/atlas', 'architecture-of-power/patterns']
+routes=[public_path(x) for x in ['','community','testers','newsletter','practice','privacy',ARTICLE]] + ['community/'+x for x in ['assistance','reviewers','learn','about','contact','status','lifecycle','voices']] + ['architecture-of-power', 'architecture-of-power/atlas', 'architecture-of-power/patterns']
 (P/'community'/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+ORIGIN+('/'+route+'/' if route else '/')+'</loc></url>' for route in routes)+'</urlset>')
-(P/'robots.txt').write_text('User-agent: *\nAllow: /\nDisallow: /confirm/\nDisallow: /community/apply/\nDisallow: /community/operate/\nSitemap: '+ORIGIN+'/community/sitemap.xml\n')
+(P/'robots.txt').write_text('User-agent: *\nAllow: /\nDisallow: /confirm/\nDisallow: /community/apply/\nDisallow: /community/operate/\nDisallow: /community/members/\nSitemap: '+ORIGIN+'/community/sitemap.xml\n')
 print('Article, community signup, homepage and discovery metadata built.')
 
 import shutil
 assets_out=P/'assets'/'community'
 assets_out.mkdir(parents=True,exist_ok=True)
-for name in ['style.css','app.js','applications.js','operations.js','favicon.svg']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
+for name in ['style.css','app.js','applications.js','operations.js','members.js','members.css','favicon.svg']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
 for route,target in [('', '/community/'), ('tort','/articles/tort-law-and-accountability/')]:
     d=P/route;d.mkdir(parents=True,exist_ok=True)
     (d/'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url='+target+'"><title>Kapukai Governance Lab</title><link rel="canonical" href="'+ORIGIN+target+'"><a href="'+target+'">Continue to Kapukai</a></html>')
