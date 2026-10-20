@@ -1,6 +1,6 @@
 # Member invitation email release — October 20, 2026
 
-Status: implementation, local verification and backend deployment checks complete; frontend deployment verification pending. This note does not establish real inbox delivery. The functional commit and frontend deployment receipt are to be added after release.
+Status: backend and frontend deployed and verified. This note does not establish real inbox delivery. The operator must explicitly send each invitation.
 
 ## What was broken
 
@@ -89,16 +89,17 @@ The four focused invitation suites passed all 32 tests. The broader release veri
 - `kapukai-member-access` version 2 is ACTIVE. All three deployed function files match the source files exactly.
 - Live database readback confirms RLS on the new ledger. Anonymous, authenticated and service roles have no direct table access; only the service role can execute the delivery RPCs. A null actor is denied.
 - Nine read-only production HTTP boundary checks passed: readiness returns 200, missing and forged authentication return 401, invalid payloads return 400, an unapproved origin returns 403, GET returns 405, and query parameters return 400.
-- The security advisor reports no new warning. The existing leaked-password-protection warning remains unchanged.
+- The security advisor reports no new warning. The existing [leaked-password-protection warning](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection) remains unchanged.
 
 These checks establish deployed backend readiness and access boundaries. They do not establish an invitation handoff to the real email provider or receipt by a real person.
 
-## Frontend release evidence to complete
+## Frontend release evidence
 
-- Functional Git commit: pending.
-- Machine-readable release receipt and deployed bundle digest: pending recording.
-- Vercel deployment and production alias: pending live verification.
-- Exact frontend asset checks and live page verification: pending.
+- Functional Git commit: `3d8b876646ab7a6687f5812561849b76ccd30730`.
+- Machine-readable release receipt: `docs/releases/member-invitation-email-2026-10-20.json`, including the exact Edge bundle digest and asset hashes.
+- Vercel deployment: `dpl_AxqwhNkCCm2oco9v5TkUcWfM6zQB`, READY for that commit and assigned to `kapukai-community.vercel.app`.
+- Production member HTML and JavaScript fetched at 2026-10-20 06:05 UTC match the tested generated files byte for byte. Member HTML is `no-store` and `noindex, nofollow`.
+- Live browser verification confirms the existing-account sign-in entry, updated invitation-email steps, and no operator send controls in the anonymous view. Authenticated operator interactions and recipient completion were exercised locally with controlled Auth/Postmark substitutes.
 - Real invitation provider acceptance: not established by this note.
 - Recipient inbox receipt and real account completion: not established by this note.
 

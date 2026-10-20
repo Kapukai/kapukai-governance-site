@@ -110,12 +110,14 @@
     "real_invited_account_completion_verified": false
   },
   "member_invitation_email_release": {
-    "status": "backend_deployed_frontend_pending",
+    "status": "production_frontend_and_backend_verified",
     "supabase_function": "kapukai-member-access",
     "supabase_function_version": 2,
     "migration": "member_invitation_email_delivery",
     "production_url": "https://kapukai-community.vercel.app/community/members/",
-    "evidence": "docs/MEMBER_INVITATION_EMAIL_2026-10-20.md",
-    "real_recipient_inbox_delivery_verified": false
+    "evidence": "docs/releases/member-invitation-email-2026-10-20.json",
+    "real_recipient_inbox_delivery_verified": false,
+    "git_commit": "3d8b876646ab7a6687f5812561849b76ccd30730",
+    "vercel_deployment": "dpl_AxqwhNkCCm2oco9v5TkUcWfM6zQB"
   }
 }

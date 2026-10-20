@@ -1,0 +1,133 @@
+{
+  "release": "member_invitation_email",
+  "checked_at_utc": "2026-10-20T06:05:54.103Z",
+  "functional_commit": "3d8b876646ab7a6687f5812561849b76ccd30730",
+  "frontend": {
+    "deployment": "dpl_AxqwhNkCCm2oco9v5TkUcWfM6zQB",
+    "state": "READY",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "exact_assets": {
+      "checked_at_utc": "2026-10-20T06:05:22.014301+00:00",
+      "origin": "https://kapukai-community.vercel.app",
+      "checks": [
+        {
+          "path": "community/members/index.html",
+          "status": 200,
+          "exact_source_match": true,
+          "sha256": "425e79db947450572f88da52c7b7b3cf4344ef813c3a1ff67a5781e9f48d3e16",
+          "cache_control": "no-store",
+          "robots": "noindex, nofollow"
+        },
+        {
+          "path": "assets/community/members.js",
+          "status": 200,
+          "exact_source_match": true,
+          "sha256": "f12a7809f713d95c23febad685c7b1514daf9a58fd40c7af25c099d2cabc21fe",
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null
+        }
+      ]
+    },
+    "browser_signin_entry_verified": true,
+    "anonymous_email_send_controls_visible": false
+  },
+  "backend": {
+    "migration": "member_invitation_email_delivery",
+    "migration_applied": true,
+    "function": "kapukai-member-access",
+    "version": 2,
+    "status": "ACTIVE",
+    "bundle_sha256": "2b790d732ff7b8a7a2b6899868d9ce432e174f1b5f4dce5cb402199511b69fc7",
+    "exact_files_match": true,
+    "custom_authentication_preserved": true,
+    "ledger_rls": true,
+    "ledger_direct_access": {
+      "anon": false,
+      "authenticated": false,
+      "service_role": false
+    },
+    "rpc_execute": {
+      "anon": false,
+      "authenticated": false,
+      "service_role": true
+    },
+    "null_actor_status": "forbidden",
+    "null_actor_send": "forbidden",
+    "new_security_warnings": [],
+    "preexisting_security_warning": {
+      "name": "auth_leaked_password_protection",
+      "remediation": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"
+    }
+  },
+  "tests": {
+    "local": {
+      "passed": 115,
+      "failed": 0,
+      "database_edge": 65,
+      "ui_integration": 50,
+      "auth_and_postmark": "controlled local substitutes; no real emails"
+    },
+    "live_http": {
+      "checked_at_utc": "2026-10-20T06:02:12.123846+00:00",
+      "passed": 9,
+      "failed": 0,
+      "cases": [
+        {
+          "name": "request_service_ready",
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "send_requires_auth",
+          "status": 401,
+          "passed": true
+        },
+        {
+          "name": "status_requires_auth",
+          "status": 401,
+          "passed": true
+        },
+        {
+          "name": "forged_auth_rejected",
+          "status": 401,
+          "passed": true
+        },
+        {
+          "name": "private_queue_requires_auth",
+          "status": 401,
+          "passed": true
+        },
+        {
+          "name": "malformed_send_rejected",
+          "status": 400,
+          "passed": true
+        },
+        {
+          "name": "unapproved_origin_denied",
+          "status": 403,
+          "passed": true
+        },
+        {
+          "name": "get_does_not_change_state",
+          "status": 405,
+          "passed": true
+        },
+        {
+          "name": "query_tokens_rejected",
+          "status": 400,
+          "passed": true
+        }
+      ],
+      "cache_control_all": "no-store",
+      "cors_exact": true
+    }
+  },
+  "limits": {
+    "real_invitation_provider_acceptance_verified": false,
+    "real_recipient_inbox_delivery_verified": false,
+    "real_recipient_account_completion_verified": false,
+    "production_operator_send_clicked": false,
+    "canonical_nginx_routes_installed": false,
+    "status_requires_active_invitation_and_open_pilot": true
+  }
+}
