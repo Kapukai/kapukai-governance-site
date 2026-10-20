@@ -27,3 +27,12 @@ Real inbox receipt and a graphical real-device walkthrough remain unobserved. Th
 Frontend rollback: `dpl_9aoCp6hkJevbw6VXQjhTUPof1XnV`. The existing pilot pause control blocks new requests, confirmations and approvals while preserving inspection and withdrawal. Keep the additive schema and participant records. This release does not change DNS/mail routing or install new routes on the separate kapukai.org nginx host.
 
 Machine-readable evidence: `docs/releases/member-access-2026-10-20.json`. The shared manifest links this receipt to the functional commit and deployment; a later evidence-only commit preserves the same public bytes.
+
+
+## Privacy-link usability correction — October 19, 2026 EDT
+
+Commit `e5119c346e2d67abd1dd6db6f459754c35704daa` deployed as `dpl_7SJCuD5z5DEJUYiw2m8WNTC6VEBY`, READY with the production alias. Form privacy notices and form-page footer privacy links open a clearly labeled separate tab so reading the notice leaves the original form open. No cookies or persistent drafts were added. Existing page-exit clearing, authentication and consent behavior remain unchanged.
+
+The 31 member interface checks and 8 Workshop checks passed. Independent review passed; all 64 manifest hashes match. Seven live pages returned 200 and matched the exact built bytes, with 15 privacy links using the new behavior. The member and operator routes retain no-store and noindex, nofollow.
+
+A real request for the user-designated address was observed with an accepted provider receipt, then email confirmation and state `awaiting_review`. The recipient, request identifier, provider identifier and private token are omitted. No duplicate test mail was sent. Inbox-folder placement was not observed. Operator approval and private invitation issuance remain pending human review. This observation updates the earlier real-recipient confirmation limitation without claiming a graphical browser walkthrough.

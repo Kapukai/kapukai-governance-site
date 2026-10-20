@@ -259,5 +259,84 @@
     "pause": "Set existing member pilot enabled=false through authorized operator control; inspect and withdrawal stay available.",
     "data": "Keep additive schema and request/audit records; do not drop participant data."
   },
-  "receipt_note": "A later documentation-only commit records this receipt without changing public files."
+  "receipt_note": "A later documentation-only commit records this receipt without changing public files.",
+  "privacy_link_followup": {
+    "recorded_at_utc": "2026-10-20T03:18:29.592319+00:00",
+    "git_commit": "e5119c346e2d67abd1dd6db6f459754c35704daa",
+    "git_tree": "a12053e3f8f62afb16ef2cc493e83cf226eda614",
+    "vercel_deployment": "dpl_7SJCuD5z5DEJUYiw2m8WNTC6VEBY",
+    "status": "production_verified",
+    "change": "Form privacy notices and form-page footer privacy links open a labeled separate tab. Page-exit cleanup and storage behavior remain unchanged.",
+    "existing_interface_tests_passed": 39,
+    "independent_review": "passed",
+    "live_pages": {
+      "checked_at_utc": "2026-10-20T03:17:21.539585+00:00",
+      "checks": [
+        {
+          "route": "/community/assistance/",
+          "status": 200,
+          "matches_built_bytes": true,
+          "privacy_links_open_new_tab": 2,
+          "sha256": "0f483f071225c2f3bbfe986093ae0637ca0076125f13a0a73783d1ec9c6a6acd"
+        },
+        {
+          "route": "/community/members/",
+          "status": 200,
+          "matches_built_bytes": true,
+          "privacy_links_open_new_tab": 4,
+          "sha256": "e3060fe6ebb8ec2eca24f31905ae4bcfd56b6d917b34b736024f67eb7a229706",
+          "cache_control": "no-store",
+          "robots": "noindex, nofollow"
+        },
+        {
+          "route": "/community/operate/",
+          "status": 200,
+          "matches_built_bytes": true,
+          "privacy_links_open_new_tab": 1,
+          "sha256": "a4d999caea0264410bf716c663e644089da35ae1c1e41211bcb323369c052696",
+          "cache_control": "no-store",
+          "robots": "noindex, nofollow"
+        },
+        {
+          "route": "/community/reviewers/",
+          "status": 200,
+          "matches_built_bytes": true,
+          "privacy_links_open_new_tab": 2,
+          "sha256": "f21bd8c2a350adbd727dbf320a2d49ed2c859bb6c9589aa319b57a5e9b575c96"
+        },
+        {
+          "route": "/join/",
+          "status": 200,
+          "matches_built_bytes": true,
+          "privacy_links_open_new_tab": 2,
+          "sha256": "8da63de4887f51aa52d01c5945c7d2558d446f4fdfc4146e78803066cce885ac"
+        },
+        {
+          "route": "/newsletter/",
+          "status": 200,
+          "matches_built_bytes": true,
+          "privacy_links_open_new_tab": 2,
+          "sha256": "8545304965f66165d49010fcacff10746ee927cce276cb3d1e20506af5c1ca47"
+        },
+        {
+          "route": "/testers/",
+          "status": 200,
+          "matches_built_bytes": true,
+          "privacy_links_open_new_tab": 2,
+          "sha256": "4ac8fba7500c41422549b4c3e14e2cc6e871d2b3efc5027c95d27751be06c97b"
+        }
+      ]
+    },
+    "real_request_check": {
+      "recipient": "user-designated address; redacted",
+      "delivery_state": "accepted",
+      "provider_receipt_present": true,
+      "email_confirmed": true,
+      "state": "awaiting_review",
+      "duplicate_test_email_sent": false,
+      "inbox_folder_observed": false,
+      "operator_approval_performed": false,
+      "observed_by_utc": "2026-10-20T03:18:44.207079+00:00"
+    }
+  }
 }
