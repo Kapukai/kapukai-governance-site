@@ -1,5 +1,5 @@
 import { createAuthenticator } from "../kapukai-members/auth.mjs";
-import { createHandler, createRpc, createRateFingerprint, createConfirmationSender } from "./handler.mjs";
+import { createHandler, createRpc, createRateFingerprint, createConfirmationSender, createInvitationSender } from "./handler.mjs";
 
 const env = (name: string) => Deno.env.get(name) || "";
 function defaultKey(name: string, fallback: string) {
@@ -14,4 +14,5 @@ async function authenticate(request: Request) {
   authenticator ||= createAuthenticator({ baseUrl, publishableKey });
   return authenticator(request);
 }
-Deno.serve(createHandler({ authenticate, rpc: createRpc({ baseUrl, serviceKey }), rateFingerprint: createRateFingerprint({ baseUrl, serviceKey }), sendConfirmation: createConfirmationSender({ providerToken: env("POSTMARK_SERVER_TOKEN"), from: env("POSTMARK_FROM") || env("POSTMARK_FROM_EMAIL") }) }));
+const mailConfig = { providerToken: env("POSTMARK_SERVER_TOKEN"), from: env("POSTMARK_FROM") || env("POSTMARK_FROM_EMAIL") };
+Deno.serve(createHandler({ authenticate, rpc: createRpc({ baseUrl, serviceKey }), rateFingerprint: createRateFingerprint({ baseUrl, serviceKey }), sendConfirmation: createConfirmationSender(mailConfig), sendInvitation: createInvitationSender(mailConfig) }));

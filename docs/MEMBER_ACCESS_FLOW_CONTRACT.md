@@ -15,6 +15,8 @@ All requests are POST JSON `{action,payload}`. No tokens in query strings.
 - `operator_access_queue`: `{}` with verified bearer session. Response `{ok:true,result:'ok',requests:[{id,email,display_name,state,revision,created_at,confirmed_at,...}]}`. Only confirmed reviewable requests, bounded at 100; minimal status/history as needed.
 - `operator_access_approve`: `{request_id,expected_revision,expires_days}` with verified bearer session. Atomically uses the stored confirmed email and the existing private invitation command. Response `{ok:true,result:'ok',invite_token,invitation_id,expires_at}`. Raw token shown once. No email is sent by approval.
 - `operator_access_decline`: `{request_id,expected_revision}` with verified bearer session. Response `{ok:true,result:'ok'}`. No email sent.
+- `operator_invitation_status`: `{email,invite_token}` with verified operator bearer session. Read-only checks the active invitation, recipient binding and delivery ledger. Returns `{ok:true,result:'ok',delivery_state,invitation_id,expires_at}` without the recipient or token.
+- `operator_invitation_send`: `{email,invite_token,delivery_id}` with verified operator bearer session. Requires a 64-character hex invitation token and UUID delivery identifier. Claims one delivery before sending a fixed invitation email to the bound recipient. Returns the same minimal status projection. States are `none`, `pending`, `accepted`, `failed`, `unknown`; accepted means provider acceptance, not inbox delivery.
 
 DB states: `awaiting_email`, `awaiting_review`, `approved`, `declined`, `withdrawn`.
 Public token inspection may include `claimed:true` to direct claimed members to
@@ -35,6 +37,14 @@ requests use existing durable rate claims with isolated access-request keys:
 or legacy CRM/email registry creation. Confirmation and approval recheck paused
 state, expiry and expected revision; withdrawal remains available when paused.
 
+The additive `backend/sql/member_invitation_delivery.sql` migration provides
+service-only delivery/status and receipt RPCs. The RLS-protected delivery ledger
+stores recipient hashes, never plaintext email or raw tokens. A durable claim
+blocks duplicate sends. Pending, accepted and unknown outcomes cannot be retried;
+only an explicit known-failure retry may use a new delivery UUID. Limits are
+3/recipient/day, 30/operator/day and 100/global/day. Status checks require the
+invitation to remain active and the pilot open.
+
 ## Invitation links and interface
 
 Private link `/community/members/#invite=<64hex>` fills invited signup and explicit
@@ -45,13 +55,16 @@ Join; new recipients set their account credentials and verify their email.
 
 Show Request access first on a generic visit, with Existing account / Have an
 invitation alternatives. The operator queue has explicit human approval, copy
-private invitation link, and close-request actions. Show the exact recipient
+private invitation link, preview/send invitation email, and close-request actions.
+Creating or approving an invitation does not send it. Preview checks current
+status and expiry before exposing Send. Operators can recover a saved code or
+private link through “Email an invitation you already created.” Show the exact recipient
 email only inside authenticated operations, never in public/private share URLs.
 
 ## Verification
 
 Test the complete request → requested confirmation message → explicit confirm →
-operator approval → invitation link → invited signup/membership path with fake
+operator approval → preview → explicit email → invitation link → invited signup/membership path with fake
 mail transport and local SQL. Check replay, paused gates, authorization, no Auth
 creation before approval, withdrawal/revocation, token scrubbing and no implicit
 consent. Production checks must not send messages to real recipients or create

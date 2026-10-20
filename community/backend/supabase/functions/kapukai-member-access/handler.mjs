@@ -5,6 +5,7 @@ export const MEMBER_PAGE = "https://kapukai-community.vercel.app/community/membe
 export const ALLOWED_ORIGINS = new Set(["https://kapukai.org", "https://www.kapukai.org", "https://kapukai-community.vercel.app"]);
 export const MAX_BODY_BYTES = 4096;
 export const TOKEN_RE = /^[A-Za-z0-9_-]{43}$/;
+export const INVITATION_TOKEN_RE = /^[a-f0-9]{64}$/;
 const GENERIC = Object.freeze({ ok: true, result: "request_received" });
 const isObject = value => value !== null && typeof value === "object" && !Array.isArray(value);
 const exactKeys = (value, expected) => isObject(value) && Object.keys(value).length === expected.length && expected.every(key => Object.hasOwn(value, key));
@@ -44,6 +45,12 @@ export function normalizeRequest(body, now = Date.now()) {
     const expected = body.action === "operator_access_approve" ? ["request_id", "expected_revision", "expires_days"] : ["request_id", "expected_revision"];
     if (!exactKeys(p, expected) || !uuid(p.request_id) || !integer(p.expected_revision, 0, 2147483647) || (body.action === "operator_access_approve" && !integer(p.expires_days, 1, 14))) throw bad();
     return { action: body.action, payload: { ...p, request_id: p.request_id.toLowerCase() } };
+  }
+  if (["operator_invitation_send", "operator_invitation_status"].includes(body.action)) {
+    const expected = body.action === "operator_invitation_send" ? ["email", "invite_token", "delivery_id"] : ["email", "invite_token"];
+    const address = typeof p.email === "string" ? p.email.trim().toLowerCase() : "";
+    if (!exactKeys(p, expected) || !email(address) || typeof p.invite_token !== "string" || !INVITATION_TOKEN_RE.test(p.invite_token) || (body.action === "operator_invitation_send" && !uuid(p.delivery_id))) throw bad();
+    return { action: body.action, payload: { email: address, invite_token: p.invite_token, ...(body.action === "operator_invitation_send" ? { delivery_id: p.delivery_id.toLowerCase() } : {}) } };
   }
   throw bad();
 }
@@ -100,7 +107,7 @@ function operatorProjection(action, result) {
   return { ok: true, result: "ok" };
 }
 
-const RPC_NAMES = new Set(["kapukai_claim_signup_attempt", "kapukai_member_access_is_open", "kapukai_member_access_request", "kapukai_member_access_token", "kapukai_member_access_mail_result", "kapukai_member_access_operator"]);
+const RPC_NAMES = new Set(["kapukai_claim_signup_attempt", "kapukai_member_access_is_open", "kapukai_member_access_request", "kapukai_member_access_token", "kapukai_member_access_mail_result", "kapukai_member_access_operator", "kapukai_member_invitation_delivery", "kapukai_member_invitation_mail_result"]);
 export function createRpc({ baseUrl, serviceKey, fetchImpl = fetch }) {
   return async (name, parameters) => {
     if (!RPC_NAMES.has(name)) throw bad();
@@ -156,7 +163,51 @@ export function createConfirmationSender({ providerToken, from, fetchImpl = fetc
   return Object.assign(send, { configured });
 }
 
-export function createHandler({ authenticate, rpc, sendConfirmation, rateFingerprint, clock = () => Date.now(), newToken = randomToken }) {
+export function invitationMessage(token, expiresAt) {
+  if (typeof token !== "string" || !INVITATION_TOKEN_RE.test(token) || typeof expiresAt !== "string" || !Number.isFinite(Date.parse(expiresAt))) throw bad();
+  const url = `${MEMBER_PAGE}#invite=${token}`;
+  // Convert the database timestamp before using it in HTML. No submitted names,
+  // recipient addresses, or caller-selected destinations are interpolated.
+  const expiry = new Date(expiresAt).toISOString();
+  const subject = "Your Kapukai member invitation";
+  const text = `You have been invited to the Kapukai member community.\n\nSet up your member account:\n${url}\n\n1. Open your private invitation link.\n2. Create an account, or sign in if you already have one, using the email address that received this invitation.\n3. For a new account, enter the separate email verification code to complete joining. For an existing account, accept the invitation to join.\n\nThis invitation expires at ${expiry} (UTC). Opening this link does not create an account or accept membership.\n\nThis invitation does not subscribe you to newsletters, make your profile discoverable, or publish anything. Those choices are separate.\n\nKeep this link private. If you were not expecting this invitation, ignore this email. Do not reply with case records, identification, or other sensitive documents.\n\nKapukai Governance Lab\narchitect@kapukai.org`;
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${subject}</title></head><body style="margin:0;padding:24px;background:#f7f5ee;color:#10253a;font-family:Arial,Helvetica,sans-serif"><table role="presentation" style="max-width:600px;margin:auto;background:#fff;border:1px solid #dedbd0;width:100%"><tr><td style="padding:28px;background:#10253a;border-top:3px solid #bd8d38;color:#fff;letter-spacing:3px;font-weight:bold">KAPUKAI<br><span style="font-size:11px;letter-spacing:2px">GOVERNANCE LAB</span></td></tr><tr><td style="padding:32px;line-height:1.7"><h1 style="font:normal 30px Georgia,serif;margin:0 0 24px">Your invitation is ready</h1><p>You have been invited to the Kapukai member community.</p><p><a href="${url}" style="display:inline-block;padding:14px 20px;background:#0f675f;color:#fff;text-decoration:none;font-weight:bold">Set up your member account</a></p><ol><li>Open your private invitation link.</li><li>Create an account, or sign in if you already have one, using the email address that received this invitation.</li><li>For a new account, enter the separate email verification code to complete joining. For an existing account, accept the invitation to join.</li></ol><p>This invitation expires at <strong>${expiry} (UTC)</strong>. Opening this link does not create an account or accept membership.</p><p>This invitation does not subscribe you to newsletters, make your profile discoverable, or publish anything. Those choices are separate.</p><p>Keep this link private. If you were not expecting this invitation, ignore this email. Do not reply with sensitive documents. For help: <a href="mailto:architect@kapukai.org" style="color:#0f675f">architect@kapukai.org</a>.</p></td></tr><tr><td style="padding:24px 32px;border-top:1px solid #dedbd0;font-size:13px">Kapukai Governance Lab · Truth as a public utility.</td></tr></table></body></html>`;
+  return { subject, text, html };
+}
+
+export function createInvitationSender({ providerToken, from, fetchImpl = fetch }) {
+  const configured = () => {
+    if (typeof providerToken !== "string" || !providerToken || typeof from !== "string" || !from || from.length > 320 || /[\r\n]/.test(from)) throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
+  };
+  const send = async ({ email: address, invitationId, deliveryId, token, expiresAt }) => {
+    configured();
+    if (!email(address) || !uuid(invitationId) || !uuid(deliveryId)) throw bad();
+    const message = invitationMessage(token, expiresAt); let response;
+    try {
+      response = await fetchImpl("https://api.postmarkapp.com/email", {
+        method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json", "X-Postmark-Server-Token": providerToken },
+        body: JSON.stringify({ From: from, To: address, ReplyTo: "architect@kapukai.org", Subject: message.subject, TextBody: message.text, HtmlBody: message.html, MessageStream: "outbound", Tag: "kapukai-member-invitation", TrackOpens: false, TrackLinks: "None", Metadata: { invitation_id: invitationId, delivery_id: deliveryId, message_type: "member_invitation" } }),
+        redirect: "error", cache: "no-store", signal: AbortSignal.timeout(10000),
+      });
+    } catch { return { state: "unknown", providerMessageId: null }; }
+    let receipt;
+    try { receipt = await boundedJson(response, 65536, "TEMPORARILY_UNAVAILABLE"); }
+    catch { return { state: "unknown", providerMessageId: null }; }
+    if (response.status === 200 && receipt?.ErrorCode === 0 && uuid(receipt.MessageID) && (receipt.To === undefined || receipt.To === address)) return { state: "accepted", providerMessageId: receipt.MessageID };
+    // An explicit provider rejection is safe to retry only after another human
+    // action. Timeouts, malformed receipts and 5xx outcomes remain uncertain.
+    return { state: response.status >= 400 && response.status < 500 && Number.isSafeInteger(receipt?.ErrorCode) && receipt.ErrorCode !== 0 ? "failed" : "unknown", providerMessageId: null };
+  };
+  return Object.assign(send, { configured });
+}
+
+function invitationDeliveryProjection(result, payload) {
+  if (typeof result.should_send !== "boolean" || !["none", "pending", "accepted", "failed", "unknown"].includes(result.state) || !uuid(result.invitation_id) || typeof result.expires_at !== "string" || !Number.isFinite(Date.parse(result.expires_at)) || !email(result.recipient) || result.recipient !== payload.email || (result.state === "none" ? result.delivery_id !== null : !uuid(result.delivery_id))) throw new MemberError("TEMPORARILY_UNAVAILABLE", 503);
+  if (result.should_send && (result.state !== "pending" || result.delivery_id !== payload.delivery_id)) throw new MemberError("TEMPORARILY_UNAVAILABLE", 503);
+  return { ok: true, result: "ok", delivery_state: result.state, invitation_id: result.invitation_id, expires_at: result.expires_at };
+}
+
+export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitation, rateFingerprint, clock = () => Date.now(), newToken = randomToken }) {
   return async request => {
     const origin = request.headers.get("origin");
     if (!ALLOWED_ORIGINS.has(origin)) return json(403, { ok: false, code: "ORIGIN_DENIED" }, origin);
@@ -210,6 +261,28 @@ export function createHandler({ authenticate, rpc, sendConfirmation, rateFingerp
       }
       const actor = await authenticate(request);
       if (!uuid(actor?.user_id) || !uuid(actor?.session_id)) throw new MemberError("AUTHENTICATION_REQUIRED", 401);
+      if (body.action.startsWith("operator_invitation_")) {
+        const sending = body.action === "operator_invitation_send";
+        if (sending) {
+          if (typeof sendInvitation !== "function" || typeof sendInvitation.configured !== "function") throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
+          sendInvitation.configured();
+        }
+        const result = await rpc("kapukai_member_invitation_delivery", { p_user_id: actor.user_id, p_session_id: actor.session_id, p_action: sending ? "prepare" : "status", p_payload: body.payload });
+        if (result?.result !== "ok") return failedResult(result, origin);
+        const projection = invitationDeliveryProjection(result, body.payload);
+        if (!sending || !result.should_send) return json(200, projection, origin);
+        let receipt = { state: "unknown", providerMessageId: null };
+        try {
+          const sent = await sendInvitation({ email: result.recipient, invitationId: result.invitation_id, deliveryId: result.delivery_id, token: body.payload.invite_token, expiresAt: result.expires_at });
+          if (["accepted", "failed", "unknown"].includes(sent?.state)) receipt = { state: sent.state === "accepted" && !uuid(sent.providerMessageId) ? "unknown" : sent.state, providerMessageId: sent.state === "accepted" && uuid(sent.providerMessageId) ? sent.providerMessageId : null };
+        } catch { /* Never retry an uncertain provider handoff. */ }
+        let recordedState = "unknown";
+        try {
+          const saved = await rpc("kapukai_member_invitation_mail_result", { p_delivery_id: result.delivery_id, p_state: receipt.state, p_provider_message_id: receipt.providerMessageId });
+          if (saved?.result === "ok" && saved.state === receipt.state) recordedState = saved.state;
+        } catch { /* Pending claim remains locked against duplicate sending. */ }
+        return json(200, { ...projection, delivery_state: recordedState }, origin);
+      }
       const result = await rpc("kapukai_member_access_operator", { p_user_id: actor.user_id, p_session_id: actor.session_id, p_action: body.action.slice("operator_access_".length), p_payload: body.payload });
       return result?.result === "ok" ? json(200, operatorProjection(body.action, result), origin) : failedResult(result, origin);
     } catch (error) {
