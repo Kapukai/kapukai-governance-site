@@ -97,6 +97,7 @@ test('generic member visit starts with access request and no account credentials
     assert.ok(form);
     assert.equal(h.d.getElementById('member-access-request-panel').hidden, false);
     assert.equal(h.d.getElementById('member-create-panel').hidden, true);
+    assert.equal(h.d.getElementById('member-signin-panel').hidden, true);
     assert.equal(form.querySelector('input[type="password"]'), null);
     assert.equal(form.elements.invite_token, undefined);
     for (const name of ['adult', 'privacy_acknowledged', 'human_review_acknowledged']) {
@@ -115,6 +116,10 @@ test('invitation fragment is scrubbed and carried into explicit joining after ex
     assert.equal(h.calls.length, 0);
     assert.equal(h.d.getElementById('member-create-panel').hidden, false);
     for (const id of ['member-create', 'member-join']) assert.equal(h.d.getElementById(id).elements.invite_token.value, INVITATION);
+    h.d.getElementById('member-choice-signin').click();
+    assert.equal(h.d.getElementById('member-create-panel').hidden, true);
+    assert.equal(h.d.getElementById('member-signin-panel').hidden, false);
+    assert.match(h.d.getElementById('member-signin-description').textContent, /invitation is loaded/);
     await h.login();
     assert.equal(h.d.getElementById('member-join-panel').hidden, false);
     assert.equal(h.d.getElementById('member-join').elements.invite_token.value, INVITATION);
@@ -272,11 +277,16 @@ test('operator approval requires review and binds the revision without accepting
     assert.deepEqual(approved.body.payload, {request_id: REQUEST_ID, expected_revision: 4, expires_days: 7});
     const link = ORIGIN + '/community/members/#invite=' + INVITATION;
     assert.equal(h.d.querySelector('#operator-invite-result textarea').value, link);
+    assert.equal(h.d.getElementById('member-section-operate').hidden, false);
+    assert.equal(h.d.activeElement.getAttribute('aria-label'), 'Invitation ready to share');
+    assert.match(h.d.getElementById('operator-invite-result').textContent, /Send only to: confirmed@example\.test/);
+    assert.match(h.d.getElementById('operator-invite-result').textContent, /before refreshing or leaving/);
     const copy = [...h.d.querySelectorAll('#operator-invite-result button')].find(button => /copy/i.test(button.textContent));
     assert.ok(copy);
     copy.click();
-    await waitFor(() => h.copied.length === 1);
+    await waitFor(() => h.copied.length === 1 && h.d.getElementById('member-status').textContent.includes('Now send it directly'));
     assert.deepEqual(h.copied, [link]);
+    assert.match(h.d.getElementById('member-status').textContent, /Now send it directly to confirmed@example\.test/);
     assert.ok(h.calls.every(call => !call.url.includes(row.email) && !call.url.includes(INVITATION)));
     assert.equal(action(h, 'join'), undefined);
     assert.equal(action(h, 'signup'), undefined);
@@ -297,6 +307,102 @@ test('existing operator invitation also returns a copyable private link rather t
     await waitFor(() => h.d.querySelector('#operator-invite-result textarea'));
     assert.equal(h.d.querySelector('#operator-invite-result textarea').value, ORIGIN + '/community/members/#invite=' + INVITATION);
     assert.match(h.d.getElementById('operator-invite-result').textContent, /not been sent/i);
+    assert.deepEqual(h.errors, []);
+  } finally { h.close(); }
+});
+
+
+test('sign-in bookmark and entry choices show one account path while preserving in-tab drafts', () => {
+  const direct = harness({fragment: '#member-signin-panel'});
+  try {
+    assert.equal(direct.d.getElementById('member-signin-panel').hidden, false);
+    assert.equal(direct.d.getElementById('member-access-request-panel').hidden, true);
+    assert.equal(direct.d.getElementById('member-create-panel').hidden, true);
+    assert.equal(direct.calls.length, 0);
+  } finally { direct.close(); }
+  const h = harness();
+  try {
+    fillRequest(h);
+    h.d.getElementById('member-choice-signin').click();
+    assert.equal(h.d.getElementById('member-signin-panel').hidden, false);
+    assert.equal(h.d.getElementById('member-access-request-panel').hidden, true);
+    assert.equal(h.d.getElementById('member-create-panel').hidden, true);
+    assert.equal(h.d.activeElement.id, 'member-signin-panel');
+    h.d.getElementById('member-choice-invite').click();
+    assert.equal(h.d.getElementById('member-signin-panel').hidden, true);
+    assert.equal(h.d.getElementById('member-create-panel').hidden, false);
+    h.d.getElementById('member-choice-request').click();
+    assert.equal(h.d.getElementById('member-access-request').elements.email.value, 'reader@example.test');
+    assert.equal(h.d.getElementById('member-access-request').elements.privacy_acknowledged.checked, true);
+    assert.equal(h.calls.length, 0);
+    assert.deepEqual(h.errors, []);
+  } finally { h.close(); }
+});
+
+test('waiting applicant can refresh into approval without being asked for an account or triggering mail', async () => {
+  let state = 'awaiting_review';
+  const h = harness({fragment: '#access_token=' + ACCESS_TOKEN, handle: async name => name === 'access_inspect' ? response({ok: true, result: 'ok', state, revision: 2, can_confirm: false, can_withdraw: true, claimed: false, consent_version: CONSENT_VERSION}) : undefined});
+  try {
+    await waitFor(() => h.d.getElementById('member-access-title').textContent.includes('waiting for review'));
+    assert.equal(h.d.getElementById('member-login-panel').hidden, true);
+    assert.equal(h.d.getElementById('member-management-signin').hidden, true);
+    assert.match(h.d.getElementById('member-access-next').textContent, /do not need a password/);
+    assert.match(h.d.getElementById('member-status').textContent, /waiting for review/);
+    state = 'approved';
+    clickText(h, 'Refresh request status');
+    await waitFor(() => h.d.getElementById('member-access-title').textContent.startsWith('Approved.'));
+    assert.match(h.d.getElementById('member-access-status').textContent, /does not automatically send an email or create an account/);
+    assert.match(h.d.getElementById('member-access-next').textContent, /private invitation link shared by the operator/);
+    assert.match(h.d.getElementById('member-access-next').textContent, /ask the operator for a new private invitation/);
+    assert.equal(h.d.getElementById('member-management-signin').hidden, true);
+    assert.deepEqual(h.calls.map(call => call.body.action), ['access_inspect', 'access_inspect']);
+    assert.ok(h.calls.every(call => call.fragmentAtFetch === '' && !call.headers.Authorization));
+    assert.deepEqual(h.errors, []);
+  } finally { h.close(); }
+});
+
+test('expired and temporarily unavailable confirmation states give truthful next steps without confirming', async t => {
+  for (const expired of [true, false]) await t.test(expired ? 'expired' : 'unavailable', async () => {
+    const h = harness({fragment: '#access_token=' + ACCESS_TOKEN, handle: async name => name === 'access_inspect' ? response({ok: true, result: 'ok', state: 'awaiting_email', revision: 0, can_confirm: false, can_withdraw: true, claimed: false, expires_at: new Date(Date.now() + (expired ? -60000 : 60000)).toISOString(), consent_version: CONSENT_VERSION}) : undefined});
+    try {
+      await waitFor(() => h.d.getElementById('member-access-title').textContent !== 'Check your request');
+      assert.match(h.d.getElementById('member-access-title').textContent, expired ? /expired/ : /unavailable/);
+      assert.match(h.d.getElementById('member-access-next').textContent, expired ? /request a new confirmation email/ : /Refresh the status/);
+      assert.equal([...h.d.querySelectorAll('#member-access-controls button')].some(button => button.textContent === 'Confirm my access request'), false);
+      assert.equal(action(h, 'access_confirm'), undefined);
+      assert.equal(h.d.getElementById('member-management-signin').hidden, true);
+      assert.deepEqual(h.errors, []);
+    } finally { h.close(); }
+  });
+});
+
+test('claimed invitation directs the existing member to sign in without another request or account creation', async () => {
+  const h = harness({fragment: '#access_token=' + ACCESS_TOKEN, handle: async name => name === 'access_inspect' ? response({ok: true, result: 'ok', state: 'approved', revision: 2, can_confirm: false, can_withdraw: false, claimed: true, consent_version: CONSENT_VERSION}) : undefined});
+  try {
+    await waitFor(() => !h.d.getElementById('member-management-signin').hidden);
+    assert.match(h.d.getElementById('member-access-title').textContent, /invitation has been used/);
+    clickText(h, 'Open member sign in');
+    assert.equal(h.d.getElementById('member-access-management').hidden, true);
+    assert.equal(h.d.getElementById('member-signin-panel').hidden, false);
+    assert.equal(h.d.getElementById('member-access-request-panel').hidden, true);
+    assert.equal(h.d.getElementById('member-create-panel').hidden, true);
+    assert.deepEqual(h.calls.map(call => call.body.action), ['access_inspect']);
+    assert.deepEqual(h.errors, []);
+  } finally { h.close(); }
+});
+
+
+test('request status failures retain an explicit read-only retry instead of asking the applicant to reapply', async () => {
+  let unavailable = true;
+  const h = harness({fragment: '#access_token=' + ACCESS_TOKEN, handle: async name => name === 'access_inspect' ? unavailable ? response({ok: false, code: 'TEMPORARILY_UNAVAILABLE'}, 503) : response({ok: true, result: 'ok', state: 'approved', revision: 2, can_confirm: false, can_withdraw: true, claimed: false, consent_version: CONSENT_VERSION}) : undefined});
+  try {
+    await waitFor(() => h.d.getElementById('member-access-title').textContent === 'Request status unavailable');
+    assert.equal(h.d.getElementById('member-login-panel').hidden, true);
+    assert.equal(h.d.getElementById('member-management-signin').hidden, true);
+    unavailable = false;
+    clickText(h, 'Refresh request status');
+    await waitFor(() => h.d.getElementById('member-access-title').textContent.startsWith('Approved.'));
+    assert.deepEqual(h.calls.map(call => call.body.action), ['access_inspect', 'access_inspect']);
     assert.deepEqual(h.errors, []);
   } finally { h.close(); }
 });
