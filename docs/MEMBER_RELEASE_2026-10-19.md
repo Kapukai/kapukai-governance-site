@@ -29,7 +29,7 @@ No production replacement of existing auth, signup, application, CRM, email-work
 
 ## Verification evidence
 
-Status on 20 October 2026: implementation complete and tested; production activation is blocked by the database connector. Production frontend remains at the baseline deployment. No account was enrolled, invitation created or email sent.
+Status on 20 October 2026: implementation and database installation complete. All seven migration stages succeeded after the owner renewed approval. Live rollback acceptance passed all 11 assertion groups. The verified existing steward received the separate operator grant; no membership, invitation or consent was created. Production deployment and activation receipts are recorded below when completed.
 
 - Frozen backend suite: **146 passed, 0 failed** (`node --test backend/tests/*.test.mjs`).
 - Existing Workshop interface/link/accessibility suite: **8 passed, 0 failed** (`node --test tests/workshop-ui.test.mjs`).
@@ -39,10 +39,12 @@ Status on 20 October 2026: implementation complete and tested; production activa
 - Security advisor comparison: no new warnings/errors. The new private tables intentionally have RLS with no browser policies; the project-wide disabled leaked-password check was pre-existing and was not changed. Remediation reference: https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection
 - New `kapukai-members` Edge function deployed successfully, version 1, bundle SHA256 `7ea8b95aa57a063d7519d06be8068c1da9fba9b3e78a69d11eae600a88497275`.
 - Live HTTP checks: configuration 200 with only public configuration; unauthenticated private state 401; unapproved origin 403; all responses `no-store`.
-- The original whole migration twice failed with connector `INVALID_ARGUMENT / invalid_request_state: Invalid or expired requestState`. Readback confirmed no schema after those attempts. A reviewed seven-stage partition was prepared and verified locally equivalent to the original final schema and permissions.
-- Stage 1 (`member_tables_locked`) applied. Stage 2 (`member_private_helpers`) returned the same connector error. Readback: disabled, capacity 25, zero members/operators/invitations, zero private functions/public RPCs, and zero member tables lacking RLS. No retry is safe without checking migration history and catalog first.
-- Remaining stages 2–7, rollback-only live acceptance, verified operator bootstrap, frontend production release and pilot activation are **not completed**. Do not claim a working live member system from the API's configuration endpoint alone.
-- The original SQL is the complete fresh-install source; use `community/backend/recovery/member-community-2026-10-20/README.md` for this partially installed project. Graphical browser automation is unavailable in this environment; DOM workflow tests do not establish visual acceptance on real devices. No email is sent to a real participant during automated verification. Live email receipt and real-user acceptance are separate pilot observations.
+- The connector initially returned `Invalid or expired requestState`; the disabled checkpoint was preserved. The exact reviewed stage 2 succeeded on the resumed call, followed by stages 3–7. No SQL or permission checks were weakened to obtain success.
+- Live PostgreSQL acceptance: **11 assertion groups passed** inside one rollback transaction, covering ACLs/RLS, current verified sessions, invitations, discovery, rooms, reviewer eligibility, calendars, consent-bound publication, credential downgrade, closure and export.
+- Rollback readback: zero synthetic Auth users, sessions, CRM accounts and outbox rows; zero member/invitation/operator records before bootstrap; disabled and capacity 25.
+- Guarded bootstrap: exactly one currently verified steward identity resolved through existing authoritative grants; one operator created. No member profile, discovery opt-in, room join, invitation or publication consent was created on the owner's behalf.
+- Graphical browser automation is unavailable in this environment; DOM workflow tests do not establish visual acceptance on real devices. No email was sent to a real participant during automated verification. Live email receipt and a real invited user's acceptance are separate pilot observations.
+- The staged recovery package now records historical checkpoint and completed installation. Do not rerun installation or bootstrap over the completed database.
 
 ## Rollback
 
@@ -56,9 +58,8 @@ The existing nginx host at kapukai.org is a separate publication destination. Ve
 ## Preserved source and preview
 
 - Tested implementation commit: `3bb8bd30c2159814ec8e086dbe303f5a62039123`, tree `47a7ea5187b20ddcb69324ee64f96b3bd0acbfed`. A later documentation-only commit records this receipt and migration-history detail.
-- Branch: `work/member-community-20261019`; draft PR: https://github.com/Kapukai/kapukai-governance-site/pull/5 . Main remains at the original baseline.
+- Branch: `work/member-community-20261019`; release PR: https://github.com/Kapukai/kapukai-governance-site/pull/5 .
 - Preview deployment: `dpl_37gSKEEVN34vMoXDKjhH6hF2feKR`, READY, exact implementation commit above, target preview.
-- Workspace preview: https://kapukai-community-1sge0n2k8-kapukais-projects.vercel.app/community/members/ . It is a static interface preview; live membership remains unavailable because installation is incomplete and the production API intentionally excludes preview origins.
+- Workspace preview: https://kapukai-community-1sge0n2k8-kapukais-projects.vercel.app/community/members/ . It is a static interface preview; the production API intentionally excludes preview origins. Use the production workspace for member operations after release.
 - Live preview HTTP checks returned 200 and byte-identical SHA-256 content for members, voices, member JS/CSS and join routes. Member route returned `Cache-Control: no-store` and `X-Robots-Tag: noindex, nofollow`.
-- Production deployment was not promoted or replaced. Its prior rollback identifier remains `dpl_7zWjfY73fLDowDR8xSP6wyPVe9fq`.
-- The optional Vercel deployment-card tool returned `Tool open_deployments not found`; ordinary deployment creation, status inspection and HTTP verification succeeded.
+- The prior production rollback identifier is `dpl_7zWjfY73fLDowDR8xSP6wyPVe9fq`.
