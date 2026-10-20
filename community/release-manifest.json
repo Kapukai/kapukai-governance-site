@@ -86,5 +86,12 @@
     "vercel_deployment": "dpl_6Z3TYpnmwvqbGr57nyjhG9hsxf85",
     "production_url": "https://kapukai-community.vercel.app/community/members/",
     "evidence": "docs/releases/member-onboarding-2026-10-20.json"
+  },
+  "member_access_release": {
+    "status": "production_verified_invitation_only",
+    "git_commit": "5f9ce40d6eae285f86cd2c1a49905c8a6ae8cf6a",
+    "vercel_deployment": "dpl_Hmvmzg44rvJ6jamvpV9GoEL4WVio",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "evidence": "docs/releases/member-access-2026-10-20.json"
   }
 }

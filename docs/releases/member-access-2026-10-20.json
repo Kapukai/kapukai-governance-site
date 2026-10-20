@@ -1,0 +1,263 @@
+{
+  "recorded_at_utc": "2026-10-20T02:22:18.047442+00:00",
+  "status": "production_verified_invitation_only",
+  "git_commit": "5f9ce40d6eae285f86cd2c1a49905c8a6ae8cf6a",
+  "git_tree": "122f3b15187a58f93bc534284fb4c113d03f584b",
+  "vercel": {
+    "project": "kapukai-community",
+    "deployment_id": "dpl_Hmvmzg44rvJ6jamvpV9GoEL4WVio",
+    "deployment_url": "https://kapukai-community-73r93dss7-kapukais-projects.vercel.app",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "target": "production",
+    "state": "READY"
+  },
+  "migration": {
+    "version": "20261020021729",
+    "name": "member_access_requests",
+    "sql_sha256": "0390dcf229e336d7d41daf3e37e3326d17e4c378eb9a0db0bd3f41d6be5cacc8"
+  },
+  "edge": {
+    "name": "kapukai-member-access",
+    "version": 1,
+    "status": "ACTIVE",
+    "verify_jwt": false,
+    "ezbr_sha256": "575c577cb9e93f00a53f41e1fc75c6c786d3aab54dc2bfbc908a6415da1d8385"
+  },
+  "database": {
+    "enabled": true,
+    "max_members": 25,
+    "operators": 1,
+    "members": 0,
+    "invitations": 0,
+    "access_requests": 0,
+    "synthetic_auth_users": 0,
+    "synthetic_crm_accounts": 0,
+    "synthetic_outbox_rows": 0
+  },
+  "verification": {
+    "release_tests_passed": 74,
+    "live_sql_assertion_groups_passed": 7,
+    "live_sql_synthetic_changes_rolled_back": true,
+    "api_boundary_checks": {
+      "checked_at_utc": "2026-10-20T02:19:49.870Z",
+      "endpoint": "https://tbxfsjipkrdwyctepesf.supabase.co/functions/v1/kapukai-member-access",
+      "checks": [
+        {
+          "name": "request_service_ready",
+          "status": 200,
+          "expected_status": 200,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        },
+        {
+          "name": "unrecognized_confirmation",
+          "status": 400,
+          "expected_status": 400,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        },
+        {
+          "name": "private_queue_requires_auth",
+          "status": 401,
+          "expected_status": 401,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        },
+        {
+          "name": "forged_auth_rejected",
+          "status": 401,
+          "expected_status": 401,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        },
+        {
+          "name": "malformed_request_rejected",
+          "status": 400,
+          "expected_status": 400,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        },
+        {
+          "name": "unapproved_origin_denied",
+          "status": 403,
+          "expected_status": 403,
+          "cache_control": "no-store",
+          "cors": null,
+          "passed": true
+        },
+        {
+          "name": "get_does_not_change_state",
+          "status": 405,
+          "expected_status": 405,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        },
+        {
+          "name": "query_tokens_rejected",
+          "status": 400,
+          "expected_status": 400,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        },
+        {
+          "name": "honeypot_does_not_send_or_store",
+          "status": 202,
+          "expected_status": 202,
+          "cache_control": "no-store",
+          "cors": "https://kapukai-community.vercel.app",
+          "passed": true
+        }
+      ]
+    },
+    "live_pages": {
+      "checked_at_utc": "2026-10-20T02:20:54.653391+00:00",
+      "live_http": [
+        {
+          "path": "/community/members/",
+          "status": 200,
+          "sha256": "6fed346836b8e6577446c8f563d21eb55f917b2cecc7457e0ee5ecefa9c42df5",
+          "matches_build": true,
+          "cache_control": "no-store",
+          "robots": "noindex, nofollow",
+          "request_form_inputs": [
+            {
+              "name": "email",
+              "type": "email",
+              "checked": false
+            },
+            {
+              "name": "display_name",
+              "type": "text",
+              "checked": false
+            },
+            {
+              "name": "adult",
+              "type": "checkbox",
+              "checked": false
+            },
+            {
+              "name": "privacy_acknowledged",
+              "type": "checkbox",
+              "checked": false
+            },
+            {
+              "name": "human_review_acknowledged",
+              "type": "checkbox",
+              "checked": false
+            },
+            {
+              "name": "website",
+              "type": "text",
+              "checked": false
+            }
+          ],
+          "request_needs_no_account_or_invite": true,
+          "request_consent_unchecked": true
+        },
+        {
+          "path": "/assets/community/members.js",
+          "status": 200,
+          "sha256": "51381c4a793e4883ad9c68082e5d53c4ca17a6a8bad33d01ff3d37127ce9c0d5",
+          "matches_build": true,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null
+        },
+        {
+          "path": "/assets/community/members.css",
+          "status": 200,
+          "sha256": "c202471856299e54f1643d0584bc3e8ebf0b371bc90dc6d0d8d3d7b55b37aa18",
+          "matches_build": true,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null
+        },
+        {
+          "path": "/community/privacy/",
+          "status": 200,
+          "sha256": "302bb5e1b196425a8a5bca25bd83ea359db5bf00c7871745b5d63839acc90cfb",
+          "matches_build": true,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null
+        },
+        {
+          "path": "/community/contact/",
+          "status": 200,
+          "sha256": "c5f2e55e3245f6fe539a47de124b67ace5112402a58d19c5b6bf53ca9c8c90c2",
+          "matches_build": true,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null
+        },
+        {
+          "path": "/community/",
+          "status": 200,
+          "sha256": "8bb5bee6580ef8922bfa51c526384c010bd56886dffa2c794f7990b135815fa9",
+          "matches_build": true,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null
+        },
+        {
+          "path": "/join/",
+          "status": 200,
+          "sha256": "d8955e4f755c476e9a1a88255cafb03b58ab6f990382d287e574a7603cbad0fa",
+          "matches_build": true,
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null
+        },
+        {
+          "path": "/confirm/",
+          "status": 200,
+          "sha256": "020a38d0aea12041f877793f21ea6de608676a062303f727e40a11d9c78f3cb6",
+          "matches_build": true,
+          "cache_control": "no-store",
+          "robots": "noindex, nofollow"
+        }
+      ],
+      "static_manifest_files": 64,
+      "all_manifest_hashes_match": true
+    },
+    "independent_review": "No known blocking finding; final release sources reviewed.",
+    "security_advisors_before": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 84
+      },
+      {
+        "name": "auth_leaked_password_protection",
+        "level": "WARN",
+        "count": 1
+      }
+    ],
+    "security_advisors_after": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 85
+      },
+      {
+        "name": "auth_leaked_password_protection",
+        "level": "WARN",
+        "count": 1
+      }
+    ],
+    "new_security_warnings_or_errors": 0
+  },
+  "limits": [
+    "Real recipient inbox delivery has not been observed. All automated email transport tests use a fake provider.",
+    "No graphical browser or real-device visual acceptance is claimed.",
+    "No new member routes installed on the separate kapukai.org nginx host.",
+    "Public access requests do not grant operator authority. Existing operator grants are unchanged."
+  ],
+  "rollback": {
+    "frontend_deployment": "dpl_9aoCp6hkJevbw6VXQjhTUPof1XnV",
+    "pause": "Set existing member pilot enabled=false through authorized operator control; inspect and withdrawal stay available.",
+    "data": "Keep additive schema and request/audit records; do not drop participant data."
+  },
+  "receipt_note": "A later documentation-only commit records this receipt without changing public files."
+}
