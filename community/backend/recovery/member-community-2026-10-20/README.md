@@ -14,6 +14,8 @@ Recorded 20 October 2026. The member database installation is **incomplete and d
 | 6 — invitation check and public projection | 304–323 | Pending |
 | 7 — final service-only RPC grants | 325–334 | Pending |
 
+The recorded migration-history entry is `member_tables_locked`, version `20261020011354`. Stage 2 has no migration-history entry.
+
 The verified live state was `enabled=false`, `max_members=25`, zero members, zero operators, zero invitations, zero private helper functions and zero member public RPCs. All **17** private tables had RLS enabled and denied direct access. No participant was enrolled and no operator was bootstrapped.
 
 The security advisor comparison reported no new WARN findings relative to the preexisting baseline. INFO findings rose from 67 to 84, corresponding to the 17 private RLS tables without policies. Those tables intentionally have no browser policies and no direct table privileges; the service-only RPCs provide the intended future access boundary. Existing baseline findings are not represented as fixed by this work.

@@ -52,3 +52,13 @@ Status on 20 October 2026: implementation complete and tested; production activa
 4. Existing confirmation links, email subscriptions and application workflows are unchanged.
 
 The existing nginx host at kapukai.org is a separate publication destination. Vercel access is not authority or access to that host; this release makes no DNS or email-routing change.
+
+## Preserved source and preview
+
+- Tested implementation commit: `3bb8bd30c2159814ec8e086dbe303f5a62039123`, tree `47a7ea5187b20ddcb69324ee64f96b3bd0acbfed`. A later documentation-only commit records this receipt and migration-history detail.
+- Branch: `work/member-community-20261019`; draft PR: https://github.com/Kapukai/kapukai-governance-site/pull/5 . Main remains at the original baseline.
+- Preview deployment: `dpl_37gSKEEVN34vMoXDKjhH6hF2feKR`, READY, exact implementation commit above, target preview.
+- Workspace preview: https://kapukai-community-1sge0n2k8-kapukais-projects.vercel.app/community/members/ . It is a static interface preview; live membership remains unavailable because installation is incomplete and the production API intentionally excludes preview origins.
+- Live preview HTTP checks returned 200 and byte-identical SHA-256 content for members, voices, member JS/CSS and join routes. Member route returned `Cache-Control: no-store` and `X-Robots-Tag: noindex, nofollow`.
+- Production deployment was not promoted or replaced. Its prior rollback identifier remains `dpl_7zWjfY73fLDowDR8xSP6wyPVe9fq`.
+- The optional Vercel deployment-card tool returned `Tool open_deployments not found`; ordinary deployment creation, status inspection and HTTP verification succeeded.
