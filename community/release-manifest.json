@@ -56,7 +56,7 @@
     "community/index.html": "8bb5bee6580ef8922bfa51c526384c010bd56886dffa2c794f7990b135815fa9",
     "community/learn/index.html": "69e3f1c1fb40e4ab83f621bffb32fa6f9a79b5ebb0bf5cbac636789b9ab15f98",
     "community/lifecycle/index.html": "e54ab3dc4eb546ccac5f625ca9c8d86f1589bb6fbee5c03f2352989a1e03c754",
-    "community/members/index.html": "297781e12fb082caaa99713dc2b16c28de7c972efe5faf9fe7fe9a3a960f8af6",
+    "community/members/index.html": "1b3ae9bf78624ee1c7aff76aa8f9a0c830dc40f80924d64987c26d8f550d0ae7",
     "community/operate/index.html": "a4d999caea0264410bf716c663e644089da35ae1c1e41211bcb323369c052696",
     "community/practice/index.html": "462c785919d616b262b4993555a60a2db31667fdc253330a93bd35242df43c8f",
     "community/privacy/index.html": "302bb5e1b196425a8a5bca25bd83ea359db5bf00c7871745b5d63839acc90cfb",
@@ -100,5 +100,13 @@
     "vercel_deployment": "dpl_7SJCuD5z5DEJUYiw2m8WNTC6VEBY",
     "production_url": "https://kapukai-community.vercel.app/community/members/",
     "evidence": "docs/releases/member-access-2026-10-20.json"
+  },
+  "member_workflow_ux_release": {
+    "status": "production_entry_views_verified",
+    "git_commit": "a699b9f2653e0944d0e734213b2b3d7246e79cf7",
+    "vercel_deployment": "dpl_3F3NMxXSNvLAEfyKtKJRUqPThkgw",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "evidence": "docs/MEMBER_WORKFLOW_UX_2026-10-20.md",
+    "real_invited_account_completion_verified": false
   }
 }
