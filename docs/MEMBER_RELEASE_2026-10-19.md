@@ -78,3 +78,13 @@ Verified at 2026-10-20 01:28 UTC (October 19 in America/New_York).
 - The final evidence update is documentation/manifest only. It may produce a later Vercel deployment with identical public files; the identifiers above describe the verified functional release.
 
 Real email receipt, graphical acceptance on real devices and a real member sign-in have not been observed. The release is an invitation-only pilot, with human invitations and publication decisions. The requested Vercel destination is live; no authenticated access to the separate kapukai.org nginx host was available for installing the new member routes there.
+
+## Onboarding correction — October 19, 2026 EDT
+
+Verified at 2026-10-20 01:55 UTC. Production commit `9eeb8ddcc16e678f76acb086d7d688c506905069`, deployment `dpl_6Z3TYpnmwvqbGr57nyjhG9hsxf85`, READY with the production alias assigned.
+
+The first visit now shows Create account and Sign in explicitly. A signed-in operator without a member profile opens Pilot operations directly; invitation entry is available only through the optional Join as a member action. Nonmembers still need an email-bound invitation, email verification and explicit consent. No authentication, authority, database or Edge behavior changed, and no invitation or email was created.
+
+Focused validation passed 22 tests covering member UI, actual built interface integration and existing Workshop workflows. Independent review found no actionable blocker. The five live page/asset checks returned 200 and byte-identical content; all 64 static manifest hashes match. The member page retains no-store and noindex, nofollow. Evidence: `docs/releases/member-onboarding-2026-10-20.json`. A later evidence-only commit leaves these public bytes unchanged.
+
+To start as the operator: open https://kapukai-community.vercel.app/community/members/#member-signin-panel, sign in with the existing operator account, then use Pilot operations. Create private invitation produces an email-bound code shown once for deliberate sharing; creating it does not send an email. Joining as a member is optional and requires a separately accepted invitation.

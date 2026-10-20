@@ -1,0 +1,95 @@
+{
+  "recorded_at_utc": "2026-10-20T01:55:13.581503+00:00",
+  "status": "production_verified",
+  "git_commit": "9eeb8ddcc16e678f76acb086d7d688c506905069",
+  "git_tree": "d66c10559b36cdc089db9a7856cf3e6a00c10eea",
+  "vercel": {
+    "deployment_id": "dpl_6Z3TYpnmwvqbGr57nyjhG9hsxf85",
+    "deployment_url": "https://kapukai-community-id6aishmc-kapukais-projects.vercel.app",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "target": "production",
+    "state": "READY"
+  },
+  "changes": [
+    "Show account creation and sign-in choices visibly on first visit.",
+    "Open verified operator controls without requiring invitation entry.",
+    "Keep joining as a member optional for operators and require the existing invitation and consent gates.",
+    "Explain private invitation codes separately from emailed verification codes."
+  ],
+  "verification": {
+    "focused_tests_passed": 22,
+    "test_suites": [
+      "backend/tests/member-ui.test.mjs",
+      "backend/tests/member-integration.test.mjs",
+      "tests/workshop-ui.test.mjs"
+    ],
+    "independent_review": "No actionable blocker; invitation and consent gates preserved.",
+    "live_checks": {
+      "checked_at_utc": "2026-10-20T01:55:13.581503+00:00",
+      "live_http": [
+        {
+          "path": "/community/members/",
+          "status": 200,
+          "sha256": "9af2c923e83c34fe0b4b807d040962f605d7c877959054ab2b5d78c89de5dba4",
+          "local_sha256": "9af2c923e83c34fe0b4b807d040962f605d7c877959054ab2b5d78c89de5dba4",
+          "cache_control": "no-store",
+          "robots": "noindex, nofollow",
+          "matches_build": true,
+          "visible_create_account": true,
+          "signin_choice": true,
+          "optional_operator_membership": true
+        },
+        {
+          "path": "/assets/community/members.js",
+          "status": 200,
+          "sha256": "1aaaef607a45b5e4ef8b64bc969ff58b259bbe1a05768180d703d2bfba445423",
+          "local_sha256": "1aaaef607a45b5e4ef8b64bc969ff58b259bbe1a05768180d703d2bfba445423",
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null,
+          "matches_build": true
+        },
+        {
+          "path": "/assets/community/members.css",
+          "status": 200,
+          "sha256": "97dc072064c062288f0ee79f622959097c10a6aa8a13fd916a71dd0a1fd7f72b",
+          "local_sha256": "97dc072064c062288f0ee79f622959097c10a6aa8a13fd916a71dd0a1fd7f72b",
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null,
+          "matches_build": true
+        },
+        {
+          "path": "/community/contact/",
+          "status": 200,
+          "sha256": "f11687ed8b8107a9c45cecf86e2e16a828e8ef3085cd53c97a270dd06726d035",
+          "local_sha256": "f11687ed8b8107a9c45cecf86e2e16a828e8ef3085cd53c97a270dd06726d035",
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null,
+          "matches_build": true
+        },
+        {
+          "path": "/join/",
+          "status": 200,
+          "sha256": "5712b50172972484122371b210c10a224f262d023f30472fb65eb96a6e86254a",
+          "local_sha256": "5712b50172972484122371b210c10a224f262d023f30472fb65eb96a6e86254a",
+          "cache_control": "public, max-age=0, must-revalidate",
+          "robots": null,
+          "matches_build": true
+        }
+      ],
+      "static_manifest_files": 64,
+      "all_manifest_hashes_match": true
+    }
+  },
+  "scope": {
+    "backend_or_authentication_changes": false,
+    "new_invitations_created": false,
+    "email_sent": false,
+    "canonical_nginx_new_routes_installed": false
+  },
+  "limits": [
+    "DOM and live HTTP checks do not establish real-device visual acceptance.",
+    "Real participant email receipt and membership acceptance remain pilot observations."
+  ],
+  "rollback_deployment": "dpl_29ZA2yHprHhjQHUKipDsCYt6qwKk",
+  "receipt_note": "A later documentation-only commit records this evidence and leaves public file bytes unchanged."
+}

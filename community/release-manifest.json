@@ -79,5 +79,12 @@
     "max_members": 25,
     "evidence": "docs/releases/member-community-2026-10-20.json",
     "canonical_nginx_new_routes_installed": false
+  },
+  "member_onboarding_release": {
+    "status": "production_verified",
+    "git_commit": "9eeb8ddcc16e678f76acb086d7d688c506905069",
+    "vercel_deployment": "dpl_6Z3TYpnmwvqbGr57nyjhG9hsxf85",
+    "production_url": "https://kapukai-community.vercel.app/community/members/",
+    "evidence": "docs/releases/member-onboarding-2026-10-20.json"
   }
 }
