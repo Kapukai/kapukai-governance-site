@@ -19,6 +19,20 @@ The desktop grid presents the twelve-hour span without an inner vertical scrollb
 
 ## Operating schedule still to choose
 
-Recommendation, not activated: Tuesday–Friday, 9 a.m.–5 p.m.; lunch noon–1 p.m.; Monday reserved for preparation, maintenance and follow-up. That provides 28 bookable hours while one person operates the Lab. The 7 a.m.–7 p.m. display does not imply those opening hours.
+Recommendation, not activated: Tuesday–Friday, 9 a.m.–5 p.m.; lunch noon–1 p.m.; Monday reserved for preparation, maintenance and follow-up. That provides 28 public opening hours while one person operates the Lab. The 7 a.m.–7 p.m. display does not imply those opening hours.
 
 The remaining launch gate is a chosen operating schedule, enabling reservations, and a real signed-in booking with member/owner email receipts. A real two-connection race and mobile browser review remain distinct checks; local tests and a fictional demo are not substitutes for those observations.
+
+## Published release and browser verification
+
+Production commit `0a30d34e0f8e899b85f3ebc7b6f6316f010c57df`, deployment `dpl_D1ptjVrfRQi7nk6jKkceNfn7ShVC`, is READY on https://kapukai-community.vercel.app/lab/. Public HTML, JavaScript and CSS each matched local SHA-256 exactly. The live public config returned 200; an unauthenticated state request returned 401. Both responses were no-store.
+
+The main Site is published as version 6, source `637bd93e10a1ffb86c522c5e9ca9340ce228a9a6`, deployment `appgdep_6ad9a3fd88ac8191a16dc2c23187fa8e`. Its main booking links now redirect to the member calendar and preserve valid room choices. The old one-hour-minimum email request form is no longer the booking route. The home page explicitly says reservations have not opened yet.
+
+The public fictional demo at https://kapukai-lab.christinehillier.chatgpt.site/calendar-preview/ reuses the production graphical interaction through an asserted build adapter. Its membership, schedule, clock and bookings are fictional; changes remain in memory. Auth code is removed, unknown fetch destinations fail closed, CSP blocks network connections, and no email is sent. Nine demo tests passed. Browser QA on the internal Site preview confirmed a fifteen-minute sample for two people and an actual mouse drag snapping to forty-five minutes. The frontend's twenty UI tests were rerun after the pointer fix and passed. Mobile touch browser verification remains unobserved.
+
+Browser QA found that using wall-clock time for click suppression caused a frozen-clock demo to swallow the next finish click. The production fix uses monotonic time and clears stale suppression on each new pointerdown. A physical mouse-event regression covers the replaced start node and frozen clock. Internal HTTP preview also lacked crypto.randomUUID; the demo adapter now uses fixture-only request IDs, with a regression test. Production request IDs retain crypto.randomUUID on HTTPS.
+
+No real recipient email or authenticated member booking was created during these checks. Booking remains disabled with no published opening windows. The operating-hours recommendation has not been accepted or activated. With one operator, staffed sessions must also have a single-session coverage limit; parallel self-led room use is a separate operating decision.
+
+Code remains on draft PR https://github.com/Kapukai/kapukai-governance-site/pull/7. Production is deployed from its exact branch commit; deploying the older main branch could remove the Lab changes. Merge/release consolidation is still outstanding.

@@ -148,7 +148,7 @@
     "previous_production_deployment": "dpl_Hc6vPrMuV3J1icrmh11PsQYAFECJ"
   },
   "lab_current_week_release": {
-    "status": "production_week_policy_verified_daytime_view_pending",
+    "status": "production_verified_superseded_by_graphical_booking_release",
     "production_url": "https://kapukai-community.vercel.app/lab/",
     "policy": "current Monday-Sunday America/New_York; automatic confirmation for active Lab members",
     "migration": "20261022052420_kapukai_lab_current_week_booking",
@@ -165,7 +165,7 @@
     "calendar_ui_tests_passed": 13
   },
   "lab_graphical_booking_release": {
-    "status": "backend_verified_frontend_pending",
+    "status": "production_graphical_ui_verified_schedule_pending",
     "production_url": "https://kapukai-community.vercel.app/lab/",
     "interaction": "drag or tap start then finish",
     "current_week_only": true,
@@ -186,6 +186,25 @@
     "live_rollback_acceptance": "passed",
     "booking_enabled": false,
     "opening_windows": 0,
-    "evidence": "docs/LAB_GRAPHICAL_BOOKING_2026-10-22.md"
+    "evidence": "docs/LAB_GRAPHICAL_BOOKING_2026-10-22.md",
+    "commit": "0a30d34e0f8e899b85f3ebc7b6f6316f010c57df",
+    "deployment": "dpl_D1ptjVrfRQi7nk6jKkceNfn7ShVC",
+    "deployment_url": "https://kapukai-community-rbru6r03b-kapukais-projects.vercel.app",
+    "verified_at": "2026-10-22T05:50:31.988521+00:00",
+    "public_asset_hashes": "exact match for HTML, JS and CSS",
+    "browser_demo": "15-minute two-person sample confirmed; 45-minute actual mouse drag passed",
+    "demo_tests_passed": 9,
+    "frontend_ui_retest_passed": 20,
+    "unauthenticated_state_status": 401,
+    "public_config_status": 200,
+    "private_response_cache_control": "no-store",
+    "real_authenticated_booking_verified": false,
+    "real_email_receipts_verified": false,
+    "site_version": 6,
+    "site_commit": "637bd93e10a1ffb86c522c5e9ca9340ce228a9a6",
+    "site_deployment": "appgdep_6ad9a3fd88ac8191a16dc2c23187fa8e",
+    "site_url": "https://kapukai-lab.christinehillier.chatgpt.site",
+    "demo_url": "https://kapukai-lab.christinehillier.chatgpt.site/calendar-preview/",
+    "operating_schedule": "proposed Tuesday-Friday 09:00-17:00; lunch 12:00-13:00; not activated"
   }
 }
