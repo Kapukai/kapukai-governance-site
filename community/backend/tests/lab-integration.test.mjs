@@ -19,8 +19,8 @@ test('actual SQL through Edge commits schedule and both emails once, then cancel
     for(const email of ['alice@example.test','bob@example.test']) assert.equal((await call(O,'operator_member',{email,active:true})).ok,true);
     assert.equal((await call(O,'operator_window',{room_id:'conference',starts_at:'2030-01-07T13:00:00.000Z',ends_at:'2030-01-07T23:00:00.000Z'})).ok,true);
     assert.equal((await call(O,'operator_config',{enabled:true})).ok,true);
-    const payload={request_id:randomUUID(),room_id:'conference',starts_at:'2030-01-07T14:00:00.000Z',ends_at:'2030-01-07T14:47:00.000Z',participants:6,mode:'room'};
-    const booked=await call(A,'book',payload);assert.equal(booked.status,200,JSON.stringify(booked));assert.equal(booked.booking.status,'confirmed');assert.equal(booked.notifications.accepted,2);assert.equal(sent.length,2);
+    const payload={request_id:randomUUID(),room_id:'conference',starts_at:'2030-01-07T14:00:00.000Z',ends_at:'2030-01-07T14:15:00.000Z',participants:2,mode:'room'};
+    const booked=await call(A,'book',payload);assert.equal(booked.status,200,JSON.stringify(booked));assert.equal(booked.booking.status,'confirmed');assert.equal(booked.booking.participants,2);assert.equal((Date.parse(booked.booking.ends_at)-Date.parse(booked.booking.starts_at))/60000,15);assert.equal(booked.notifications.accepted,2);assert.equal(sent.length,2);
     assert.deepEqual(new Set(sent.map(m=>m.to)),new Set(['alice@example.test','architect@kapukai.org']));
     const again=await call(A,'book',payload);assert.equal(again.booking.id,booked.booking.id);assert.equal(sent.length,2);
     const conflict=await call(B,'book',{...payload,request_id:randomUUID()});assert.equal(conflict.status,409);assert.equal(conflict.code,'CONFLICT');assert.equal(sent.length,2);
@@ -48,7 +48,7 @@ test('unavailable mail configuration keeps committed booking200 and two durable 
   const sendMail=Object.assign(async()=>{throw new Error('must not attempt');},{configured:()=>{throw new Error('provider unavailable');}});
   const {db,call}=await integrationFixture(sendMail);
   try {
-    const p={request_id:randomUUID(),room_id:'classroom',starts_at:'2030-01-07T14:00:00.000Z',ends_at:'2030-01-07T14:47:00.000Z',participants:1,mode:'room'};
+    const p={request_id:randomUUID(),room_id:'classroom',starts_at:'2030-01-07T14:00:00.000Z',ends_at:'2030-01-07T14:45:00.000Z',participants:1,mode:'room'};
     const booked=await call(A,'book',p);assert.equal(booked.http,200);assert.equal(booked.booking.status,'confirmed');assert.deepEqual(booked.notifications,{state:'pending'});
     const state=await call(O,'state',{week_start:'2030-01-07'});assert.equal(state.reservations.length,1);assert.equal(state.mail_status.pending,2);
     assert.equal((await call(A,'book',p)).ok,true);assert.equal((await call(O,'state',{week_start:'2030-01-07'})).mail_status.pending,2);
@@ -71,6 +71,6 @@ test('full six-seat class cancellation automatically dispatches all12 notices on
     const p={request_id:randomUUID(),class_id:c.booking.id};const cancelled=await call(O,'operator_class_cancel',p);check(cancelled);assert.equal(cancelled.notifications.accepted,12);assert.equal(sent.length,24);
     check(await call(O,'operator_class_cancel',p));assert.equal(sent.length,24);
     const state=await call(A,'state',{week_start:'2030-01-07'});assert.equal(state.reservations.length,0);assert.equal(state.mine[0].status,'cancelled');
-    check(await call(A,'book',{request_id:randomUUID(),room_id:'classroom',starts_at:'2030-01-07T14:00:00.000Z',ends_at:'2030-01-07T14:47:00.000Z',participants:1,mode:'room'}));
+    check(await call(A,'book',{request_id:randomUUID(),room_id:'classroom',starts_at:'2030-01-07T14:00:00.000Z',ends_at:'2030-01-07T14:45:00.000Z',participants:1,mode:'room'}));
   } finally {await db.close();}
 });

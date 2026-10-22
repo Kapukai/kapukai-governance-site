@@ -5,8 +5,8 @@ import {setup,cmd,setWeekClock,O,A,B} from './lab-db-harness.mjs';
 
 const ok=r=>assert.equal(r.ok,true,JSON.stringify(r));
 const outside=r=>assert.equal(r.error,'OUTSIDE_CURRENT_WEEK',JSON.stringify(r));
-const slot=(over={})=>({request_id:randomUUID(),room_id:'conference',starts_at:'2030-01-07T14:00:00Z',ends_at:'2030-01-07T14:47:00Z',participants:1,mode:'room',...over});
-const next={starts_at:'2030-01-14T14:00:00Z',ends_at:'2030-01-14T14:47:00Z'};
+const slot=(over={})=>({request_id:randomUUID(),room_id:'conference',starts_at:'2030-01-07T14:00:00Z',ends_at:'2030-01-07T14:45:00Z',participants:1,mode:'room',...over});
+const next={starts_at:'2030-01-14T14:00:00Z',ends_at:'2030-01-14T14:45:00Z'};
 async function using(fn){const db=await setup();try{await fn(db);}finally{await db.close();}}
 async function ready(db){
  await db.query('insert into kapukai_lab.operators(user_id) values($1)',[O]);
@@ -48,7 +48,7 @@ test('next-week reschedule is rejected without changing the original reservation
  outside(await cmd(db,A,'reschedule',{request_id:randomUUID(),booking_id:original.booking.id,...next}));
  const stored=(await db.query('select starts_at,ends_at,version,status from kapukai_lab.bookings where id=$1',[original.booking.id])).rows[0];
  assert.equal(new Date(stored.starts_at).toISOString(),'2030-01-07T14:00:00.000Z');
- assert.equal(new Date(stored.ends_at).toISOString(),'2030-01-07T14:47:00.000Z');
+ assert.equal(new Date(stored.ends_at).toISOString(),'2030-01-07T14:45:00.000Z');
  assert.equal(stored.version,1);assert.equal(stored.status,'confirmed');
  assert.equal((await db.query('select count(*)::int n from kapukai_lab.outbox')).rows[0].n,2);
 }));

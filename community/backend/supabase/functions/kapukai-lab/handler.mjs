@@ -8,7 +8,7 @@ const uuid = v => typeof v === "string" && UUID_RE.test(v);
 const integer = (v, min, max) => Number.isSafeInteger(v) && v >= min && v <= max;
 const room = v => ["lounge", "conference", "classroom"].includes(v);
 const iso = v => typeof v === "string" && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:00(?:\.000)?Z$/.test(v) && Number.isFinite(Date.parse(v)) && new Date(v).toISOString() === (v.includes(".") ? v : v.replace(/Z$/, ".000Z"));
-const range = p => iso(p.starts_at) && iso(p.ends_at) && Date.parse(p.ends_at) > Date.parse(p.starts_at);
+const range = p => iso(p.starts_at) && iso(p.ends_at) && Date.parse(p.ends_at) - Date.parse(p.starts_at) >= 900000 && quarter(p.ends_at);
 const quarter = v => new Date(v).getUTCMinutes() % 15 === 0;
 const date = v => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) && Number.isFinite(Date.parse(v)) && new Date(v).toISOString().slice(0, 10) === v;
 const title = v => typeof v === "string" && v.trim().length >= 1 && v.length <= 100 && !/[\u0000-\u001F\u007F]/.test(v);
@@ -21,7 +21,7 @@ const validators = {
   cancel: p => keys(p, ["request_id", "booking_id"]) && uuid(p.request_id) && uuid(p.booking_id),
   reschedule: p => keys(p, ["request_id", "booking_id", "starts_at", "ends_at"]) && uuid(p.request_id) && uuid(p.booking_id) && range(p) && quarter(p.starts_at),
   operator_member: p => typeof p?.active === "boolean" && ((keys(p, ["user_id", "active"]) && uuid(p.user_id)) || (keys(p, ["email", "active"]) && typeof p.email === "string" && p.email.length <= 254 && /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(p.email))),
-  operator_window: p => keys(p, ["room_id", "starts_at", "ends_at"]) && room(p.room_id) && range(p),
+  operator_window: p => keys(p, ["room_id", "starts_at", "ends_at"]) && room(p.room_id) && range(p) && quarter(p.starts_at),
   operator_window_remove: p => keys(p, ["window_id"]) && uuid(p.window_id),
   operator_class_cancel: p => keys(p, ["request_id", "class_id"]) && uuid(p.request_id) && uuid(p.class_id),
   operator_class: p => keys(p, ["request_id", "room_id", "starts_at", "ends_at", "title", "capacity"]) && uuid(p.request_id) && room(p.room_id) && range(p) && quarter(p.starts_at) && title(p.title) && integer(p.capacity, 1, 6),

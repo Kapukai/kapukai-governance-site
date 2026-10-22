@@ -3,7 +3,7 @@
 begin;
 create schema kapukai_lab;
 revoke all on schema kapukai_lab from public,anon,authenticated,service_role;
-create table kapukai_lab.config(id boolean primary key default true check(id),enabled boolean not null default false,timezone text not null default 'America/New_York' check(timezone='America/New_York'),policy_version integer not null default 2);
+create table kapukai_lab.config(id boolean primary key default true check(id),enabled boolean not null default false,timezone text not null default 'America/New_York' check(timezone='America/New_York'),policy_version integer not null default 3);
 insert into kapukai_lab.config default values;
 create table kapukai_lab.operators(user_id uuid primary key references auth.users,granted_at timestamptz not null default now());
 create table kapukai_lab.members(user_id uuid primary key references auth.users,active boolean not null,updated_at timestamptz not null default now(),granted_by uuid not null references auth.users);
@@ -25,7 +25,7 @@ create function kapukai_lab.time_value(v jsonb) returns timestamptz language plp
  return (v#>>'{}')::timestamptz;
 end $$;
 create function kapukai_lab.validate_time(r text,s timestamptz,e timestamptz) returns void language plpgsql set search_path='' as $$ begin
- if s is null or e is null or not isfinite(s) or not isfinite(e) or e<=s or s<=now() or date_trunc('minute',s)<>s or date_trunc('minute',e)<>e or mod(extract(minute from s at time zone 'America/New_York')::integer,15)<>0 or not exists(select 1 from kapukai_lab.rooms where id=r) then raise exception 'INVALID_REQUEST';end if;
+ if s is null or e is null or not isfinite(s) or not isfinite(e) or e<s+interval '15 minutes' or s<=now() or date_trunc('minute',s)<>s or date_trunc('minute',e)<>e or mod(extract(minute from s at time zone 'America/New_York')::integer,15)<>0 or mod(extract(minute from e at time zone 'America/New_York')::integer,15)<>0 or not exists(select 1 from kapukai_lab.rooms where id=r) then raise exception 'INVALID_REQUEST';end if;
  if not exists(select 1 from kapukai_lab.windows where room_id=r and starts_at<=s and ends_at>=e) then raise exception 'OUTSIDE_HOURS';end if;
 end $$;
 -- Member reservations are bounded by the Lab's local calendar week.
@@ -81,7 +81,7 @@ begin
   elsif a='operator_window' then
    if not kapukai_lab.keys(p,array['room_id','starts_at','ends_at']) then raise exception 'INVALID_REQUEST';end if;
    r:=p->>'room_id';s:=kapukai_lab.time_value(p->'starts_at');e:=kapukai_lab.time_value(p->'ends_at');
-   if not exists(select 1 from kapukai_lab.rooms where id=r) or e<=s or date_trunc('minute',s)<>s or date_trunc('minute',e)<>e then raise exception 'INVALID_REQUEST';end if;
+   if not exists(select 1 from kapukai_lab.rooms where id=r) or e<s+interval '15 minutes' or date_trunc('minute',s)<>s or date_trunc('minute',e)<>e or mod(extract(minute from s at time zone 'America/New_York')::integer,15)<>0 or mod(extract(minute from e at time zone 'America/New_York')::integer,15)<>0 then raise exception 'INVALID_REQUEST';end if;
    insert into kapukai_lab.windows(room_id,starts_at,ends_at,created_by) values(r,s,e,u) on conflict do nothing;return jsonb_build_object('ok',true);
   elsif a not in('operator_class','operator_class_cancel') then raise exception 'INVALID_REQUEST';end if;
  return null;

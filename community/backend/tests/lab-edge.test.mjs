@@ -6,14 +6,20 @@ const USER='b8bbc25e-c196-4cbb-8eb9-ff38863df2d8', SESSION='b9ef7317-7514-4aac-8
 const ORIGIN='https://kapukai-community.vercel.app';
 const response=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json'}});
 const request=(body={action:'state',payload:{week_start:'2026-10-19'}},options={})=>new Request(`${PROJECT_URL}/functions/v1/kapukai-lab${options.search||''}`,{method:options.method||'POST',headers:{origin:ORIGIN,'content-type':'application/json',...options.headers},...(['GET','OPTIONS'].includes(options.method)?{}:{body:typeof body==='string'?body:JSON.stringify(body)})});
-const book=(extra={})=>({action:'book',payload:{request_id:ID,room_id:'lounge',starts_at:'2026-10-23T13:00:00Z',ends_at:'2026-10-23T13:47:00Z',participants:6,mode:'room',...extra}});
+const book=(extra={})=>({action:'book',payload:{request_id:ID,room_id:'lounge',starts_at:'2026-10-23T13:00:00Z',ends_at:'2026-10-23T13:45:00Z',participants:6,mode:'room',...extra}});
 const fixture=(options={})=>{ const calls=[],dispatches=[]; return {calls,dispatches,handler:createHandler({authenticate:async()=>({user_id:USER,session_id:SESSION}),rpc:async(name,args)=>{calls.push({name,args}); return {ok:true,booking:{id:ID}};},dispatch:async id=>{dispatches.push(id);return {state:'attempted',accepted:2,failed:0,unknown:0};},getConfig:()=>({baseUrl:PROJECT_URL,publishableKey:'sb_publishable_fixture'}),...options})}; };
 const message={id:ID,to:'fixture@example.invalid',subject:'Kapukai booking confirmed',text:'Confirmed reservation fixture.'};
 
-test('only quarter-hour starts accepted; independent minute ends preserved',()=>{
-  assert.equal(normalizeRequest(book()).payload.ends_at,'2026-10-23T13:47:00Z');
-  for(const starts_at of ['2026-10-23T13:15:00Z','2026-10-23T13:30:00.000Z','2026-10-23T13:45:00Z']) assert.doesNotThrow(()=>normalizeRequest(book({starts_at})));
+test('only quarter-hour starts and finishes accepted, with 15-minute minimum',()=>{
+  for(const ends_at of ['2026-10-23T13:15:00Z','2026-10-23T13:30:00Z','2026-10-23T13:45:00.000Z']) assert.doesNotThrow(()=>normalizeRequest(book({ends_at,participants:2})));
+  for(const starts_at of ['2026-10-23T13:15:00Z','2026-10-23T13:30:00.000Z','2026-10-23T13:45:00Z']) assert.doesNotThrow(()=>normalizeRequest(book({starts_at,ends_at:'2026-10-23T14:00:00Z'})));
   for(const starts_at of ['2026-10-23T13:01:00Z','2026-10-23T13:15:01Z','2026-02-30T13:00:00Z','2026-10-23T13:00:00-04:00']) assert.throws(()=>normalizeRequest(book({starts_at})));
+  for(const ends_at of ['2026-10-23T13:01:00Z','2026-10-23T13:14:00Z','2026-10-23T13:47:00Z','2026-10-23T13:00:00Z']) {
+   assert.throws(()=>normalizeRequest(book({ends_at})));
+   assert.throws(()=>normalizeRequest({action:'reschedule',payload:{request_id:ID,booking_id:ID,starts_at:'2026-10-23T13:00:00Z',ends_at}}));
+   assert.throws(()=>normalizeRequest({action:'operator_class',payload:{request_id:ID,room_id:'lounge',starts_at:'2026-10-23T13:00:00Z',ends_at,title:'Test class',capacity:2}}));
+   assert.throws(()=>normalizeRequest({action:'operator_window',payload:{room_id:'lounge',starts_at:'2026-10-23T13:00:00Z',ends_at}}));
+  }
 });
 test('exact request schemas reject forged actors, emails, capacities, and unexpected fields',()=>{
   for(const extra of [{user_id:USER},{email:'target@example.invalid'},{participants:7},{mode:'admin'},{request_id:'not-id'},{ends_at:'2026-10-23T13:47:20Z'}]) assert.throws(()=>normalizeRequest(book(extra)));

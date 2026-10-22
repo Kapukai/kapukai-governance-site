@@ -20,8 +20,8 @@
     "assets/community/lab-fonts/DMSans-variable.ttf": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
     "assets/community/lab-fonts/LibreCaslonDisplay-OFL.txt": "78c9f56e0d8a7ad7b9d26842a8eae728337a8671d8ddc6e889fa10645935dc7b",
     "assets/community/lab-fonts/LibreCaslonDisplay-Regular.ttf": "2340c497181e9446fcbb235e1c3780558dc62879ffe0ef47906d3f7f35cf5f35",
-    "assets/community/lab.css": "413d1ab339c8d829c4ca59b55d96e3ee68478d89b4859d83a96b66eb0a100867",
-    "assets/community/lab.js": "f5fe4e1773878eebfd822b79b6a3125574a2cec195a057ed384d0a4540c529d0",
+    "assets/community/lab.css": "69e1a307a01be85c347df8a92a50c92413bafa40c93a7b59e13b0a02f1c225c6",
+    "assets/community/lab.js": "2a623c76f014bc0f3d2d190b6219318f3b25ff2ce4ed567c8410a3d552ee2583",
     "assets/community/members.css": "c202471856299e54f1643d0584bc3e8ebf0b371bc90dc6d0d8d3d7b55b37aa18",
     "assets/community/members.js": "f12a7809f713d95c23febad685c7b1514daf9a58fd40c7af25c099d2cabc21fe",
     "assets/community/operations.js": "ec27b38a1090f23e26ac12e7c04ba03602004cc99112d9b18d08e7186f8a1f3d",
@@ -73,7 +73,7 @@
     "confirm/index.html": "020a38d0aea12041f877793f21ea6de608676a062303f727e40a11d9c78f3cb6",
     "contact/index.html": "29837e977f0fb369b74b013b3f78663bf104d4c0e47cae5536c65ba540538db8",
     "join/index.html": "8da63de4887f51aa52d01c5945c7d2558d446f4fdfc4146e78803066cce885ac",
-    "lab/index.html": "eb0400d3e568c0cc2b08a0280944173ebf9292e2faccd1c0db06cc69e3c2b630",
+    "lab/index.html": "1180374e224673f13cebdce0154c10a5c498201a1b23e6df203a07fae477f537",
     "newsletter/index.html": "8545304965f66165d49010fcacff10746ee927cce276cb3d1e20506af5c1ca47",
     "testers/index.html": "4ac8fba7500c41422549b4c3e14e2cc6e871d2b3efc5027c95d27751be06c97b",
     "tort/index.html": "30f764b34ecadd0f6a9ee3fd72323df836f537f7604376e59af2bea82d327313"
@@ -163,5 +163,29 @@
     "deployment": "dpl_3UhCFA3fBQipNyoTywAqWZNq6H7G",
     "calendar_default_view": "07:00-19:00 America/New_York",
     "calendar_ui_tests_passed": 13
+  },
+  "lab_graphical_booking_release": {
+    "status": "backend_verified_frontend_pending",
+    "production_url": "https://kapukai-community.vercel.app/lab/",
+    "interaction": "drag or tap start then finish",
+    "current_week_only": true,
+    "timezone": "America/New_York",
+    "minimum_minutes": 15,
+    "start_and_finish_minutes": [
+      0,
+      15,
+      30,
+      45
+    ],
+    "calendar_default_view": "07:00-19:00",
+    "max_participants": 6,
+    "edge_function_version": 3,
+    "edge_bundle_sha256": "35fbc5aa77efc8a7ffcc5d2dae6ae9855296ea8e5300d1f9e00ae742facdab1b",
+    "migration": "20261022053954_kapukai_lab_quarter_hour_booking",
+    "tests_passed": 55,
+    "live_rollback_acceptance": "passed",
+    "booking_enabled": false,
+    "opening_windows": 0,
+    "evidence": "docs/LAB_GRAPHICAL_BOOKING_2026-10-22.md"
   }
 }

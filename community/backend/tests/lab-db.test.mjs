@@ -6,7 +6,7 @@ const ok=r=>assert.equal(r.ok,true,JSON.stringify(r));
 const err=(r,c)=>assert.equal(r.error,c,JSON.stringify(r));
 const request=()=>randomUUID();
 const week={week_start:'2030-01-07'};
-const slot=(over={})=>({request_id:request(),room_id:'conference',starts_at:'2030-01-07T14:00:00Z',ends_at:'2030-01-07T14:47:00Z',participants:6,mode:'room',...over});
+const slot=(over={})=>({request_id:request(),room_id:'conference',starts_at:'2030-01-07T14:00:00Z',ends_at:'2030-01-07T14:45:00Z',participants:6,mode:'room',...over});
 async function ready(db){await db.query('insert into kapukai_lab.operators(user_id) values($1)',[O]);for(const user_id of[A,B])ok(await cmd(db,O,'operator_member',{user_id,active:true}));ok(await cmd(db,O,'operator_config',{enabled:true}));for(const room_id of ['lounge','conference','classroom'])ok(await cmd(db,O,'operator_window',{room_id,starts_at:'2030-01-07T13:00:00Z',ends_at:'2030-01-07T23:00:00Z'}));}
 async function using(fn){const db=await setup();try{await fn(db)}finally{await db.close()}}
 test('Lab begins closed and requires separate current grants + session',()=>using(async db=>{
@@ -15,8 +15,8 @@ test('Lab begins closed and requires separate current grants + session',()=>usin
  err(await cmd(db,E,'state',week,A),'FORBIDDEN');const s=await cmd(db,A,'state',week);ok(s);assert.equal(s.access,true);assert.equal(s.operator,false);assert.equal(s.members,undefined);
  await db.query('delete from auth.sessions where user_id=$1',[A]);err(await cmd(db,A,'book',slot()),'FORBIDDEN');
 }));
-test('atomic booking, independent end, safe half-open boundaries, replay and conflict audit',()=>using(async db=>{
- await ready(db);const p=slot();const a=await cmd(db,A,'book',p);ok(a);assert.equal(a.booking.status,'confirmed');assert.equal(new Date(a.booking.ends_at).getUTCMinutes(),47);
+test('atomic booking, quarter-hour end, safe half-open boundaries, replay and conflict audit',()=>using(async db=>{
+ await ready(db);const p=slot();const a=await cmd(db,A,'book',p);ok(a);assert.equal(a.booking.status,'confirmed');assert.equal(new Date(a.booking.ends_at).getUTCMinutes(),45);
  assert.deepEqual(await cmd(db,A,'book',p),a);err(await cmd(db,A,'book',{...p,participants:2}),'IDEMPOTENCY_CONFLICT');
  err(await cmd(db,B,'book',slot()),'CONFLICT');err(await cmd(db,A,'book',slot({room_id:'lounge'})),'CONFLICT');
  err(await cmd(db,B,'book',slot({starts_at:'2030-01-07T14:47:00Z',ends_at:'2030-01-07T15:00:00Z'})),'INVALID_REQUEST');
@@ -30,7 +30,7 @@ test('failed reschedule preserves original; revocation blocks booking but preser
  await ready(db);const a=await cmd(db,A,'book',slot());const b=await cmd(db,B,'book',slot({starts_at:'2030-01-07T15:00:00Z',ends_at:'2030-01-07T16:00:00Z'}));ok(a);ok(b);
  err(await cmd(db,A,'reschedule',{request_id:request(),booking_id:a.booking.id,starts_at:'2030-01-07T15:00:00Z',ends_at:'2030-01-07T16:00:00Z'}),'CONFLICT');
  assert.equal((await cmd(db,A,'state',week)).mine[0].version,1);
- const move=await cmd(db,A,'reschedule',{request_id:request(),booking_id:a.booking.id,starts_at:'2030-01-07T16:00:00Z',ends_at:'2030-01-07T16:31:00Z'});ok(move);assert.equal(move.booking.version,2);
+ const move=await cmd(db,A,'reschedule',{request_id:request(),booking_id:a.booking.id,starts_at:'2030-01-07T16:00:00Z',ends_at:'2030-01-07T16:30:00Z'});ok(move);assert.equal(move.booking.version,2);
  ok(await cmd(db,O,'operator_member',{user_id:A,active:false}));err(await cmd(db,A,'book',slot()),'FORBIDDEN');const revoked=await cmd(db,A,'state',week);assert.deepEqual(revoked.reservations,[]);assert.equal(revoked.mine.length,1);
  err(await cmd(db,B,'cancel',{request_id:request(),booking_id:a.booking.id}),'NOT_FOUND');ok(await cmd(db,A,'cancel',{request_id:request(),booking_id:a.booking.id}));
 }));
@@ -45,8 +45,8 @@ test('outbox is transactional, request scoped and never reclaims accepted/uncert
  assert.equal((await mail(db,'claim',{limit:10})).messages.length,0);ok(await mail(db,'finish',{id:claim.messages[0].id,status:'accepted',provider_id:'test-message-id'}));ok(await mail(db,'finish',{id:claim.messages[1].id,status:'unknown'}));assert.equal((await mail(db,'claim',{limit:10})).messages.length,0);
  err(await mail(db,'finish',{id:claim.messages[0].id,status:'failed'}),'CONFLICT');const s=await cmd(db,O,'state',week);assert.deepEqual(s.mail_status,{accepted:1,unknown:1});err(await cmd(db,A,'operator_dispatch',{}),'FORBIDDEN');ok(await cmd(db,O,'operator_dispatch',{}));
 }));
-test('validation covers closed hours, quarter starts, seconds, malformed payloads and verified-email grants',()=>using(async db=>{
- await ready(db);for(const over of [{starts_at:'2030-01-07T14:01:00Z'},{starts_at:'2030-01-07T14:00:01Z'},{ends_at:'2030-01-07T14:47:01Z'},{ends_at:'2030-01-07T14:00:00Z'},{participants:7},{participants:null},{mode:null},{extra:'ignored'}])err(await cmd(db,A,'book',slot(over)),'INVALID_REQUEST');
+test('validation covers closed hours, quarter-hour starts and ends, seconds, malformed payloads and verified-email grants',()=>using(async db=>{
+ await ready(db);for(const over of [{starts_at:'2020-01-07T14:00:00Z',ends_at:'2020-01-07T14:15:00Z'},{starts_at:'2030-01-07T14:01:00Z'},{starts_at:'2030-01-07T14:00:01Z'},{ends_at:'2030-01-07T14:47:01Z'},{ends_at:'2030-01-07T14:47:00Z'},{ends_at:'2030-01-07T14:14:00Z'},{ends_at:'2030-01-07T14:01:00Z'},{ends_at:'2030-01-07T14:00:00Z'},{participants:7},{participants:null},{mode:null},{extra:'ignored'}])err(await cmd(db,A,'book',slot(over)),'INVALID_REQUEST');
  err(await cmd(db,A,'book',slot({starts_at:'2030-01-08T14:00:00Z',ends_at:'2030-01-08T15:00:00Z'})),'OUTSIDE_HOURS');ok(await cmd(db,O,'operator_member',{email:'EVE@example.test',active:true}));assert.equal((await cmd(db,E,'state',week)).access,true);err(await cmd(db,O,'operator_member',{email:'missing@example.test',active:true}),'NOT_FOUND');
  ok(await cmd(db,O,'operator_config',{enabled:false}));err(await cmd(db,A,'book',slot()),'DISABLED');
 }));
@@ -67,4 +67,28 @@ test('provider results require evidence and handoff history remains append only'
  await ready(db);ok(await cmd(db,A,'book',slot()));const claimed=await mail(db,'claim',{limit:20});const id=claimed.messages[0].id;
  for(const p of [{id,status:'accepted'},{id,status:null},{id,status:'accepted',provider_id:''},{id,status:'failed',provider_id:'notaccepted'}])err(await mail(db,'finish',p),'INVALID_REQUEST');
  ok(await mail(db,'finish',{id,status:'accepted',provider_id:'provider-proof'}));const log=(await db.query('select status,provider_id from kapukai_lab.mail_audit where outbox_id=$1 order by id',[id])).rows;assert.deepEqual(log,[{status:'sending',provider_id:null},{status:'accepted',provider_id:'provider-proof'}]);
+}));
+
+
+test('15, 30 and 45 minute meetings auto-confirm for smaller groups with half-open boundaries',()=>using(async db=>{
+ await ready(db);
+ const intervals=[['14:00','14:15',15],['14:15','14:45',30],['14:45','15:30',45]];
+ for(const [start,end,duration] of intervals){
+  const booked=await cmd(db,A,'book',slot({starts_at:`2030-01-07T${start}:00Z`,ends_at:`2030-01-07T${end}:00Z`,participants:2}));
+  ok(booked);assert.equal(booked.booking.status,'confirmed');assert.equal(booked.booking.participants,2);assert.equal((Date.parse(booked.booking.ends_at)-Date.parse(booked.booking.starts_at))/60000,duration);
+ }
+ assert.equal((await db.query('select count(*)::int n from kapukai_lab.bookings')).rows[0].n,3);
+ assert.equal((await db.query('select count(*)::int n from kapukai_lab.outbox')).rows[0].n,6);
+}));
+
+test('off-grid or shorter than 15-minute reschedules and classes fail without altering a booking',()=>using(async db=>{
+ await ready(db);const booked=await cmd(db,A,'book',slot());ok(booked);
+ for(const end of ['16:01','16:14','16:47']){
+  err(await cmd(db,A,'reschedule',{request_id:request(),booking_id:booked.booking.id,starts_at:'2030-01-07T16:00:00Z',ends_at:`2030-01-07T${end}:00Z`}), 'INVALID_REQUEST');
+  err(await cmd(db,O,'operator_class',{request_id:request(),room_id:'lounge',starts_at:'2030-01-07T16:00:00Z',ends_at:`2030-01-07T${end}:00Z`,title:'Short class',capacity:2}), 'INVALID_REQUEST');
+  err(await cmd(db,O,'operator_window',{room_id:'lounge',starts_at:'2030-01-07T16:00:00Z',ends_at:`2030-01-07T${end}:00Z`}), 'INVALID_REQUEST');
+ }
+ assert.equal((await cmd(db,A,'state',week)).mine[0].version,1);
+ assert.equal((await db.query('select count(*)::int n from kapukai_lab.outbox')).rows[0].n,2);
+ const c=await cmd(db,O,'operator_class',{request_id:request(),room_id:'lounge',starts_at:'2030-01-07T16:00:00Z',ends_at:'2030-01-07T16:15:00Z',title:'Fifteen-minute class',capacity:2});ok(c);
 }));
