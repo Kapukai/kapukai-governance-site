@@ -1,0 +1,570 @@
+[
+  {
+    "title": "Governance Navigator",
+    "url": "https://kapukai-governance-navigator.christinehillier.chatgpt.site",
+    "group": "Explore a demonstration",
+    "stage": "Educational prototype",
+    "description": "Follow one fictional request through evidence, authority, handoffs and correction. Try the signed receipt and altered-copy test.",
+    "note": "Synthetic data; simulated roles and browser-generated signatures. No real case is processed."
+  },
+  {
+    "title": "Authority Cell Validator",
+    "url": "https://kapukai.org/coercive-custody-economy/authority-cell",
+    "group": "Explore a demonstration",
+    "stage": "Educational prototype",
+    "description": "Inspect one proposed decision through nine proof gates and see how missing conditions affect the result.",
+    "note": "Illustrative model. It does not determine real-world authority, liability or an individual outcome."
+  },
+  {
+    "title": "The Fire Alarm Test",
+    "url": "https://kapukai.org/coercive-custody-economy/fire-alarm-test",
+    "group": "Explore a demonstration",
+    "stage": "Educational prototype",
+    "description": "Change the rules of a fictional fire-alarm system to explore verification, incentives and error.",
+    "note": "Reproducible synthetic simulation; analogy is not empirical evidence."
+  },
+  {
+    "title": "Affidavit preparation",
+    "url": "https://kapukai-lab.christinehillier.chatgpt.site/affidavit/",
+    "group": "Prepare a record",
+    "stage": "Preparation preview",
+    "description": "Structure a factual statement while separating observation, records and uncertainty.",
+    "note": "Use fictional information only. Confidential-record handling and full workflows are not verified."
+  },
+  {
+    "title": "Evidence dossier preparation",
+    "url": "https://kapukai-lab.christinehillier.chatgpt.site/dossier/",
+    "group": "Prepare a record",
+    "stage": "Preparation preview",
+    "description": "Organize sources around an issue, identify their relevance, and preserve gaps.",
+    "note": "Use fictional information only. Confidential-record handling and full workflows are not verified."
+  },
+  {
+    "title": "Timeline preparation",
+    "url": "https://kapukai-lab.christinehillier.chatgpt.site/timeline/",
+    "group": "Prepare a record",
+    "stage": "Preparation preview",
+    "description": "Arrange events with source references, date quality and conflicting accounts.",
+    "note": "Use fictional information only. Confidential-record handling and full workflows are not verified."
+  },
+  {
+    "title": "Test the Document Studio",
+    "url": "https://kapukai.org/studio-test/",
+    "group": "Prepare a record",
+    "stage": "Invited pilot",
+    "description": "An end-to-end Document Studio sandbox for affidavit and dossier preparation.",
+    "note": "Enabled test account required for some steps. Fictional data and sandbox payments only; never sign or file test output."
+  },
+  {
+    "title": "Fictional practice cases",
+    "url": "https://kapukai.org/community/practice/",
+    "group": "Prepare a record",
+    "stage": "Public resource",
+    "description": "Download invented scenarios, a tester guide and expected results for document-tool practice.",
+    "note": "Fictional exercises; no real case information is required."
+  },
+  {
+    "title": "Institutional Atlas",
+    "url": "https://kapukai-community.vercel.app/architecture-of-power/atlas/",
+    "group": "Map a system",
+    "stage": "Research framework",
+    "description": "See the different roles of institutions, review bodies and correction pathways.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Visual Pattern Library",
+    "url": "https://kapukai-community.vercel.app/architecture-of-power/patterns/",
+    "group": "Map a system",
+    "stage": "Research framework",
+    "description": "Eight visual patterns for finding gaps in information, responsibility, incentives and repair.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Architecture of Power",
+    "url": "https://kapukai-community.vercel.app/architecture-of-power/",
+    "group": "Map a system",
+    "stage": "Research framework",
+    "description": "Explore how evidence, institutional functions and review connect.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Human Liberty Atlas",
+    "url": "https://kapukai-human-liberty-atlas.christinehillier.chatgpt.site",
+    "group": "Map a system",
+    "stage": "Earlier reference",
+    "description": "Explore a state-based jurisdiction reference and questions for routing review.",
+    "note": "Research snapshot dated 11 October 2026. A map does not determine jurisdiction or the correct remedy."
+  },
+  {
+    "title": "Decision Integrity Bridge",
+    "url": "https://kapukai-decision-integrity-bridge.vercel.app/",
+    "group": "Map a system",
+    "stage": "Research framework",
+    "description": "A reference architecture for identity, evidence, authority and correction before consequential reliance.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "The Next Architecture of Governance",
+    "url": "https://kapukai-governance-evolution.vercel.app/vercel-governance-evolution/",
+    "group": "Map a system",
+    "stage": "Research framework",
+    "description": "Explore a proposed architecture for public decision systems and human oversight.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Authority Architecture Standard",
+    "url": "https://kapukai.org/coercive-custody-economy/standard",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Inspect the draft relationship between the human-protection kernel, evidence standard and authority protocol.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Causal-Edge Ledger",
+    "url": "https://kapukai.org/coercive-custody-economy/evidence",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "See claims and causal edges separated by evidence status and required tests.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Critical-Path Roadmap",
+    "url": "https://kapukai.org/coercive-custody-economy/roadmap",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Inspect release gates and the work remaining before empirical validation.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Incentive Observability",
+    "url": "https://kapukai.org/coercive-custody-economy/observability",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Explore which event records are needed to study incentives and outcomes.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Methodology",
+    "url": "https://kapukai.org/coercive-custody-economy/methodology",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Read the model assumptions, uncertainty boundaries and validation ladder.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "The Coercive Custody Economy",
+    "url": "https://kapukai.org/coercive-custody-economy/",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Explore a proposed failure model for custody decisions, review and restoration.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Authority Circuit Architecture",
+    "url": "https://kapukai.org/standards/authority-circuit/",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "A working architecture for source authority, decision evidence and verified correction.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Observable Standard — Kapukai Governance Lab",
+    "url": "https://kapukai.org/observable/",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Read proposed requirements for observing, reviewing and correcting consequential systems.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Recursive Truth Architecture",
+    "url": "https://kapukai.org/recursive-truth-architecture/",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Explore memory, learning and insulation as design requirements.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Standards Directory — Kapukai Governance Lab",
+    "url": "https://kapukai.org/standards/",
+    "group": "Inspect the framework",
+    "stage": "Research framework",
+    "description": "Browse the wider standards library and related technical proposals.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Authority OS training overview",
+    "url": "https://kapukai.org/authority-os/cbt_overview.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Start with the Authority OS training sequence.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Authority OS diagrams",
+    "url": "https://kapukai.org/authority-os/diagrams.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Inspect diagrams accompanying the Authority OS framework.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Authority OS standard v1.0",
+    "url": "https://kapukai.org/authority-os/standard.html",
+    "group": "Learn the method",
+    "stage": "Research framework",
+    "description": "Read an earlier normative proposal for inspectable authority.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Authority OS overview",
+    "url": "https://kapukai.org/authority-os/",
+    "group": "Learn the method",
+    "stage": "Research framework",
+    "description": "Explore the Authority OS introduction and supporting resources.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "The Authority Operating System",
+    "url": "https://kapukai.org/authority-os/os.html",
+    "group": "Learn the method",
+    "stage": "Research framework",
+    "description": "Read the Authority Operating System concept.",
+    "note": "Kapukai research or a proposed framework; not an adopted government standard or certification."
+  },
+  {
+    "title": "Authority to Remedy — lesson",
+    "url": "https://kapukai-authority-to-remedy.vercel.app/",
+    "group": "Learn the method",
+    "stage": "Educational prototype",
+    "description": "Trace one action from its authority and conditions through review and an observable remedy.",
+    "note": "Illustrative model. It does not determine real-world authority, liability or an individual outcome."
+  },
+  {
+    "title": "Authority OS comprehension check",
+    "url": "https://kapukai.org/authority-os/cbt/comprehension_check.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Open the comprehension check accompanying the Authority OS training modules.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "CBT-01 — procedure vs proof",
+    "url": "https://kapukai.org/authority-os/cbt/modules/module_01.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Read the Authority OS training module on procedure vs proof.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "CBT-02 — observability by design",
+    "url": "https://kapukai.org/authority-os/cbt/modules/module_02.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Read the Authority OS training module on observability by design.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "CBT-03 — conflicts & error matrices",
+    "url": "https://kapukai.org/authority-os/cbt/modules/module_03.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Read the Authority OS training module on conflicts & error matrices.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "CBT-04 — jurisdiction & scope",
+    "url": "https://kapukai.org/authority-os/cbt/modules/module_04.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Read the Authority OS training module on jurisdiction & scope.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "CBT-04b — no-safe-door jurisdiction",
+    "url": "https://kapukai.org/authority-os/cbt/modules/module_04b.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Read the Authority OS training module on no-safe-door jurisdiction.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "CBT-05 — continuity & anchors",
+    "url": "https://kapukai.org/authority-os/cbt/modules/module_05.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Read the Authority OS training module on continuity & anchors.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "CBT-06 — error propagation & cascades",
+    "url": "https://kapukai.org/authority-os/cbt/modules/module_06.html",
+    "group": "Learn the method",
+    "stage": "Public resource",
+    "description": "Read the Authority OS training module on error propagation & cascades.",
+    "note": "Educational material accompanying the Authority OS proposal; not individual legal advice."
+  },
+  {
+    "title": "Books & publications",
+    "url": "https://kapukai.org/pubs/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Browse the books and publications behind Kapukai’s engineering approach.",
+    "note": "Public introduction. Edition and purchase availability are stated on the destination."
+  },
+  {
+    "title": "Habeas Under Load",
+    "url": "https://kapukai.org/pubs/habeas-under-load/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "What happens when decisions affecting liberty cannot be reconstructed or reviewed in time?",
+    "note": "Public introduction. Edition and purchase availability are stated on the destination."
+  },
+  {
+    "title": "Mission-Capable Governance",
+    "url": "https://kapukai.org/pubs/mission-capable-governance/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "A framework for asking what an institution must do, how it can fail, and what evidence shows that its safeguards work.",
+    "note": "Public introduction. Edition and purchase availability are stated on the destination."
+  },
+  {
+    "title": "Proof Before Memory",
+    "url": "https://kapukai.org/pubs/proof-before-memory/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "How records become authority—and how to keep them accountable. A stored claim must not become grounds for power merely because it appears in a record.",
+    "note": "Public introduction. Edition and purchase availability are stated on the destination."
+  },
+  {
+    "title": "The Duty to Correct",
+    "url": "https://kapukai.org/pubs/the-duty-to-correct/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Proposed rules for checking authority, reviewing mistakes, and making sure corrections reach the places where errors still cause harm.",
+    "note": "Public introduction. Edition and purchase availability are stated on the destination."
+  },
+  {
+    "title": "The Public Governor",
+    "url": "https://kapukai.org/pubs/the-public-governor/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "How can people delegate power while keeping decisions open to evidence, challenge, and correction?",
+    "note": "Public introduction. Edition and purchase availability are stated on the destination."
+  },
+  {
+    "title": "When the State Removes a Child",
+    "url": "https://kapukai.org/pubs/when-the-state-removes-a-child/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "An authority and evidence atlas for examining child-removal decisions, beginning with Florida and selected federal systems.",
+    "note": "Public introduction. Edition and purchase availability are stated on the destination."
+  },
+  {
+    "title": "Publication Corrections",
+    "url": "https://kapukai.org/pubs/corrections/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "See how to report a publication error and follow corrections.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Don't Leave Me Outside",
+    "url": "https://kapukai.org/films/dont-leave-me-outside/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Watch the film connecting Christine’s human story to the need for traceable decisions and effective correction.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Film evidence & method",
+    "url": "https://kapukai.org/films/dont-leave-me-outside/evidence-and-method.html",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Read the film’s evidence and method notes.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "When power causes harm, people need a way to push back",
+    "url": "https://kapukai.org/articles/tort-law-and-accountability/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Tort law as decentralized accountability, and how engineering can help people build inspectable evidence. By Christine Hillier.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Truth as the Standard",
+    "url": "https://kapukai.org/truth-architecture/truth-architecture-podcast-reflection-001.html",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Read the first Truth Architecture reflection.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Truth Architecture reflections",
+    "url": "https://kapukai.org/truth-architecture/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Browse the Truth Architecture reflection library.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Truth Architecture sessions",
+    "url": "https://kapukai.org/truth-architecture-sessions/",
+    "group": "Read & watch",
+    "stage": "Public resource",
+    "description": "Open the Truth Architecture sessions page.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Kapukai Governance Lab — Meet, Learn, Build",
+    "url": "https://kapukai-lab.christinehillier.chatgpt.site",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Explore the lab’s rooms, preparation tools and approach to supported work.",
+    "note": "Public room information; opening hours are being finalized and reservations are not open yet."
+  },
+  {
+    "title": "Weekly calendar preview",
+    "url": "https://kapukai-lab.christinehillier.chatgpt.site/calendar-preview/",
+    "group": "Participate",
+    "stage": "Educational prototype",
+    "description": "Try a fictional weekly room calendar without creating a reservation.",
+    "note": "Fictional calendar only; no booking, account, email or payment is created."
+  },
+  {
+    "title": "Workshop — public introduction",
+    "url": "https://kapukai.org/community/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Find the Workshop’s learning, participation and access routes.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Learning & class information",
+    "url": "https://kapukai.org/community/learn/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Read current learning and class information.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Apply to test the tools",
+    "url": "https://kapukai.org/testers/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Express interest in testing tools with fictional examples.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Request assistance",
+    "url": "https://kapukai.org/community/assistance/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Read how to request free or reduced-cost assistance.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "How Workshop participation works",
+    "url": "https://kapukai.org/community/lifecycle/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Understand request, review, delivery and follow-up stages.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Offer to review or observe",
+    "url": "https://kapukai.org/community/reviewers/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Explore independent review and witness participation.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Updates, volunteering & class interests",
+    "url": "https://kapukai.org/join/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Choose updates, volunteering and learning interests.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Workshop availability",
+    "url": "https://kapukai.org/community/status/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Check the Workshop’s current service availability.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "The Remedy Brief",
+    "url": "https://kapukai.org/newsletter/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Explore The Remedy Brief newsletter.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Contact & public directory",
+    "url": "https://kapukai.org/community/contact/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Find contact routes and the public website directory.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "Christine Kanoelehua Hillier",
+    "url": "https://kapukai.org/founder/",
+    "group": "Participate",
+    "stage": "Public resource",
+    "description": "Meet Christine, founder and systems architect.",
+    "note": "Available to read. Linked forms and downstream services have their own availability."
+  },
+  {
+    "title": "100M_pdfslicer",
+    "url": "https://github.com/Kapukai/100M_pdfslicer",
+    "group": "Developer resources",
+    "stage": "Source project",
+    "description": "Source for a PDF-splitting utility.",
+    "note": "Developer resource. Installation, dependencies and current operation have not been tested."
+  },
+  {
+    "title": "audio_transcriber",
+    "url": "https://github.com/Kapukai/audio_transcriber",
+    "group": "Developer resources",
+    "stage": "Source project",
+    "description": "Source for an audio transcription utility.",
+    "note": "Developer resource. Installation, dependencies and current operation have not been tested."
+  },
+  {
+    "title": "authority-circuit-architecture",
+    "url": "https://github.com/Kapukai/authority-circuit-architecture",
+    "group": "Developer resources",
+    "stage": "Source project",
+    "description": "Source materials for Authority Circuit Architecture.",
+    "note": "Developer resource. Installation, dependencies and current operation have not been tested."
+  },
+  {
+    "title": "human-remedy-observatory",
+    "url": "https://github.com/Kapukai/human-remedy-observatory",
+    "group": "Developer resources",
+    "stage": "Source project",
+    "description": "Source-linked research and methods for studying review and remedy.",
+    "note": "Developer resource. Installation, dependencies and current operation have not been tested."
+  },
+  {
+    "title": "OCR",
+    "url": "https://github.com/Kapukai/OCR",
+    "group": "Developer resources",
+    "stage": "Source project",
+    "description": "Source for an optical character recognition utility.",
+    "note": "Developer resource. Installation, dependencies and current operation have not been tested."
+  },
+  {
+    "title": "pdf_summarizer",
+    "url": "https://github.com/Kapukai/pdf_summarizer",
+    "group": "Developer resources",
+    "stage": "Source project",
+    "description": "Source for a PDF OCR and summarization utility.",
+    "note": "Developer resource. Installation, dependencies and current operation have not been tested."
+  }
+]

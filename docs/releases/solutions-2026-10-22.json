@@ -1,0 +1,13 @@
+{
+  "release": "kapukai-solutions-2026-10-22",
+  "canonical_target": "https://kapukai.org/solutions/",
+  "canonical_status": "pending host installation",
+  "verified_link_date": "2026-10-22",
+  "resource_count": 71,
+  "verification": "Public destination HTTP responses and page content checked; end-to-end external services not certified. Search, clear, and stage filters tested in browser.",
+  "files": {
+    "solutions/portfolio.css": "68d8fa9d3b68bd0421c54e1b087832ad3bc5d88e7aa54344ad1478e1f33e0929",
+    "solutions/portfolio.js": "d5c7f31e9c15c7323bcb76ea589df831f445e227f906c27472a5e271137caf71",
+    "solutions/index.html": "aeb44b6c034421f38bd748350f76a83273b50b45c387b87e0dd5a8b54429887b"
+  }
+}
