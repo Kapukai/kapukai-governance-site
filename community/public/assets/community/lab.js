@@ -115,7 +115,8 @@
  $('lab-selection-close').addEventListener('click',()=>{resetRange();renderCalendar();});
  $('lab-room').addEventListener('change',()=>{room=$('lab-room').value;resetRange();delete $('lab-calendar-scroll').dataset.positioned;renderCalendar();});
  for(const [id,offset]of [['lab-previous',-7],['lab-next',7],['lab-today',0]])$(id).addEventListener('click',()=>{if(busy)return;week=offset&&state?.operator?addDays(week,offset):currentWeek();resetRange();delete $('lab-calendar-scroll').dataset.positioned;refresh();});
- $('lab-calendar').addEventListener('click',e=>{if(suppressCalendarClick&&Date.now()<=suppressCalendarClick&&e.detail>0){suppressCalendarClick=false;e.preventDefault();e.stopImmediatePropagation();}else suppressCalendarClick=false;},true);
+ $('lab-calendar').addEventListener('pointerdown',()=>{suppressCalendarClick=false;},true);
+ $('lab-calendar').addEventListener('click',e=>{if(suppressCalendarClick&&performance.now()<=suppressCalendarClick&&e.detail>0){suppressCalendarClick=false;e.preventDefault();e.stopImmediatePropagation();}else suppressCalendarClick=false;},true);
  $('lab-calendar').addEventListener('pointermove',e=>{
   if(!gesture||e.pointerId!==gesture.id||!selection)return;
   if(Math.hypot(e.clientX-gesture.x,e.clientY-gesture.y)<4&&!gesture.moved)return;
@@ -124,7 +125,7 @@
   selection.end=Math.min(rangeLimit(selection.day,selection.start),Math.max(selection.start+15,end));selection.finalized=false;paintRange();e.preventDefault();
  });
  $('lab-calendar').addEventListener('pointerup',e=>{
-  if(!gesture||e.pointerId!==gesture.id)return;const moved=gesture.moved,end=selection?.end;gesture=null;suppressCalendarClick=Date.now()+200;
+  if(!gesture||e.pointerId!==gesture.id)return;const moved=gesture.moved,end=selection?.end;gesture=null;suppressCalendarClick=performance.now()+200;
   $('lab-calendar').releasePointerCapture?.(e.pointerId);if(moved&&end!==null)finishRange(end);
  });
  $('lab-calendar').addEventListener('pointercancel',()=>{if(gesture){resetRange();renderCalendar();}});
