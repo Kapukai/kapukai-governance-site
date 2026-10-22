@@ -1,6 +1,7 @@
 'use strict';
 (() => {
  const $=id=>document.getElementById(id);if(!$('lab-login'))return;
+ if(!['kapukai-community.vercel.app','kapukai.org','www.kapukai.org'].includes(window.location.hostname)){$('lab-login').hidden=true;$('lab-status').textContent='Preview only — reservations are not open here.';$('lab-status').className='notice';return;}
  const BASE='https://tbxfsjipkrdwyctepesf.supabase.co',ENDPOINT=BASE+'/functions/v1/kapukai-lab';
  let token=null,key=null,timer=null,poll=null,epoch=0,busy=false,state=null,timezone='America/New_York',room='lounge',editing=null,week=monday(dayKey(new Date())),draft=null;
  const list=x=>Array.isArray(x)?x:[];
