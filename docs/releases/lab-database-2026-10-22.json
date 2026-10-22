@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-22T03:19:00Z",
+  "project": "tbxfsjipkrdwyctepesf",
+  "installation": "complete",
+  "tables": 10,
+  "private_functions": 10,
+  "service_only_rpcs": 2,
+  "live_rollback_acceptance": "passed",
+  "synthetic_auth_rows_remaining": 0,
+  "synthetic_crm_rows_remaining": 0,
+  "enabled": false,
+  "operators": 0,
+  "members": 0,
+  "opening_windows": 0,
+  "bookings": 0,
+  "outbox": 0,
+  "security_advisor_new_warnings": 0,
+  "limitations": [
+    "No true simultaneous two-connection race test",
+    "No authenticated live browser booking",
+    "No real email sent or inbox receipt observed"
+  ]
+}

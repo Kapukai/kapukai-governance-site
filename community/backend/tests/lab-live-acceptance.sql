@@ -145,4 +145,5 @@ begin
  checks:=checks+1;
  raise notice 'PASS: % live Lab acceptance groups; all synthetic changes roll back.',checks;
 end $acceptance$;
+select 'PASS: all Lab live acceptance assertions completed; synthetic changes rolled back by this transaction' as acceptance;
 rollback;

@@ -1,7 +1,9 @@
-# Installation checkpoint
+# Installation completed — historical recovery scripts
 
-Tables, base helpers and state installed successfully. Decision-function submission returned Invalid or expired requestState repeatedly. Booking remains disabled; no operators, members, windows, bookings or notices.
+Completed 2026-10-22 03:18 UTC. All five resume stages succeeded. Do not rerun these scripts against the installed database.
 
-Before resuming, inspect pg_proc and migration history; do not replay the full candidate over existing schema. Apply resume stages in numeric order only where the function is absent. Each stage revokes browser privileges in the same transaction. Then run lab-live-acceptance.sql in ONE rollback-only call, compare advisors, and perform guarded bootstrap_operator.sql. Leave booking disabled until actual hours and first members are configured.
+The same reviewed operator_action SQL that previously returned Invalid or expired requestState succeeded on the renewed attempt. The connector's internal failure cause remains unknown; submission size was not established as the cause.
 
-No test sends or live member enrollment occurred.
+Live rollback acceptance passed. Verified no synthetic Auth/CRM data remained and no real users, opening windows, bookings or notifications were created. Booking remains disabled.
+
+Next: guarded bootstrap_operator.sql after current-authority review; actual opening hours and approved members; authenticated browser and real inbox tests. The installer scripts are preserved as historical evidence, not pending tasks.

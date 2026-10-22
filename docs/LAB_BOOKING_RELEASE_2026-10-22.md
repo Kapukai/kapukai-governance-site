@@ -50,10 +50,14 @@ Same account does not imply a new persistent cross-page browser session: the exi
 - SQL refactored into small private functions after connector request-state failures; all 9 database scenarios passed again.
 - Edge function kapukai-lab deployed version 1, bundle SHA256 8fe772876cd1fc9a1c5824fbb5f037491f6ba3351ffc0dcd6d645e09094bdf8b.
 - Live HTTP checks: public config 200; unsigned private state 401; unapproved origin 403; responses no-store.
-- Database installation is incomplete: tables, base helpers and private state projection installed. The connector repeatedly returned Invalid or expired requestState on the decision-function stage. No booking command RPC, operator bootstrap, opening hours, member grants or bookings are active. Do not advertise live reservations.
+- Database installation COMPLETE at 2026-10-22 03:18 UTC: 10 private tables, 10 private helper/decision functions and 2 service-only command/mail RPCs. All five remaining migration stages succeeded, including the exact operator_action SQL that previously failed. The prior connector failure cause is not established; the evidence does not show a SQL failure. Booking remains disabled pending operator/bootstrap, actual opening hours and member setup.
 - Post-install advisors introduced no new warning/error; private tables intentionally have RLS without browser policies.
-- Production PostgreSQL rollback acceptance has not run. The script passed locally against the actual schema; it does not prove live behavior.
+- Production PostgreSQL rollback acceptance PASSED at 2026-10-22 03:19 UTC: browser privilege denial, current sessions, separate Lab grants, closed-hours gate, quarter-hour starts with 47-minute end, idempotency, room/person conflicts, privacy, failed-reschedule retention, class capacity/release/cancellation, two-recipient outbox, single claim, no uncertain resend, access/session revocation and denied-decision audit. Readback confirms zero synthetic Auth/CRM rows and zero Lab members, openings, bookings and notices. This does not claim a simultaneous two-connection race or real inbox delivery.
 - No real email sent. Provider handoffs in integration tests were mocked; actual inbox delivery remains unobserved.
 - Vercel review deployment dpl_G2ThwFMwhxCUTcJtqzZhkRhN3kFC reached READY; its sign-in page rendered correctly in Chrome. Preview-origin sign-in is intentionally disabled by a follow-up guard; its new DOM test passed (10 UI tests total). Authenticated calendar graphical acceptance remains pending.
 
 Rollback is to keep booking disabled and restore the prior frontend deployment if necessary. Preserve additive audit/data tables; do not drop user data. Previous production deployment: dpl_Hc6vPrMuV3J1icrmh11PsQYAFECJ. Existing production source baseline: 05fb6fa34502b945abffb98c7eb8db8eb6c32400.
+
+## Current next gate
+
+Installation and live database acceptance are complete. Do not rerun the recovery installation scripts. Next: guarded owner operator bootstrap; production frontend release; actual hours/member setup; controlled authenticated booking and real email receipts. A simultaneous multi-connection reservation race remains a distinct verification item.
