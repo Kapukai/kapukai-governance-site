@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-PREFIXES = ('community/', 'contact/', 'join/', 'confirm/', 'testers/', 'newsletter/',
+PREFIXES = ('lab/', 'community/', 'contact/', 'join/', 'confirm/', 'testers/', 'newsletter/',
             'articles/tort-law-and-accountability/', 'tort/', 'assets/community/',
             'architecture-of-power/')
 

@@ -11,7 +11,7 @@ def page(path,title,description,body,script=True):
     canonical=ORIGIN+('/'+path.strip('/')+'/' if path else '/')
     scripts=['app.js'] if script is True else ([script] if isinstance(script,str) else [])
     scripts_html=''.join('<script src="/assets/community/'+name+'" defer></script>' for name in scripts)
-    noindex='<meta name="robots" content="noindex, nofollow">' if path in ['confirm','community/apply','community/operate','community/members'] else ''
+    noindex='<meta name="robots" content="noindex, nofollow">' if path in ['confirm','community/apply','community/operate','community/members','lab'] else ''
     privacy_link = '<a href="/community/privacy/">Privacy &amp; your choices</a>'
     if '<form' in body:
         privacy_link = '<a href="/community/privacy/" target="_blank" rel="noopener noreferrer">Privacy &amp; your choices (opens in a new tab)</a>'
