@@ -61,3 +61,11 @@ Rollback is to keep booking disabled and restore the prior frontend deployment i
 ## Current next gate
 
 Installation and live database acceptance are complete. Do not rerun the recovery installation scripts. Next: guarded owner operator bootstrap; production frontend release; actual hours/member setup; controlled authenticated booking and real email receipts. A simultaneous multi-connection reservation race remains a distinct verification item.
+
+## Production interface and owner access
+
+Verified 2026-10-22 03:27 UTC. Guarded bootstrap resolved exactly one existing verified steward through current authoritative grants and assigned separate Lab operator access. No participant enrollment occurred.
+
+Production interface: https://kapukai-community.vercel.app/lab/ . Deployment dpl_NqCPBCvjyYi5K7E16vNfL4sBeEhr is READY and serves commit 7dc47374746b0eff9bbe819a447828b8b05c4ad6. Sign-in page was verified in Chrome. Owner uses the existing Kapukai account.
+
+Actual opening windows and approved participants remain unset; booking disabled. Remaining launch gates: actual hours/member configuration, simultaneous reservation race verification, authenticated owner/member browser observation and a controlled real booking with member and operator inbox receipt. No real emails were sent during release. Production frontend and operator bootstrap are no longer pending tasks.

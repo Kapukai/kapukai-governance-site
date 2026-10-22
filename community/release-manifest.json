@@ -126,5 +126,25 @@
     "real_recipient_inbox_delivery_verified": false,
     "git_commit": "3d8b876646ab7a6687f5812561849b76ccd30730",
     "vercel_deployment": "dpl_AxqwhNkCCm2oco9v5TkUcWfM6zQB"
+  },
+  "lab_release": {
+    "verified_at": "2026-10-22T03:27:00Z",
+    "commit": "7dc47374746b0eff9bbe819a447828b8b05c4ad6",
+    "deployment": "dpl_NqCPBCvjyYi5K7E16vNfL4sBeEhr",
+    "deployment_url": "https://kapukai-community-mny29jweg-kapukais-projects.vercel.app",
+    "production_url": "https://kapukai-community.vercel.app/lab/",
+    "state": "READY",
+    "operator_count": 1,
+    "member_count": 0,
+    "opening_windows": 0,
+    "bookings": 0,
+    "booking_enabled": false,
+    "checks": {
+      "browser_signin_page": "passed",
+      "authenticated_owner_browser": "not observed",
+      "real_email_receipts": "not observed",
+      "database_live_acceptance": "passed"
+    },
+    "previous_production_deployment": "dpl_Hc6vPrMuV3J1icrmh11PsQYAFECJ"
   }
 }
