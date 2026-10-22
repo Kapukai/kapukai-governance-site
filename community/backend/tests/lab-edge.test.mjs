@@ -77,3 +77,9 @@ test('uncertain sends are finalized unknown once; finish outages do not re-send'
     const report=await createDispatcher({rpc,sendMail:async()=>{sent++;throw new Error('timeout');}})(ID);assert.equal(report.unknown,1);assert.equal(sent,1);assert.equal(calls.length,2);assert.equal(calls[1].p_payload.status,'unknown');
   }
 });
+
+
+test('week policy rejection is409 with its explicit code and no notification dispatch',async()=>{
+ const f=fixture({rpc:async()=>({ok:false,error:'OUTSIDE_CURRENT_WEEK'})});
+ const r=await f.handler(request(book()));assert.equal(r.status,409);assert.deepEqual(await r.json(),{ok:false,code:'OUTSIDE_CURRENT_WEEK'});assert.equal(f.dispatches.length,0);
+});

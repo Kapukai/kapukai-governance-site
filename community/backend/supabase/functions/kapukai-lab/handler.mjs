@@ -58,7 +58,7 @@ async function readBody(request) {
   } catch (e) { if (e instanceof MemberError) throw e; throw new MemberError("INVALID_BODY", 400); }
   finally { reader.releaseLock(); }
 }
-const ERROR_STATUS = Object.freeze({ AUTHENTICATION_REQUIRED: 401, AUTH_NOT_CONFIGURED: 503, SERVICE_NOT_CONFIGURED: 503, IDENTITY_UNAVAILABLE: 503, INVALID_REQUEST: 400, INVALID_BODY: 400, BODY_TOO_LARGE: 413, TEMPORARILY_UNAVAILABLE: 503, FORBIDDEN: 403, DISABLED: 503, CONFLICT: 409, OUTSIDE_HOURS: 409, NOT_FOUND: 404, CAPACITY_FULL: 409, IDEMPOTENCY_CONFLICT: 409 });
+const ERROR_STATUS = Object.freeze({ AUTHENTICATION_REQUIRED: 401, AUTH_NOT_CONFIGURED: 503, SERVICE_NOT_CONFIGURED: 503, IDENTITY_UNAVAILABLE: 503, INVALID_REQUEST: 400, INVALID_BODY: 400, BODY_TOO_LARGE: 413, TEMPORARILY_UNAVAILABLE: 503, FORBIDDEN: 403, DISABLED: 503, CONFLICT: 409, OUTSIDE_HOURS: 409, OUTSIDE_CURRENT_WEEK: 409, NOT_FOUND: 404, CAPACITY_FULL: 409, IDEMPOTENCY_CONFLICT: 409 });
 const fields = (value, names) => Object.fromEntries(names.filter(k => Object.hasOwn(value, k)).map(k => [k, value[k]]));
 const rows = (value, names) => (Array.isArray(value) ? value : []).map(v => fields(v, names));
 // Never return Auth emails, provider receipts, private subjects or other users' IDs.

@@ -3,7 +3,7 @@
 begin;
 create schema kapukai_lab;
 revoke all on schema kapukai_lab from public,anon,authenticated,service_role;
-create table kapukai_lab.config(id boolean primary key default true check(id),enabled boolean not null default false,timezone text not null default 'America/New_York' check(timezone='America/New_York'),policy_version integer not null default 1);
+create table kapukai_lab.config(id boolean primary key default true check(id),enabled boolean not null default false,timezone text not null default 'America/New_York' check(timezone='America/New_York'),policy_version integer not null default 2);
 insert into kapukai_lab.config default values;
 create table kapukai_lab.operators(user_id uuid primary key references auth.users,granted_at timestamptz not null default now());
 create table kapukai_lab.members(user_id uuid primary key references auth.users,active boolean not null,updated_at timestamptz not null default now(),granted_by uuid not null references auth.users);
@@ -27,6 +27,13 @@ end $$;
 create function kapukai_lab.validate_time(r text,s timestamptz,e timestamptz) returns void language plpgsql set search_path='' as $$ begin
  if s is null or e is null or not isfinite(s) or not isfinite(e) or e<=s or s<=now() or date_trunc('minute',s)<>s or date_trunc('minute',e)<>e or mod(extract(minute from s at time zone 'America/New_York')::integer,15)<>0 or not exists(select 1 from kapukai_lab.rooms where id=r) then raise exception 'INVALID_REQUEST';end if;
  if not exists(select 1 from kapukai_lab.windows where room_id=r and starts_at<=s and ends_at>=e) then raise exception 'OUTSIDE_HOURS';end if;
+end $$;
+-- Member reservations are bounded by the Lab's local calendar week.
+-- Explicit reference_time supports pure arithmetic verification; callers use the server clock.
+create function kapukai_lab.validate_booking_week(s timestamptz,e timestamptz,reference_time timestamptz default clock_timestamp()) returns void language plpgsql immutable set search_path='' as $$
+declare week_start timestamp:=date_trunc('week',reference_time at time zone 'America/New_York');
+begin
+ if s is null or e is null or reference_time is null or not isfinite(s) or not isfinite(e) or not isfinite(reference_time) or e<=s or s<(week_start at time zone 'America/New_York') or s>=((week_start+interval '7 days') at time zone 'America/New_York') or e>((week_start+interval '7 days') at time zone 'America/New_York') then raise exception 'OUTSIDE_CURRENT_WEEK';end if;
 end $$;
 create function kapukai_lab.conflict(u uuid,r text,s timestamptz,e timestamptz,exclude_id uuid default null,seat boolean default false) returns boolean language sql stable set search_path='' as $$
  select exists(select 1 from kapukai_lab.bookings b where b.status='confirmed' and (exclude_id is null or b.id<>exclude_id) and b.starts_at<e and b.ends_at>s and ((not seat and b.room_id=r and b.kind<>'class_seat') or (b.user_id=u and b.kind<>'class')));
@@ -95,12 +102,14 @@ begin
    if not kapukai_lab.keys(p,array['request_id','room_id','starts_at','ends_at','title','capacity']) or jsonb_typeof(p->'capacity') is distinct from 'number' or (p->>'capacity')!~'^[1-6]$' or jsonb_typeof(p->'title') is distinct from 'string' or length(btrim(p->>'title')) not between 1 and 100 or (p->>'title')~'[[:cntrl:]]' then raise exception 'INVALID_REQUEST';end if;n:=(p->>'capacity')::integer;
   end if;
   r:=p->>'room_id';s:=kapukai_lab.time_value(p->'starts_at');e:=kapukai_lab.time_value(p->'ends_at');perform kapukai_lab.validate_time(r,s,e);
+  if a='book' then perform kapukai_lab.validate_booking_week(s,e);end if;
   if kapukai_lab.conflict(u,r,s,e) then raise exception 'CONFLICT';end if;
   insert into kapukai_lab.bookings(user_id,room_id,starts_at,ends_at,kind,title,participants) values(u,r,s,e,case when a='operator_class' then 'class' else p->>'mode' end,case when a='operator_class' then p->>'title' end,n) returning * into b;
  elsif a='join_class' then
   if not kapukai_lab.keys(p,array['request_id','class_id']) then raise exception 'INVALID_REQUEST';end if;
   select * into c from kapukai_lab.bookings where id=(p->>'class_id')::uuid and kind='class' and status='confirmed';if not found then raise exception 'NOT_FOUND';end if;
   if c.starts_at<=now() then raise exception 'INVALID_REQUEST';end if;
+  perform kapukai_lab.validate_booking_week(c.starts_at,c.ends_at);
   if exists(select 1 from kapukai_lab.bookings where class_id=c.id and user_id=u and status='confirmed') then raise exception 'CONFLICT';end if;
   if (select count(*) from kapukai_lab.bookings where class_id=c.id and status='confirmed')>=c.participants then raise exception 'CAPACITY_FULL';end if;
   if kapukai_lab.conflict(u,c.room_id,c.starts_at,c.ends_at,null,true) then raise exception 'CONFLICT';end if;
@@ -112,7 +121,7 @@ begin
   if a='cancel' then update kapukai_lab.bookings set status='cancelled',version=version+1,updated_at=now() where id=b.id returning * into b;
   else
    if b.kind='class_seat' then raise exception 'INVALID_REQUEST';end if;
-   s:=kapukai_lab.time_value(p->'starts_at');e:=kapukai_lab.time_value(p->'ends_at');perform kapukai_lab.validate_time(b.room_id,s,e);
+   s:=kapukai_lab.time_value(p->'starts_at');e:=kapukai_lab.time_value(p->'ends_at');perform kapukai_lab.validate_time(b.room_id,s,e);perform kapukai_lab.validate_booking_week(s,e);
    if kapukai_lab.conflict(u,b.room_id,s,e,b.id) then raise exception 'CONFLICT';end if;
    update kapukai_lab.bookings set starts_at=s,ends_at=e,version=version+1,updated_at=now() where id=b.id returning * into b;
   end if;
@@ -156,7 +165,7 @@ begin
   if p_action='operator_config' and op then select to_jsonb(x) into before_config from kapukai_lab.config x;end if;
   result:=kapukai_lab.run(p_user,op,access,p_action,p_payload);
  exception when others then
-  code:=sqlerrm;if code not in('INVALID_REQUEST','FORBIDDEN','DISABLED','CONFLICT','OUTSIDE_HOURS','NOT_FOUND','CAPACITY_FULL','IDEMPOTENCY_CONFLICT') then code:='INVALID_REQUEST';end if;
+  code:=sqlerrm;if code not in('INVALID_REQUEST','FORBIDDEN','DISABLED','CONFLICT','OUTSIDE_HOURS','OUTSIDE_CURRENT_WEEK','NOT_FOUND','CAPACITY_FULL','IDEMPOTENCY_CONFLICT') then code:='INVALID_REQUEST';end if;
   result:=jsonb_build_object('ok',false,'error',code);
  end;
  begin req:=(p_payload->>'request_id')::uuid;exception when others then req:=null;end;

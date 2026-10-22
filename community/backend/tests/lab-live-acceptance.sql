@@ -1,3 +1,5 @@
+-- HISTORICAL first-install acceptance (before current-week policy); do not rerun.
+-- Use lab-current-week-live.sql for current-week verification.
 -- Run as ONE administrative call, only on the initial disabled, empty Lab.
 -- Reviewed auth triggers are transactional CRM writes only; no network side effects.
 -- This creates no credentials, calls no Auth API or email provider, and rolls back ALL data.
