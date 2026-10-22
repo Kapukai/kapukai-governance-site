@@ -20,3 +20,9 @@ The member calendar stays on this week, constrains date selection, and advances 
 ## Remaining setup
 
 Publish the owner's actual opening days and hours, enable reservations, and verify a real signed-in booking with member and owner email receipts. No hours were inferred. Live two-connection race and authenticated mobile experience remain unverified. Source is retained on work/lab-booking-20261022; main has not yet been merged and must not be redeployed over this release inadvertently.
+
+## Daytime view clarification
+
+The member's default weekly view is7a.m.–7p.m. Eastern, with15-minute selectable starts and a Full day view for earlier/later reservations. The desktop daytime grid has no inner vertical scrolling; phones retain comfortable24px slot height and scroll. Hour labels use12-hour notation and events crossing view boundaries are clipped accurately.13 UI tests passed after this display update (45 total Lab tests passed before it). Lunch recommendation is one hour, noon–1p.m.; no lunch closure or operating hours have been activated without opening days/schedule.
+
+Week policy production deployment: aac229054ebd729c9c4ca6ce804547c0f9f07cf7 / dpl_3UhCFA3fBQipNyoTywAqWZNq6H7G. The following receipt will identify the combined daytime-view release.

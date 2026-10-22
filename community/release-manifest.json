@@ -20,8 +20,8 @@
     "assets/community/lab-fonts/DMSans-variable.ttf": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
     "assets/community/lab-fonts/LibreCaslonDisplay-OFL.txt": "78c9f56e0d8a7ad7b9d26842a8eae728337a8671d8ddc6e889fa10645935dc7b",
     "assets/community/lab-fonts/LibreCaslonDisplay-Regular.ttf": "2340c497181e9446fcbb235e1c3780558dc62879ffe0ef47906d3f7f35cf5f35",
-    "assets/community/lab.css": "8c3c61752eb1b5ffb6deca1b3c3406e0765ed1116e414de34043a30cfa6d4546",
-    "assets/community/lab.js": "6cab6c4651f348b592f5976725dc162e140a6e663f39d8d6e32e1abe61c06339",
+    "assets/community/lab.css": "413d1ab339c8d829c4ca59b55d96e3ee68478d89b4859d83a96b66eb0a100867",
+    "assets/community/lab.js": "f5fe4e1773878eebfd822b79b6a3125574a2cec195a057ed384d0a4540c529d0",
     "assets/community/members.css": "c202471856299e54f1643d0584bc3e8ebf0b371bc90dc6d0d8d3d7b55b37aa18",
     "assets/community/members.js": "f12a7809f713d95c23febad685c7b1514daf9a58fd40c7af25c099d2cabc21fe",
     "assets/community/operations.js": "ec27b38a1090f23e26ac12e7c04ba03602004cc99112d9b18d08e7186f8a1f3d",
@@ -73,7 +73,7 @@
     "confirm/index.html": "020a38d0aea12041f877793f21ea6de608676a062303f727e40a11d9c78f3cb6",
     "contact/index.html": "29837e977f0fb369b74b013b3f78663bf104d4c0e47cae5536c65ba540538db8",
     "join/index.html": "8da63de4887f51aa52d01c5945c7d2558d446f4fdfc4146e78803066cce885ac",
-    "lab/index.html": "ba363c5b624ebe5f8670c37420aa745319a1f7d3ef0f8ed7e294377cc0745aad",
+    "lab/index.html": "eb0400d3e568c0cc2b08a0280944173ebf9292e2faccd1c0db06cc69e3c2b630",
     "newsletter/index.html": "8545304965f66165d49010fcacff10746ee927cce276cb3d1e20506af5c1ca47",
     "testers/index.html": "4ac8fba7500c41422549b4c3e14e2cc6e871d2b3efc5027c95d27751be06c97b",
     "tort/index.html": "30f764b34ecadd0f6a9ee3fd72323df836f537f7604376e59af2bea82d327313"
@@ -148,7 +148,7 @@
     "previous_production_deployment": "dpl_Hc6vPrMuV3J1icrmh11PsQYAFECJ"
   },
   "lab_current_week_release": {
-    "status": "backend_verified_frontend_pending",
+    "status": "production_week_policy_verified_daytime_view_pending",
     "production_url": "https://kapukai-community.vercel.app/lab/",
     "policy": "current Monday-Sunday America/New_York; automatic confirmation for active Lab members",
     "migration": "20261022052420_kapukai_lab_current_week_booking",
@@ -158,6 +158,10 @@
     "live_rollback_acceptance": "passed",
     "booking_enabled": false,
     "opening_windows": 0,
-    "evidence": "docs/LAB_CURRENT_WEEK_2026-10-22.md"
+    "evidence": "docs/LAB_CURRENT_WEEK_2026-10-22.md",
+    "commit": "aac229054ebd729c9c4ca6ce804547c0f9f07cf7",
+    "deployment": "dpl_3UhCFA3fBQipNyoTywAqWZNq6H7G",
+    "calendar_default_view": "07:00-19:00 America/New_York",
+    "calendar_ui_tests_passed": 13
   }
 }

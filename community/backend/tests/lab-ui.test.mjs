@@ -44,3 +44,9 @@ test('members stay on current week with date limits; operators can plan but cann
 test('open selection rejects after week rollover; refresh advances to the new current week',async()=>{
  const h=harness();try{await h.login();choose(h);h.setNow('2030-01-14T05:00:00Z');h.send(h.d.getElementById('lab-book'));assert.equal(action(h,'book'),undefined);assert.match(h.d.getElementById('lab-status').textContent,/this week only/);h.d.getElementById('lab-selection-close').click();h.d.getElementById('lab-refresh').click();await wait(()=>action(h,'state').body.payload.week_start==='2030-01-14');await wait(()=>!h.d.getElementById('lab-refresh').disabled);assert.equal(h.d.getElementById('lab-date').max,'2030-01-20');}finally{h.close();}
 });
+
+
+test('daytime week shows7am–7pm in15-minute starts and full-day toggle preserves evening visibility',async()=>{
+ const early={id:ID,room_id:'lounge',starts_at:day+'T11:00:00Z',ends_at:day+'T13:00:00Z',kind:'room',title:'Reserved'};
+ const h=harness(snapshot({reservations:[early]}));try{await h.login();const slots=[...h.d.querySelectorAll('.lab-slot')];assert.equal(slots.length,7*48);assert.equal(slots[0].dataset.time,'07:00');assert.equal(slots[47].dataset.time,'18:45');assert.equal(h.d.querySelector('.lab-end-label').textContent,'7 p.m.');assert.equal(h.d.querySelector('.lab-reservation').style.top,'0%');assert.equal(h.d.getElementById('lab-calendar-scroll').dataset.view,'daytime');const view=h.d.getElementById('lab-hours-view');view.value='full';view.dispatchEvent(new h.w.Event('change'));assert.equal(h.d.querySelectorAll('.lab-slot').length,7*96);assert.equal(h.d.querySelector('.lab-slot').dataset.time,'00:00');assert.equal(h.d.querySelectorAll('.lab-slot')[95].dataset.time,'23:45');assert.equal(h.d.getElementById('lab-calendar-scroll').dataset.view,'full');assert.deepEqual(h.errors,[]);}finally{h.close();}
+});
