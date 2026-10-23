@@ -1,0 +1,9 @@
+{
+  "commit": "ffcb9e90673dc14b41dd3d47218ffcc5742a251c",
+  "deployment": "dpl_8idBwc4kBWYMM7rX7JZsjyw8MrT5",
+  "source": "https://kapukai-community-8t8rtlz90-kapukais-projects.vercel.app/visit-lab/",
+  "target": "https://kapukai.org/visit-lab/",
+  "sha256": "86061e455912dff39c1419e46468b1432fc1078fc3dc7c2cdd29284dd4f0ed26",
+  "previous_sha256": "4fef520e10e6e211ee6596dea4209a228e6b4848fea6c07daa96596f588de47c",
+  "canonical_installation": "Pending terminal installation"
+}
