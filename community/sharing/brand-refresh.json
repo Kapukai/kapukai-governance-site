@@ -71,5 +71,13 @@
       "sha256": "cbbeb13876610ae11e2ea866179a6d1a7bf096f3036e9a37a621107ae3a38006"
     }
   ],
-  "preserved": "Film poster, founder portrait, lab photography, and all already aligned v1 cards."
+  "preserved": "Film poster, founder portrait, lab photography, and all already aligned v1 cards.",
+  "installation": {
+    "status": "verified",
+    "date": "2026-10-23",
+    "source_commit": "4e0c9ab264441229950ddd3c2a3ba880bced1577",
+    "deployment": "dpl_4CKLrEgpjFVJkpaW3FRo7TpEuGCj",
+    "backup": "/root/kapukai-brand-backup-1hyog16g",
+    "checks": "Four canonical pages have expected Open Graph and Twitter image URLs; four live image SHA256 checksums match assets."
+  }
 }
