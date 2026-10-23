@@ -1,0 +1,15 @@
+{
+  "commit": "b511ef2d415a2fb9f8806116cc85f1fa459c9834",
+  "deployment": "dpl_7YhZ5Qeri9NQQGonA7XWJRJYKnda",
+  "source_url": "https://kapukai-community-mxqkiqxer-kapukais-projects.vercel.app/visit-lab/",
+  "destination": "https://kapukai.org/visit-lab/",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "4fef520e10e6e211ee6596dea4209a228e6b4848fea6c07daa96596f588de47c"
+    }
+  ],
+  "allowed_previous_sha256": "7f1e62f36594ec21881efb6f63d3beaa99b2fb0adec50ceeb29035373de9abed",
+  "verification": "Deployment READY; public GET 200; exact file hash matched. Canonical installation pending owner terminal command.",
+  "scope": "Public lab overview only. Private applications and booking not migrated."
+}
