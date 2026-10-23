@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kapukai public evidence collection",
+  "type": "object",
+  "required": [
+    "version",
+    "as_of",
+    "cases",
+    "sources",
+    "domains",
+    "downloads",
+    "atlas"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date"
+    },
+    "public_repository_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "summary",
+          "status",
+          "evidence_status",
+          "category",
+          "source_ids"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "evidence_status": {
+            "enum": [
+              "documented",
+              "disputed",
+              "unresolved"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timeline": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "date",
+                "event",
+                "source_ids"
+              ]
+            }
+          },
+          "claims": {
+            "type": "array"
+          },
+          "gaps": {
+            "type": "array"
+          },
+          "significance": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "url",
+          "locator",
+          "scope",
+          "limitations"
+        ]
+      }
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "domain",
+          "hypothesis",
+          "evidence",
+          "alternatives",
+          "reviewer",
+          "control",
+          "source_ids"
+        ]
+      }
+    },
+    "atlas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "src",
+          "alt",
+          "description"
+        ]
+      }
+    },
+    "downloads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "href",
+          "format",
+          "description"
+        ]
+      }
+    }
+  }
+}
