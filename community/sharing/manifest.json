@@ -122,18 +122,18 @@
       "title": "Authority Circuit Architecture",
       "description": "A working architecture for source authority, decision evidence and verified correction.",
       "stage": "Research framework",
-      "image": "https://kapukai.org/standards/authority-circuit/assets/aca-social-card.png",
-      "image_alt": "Authority Circuit Architecture: Source, Evaluate, Prove, and Verified Remedy",
-      "generated": false
+      "image": "https://kapukai.org/share-cards/v2/authority-circuit.jpg",
+      "image_alt": "Kapukai gold K square. Authority Circuit Architecture",
+      "generated": true
     },
     {
       "url": "https://kapukai.org/observable/",
       "title": "Observable Standard",
       "description": "Read proposed requirements for observing, reviewing and correcting consequential systems.",
       "stage": "Research framework",
-      "image": "https://kapukai.org/standards/assets/previews/observable-standard-v1.png",
-      "image_alt": "Observable Standard",
-      "generated": false
+      "image": "https://kapukai.org/share-cards/v2/observable-standard.jpg",
+      "image_alt": "Kapukai gold K square. Observable Standard",
+      "generated": true
     },
     {
       "url": "https://kapukai.org/recursive-truth-architecture/",
@@ -149,9 +149,9 @@
       "title": "Standards Directory",
       "description": "Browse the wider standards library and related technical proposals.",
       "stage": "Research framework",
-      "image": "https://kapukai.org/standards/assets/previews/standards-directory-v1.png",
-      "image_alt": "Kapukai Governance Lab Standards Directory",
-      "generated": false
+      "image": "https://kapukai.org/share-cards/v2/standards-directory.jpg",
+      "image_alt": "Kapukai gold K square. Standards Directory",
+      "generated": true
     },
     {
       "url": "https://kapukai.org/authority-os/cbt_overview.html",
@@ -536,9 +536,9 @@
       "title": "The First Circle",
       "description": "Learn, discuss, and explore human-centered governance.",
       "stage": "Learning",
-      "image": "https://kapukai.org/first-circle/assets/first-circle-share.png?v=20260810",
-      "image_alt": "Kapukai Governance Lab First Circle, an invitation-only private alpha.",
-      "generated": false
+      "image": "https://kapukai.org/share-cards/v2/first-circle.jpg",
+      "image_alt": "Kapukai gold K square. The First Circle",
+      "generated": true
     }
   ],
   "assets": [
@@ -753,6 +753,22 @@
     {
       "path": "community/public/share-cards/v1/gold-k.png",
       "sha256": "9051fee34ff0357aa3ca3cc0c06f1887d8b7d20c562932b9b0127a398a7bcd95"
+    },
+    {
+      "path": "community/public/share-cards/v2/authority-circuit.jpg",
+      "sha256": "1b7c8265af7c9e7af5377f55ee3fc7e088c9030570b06c2c0d4359f216c48145"
+    },
+    {
+      "path": "community/public/share-cards/v2/observable-standard.jpg",
+      "sha256": "3c91e9f56120d88f8464510ac55cae7344d0bc30e5b7150410a03742df7d236c"
+    },
+    {
+      "path": "community/public/share-cards/v2/standards-directory.jpg",
+      "sha256": "1bf32da303e4bdc4f326b0fb1970e5dce9c8c40e333ec4c31477fb7f33e27916"
+    },
+    {
+      "path": "community/public/share-cards/v2/first-circle.jpg",
+      "sha256": "cbbeb13876610ae11e2ea866179a6d1a7bf096f3036e9a37a621107ae3a38006"
     }
   ],
   "scope": "Known public portfolio links plus homepage, lab, films index, First Circle, and solutions. Excludes private workspaces and external-host app edits."
