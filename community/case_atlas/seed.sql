@@ -12,7 +12,13 @@ INSERT INTO kapukai_case_atlas.cases(id,title,state,government_level,pattern,evi
 ('brown-plata','Brown v. Plata','CA','State','Unsafe capacity and oversight','Court merits decision','2026-11-01','{"id": "brown-plata", "title": "Brown v. Plata", "year": 2011, "state": "CA", "city": "Sacramento", "court": "Eastern/Northern Districts of California; U.S. Supreme Court review", "docket": "09-1233; 563 U.S. 493", "level": "State", "pattern": "Unsafe capacity and oversight", "headline": "Prison capacity overwhelmed the ability to provide constitutional care.", "sequence": ["Medical and mental-health violations persisted", "Earlier remedial efforts failed", "Population-reduction order reached the Supreme Court"], "finding": "The Supreme Court upheld a population-reduction order; overcrowding was a primary cause of unconstitutional care.", "remedy": "Population reduction under the Prison Litigation Reform Act, with ongoing remedial supervision.", "status": "Supreme Court merits decision", "limitation": "A historical merits decision, not a current assessment of California prisons. It does not establish that no engineers participated.", "people": [{"name": "Anthony M. Kennedy", "role": "Supreme Court majority opinion author"}, {"name": "Edmund G. Brown Jr.", "role": "Governor, official-capacity appellant"}], "sources": [{"title": "Official United States Reports, volume 563", "url": "https://www.supremecourt.gov/opinions/boundvolumes/563BV.pdf", "pinpoint": "Printed pages 493–545"}], "engineering_hypothesis": "Capacity limits and monitored outcomes are safety controls; professional signoff alone was not tested as the remedy.", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "evidence_type": "Court merits decision", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
 ('houston-evaas','Houston Federation of Teachers v. Houston ISD','TX','Local','Opaque automation','Procedural ruling','2026-11-01','{"id": "houston-evaas", "title": "Houston Federation of Teachers v. Houston ISD", "year": 2017, "state": "TX", "city": "Houston", "court": "U.S. District Court, Southern District of Texas", "docket": "4:14-cv-01189", "level": "Local", "pattern": "Opaque automation", "headline": "Teachers faced job consequences from scores they could not reproduce.", "sequence": ["District used proprietary teacher-effectiveness scores", "Teachers challenged inability to verify the scores", "Procedural due-process claim survived summary judgment"], "finding": "The court denied the district summary judgment on procedural due process while granting it on other claims.", "remedy": "The due-process claim could proceed.", "status": "Claim survived summary judgment", "limitation": "This decision was not a final liability verdict on every disputed fact.", "people": [{"name": "Stephen Wm. Smith", "role": "U.S. magistrate judge, adjudicator"}], "sources": [{"title": "Amended summary judgment opinion, May 4, 2017", "url": "https://www.govinfo.gov/content/pkg/USCOURTS-txsd-4_14-cv-01189/pdf/USCOURTS-txsd-4_14-cv-01189-0.pdf", "pinpoint": "Procedural due-process discussion; concluding disposition"}], "engineering_hypothesis": "Independently reproducible scores and reviewable reasons could support meaningful challenges. Absence of engineers was not the holding.", "evidence_type": "Procedural ruling", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
 ('cahoo-midas','Cahoo v. SAS Analytics Inc.','MI','State','Opaque automation','Procedural ruling','2026-11-01','{"id": "cahoo-midas", "title": "Cahoo v. SAS Analytics Inc.", "year": 2019, "state": "MI", "city": "Detroit", "court": "U.S. District Court, Eastern District of Michigan; Sixth Circuit appeal", "docket": "2:17-cv-10657; 18-1295/1296", "level": "State", "pattern": "Opaque automation", "headline": "Discrepancy. Fraud label. Collection. Plaintiffs challenged the pipeline.", "sequence": ["MiDAS flagged income discrepancies", "Plaintiffs alleged automated fraud findings and deficient notice", "Collections triggered a due-process challenge"], "finding": "The Sixth Circuit allowed the due-process claim to proceed past qualified-immunity dismissal.", "remedy": "Remand for further proceedings on due process.", "status": "Claim survived dismissal", "limitation": "Pleading-stage allegations were accepted as true; not final findings against each official. Other constitutional claims failed in this appeal.", "people": [{"name": "David M. Lawson", "role": "District judge, adjudicator"}, {"name": "Eric L. Clay", "role": "Appellate opinion author"}, {"name": "Sharon Moffet-Massey", "role": "Named agency defendant; alleged conduct not adjudicated here"}], "sources": [{"title": "Sixth Circuit opinion, January 3, 2019", "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/19a0001p-06.pdf", "pinpoint": "Pages 1–6, 17–24"}], "engineering_hypothesis": "Test fraud logic and false positives; preserve meaningful notice and contestability. Engineer-absence causation not established.", "evidence_type": "Procedural ruling", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
-('mahoney-capitol-police-2026','Mahoney v. United States Capitol Police Board','DC','Federal','Unbounded discretion','Court merits decision','2026-11-01','{"id": "mahoney-capitol-police-2026", "title": "Mahoney v. United States Capitol Police Board", "year": 2026, "state": "DC", "city": "Washington", "court": "U.S. Court of Appeals for the District of Columbia Circuit", "docket": "24-5207; originating D.D.C. 1:21-cv-02314", "level": "Federal", "pattern": "Unbounded discretion", "headline": "Speech permission depended on political sponsorship.", "sequence": ["Capitol rules barred public demonstrations on Eastern Steps without congressional sponsorship.", "Mahoney challenged the restriction; the district court ruled for him.", "The appellate court affirmed the First Amendment result but rejected universal relief."], "finding": "Congressional discretion over public speech made the restriction unreasonable, even in a nonpublic forum.", "remedy": "Universal injunction vacated; remanded for relief addressing Mahoney’s injury.", "status": "September 22, 2026 opinion reviewed; subsequent docket not certified.", "limitation": "No finding that an absent engineer caused the violation. Reviewing judges are not accused actors.", "people": [{"name": "Patrick J. Mahoney", "role": "Plaintiff"}, {"name": "Neomi Rao", "role": "Reviewing judge; majority author"}, {"name": "Karen LeCraft Henderson", "role": "Reviewing panel judge"}, {"name": "Judith W. Rogers", "role": "Reviewing judge; dissent"}], "authorities": ["United States Capitol Police Board — challenged policymaking body"], "sources": [{"title": "Official appellate opinion, September 22, 2026", "url": "https://media.cadc.uscourts.gov/opinions/docs/2026/09/24-5207-2194324.pdf", "pinpoint": "Opinion pp. 2–5, 19–23"}], "engineering_hypothesis": "Kapukai proposal: test permission rules for consistent, reviewable criteria and narrowly scoped remedies.", "reviewed_at": "2026-11-01", "docket_certified": false, "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "evidence_type": "Court merits decision", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}') ON CONFLICT(id) DO UPDATE SET title=excluded.title,state=excluded.state,government_level=excluded.government_level,pattern=excluded.pattern,evidence_status=excluded.evidence_status,record=excluded.record,source_review_date=excluded.source_review_date,updated_at=now();
+('mahoney-capitol-police-2026','Mahoney v. United States Capitol Police Board','DC','Federal','Unbounded discretion','Court merits decision','2026-11-01','{"id": "mahoney-capitol-police-2026", "title": "Mahoney v. United States Capitol Police Board", "year": 2026, "state": "DC", "city": "Washington", "court": "U.S. Court of Appeals for the District of Columbia Circuit", "docket": "24-5207; originating D.D.C. 1:21-cv-02314", "level": "Federal", "pattern": "Unbounded discretion", "headline": "Speech permission depended on political sponsorship.", "sequence": ["Capitol rules barred public demonstrations on Eastern Steps without congressional sponsorship.", "Mahoney challenged the restriction; the district court ruled for him.", "The appellate court affirmed the First Amendment result but rejected universal relief."], "finding": "Congressional discretion over public speech made the restriction unreasonable, even in a nonpublic forum.", "remedy": "Universal injunction vacated; remanded for relief addressing Mahoney’s injury.", "status": "September 22, 2026 opinion reviewed; subsequent docket not certified.", "limitation": "No finding that an absent engineer caused the violation. Reviewing judges are not accused actors.", "people": [{"name": "Patrick J. Mahoney", "role": "Plaintiff"}, {"name": "Neomi Rao", "role": "Reviewing judge; majority author"}, {"name": "Karen LeCraft Henderson", "role": "Reviewing panel judge"}, {"name": "Judith W. Rogers", "role": "Reviewing judge; dissent"}], "authorities": ["United States Capitol Police Board — challenged policymaking body"], "sources": [{"title": "Official appellate opinion, September 22, 2026", "url": "https://media.cadc.uscourts.gov/opinions/docs/2026/09/24-5207-2194324.pdf", "pinpoint": "Opinion pp. 2–5, 19–23"}], "engineering_hypothesis": "Kapukai proposal: test permission rules for consistent, reviewable criteria and narrowly scoped remedies.", "reviewed_at": "2026-11-01", "docket_certified": false, "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "evidence_type": "Court merits decision", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
+('turner-rogers-2011','Turner v. Rogers','SC','State','Required factual check omitted','Court merits decision','2026-11-01','{"id": "turner-rogers-2011", "title": "Turner v. Rogers", "year": 2011, "state": "SC", "city": "Oconee County", "court": "U.S. Supreme Court; South Carolina family-court proceedings", "docket": "10-10; 564 U.S. 431", "level": "State", "pattern": "Required factual check omitted", "headline": "He was jailed. The court never decided whether he could pay.", "sequence": ["Child-support arrears triggered a civil-contempt hearing", "The court left the ability-to-pay finding blank and imposed twelve months in jail", "The Supreme Court found the incarceration violated due process"], "finding": "Turner received neither counsel nor adequate alternative safeguards. The court made no express finding that he could pay.", "remedy": "Judgment vacated and remanded. The opinion identified notice, financial-information collection, an opportunity to respond, and an express ability-to-pay finding as safeguards.", "status": "Supreme Court merits decision, June 20, 2011", "evidence_type": "Court merits decision", "limitation": "No automatic right to counsel in every such proceeding. State-owed support and unusually complex cases were left open. No missing-engineer causation finding.", "people": [{"name": "Stephen G. Breyer", "role": "Supreme Court majority opinion author; reviewing justice"}], "sources": [{"title": "Turner v. Rogers, official U.S. Reports opinion", "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 436–438 (sequence); 447–449 (safeguards, limits and holding)"}], "engineering_hypothesis": "Before a liberty-depriving order, require the decision record to show each governing factual check and a usable opportunity to contest it. Credentials alone cannot supply that evidence.", "strategic_value": "A highly legible example of a decisive factual field left unresolved while coercion proceeded. The remedy translates into auditable decision requirements.", "editorial_priority": 2, "featured": true, "control_to_test": "Before incarceration for civil contempt over unpaid child support, does the record establish the required ability-to-pay assessment, notice, financial information, opportunity to respond and express finding?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
+('williams-detroit-2024','Williams v. City of Detroit','MI','Local','Automated lead treated as corroborated evidence','Settlement with retained enforcement jurisdiction','2026-11-01','{"id": "williams-detroit-2024", "title": "Williams v. City of Detroit", "year": 2024, "state": "MI", "city": "Detroit", "court": "U.S. District Court, Eastern District of Michigan", "docket": "2:21-cv-10827-LJM-DRG; ECF 73 and 73-1", "level": "Local", "pattern": "Automated lead treated as corroborated evidence", "headline": "A challenged face-match arrest led to enforceable checks.", "sequence": ["Williams alleged a faulty facial-recognition lead from shop surveillance", "He alleged a lineup using a non-eyewitness reinforced the same weak input, followed by arrest and roughly thirty hours of detention", "The parties settled in 2024 with verification, approval and audit requirements"], "finding": "The complaint alleges wrongful arrest; liability was not adjudicated. The signed settlement requires independent reliable evidence beyond a face-recognition lead and lineup.", "remedy": "Required two examiners and a supervisor to sign off on leads, written command approvals before arrest or warrant requests, and a retrospective audit. The June 28, 2024 dismissal retained enforcement jurisdiction for four years.", "status": "Settlement and stipulated dismissal; no admission of liability", "evidence_type": "Settlement with retained enforcement jurisdiction", "limitation": "Allegations and agreed safeguards are not merits findings. Current compliance is not verified. Required examiner and police approvals are not professional-engineer certification.", "people": [{"name": "Donald Bussa", "role": "Detective named as an individual-capacity defendant; liability not adjudicated"}, {"name": "James White", "role": "Police chief named in official capacity in the settlement"}, {"name": "Laurie J. Michelson", "role": "District judge entering dismissal with retained enforcement jurisdiction"}], "sources": [{"title": "Filed first amended complaint, ECF 54 (ACLU-hosted party pleading)", "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Filed June 23, 2023; paragraphs 1, 3–12 (alleged recognition, lineup, warrant and detention sequence)"}, {"title": "Filed dismissal order and signed settlement, ECF 73/73-1 (ACLU-hosted court documents)", "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Order ¶3; agreement §§2, 6, 10–11; Attachment A, Manual 307.5 §§5.3, 5.5(4), 6.1(4)"}], "engineering_hypothesis": "Separate a machine-generated lead from independent corroboration; preserve source lineage, approval records and correction audits. This settlement supplies concrete controls, not proof that an absent engineer caused the arrest.", "strategic_value": "Priority example for turning a harm story into inspectable controls: independent evidence, named sign-offs, backward review and a forum for enforcement.", "editorial_priority": 1, "featured": true, "control_to_test": "For a sampled arrest, can reviewers trace the facial-recognition lead to independent evidence, required sign-offs, written approvals and any corrective audit?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
+('dl-child-find-2017','D.L. v. District of Columbia','DC','Local','Broken handoffs','Court merits decision','2026-11-01','{"id": "dl-child-find-2017", "title": "D.L. v. District of Columbia", "year": 2017, "state": "DC", "city": "Washington", "court": "D.C. Circuit; U.S. District Court for the District of Columbia", "docket": "16-7076; district 1:05-cv-01437; 860 F.3d 713", "level": "Local", "pattern": "Broken handoffs", "headline": "Children missed services. The remedy measured delivery.", "sequence": ["Preschool children were missed, eligibility decisions delayed, and service transitions disrupted", "An overbroad class certification was vacated; narrower process-specific subclasses followed", "Trial findings led to an injunction with delivery benchmarks, tracking and reporting", "The D.C. Circuit affirmed in 2017"], "finding": "The District violated IDEA duties concerning identification, timely eligibility determinations and transition into preschool services.", "remedy": "Affirmed targets including 8.5% of D.C.’s three-to-five-year-olds receiving their full IEP services, plus 95% timely eligibility determinations and smooth transitions in the respective covered groups. Incremental improvement, databases and court reporting were required.", "status": "2017 injunction affirmed; June 2026 court-hosted fee-motion notice reviewed, not a current compliance determination", "evidence_type": "Court merits decision", "limitation": "Benchmarks were tailored to this record, not nationwide standards. The initial-evaluation subclass had resolved in the District''s favor. Reviewing judges are corrective actors.", "people": [{"name": "Royce C. Lamberth", "role": "District judge who ordered corrective relief"}, {"name": "David S. Tatel", "role": "Appellate opinion author affirming relief"}], "sources": [{"title": "D.L. v. District of Columbia, official D.C. Circuit opinion, June 23, 2017", "url": "https://www.govinfo.gov/content/pkg/USCOURTS-caDC-16-07076/pdf/USCOURTS-caDC-16-07076-0.pdf", "pinpoint": "Opinion pp. 4–9 (history, findings and remedies); 15–17 (process-specific subclasses); 21–26 (benchmarks and programmatic relief)"}, {"title": "D.D.C. class notice concerning fees for second-half 2025 work, posted June 2026", "url": "https://www.dcd.uscourts.gov/sites/dcd/files/05cv1437%20Notice_3.pdf", "pinpoint": "Pages 1–2: pending fee request and class description; not a determination of present substantive compliance"}, {"title": "Follow-on disclosure case: D.C. v. Terris, Pravlik & Millian, court opinion hosted by Justia, June 5, 2025", "url": "https://cases.justia.com/district-of-columbia/court-of-appeals/2025-21-cv-0543.pdf?ts=1749132187", "pinpoint": "Opinion pp. 2–4 (scope, connection to D.L. monitoring and request); 26–28 (information injury); 34–36 (publication relief and remand)"}], "follow_on_note": "Disclosure follow-on, not a separate indexed failure: in D.C. v. Terris, Pravlik & Millian, No. 21-CV-0543 (June 5, 2025), the D.C. Court of Appeals upheld disclosure and online publication of requested agency budget documents for fiscal years 2019 through the decision, while vacating and remanding the broader publication order for other documents. Counsel sought the budgets to monitor the D.L. injunction. This applies D.C. FOIA and does not establish universal federal publication rights.", "engineering_hypothesis": "Kapukai proposal: measure actual service delivery, preserve handoff timestamps and independently reproduce compliance reports. No absent-engineer causation was established.", "strategic_value": "Kapukai assessment: a concrete model for binding a remedy to measurable delivery, shared failure mechanisms and publicly inspectable compliance evidence.", "editorial_priority": 3, "featured": true, "control_to_test": "Can an independent reviewer reproduce reported rates from eligibility deadlines, handoff timestamps, defined denominators and evidence that services were actually delivered?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
+('ralls-cfius-2014','Ralls Corporation v. Committee on Foreign Investment in the United States','OR','Federal','Decision cannot be meaningfully challenged','Court merits decision','2026-11-01','{"id": "ralls-cfius-2014", "title": "Ralls Corporation v. Committee on Foreign Investment in the United States", "year": 2014, "state": "OR", "city": "Butter Creek wind-farm sites, north-central Oregon", "court": "D.C. Circuit; U.S. District Court for the District of Columbia", "docket": "13-5315; district 1:12-cv-01513; 758 F.3d 296", "level": "Federal", "pattern": "Decision cannot be meaningfully challenged", "headline": "The owner could not rebut evidence it could not see.", "sequence": ["Ralls acquired four Oregon wind-farm companies", "CFIUS restrictions and a presidential divestment order followed", "The government withheld the adverse evidence and a chance to rebut it", "The D.C. Circuit required procedural protections on remand"], "finding": "The presidential order deprived Ralls of protected property interests without due process.", "remedy": "Reversed and remanded for access to the unclassified evidence relied upon and an opportunity to respond; remaining CFIUS claims returned for consideration.", "status": "Published appellate constitutional holding, July 15, 2014; later settlement terms not independently verified here", "evidence_type": "Court merits decision", "limitation": "The court did not decide the national-security merits, require classified disclosure or compel disclosure of presidential deliberations. Executive-privilege disputes remained for remand.", "people": [{"name": "Jacob J. Lew", "role": "Treasury Secretary and CFIUS chair; official-capacity appellee"}, {"name": "Karen LeCraft Henderson", "role": "Appellate opinion author ordering procedural relief"}], "sources": [{"title": "Ralls v. CFIUS, official D.C. Circuit opinion, July 15, 2014", "url": "https://media.cadc.uscourts.gov/opinions/docs/2014/07/13-5315-1502552.pdf", "pinpoint": "Opinion pp. 2, 7–12 (roles, location and orders); 35–38 (unclassified evidence, rebuttal and limits); 46–47 (disposition)"}, {"title": "Treasury statement on the challenged presidential decision, September 28, 2012", "url": "https://home.treasury.gov/news/press-releases/tg1724", "pinpoint": "Opening paragraphs describe divestment, Oregon military-airspace context and transaction-specific national-security rationale"}], "engineering_hypothesis": "Kapukai proposal: disclose the legally releasable evidence behind consequential decisions and preserve a meaningful rebuttal stage. Engineer absence or causation was not decided.", "strategic_value": "Kapukai assessment: a strong federal example separating authority to act from a lawful, challengeable decision process.", "editorial_priority": 4, "featured": false, "control_to_test": "Can the affected party inspect the legally releasable adverse evidence and meaningfully rebut it, with lawful nondisclosure claims separately reviewed?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
+('nelson-colorado-2017','Nelson v. Colorado (with Madden v. Colorado)','CO','State','Correction fails to propagate','Court merits decision','2026-11-01','{"id": "nelson-colorado-2017", "title": "Nelson v. Colorado (with Madden v. Colorado)", "year": 2017, "state": "CO", "city": "Colorado (statewide refund rule)", "court": "U.S. Supreme Court, reviewing the Colorado Supreme Court", "docket": "15-1256; 581 U.S. 128", "level": "State", "pattern": "Correction fails to propagate", "headline": "The convictions were gone. The state kept the money.", "sequence": ["Colorado collected costs, fees and restitution based on criminal convictions.", "Nelson was acquitted on retrial; Madden''s convictions were invalidated with no retrial.", "Refunds depended on a separate proceeding proving innocence by clear and convincing evidence.", "The Supreme Court rejected that burden and reversed the state judgments."], "finding": "Retaining these conviction-dependent payments under Colorado''s exoneration scheme violated procedural due process after the convictions were invalidated and no retrial would occur.", "remedy": "Reversed and remanded April 19, 2017; no more than minimal refund procedures allowed. Separately, Colorado enacted HB17-1071 for qualifying later cases: a court-motion process and a 28-day payment deadline for the state court administrator after receiving a refund order.", "status": "Supreme Court merits decision; judgments reversed and remanded", "evidence_type": "Court merits decision", "limitation": "Refund is distinct from compensation for wrongful imprisonment. HB17-1071 applies prospectively from September 1, 2017 and did not resolve these petitioners'' cases. This record does not certify present refund practice or actual payment.", "people": [{"name": "Shannon Nelson", "role": "Petitioner seeking repayment after acquittal"}, {"name": "Louis Alonzo Madden", "role": "Petitioner seeking repayment after convictions were invalidated"}, {"name": "Ruth Bader Ginsburg", "role": "Supreme Court justice; majority opinion author ordering correction"}], "sources": [{"title": "Nelson v. Colorado, official Supreme Court opinion, April 19, 2017", "url": "https://www.supremecourt.gov/opinions/16pdf/15-1256_5i36.pdf", "pinpoint": "Majority slip opinion pp. 1–5 (sequence and historical law), p. 4 n. 4 (new legislation), pp. 6–11 (holding and disposition)"}, {"title": "Supreme Court docket 15-1256", "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/15-1256.html", "pinpoint": "April 19, 2017 judgment and opinion authorship; May 22, 2017 mandate"}, {"title": "Colorado HB17-1071, signed legislation", "url": "https://content.leg.colorado.gov/sites/default/files/2017a_1071_signed.pdf", "pinpoint": "Section 1, adding §18-1.3-703 (eligibility, motion and refund order); section 2, §13-3-114.5 (28-day payment deadline); section 3 (effective date and prospective applicability)"}], "engineering_hypothesis": "Kapukai proposal: connect a vacated conviction to its dependent financial consequences, identify the refund owner and verify completion. This control proposal is not a finding that missing engineer sign-off caused the violation.", "strategic_value": "Changing the authoritative decision must trigger review of downstream consequences. The separate statutory response makes correction measurable: a named responsible office and a payment deadline.", "editorial_priority": 6, "featured": false, "control_to_test": "Does an invalidated conviction trigger review of dependent payments, eligibility for a refund, the responsible office, applicable deadlines and proof of repayment?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}'),
+('jones-flowers-2006','Jones v. Flowers','AR','State','Notice failure ignored','Court merits decision','2026-11-01','{"id": "jones-flowers-2006", "title": "Jones v. Flowers", "year": 2006, "state": "AR", "city": "Little Rock", "court": "U.S. Supreme Court, reviewing the Arkansas Supreme Court", "docket": "04-1477; 547 U.S. 220", "level": "State", "pattern": "Notice failure ignored", "headline": "The notice came back. The state sold the home.", "sequence": ["Property taxes went unpaid after the mortgage was paid off.", "The state sent certified tax-sale notices; both came back unclaimed.", "The state sold the home. Jones learned of the sale after notice reached his daughter.", "The Supreme Court held that practical additional notice steps were required."], "finding": "When mailed tax-sale notice returns unclaimed, the state must take additional reasonable steps before selling the property if practicable. Available steps made the notice effort insufficient here.", "remedy": "Arkansas Supreme Court judgment reversed and case remanded on April 26, 2006. The Court identified ordinary mail, posting or addressing mail to the occupant as possible follow-up measures; it did not mandate one universal method.", "status": "Supreme Court merits decision; judgment reversed and remanded", "evidence_type": "Court merits decision", "limitation": "Due process does not guarantee actual receipt or require an unlimited address search. This ruling does not establish personal misconduct, an engineering-licensure breach, or the final post-remand property outcome.", "people": [{"name": "Gary Kent Jones", "role": "Property-owner petitioner challenging notice before the tax sale"}, {"name": "Mark Wilcox", "role": "Respondent as Arkansas Commissioner of State Lands; agency notice procedure at issue"}, {"name": "John G. Roberts Jr.", "role": "Chief Justice; majority opinion author ordering correction"}], "sources": [{"title": "Jones v. Flowers, official United States Reports opinion", "url": "https://www.govinfo.gov/content/pkg/USREPORTS-547/pdf/USREPORTS-547-220.pdf", "pinpoint": "547 U.S. 223–226 (facts and holding), 234–238 (practical follow-up, limits and disposition)"}, {"title": "Supreme Court docket 04-1477", "url": "https://www.supremecourt.gov/docketfiles/04-1477.htm", "pinpoint": "Respondent Mark Wilcox''s documented office; April 26, 2006 disposition and authorship; May 30, 2006 mandate"}], "engineering_hypothesis": "Kapukai proposal: treat returned notice as a failed delivery signal requiring documented escalation before irreversible action. Test the follow-up process and assign its owner. The opinion did not determine whether an engineer participated.", "strategic_value": "A simple, visible feedback failure: the government received evidence that its notice attempt failed but proceeded toward deprivation. The remedy identifies practical controls that readers can understand and test.", "editorial_priority": 5, "featured": false, "control_to_test": "When notice returns unclaimed, does the process document reasonable follow-up before a property sale, where practicable?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."}') ON CONFLICT(id) DO UPDATE SET title=excluded.title,state=excluded.state,government_level=excluded.government_level,pattern=excluded.pattern,evidence_status=excluded.evidence_status,record=excluded.record,source_review_date=excluded.source_review_date,updated_at=now();
 INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('barry-2016','https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf','Barry v. Lyon, Sixth Circuit opinion','Pages 1–3: judges, holding and automated fugitive-felon interface') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('barry-2016','Nick Lyon','Official-capacity defendant as acting department director') ON CONFLICT DO NOTHING;
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('barry-2016','Judith E. Levy','District judge granting relief') ON CONFLICT DO NOTHING;
@@ -68,11 +74,39 @@ INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('maho
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('mahoney-capitol-police-2026','Neomi Rao','Reviewing judge; majority author') ON CONFLICT DO NOTHING;
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('mahoney-capitol-police-2026','Karen LeCraft Henderson','Reviewing panel judge') ON CONFLICT DO NOTHING;
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('mahoney-capitol-police-2026','Judith W. Rogers','Reviewing judge; dissent') ON CONFLICT DO NOTHING;
-INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha256,source_review_date) VALUES('1.0','{
-  "edition": "1.0",
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('turner-rogers-2011','https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf','Turner v. Rogers, official U.S. Reports opinion','564 U.S. 436–438 (sequence); 447–449 (safeguards, limits and holding)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('turner-rogers-2011','Stephen G. Breyer','Supreme Court majority opinion author; reviewing justice') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('williams-detroit-2024','https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf','Filed first amended complaint, ECF 54 (ACLU-hosted party pleading)','Filed June 23, 2023; paragraphs 1, 3–12 (alleged recognition, lineup, warrant and detention sequence)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('williams-detroit-2024','https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf','Filed dismissal order and signed settlement, ECF 73/73-1 (ACLU-hosted court documents)','Order ¶3; agreement §§2, 6, 10–11; Attachment A, Manual 307.5 §§5.3, 5.5(4), 6.1(4)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('williams-detroit-2024','Donald Bussa','Detective named as an individual-capacity defendant; liability not adjudicated') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('williams-detroit-2024','James White','Police chief named in official capacity in the settlement') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('williams-detroit-2024','Laurie J. Michelson','District judge entering dismissal with retained enforcement jurisdiction') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('dl-child-find-2017','https://www.govinfo.gov/content/pkg/USCOURTS-caDC-16-07076/pdf/USCOURTS-caDC-16-07076-0.pdf','D.L. v. District of Columbia, official D.C. Circuit opinion, June 23, 2017','Opinion pp. 4–9 (history, findings and remedies); 15–17 (process-specific subclasses); 21–26 (benchmarks and programmatic relief)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('dl-child-find-2017','https://www.dcd.uscourts.gov/sites/dcd/files/05cv1437%20Notice_3.pdf','D.D.C. class notice concerning fees for second-half 2025 work, posted June 2026','Pages 1–2: pending fee request and class description; not a determination of present substantive compliance') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('dl-child-find-2017','https://cases.justia.com/district-of-columbia/court-of-appeals/2025-21-cv-0543.pdf?ts=1749132187','Follow-on disclosure case: D.C. v. Terris, Pravlik & Millian, court opinion hosted by Justia, June 5, 2025','Opinion pp. 2–4 (scope, connection to D.L. monitoring and request); 26–28 (information injury); 34–36 (publication relief and remand)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('dl-child-find-2017','Royce C. Lamberth','District judge who ordered corrective relief') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('dl-child-find-2017','David S. Tatel','Appellate opinion author affirming relief') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('ralls-cfius-2014','https://media.cadc.uscourts.gov/opinions/docs/2014/07/13-5315-1502552.pdf','Ralls v. CFIUS, official D.C. Circuit opinion, July 15, 2014','Opinion pp. 2, 7–12 (roles, location and orders); 35–38 (unclassified evidence, rebuttal and limits); 46–47 (disposition)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('ralls-cfius-2014','https://home.treasury.gov/news/press-releases/tg1724','Treasury statement on the challenged presidential decision, September 28, 2012','Opening paragraphs describe divestment, Oregon military-airspace context and transaction-specific national-security rationale') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('ralls-cfius-2014','Jacob J. Lew','Treasury Secretary and CFIUS chair; official-capacity appellee') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('ralls-cfius-2014','Karen LeCraft Henderson','Appellate opinion author ordering procedural relief') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('nelson-colorado-2017','https://www.supremecourt.gov/opinions/16pdf/15-1256_5i36.pdf','Nelson v. Colorado, official Supreme Court opinion, April 19, 2017','Majority slip opinion pp. 1–5 (sequence and historical law), p. 4 n. 4 (new legislation), pp. 6–11 (holding and disposition)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('nelson-colorado-2017','https://www.supremecourt.gov/docket/docketfiles/html/public/15-1256.html','Supreme Court docket 15-1256','April 19, 2017 judgment and opinion authorship; May 22, 2017 mandate') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('nelson-colorado-2017','https://content.leg.colorado.gov/sites/default/files/2017a_1071_signed.pdf','Colorado HB17-1071, signed legislation','Section 1, adding §18-1.3-703 (eligibility, motion and refund order); section 2, §13-3-114.5 (28-day payment deadline); section 3 (effective date and prospective applicability)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('nelson-colorado-2017','Shannon Nelson','Petitioner seeking repayment after acquittal') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('nelson-colorado-2017','Louis Alonzo Madden','Petitioner seeking repayment after convictions were invalidated') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('nelson-colorado-2017','Ruth Bader Ginsburg','Supreme Court justice; majority opinion author ordering correction') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('jones-flowers-2006','https://www.govinfo.gov/content/pkg/USREPORTS-547/pdf/USREPORTS-547-220.pdf','Jones v. Flowers, official United States Reports opinion','547 U.S. 223–226 (facts and holding), 234–238 (practical follow-up, limits and disposition)') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('jones-flowers-2006','https://www.supremecourt.gov/docketfiles/04-1477.htm','Supreme Court docket 04-1477','Respondent Mark Wilcox''s documented office; April 26, 2006 disposition and authorship; May 30, 2006 mandate') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('jones-flowers-2006','Gary Kent Jones','Property-owner petitioner challenging notice before the tax sale') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('jones-flowers-2006','Mark Wilcox','Respondent as Arkansas Commissioner of State Lands; agency notice procedure at issue') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('jones-flowers-2006','John G. Roberts Jr.','Chief Justice; majority opinion author ordering correction') ON CONFLICT DO NOTHING;
+INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha256,source_review_date) VALUES('2.0','{
+  "edition": "2.0",
   "reviewed_at": "2026-11-01",
-  "scope_note": "Selected U.S. public-source cases and official findings. This is an initial curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.",
+  "scope_note": "Selected U.S. public-source cases and official findings. This is a curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.",
   "engineering_note": "Kapukai proposes publicly accountable engineering assurance for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.",
+  "selection_method": "Editorial priorities reflect primary-source strength, understandable human impact, a specific failure that can be tested, concrete safeguards or correction duties, and distinct coverage added. They are not quantified return on investment, prevalence, culpability or danger scores.",
   "cases": [
     {
       "id": "barry-2016",
@@ -762,8 +796,350 @@ INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha2
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "evidence_type": "Court merits decision",
       "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+    },
+    {
+      "id": "turner-rogers-2011",
+      "title": "Turner v. Rogers",
+      "year": 2011,
+      "state": "SC",
+      "city": "Oconee County",
+      "court": "U.S. Supreme Court; South Carolina family-court proceedings",
+      "docket": "10-10; 564 U.S. 431",
+      "level": "State",
+      "pattern": "Required factual check omitted",
+      "headline": "He was jailed. The court never decided whether he could pay.",
+      "sequence": [
+        "Child-support arrears triggered a civil-contempt hearing",
+        "The court left the ability-to-pay finding blank and imposed twelve months in jail",
+        "The Supreme Court found the incarceration violated due process"
+      ],
+      "finding": "Turner received neither counsel nor adequate alternative safeguards. The court made no express finding that he could pay.",
+      "remedy": "Judgment vacated and remanded. The opinion identified notice, financial-information collection, an opportunity to respond, and an express ability-to-pay finding as safeguards.",
+      "status": "Supreme Court merits decision, June 20, 2011",
+      "evidence_type": "Court merits decision",
+      "limitation": "No automatic right to counsel in every such proceeding. State-owed support and unusually complex cases were left open. No missing-engineer causation finding.",
+      "people": [
+        {
+          "name": "Stephen G. Breyer",
+          "role": "Supreme Court majority opinion author; reviewing justice"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Turner v. Rogers, official U.S. Reports opinion",
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+          "pinpoint": "564 U.S. 436–438 (sequence); 447–449 (safeguards, limits and holding)"
+        }
+      ],
+      "engineering_hypothesis": "Before a liberty-depriving order, require the decision record to show each governing factual check and a usable opportunity to contest it. Credentials alone cannot supply that evidence.",
+      "strategic_value": "A highly legible example of a decisive factual field left unresolved while coercion proceeded. The remedy translates into auditable decision requirements.",
+      "editorial_priority": 2,
+      "featured": true,
+      "control_to_test": "Before incarceration for civil contempt over unpaid child support, does the record establish the required ability-to-pay assessment, notice, financial information, opportunity to respond and express finding?",
+      "reviewed_at": "2026-11-01",
+      "engineer_signoff_evidence": "Not established by reviewed source",
+      "engineering_causation_status": "not_established",
+      "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+    },
+    {
+      "id": "williams-detroit-2024",
+      "title": "Williams v. City of Detroit",
+      "year": 2024,
+      "state": "MI",
+      "city": "Detroit",
+      "court": "U.S. District Court, Eastern District of Michigan",
+      "docket": "2:21-cv-10827-LJM-DRG; ECF 73 and 73-1",
+      "level": "Local",
+      "pattern": "Automated lead treated as corroborated evidence",
+      "headline": "A challenged face-match arrest led to enforceable checks.",
+      "sequence": [
+        "Williams alleged a faulty facial-recognition lead from shop surveillance",
+        "He alleged a lineup using a non-eyewitness reinforced the same weak input, followed by arrest and roughly thirty hours of detention",
+        "The parties settled in 2024 with verification, approval and audit requirements"
+      ],
+      "finding": "The complaint alleges wrongful arrest; liability was not adjudicated. The signed settlement requires independent reliable evidence beyond a face-recognition lead and lineup.",
+      "remedy": "Required two examiners and a supervisor to sign off on leads, written command approvals before arrest or warrant requests, and a retrospective audit. The June 28, 2024 dismissal retained enforcement jurisdiction for four years.",
+      "status": "Settlement and stipulated dismissal; no admission of liability",
+      "evidence_type": "Settlement with retained enforcement jurisdiction",
+      "limitation": "Allegations and agreed safeguards are not merits findings. Current compliance is not verified. Required examiner and police approvals are not professional-engineer certification.",
+      "people": [
+        {
+          "name": "Donald Bussa",
+          "role": "Detective named as an individual-capacity defendant; liability not adjudicated"
+        },
+        {
+          "name": "James White",
+          "role": "Police chief named in official capacity in the settlement"
+        },
+        {
+          "name": "Laurie J. Michelson",
+          "role": "District judge entering dismissal with retained enforcement jurisdiction"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Filed first amended complaint, ECF 54 (ACLU-hosted party pleading)",
+          "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+          "pinpoint": "Filed June 23, 2023; paragraphs 1, 3–12 (alleged recognition, lineup, warrant and detention sequence)"
+        },
+        {
+          "title": "Filed dismissal order and signed settlement, ECF 73/73-1 (ACLU-hosted court documents)",
+          "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+          "pinpoint": "Order ¶3; agreement §§2, 6, 10–11; Attachment A, Manual 307.5 §§5.3, 5.5(4), 6.1(4)"
+        }
+      ],
+      "engineering_hypothesis": "Separate a machine-generated lead from independent corroboration; preserve source lineage, approval records and correction audits. This settlement supplies concrete controls, not proof that an absent engineer caused the arrest.",
+      "strategic_value": "Priority example for turning a harm story into inspectable controls: independent evidence, named sign-offs, backward review and a forum for enforcement.",
+      "editorial_priority": 1,
+      "featured": true,
+      "control_to_test": "For a sampled arrest, can reviewers trace the facial-recognition lead to independent evidence, required sign-offs, written approvals and any corrective audit?",
+      "reviewed_at": "2026-11-01",
+      "engineer_signoff_evidence": "Not established by reviewed source",
+      "engineering_causation_status": "not_established",
+      "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+    },
+    {
+      "id": "dl-child-find-2017",
+      "title": "D.L. v. District of Columbia",
+      "year": 2017,
+      "state": "DC",
+      "city": "Washington",
+      "court": "D.C. Circuit; U.S. District Court for the District of Columbia",
+      "docket": "16-7076; district 1:05-cv-01437; 860 F.3d 713",
+      "level": "Local",
+      "pattern": "Broken handoffs",
+      "headline": "Children missed services. The remedy measured delivery.",
+      "sequence": [
+        "Preschool children were missed, eligibility decisions delayed, and service transitions disrupted",
+        "An overbroad class certification was vacated; narrower process-specific subclasses followed",
+        "Trial findings led to an injunction with delivery benchmarks, tracking and reporting",
+        "The D.C. Circuit affirmed in 2017"
+      ],
+      "finding": "The District violated IDEA duties concerning identification, timely eligibility determinations and transition into preschool services.",
+      "remedy": "Affirmed targets including 8.5% of D.C.’s three-to-five-year-olds receiving their full IEP services, plus 95% timely eligibility determinations and smooth transitions in the respective covered groups. Incremental improvement, databases and court reporting were required.",
+      "status": "2017 injunction affirmed; June 2026 court-hosted fee-motion notice reviewed, not a current compliance determination",
+      "evidence_type": "Court merits decision",
+      "limitation": "Benchmarks were tailored to this record, not nationwide standards. The initial-evaluation subclass had resolved in the District''s favor. Reviewing judges are corrective actors.",
+      "people": [
+        {
+          "name": "Royce C. Lamberth",
+          "role": "District judge who ordered corrective relief"
+        },
+        {
+          "name": "David S. Tatel",
+          "role": "Appellate opinion author affirming relief"
+        }
+      ],
+      "sources": [
+        {
+          "title": "D.L. v. District of Columbia, official D.C. Circuit opinion, June 23, 2017",
+          "url": "https://www.govinfo.gov/content/pkg/USCOURTS-caDC-16-07076/pdf/USCOURTS-caDC-16-07076-0.pdf",
+          "pinpoint": "Opinion pp. 4–9 (history, findings and remedies); 15–17 (process-specific subclasses); 21–26 (benchmarks and programmatic relief)"
+        },
+        {
+          "title": "D.D.C. class notice concerning fees for second-half 2025 work, posted June 2026",
+          "url": "https://www.dcd.uscourts.gov/sites/dcd/files/05cv1437%20Notice_3.pdf",
+          "pinpoint": "Pages 1–2: pending fee request and class description; not a determination of present substantive compliance"
+        },
+        {
+          "title": "Follow-on disclosure case: D.C. v. Terris, Pravlik & Millian, court opinion hosted by Justia, June 5, 2025",
+          "url": "https://cases.justia.com/district-of-columbia/court-of-appeals/2025-21-cv-0543.pdf?ts=1749132187",
+          "pinpoint": "Opinion pp. 2–4 (scope, connection to D.L. monitoring and request); 26–28 (information injury); 34–36 (publication relief and remand)"
+        }
+      ],
+      "follow_on_note": "Disclosure follow-on, not a separate indexed failure: in D.C. v. Terris, Pravlik & Millian, No. 21-CV-0543 (June 5, 2025), the D.C. Court of Appeals upheld disclosure and online publication of requested agency budget documents for fiscal years 2019 through the decision, while vacating and remanding the broader publication order for other documents. Counsel sought the budgets to monitor the D.L. injunction. This applies D.C. FOIA and does not establish universal federal publication rights.",
+      "engineering_hypothesis": "Kapukai proposal: measure actual service delivery, preserve handoff timestamps and independently reproduce compliance reports. No absent-engineer causation was established.",
+      "strategic_value": "Kapukai assessment: a concrete model for binding a remedy to measurable delivery, shared failure mechanisms and publicly inspectable compliance evidence.",
+      "editorial_priority": 3,
+      "featured": true,
+      "control_to_test": "Can an independent reviewer reproduce reported rates from eligibility deadlines, handoff timestamps, defined denominators and evidence that services were actually delivered?",
+      "reviewed_at": "2026-11-01",
+      "engineer_signoff_evidence": "Not established by reviewed source",
+      "engineering_causation_status": "not_established",
+      "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+    },
+    {
+      "id": "ralls-cfius-2014",
+      "title": "Ralls Corporation v. Committee on Foreign Investment in the United States",
+      "year": 2014,
+      "state": "OR",
+      "city": "Butter Creek wind-farm sites, north-central Oregon",
+      "court": "D.C. Circuit; U.S. District Court for the District of Columbia",
+      "docket": "13-5315; district 1:12-cv-01513; 758 F.3d 296",
+      "level": "Federal",
+      "pattern": "Decision cannot be meaningfully challenged",
+      "headline": "The owner could not rebut evidence it could not see.",
+      "sequence": [
+        "Ralls acquired four Oregon wind-farm companies",
+        "CFIUS restrictions and a presidential divestment order followed",
+        "The government withheld the adverse evidence and a chance to rebut it",
+        "The D.C. Circuit required procedural protections on remand"
+      ],
+      "finding": "The presidential order deprived Ralls of protected property interests without due process.",
+      "remedy": "Reversed and remanded for access to the unclassified evidence relied upon and an opportunity to respond; remaining CFIUS claims returned for consideration.",
+      "status": "Published appellate constitutional holding, July 15, 2014; later settlement terms not independently verified here",
+      "evidence_type": "Court merits decision",
+      "limitation": "The court did not decide the national-security merits, require classified disclosure or compel disclosure of presidential deliberations. Executive-privilege disputes remained for remand.",
+      "people": [
+        {
+          "name": "Jacob J. Lew",
+          "role": "Treasury Secretary and CFIUS chair; official-capacity appellee"
+        },
+        {
+          "name": "Karen LeCraft Henderson",
+          "role": "Appellate opinion author ordering procedural relief"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Ralls v. CFIUS, official D.C. Circuit opinion, July 15, 2014",
+          "url": "https://media.cadc.uscourts.gov/opinions/docs/2014/07/13-5315-1502552.pdf",
+          "pinpoint": "Opinion pp. 2, 7–12 (roles, location and orders); 35–38 (unclassified evidence, rebuttal and limits); 46–47 (disposition)"
+        },
+        {
+          "title": "Treasury statement on the challenged presidential decision, September 28, 2012",
+          "url": "https://home.treasury.gov/news/press-releases/tg1724",
+          "pinpoint": "Opening paragraphs describe divestment, Oregon military-airspace context and transaction-specific national-security rationale"
+        }
+      ],
+      "engineering_hypothesis": "Kapukai proposal: disclose the legally releasable evidence behind consequential decisions and preserve a meaningful rebuttal stage. Engineer absence or causation was not decided.",
+      "strategic_value": "Kapukai assessment: a strong federal example separating authority to act from a lawful, challengeable decision process.",
+      "editorial_priority": 4,
+      "featured": false,
+      "control_to_test": "Can the affected party inspect the legally releasable adverse evidence and meaningfully rebut it, with lawful nondisclosure claims separately reviewed?",
+      "reviewed_at": "2026-11-01",
+      "engineer_signoff_evidence": "Not established by reviewed source",
+      "engineering_causation_status": "not_established",
+      "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+    },
+    {
+      "id": "nelson-colorado-2017",
+      "title": "Nelson v. Colorado (with Madden v. Colorado)",
+      "year": 2017,
+      "state": "CO",
+      "city": "Colorado (statewide refund rule)",
+      "court": "U.S. Supreme Court, reviewing the Colorado Supreme Court",
+      "docket": "15-1256; 581 U.S. 128",
+      "level": "State",
+      "pattern": "Correction fails to propagate",
+      "headline": "The convictions were gone. The state kept the money.",
+      "sequence": [
+        "Colorado collected costs, fees and restitution based on criminal convictions.",
+        "Nelson was acquitted on retrial; Madden''s convictions were invalidated with no retrial.",
+        "Refunds depended on a separate proceeding proving innocence by clear and convincing evidence.",
+        "The Supreme Court rejected that burden and reversed the state judgments."
+      ],
+      "finding": "Retaining these conviction-dependent payments under Colorado''s exoneration scheme violated procedural due process after the convictions were invalidated and no retrial would occur.",
+      "remedy": "Reversed and remanded April 19, 2017; no more than minimal refund procedures allowed. Separately, Colorado enacted HB17-1071 for qualifying later cases: a court-motion process and a 28-day payment deadline for the state court administrator after receiving a refund order.",
+      "status": "Supreme Court merits decision; judgments reversed and remanded",
+      "evidence_type": "Court merits decision",
+      "limitation": "Refund is distinct from compensation for wrongful imprisonment. HB17-1071 applies prospectively from September 1, 2017 and did not resolve these petitioners'' cases. This record does not certify present refund practice or actual payment.",
+      "people": [
+        {
+          "name": "Shannon Nelson",
+          "role": "Petitioner seeking repayment after acquittal"
+        },
+        {
+          "name": "Louis Alonzo Madden",
+          "role": "Petitioner seeking repayment after convictions were invalidated"
+        },
+        {
+          "name": "Ruth Bader Ginsburg",
+          "role": "Supreme Court justice; majority opinion author ordering correction"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Nelson v. Colorado, official Supreme Court opinion, April 19, 2017",
+          "url": "https://www.supremecourt.gov/opinions/16pdf/15-1256_5i36.pdf",
+          "pinpoint": "Majority slip opinion pp. 1–5 (sequence and historical law), p. 4 n. 4 (new legislation), pp. 6–11 (holding and disposition)"
+        },
+        {
+          "title": "Supreme Court docket 15-1256",
+          "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/15-1256.html",
+          "pinpoint": "April 19, 2017 judgment and opinion authorship; May 22, 2017 mandate"
+        },
+        {
+          "title": "Colorado HB17-1071, signed legislation",
+          "url": "https://content.leg.colorado.gov/sites/default/files/2017a_1071_signed.pdf",
+          "pinpoint": "Section 1, adding §18-1.3-703 (eligibility, motion and refund order); section 2, §13-3-114.5 (28-day payment deadline); section 3 (effective date and prospective applicability)"
+        }
+      ],
+      "engineering_hypothesis": "Kapukai proposal: connect a vacated conviction to its dependent financial consequences, identify the refund owner and verify completion. This control proposal is not a finding that missing engineer sign-off caused the violation.",
+      "strategic_value": "Changing the authoritative decision must trigger review of downstream consequences. The separate statutory response makes correction measurable: a named responsible office and a payment deadline.",
+      "editorial_priority": 6,
+      "featured": false,
+      "control_to_test": "Does an invalidated conviction trigger review of dependent payments, eligibility for a refund, the responsible office, applicable deadlines and proof of repayment?",
+      "reviewed_at": "2026-11-01",
+      "engineer_signoff_evidence": "Not established by reviewed source",
+      "engineering_causation_status": "not_established",
+      "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+    },
+    {
+      "id": "jones-flowers-2006",
+      "title": "Jones v. Flowers",
+      "year": 2006,
+      "state": "AR",
+      "city": "Little Rock",
+      "court": "U.S. Supreme Court, reviewing the Arkansas Supreme Court",
+      "docket": "04-1477; 547 U.S. 220",
+      "level": "State",
+      "pattern": "Notice failure ignored",
+      "headline": "The notice came back. The state sold the home.",
+      "sequence": [
+        "Property taxes went unpaid after the mortgage was paid off.",
+        "The state sent certified tax-sale notices; both came back unclaimed.",
+        "The state sold the home. Jones learned of the sale after notice reached his daughter.",
+        "The Supreme Court held that practical additional notice steps were required."
+      ],
+      "finding": "When mailed tax-sale notice returns unclaimed, the state must take additional reasonable steps before selling the property if practicable. Available steps made the notice effort insufficient here.",
+      "remedy": "Arkansas Supreme Court judgment reversed and case remanded on April 26, 2006. The Court identified ordinary mail, posting or addressing mail to the occupant as possible follow-up measures; it did not mandate one universal method.",
+      "status": "Supreme Court merits decision; judgment reversed and remanded",
+      "evidence_type": "Court merits decision",
+      "limitation": "Due process does not guarantee actual receipt or require an unlimited address search. This ruling does not establish personal misconduct, an engineering-licensure breach, or the final post-remand property outcome.",
+      "people": [
+        {
+          "name": "Gary Kent Jones",
+          "role": "Property-owner petitioner challenging notice before the tax sale"
+        },
+        {
+          "name": "Mark Wilcox",
+          "role": "Respondent as Arkansas Commissioner of State Lands; agency notice procedure at issue"
+        },
+        {
+          "name": "John G. Roberts Jr.",
+          "role": "Chief Justice; majority opinion author ordering correction"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Jones v. Flowers, official United States Reports opinion",
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-547/pdf/USREPORTS-547-220.pdf",
+          "pinpoint": "547 U.S. 223–226 (facts and holding), 234–238 (practical follow-up, limits and disposition)"
+        },
+        {
+          "title": "Supreme Court docket 04-1477",
+          "url": "https://www.supremecourt.gov/docketfiles/04-1477.htm",
+          "pinpoint": "Respondent Mark Wilcox''s documented office; April 26, 2006 disposition and authorship; May 30, 2006 mandate"
+        }
+      ],
+      "engineering_hypothesis": "Kapukai proposal: treat returned notice as a failed delivery signal requiring documented escalation before irreversible action. Test the follow-up process and assign its owner. The opinion did not determine whether an engineer participated.",
+      "strategic_value": "A simple, visible feedback failure: the government received evidence that its notice attempt failed but proceeded toward deprivation. The remedy identifies practical controls that readers can understand and test.",
+      "editorial_priority": 5,
+      "featured": false,
+      "control_to_test": "When notice returns unclaimed, does the process document reasonable follow-up before a property sale, where practicable?",
+      "reviewed_at": "2026-11-01",
+      "engineer_signoff_evidence": "Not established by reviewed source",
+      "engineering_causation_status": "not_established",
+      "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
     }
   ]
 }
-','e2ffccf32c384093849a3ec8fa102f5dc18a8aec57c0b6e635c7b98cde1eb871','2026-11-01') ON CONFLICT(edition) DO NOTHING;
+','324cf992375c3434bd24212d530f5bd2c80dda53b4e68e6c47879c17299ab5b6','2026-11-01') ON CONFLICT(edition) DO NOTHING;
 COMMIT;

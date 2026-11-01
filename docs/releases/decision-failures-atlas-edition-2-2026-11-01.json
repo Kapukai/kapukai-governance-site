@@ -1,0 +1,28 @@
+{
+  "status": "prepared",
+  "edition": "2.0",
+  "database_project": "tbxfsjipkrdwyctepesf",
+  "database_schema": "kapukai_case_atlas",
+  "previous_edition": "1.0",
+  "cases": 20,
+  "jurisdictions": 15,
+  "people": 52,
+  "sources": 30,
+  "canonical_installed": false,
+  "scope": "Curated public-source edition, not exhaustive or current compliance certification. Editorial priorities are not quantified ROI or risk scores.",
+  "snapshot_sha256": "324cf992375c3434bd24212d530f5bd2c80dda53b4e68e6c47879c17299ab5b6",
+  "files": {
+    "community/case_atlas/README.md": "ae1fabe1f8cfddab07296382bc4164b7d7c6398b7f5844e8514cc277b905189a",
+    "community/case_atlas/build.py": "bb386a5e5965b92bc34287147ae6e8f8c5f9d9daf4a17aa1b2cd8e09240142a6",
+    "community/case_atlas/seed.json": "f52b7fab95451ed410fb8e9e2efbc19b538f2ab38c7d7185cad7aebca883b8fa",
+    "community/case_atlas/seed.sql": "295a024ce48b863251f86cf80ea2c91309df1cbcfe79964b64abb4ee2ced740b",
+    "community/public/evidence/decision-failures/atlas.css": "6c64afeee7039151c0be729131eb1ef1ae31c7a6c575e984dc425b6b8156465c",
+    "community/public/evidence/decision-failures/atlas.js": "602bc4decf1014ecd03272bccbc3dce16121262cc72ade9bcf262010efc010aa",
+    "community/public/evidence/decision-failures/cases.csv": "9fef0f02d131dfcc5c706c926a70f4b5001bdead39d9ddfe4c84c72dac340a84",
+    "community/public/evidence/decision-failures/cases.json": "324cf992375c3434bd24212d530f5bd2c80dda53b4e68e6c47879c17299ab5b6",
+    "community/public/evidence/decision-failures/cases.sqlite": "bfbe3f823d474df2ea183d2c616c33960daa2681749aa0aaeb3dd1866b9df09d",
+    "community/public/evidence/decision-failures/index.html": "874e3f5abfadea762916e3072f11c1d4bca240584d57bbb991b95ebd35b1ceb8",
+    "community/case_atlas/edition.json": "3fa7313c620845238c85511a083a8ef2546f1f449869efa48dd296ec04e2680c",
+    "community/case_atlas/research-edition-2.json": "5773f25ef47fcb133c7d089a98e802b8e4d3fbbc962467983d8bfe31631b56ec"
+  }
+}

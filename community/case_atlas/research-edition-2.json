@@ -1,0 +1,84 @@
+{
+  "edition": "2.0",
+  "reviewed_at": "2026-11-01",
+  "selection_method": "Editorial priorities reflect primary-source strength, understandable human impact, a specific failure that can be tested, concrete safeguards or correction duties, and distinct coverage added. They are not quantified return on investment, prevalence, culpability or danger scores.",
+  "included": [
+    {
+      "id": "williams-detroit-2024",
+      "editorial_priority": 1,
+      "reason": "Priority example for turning a harm story into inspectable controls: independent evidence, named sign-offs, backward review and a forum for enforcement.",
+      "source_urls": [
+        "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+        "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf"
+      ]
+    },
+    {
+      "id": "turner-rogers-2011",
+      "editorial_priority": 2,
+      "reason": "A highly legible example of a decisive factual field left unresolved while coercion proceeded. The remedy translates into auditable decision requirements.",
+      "source_urls": [
+        "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf"
+      ]
+    },
+    {
+      "id": "dl-child-find-2017",
+      "editorial_priority": 3,
+      "reason": "Kapukai assessment: a concrete model for binding a remedy to measurable delivery, shared failure mechanisms and publicly inspectable compliance evidence.",
+      "source_urls": [
+        "https://www.govinfo.gov/content/pkg/USCOURTS-caDC-16-07076/pdf/USCOURTS-caDC-16-07076-0.pdf",
+        "https://www.dcd.uscourts.gov/sites/dcd/files/05cv1437%20Notice_3.pdf",
+        "https://cases.justia.com/district-of-columbia/court-of-appeals/2025-21-cv-0543.pdf?ts=1749132187"
+      ]
+    },
+    {
+      "id": "ralls-cfius-2014",
+      "editorial_priority": 4,
+      "reason": "Kapukai assessment: a strong federal example separating authority to act from a lawful, challengeable decision process.",
+      "source_urls": [
+        "https://media.cadc.uscourts.gov/opinions/docs/2014/07/13-5315-1502552.pdf",
+        "https://home.treasury.gov/news/press-releases/tg1724"
+      ]
+    },
+    {
+      "id": "jones-flowers-2006",
+      "editorial_priority": 5,
+      "reason": "A simple, visible feedback failure: the government received evidence that its notice attempt failed but proceeded toward deprivation. The remedy identifies practical controls that readers can understand and test.",
+      "source_urls": [
+        "https://www.govinfo.gov/content/pkg/USREPORTS-547/pdf/USREPORTS-547-220.pdf",
+        "https://www.supremecourt.gov/docketfiles/04-1477.htm"
+      ]
+    },
+    {
+      "id": "nelson-colorado-2017",
+      "editorial_priority": 6,
+      "reason": "Changing the authoritative decision must trigger review of downstream consequences. The separate statutory response makes correction measurable: a named responsible office and a payment deadline.",
+      "source_urls": [
+        "https://www.supremecourt.gov/opinions/16pdf/15-1256_5i36.pdf",
+        "https://www.supremecourt.gov/docket/docketfiles/html/public/15-1256.html",
+        "https://content.leg.colorado.gov/sites/default/files/2017a_1071_signed.pdf"
+      ]
+    }
+  ],
+  "scope_decisions": [
+    "Six distinct controversies added; Terris disclosure follow-on retained within D.L. rather than counted as another underlying service failure.",
+    "Historic merits decisions and a filed settlement are separately labelled; no claim of current compliance or sole engineering cause.",
+    "Prior edition remains immutable; no current-docket refresh is implied for the original 14 records.",
+    "Map locations reflect underlying decisions; Ralls appears in Oregon with D.C. courts searchable.",
+    "Priority is editorial usefulness, not a numerical ROI, culpability or danger score."
+  ],
+  "research_queries": [
+    "Ralls Corporation CFIUS 2014 official opinion later settlement",
+    "D.L. District of Columbia 2017 injunction 8.5 95 percent official opinion",
+    "D.C. Terris Pravlik Millian 21-CV-0543 June 5 2025 agency budget publication",
+    "Turner Rogers 564 U.S. 431 official opinion",
+    "Williams City Detroit 2024 signed facial recognition settlement ECF 73",
+    "Nelson Colorado 15-1256 opinion HB17-1071 signed",
+    "Jones Flowers 547 U.S. 220 official opinion"
+  ],
+  "known_gaps": [
+    "Later docket and actual compliance are not comprehensively verified.",
+    "Ralls later settlement terms are not independently verified.",
+    "Terris primary opinion is a court document hosted by Justia; official index date and docket were corroborated.",
+    "No present or absent engineer licensure conclusion is inferred from silence."
+  ]
+}
