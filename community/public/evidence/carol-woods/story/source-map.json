@@ -1,0 +1,105 @@
+{
+  "source": "https://kapukai.org/evidence/carol-woods/transcript_raw.txt",
+  "status": "Paraphrases of uncorroborated interview allegations; audio not independently verified.",
+  "scenes": [
+    {
+      "title": "A mother. A baby. A disputed removal.",
+      "body": "Woods describes a mother who cared for her baby, family conflict that had been resolved, and several agencies already involved.",
+      "time": "03:02–03:26",
+      "sec": 182,
+      "kind": "Woods’s account",
+      "a": "CONCERNS",
+      "b": "ADDRESSED, SHE SAYS",
+      "meaning": "Start with the family’s circumstances—not the later labels.",
+      "check": "Original assessments, agency records and the family’s account."
+    },
+    {
+      "title": "The first court said no.",
+      "body": "She says the magistrates rejected the authority’s attempt to obtain an order to put the baby in care or remove her.",
+      "time": "03:26–04:05",
+      "sec": 206,
+      "kind": "Woods’s account",
+      "a": "ORDER SOUGHT",
+      "b": "APPLICATION REJECTED",
+      "meaning": "The authority did not obtain the outcome it sought at that hearing.",
+      "check": "The application, magistrates’ order and hearing record."
+    },
+    {
+      "title": "Then, she says, came a request to change the file.",
+      "body": "After that court outcome, Woods says a legal representative asked her to alter the child’s file to favor the local authority. She says she refused.",
+      "time": "04:21–05:52",
+      "sec": 261,
+      "kind": "Alleged direct experience",
+      "a": "COURT REFUSAL",
+      "b": "FILE CHANGE REQUESTED",
+      "meaning": "This is the crucial alleged turn: change the evidence after the first attempt fails.",
+      "check": "Contemporaneous notes, file versions, correspondence and the other party’s response."
+    },
+    {
+      "title": "The proceedings continued.",
+      "body": "Woods describes the case being pursued in another court and the strain on a young mother with little personal support.",
+      "time": "06:07–06:32",
+      "sec": 367,
+      "kind": "Woods’s account",
+      "a": "INITIAL REFUSAL",
+      "b": "FURTHER PROCEEDINGS",
+      "meaning": "An initial favorable outcome did not end the mother’s ordeal, in this account.",
+      "check": "Later applications, hearing dates, orders and the family’s account."
+    },
+    {
+      "title": "Other people had seen the evidence.",
+      "body": "She describes probation involvement, an NSPCC assessment of the father, and a guardian examining her records and responding positively.",
+      "time": "06:32–07:35",
+      "sec": 392,
+      "kind": "Woods’s account",
+      "a": "ASSESSMENTS + FILE",
+      "b": "GUARDIAN EXAMINES",
+      "meaning": "The story identifies other records and a witness who could test what the file contained.",
+      "check": "The assessments, guardian’s report and copies of the file reviewed."
+    },
+    {
+      "title": "She refused. Then left the case.",
+      "body": "Woods says she refused to alter records, resigned, and was removed from the case. She says the mother was not allowed to speak with her.",
+      "time": "12:02–13:05",
+      "sec": 722,
+      "kind": "Alleged direct experience",
+      "a": "CHALLENGE TO RECORD",
+      "b": "CASE CONTACT ENDS",
+      "meaning": "The professional challenging the record was allegedly separated from the family and case.",
+      "check": "Resignation and assignment records, contact instructions and their stated reasons."
+    },
+    {
+      "title": "The guardian allegedly challenged the mismatch.",
+      "body": "Woods says she was later told that the guardian challenged material presented as her account because it did not match the files he had seen. She also recounts a judicial rebuke.",
+      "time": "12:17–12:50",
+      "sec": 737,
+      "kind": "Reported to Woods afterward",
+      "a": "EARLIER FILE",
+      "b": "LATER COURT MATERIAL",
+      "meaning": "A claimed contradiction between the original record and what reached court.",
+      "check": "The guardian’s evidence, court bundle and hearing transcript. Woods says this was related to her later."
+    },
+    {
+      "title": "What if evidence of institutional harm disappears?",
+      "body": "In a separate passage, Woods alleges that crucial documents recording harm caused by authorities were removed from children’s files.",
+      "time": "09:49–11:46",
+      "sec": 589,
+      "kind": "Separate allegation",
+      "a": "HARM BY AUTHORITIES",
+      "b": "DOCUMENTS REMOVED",
+      "meaning": "The alleged omission changes whose conduct the remaining record reveals.",
+      "check": "Original and later file inventories, version histories and the formal complaints she describes."
+    },
+    {
+      "title": "What remains can change the story.",
+      "body": "She then alleges that altered material was used in court. The interview does not establish which particular court bundle contained each missing document.",
+      "time": "11:15–11:54",
+      "sec": 675,
+      "kind": "Separate allegation",
+      "a": "ALTERED FILE",
+      "b": "MATERIAL USED IN COURT",
+      "meaning": "A record can appear complete even when the evidence needed to challenge it is missing.",
+      "check": "Compare the original records with the actual court bundles. Do not assume this was the same baby’s case."
+    }
+  ]
+}
