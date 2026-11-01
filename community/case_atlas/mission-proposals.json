@@ -1,0 +1,122 @@
+{
+  "barry-2016": {
+    "proposed_mission": "Determine benefit eligibility using the governing legal test, with usable notice and a timely opportunity to challenge adverse decisions.",
+    "proposed_criteria": [
+      "For each matched record, retain the governing eligibility criteria, evidence applying each criterion, notice and correction history."
+    ]
+  },
+  "herring-2009": {
+    "proposed_mission": "Support arrest decisions with accurate current warrant information and effective transmission of recalls.",
+    "proposed_criteria": [
+      "Compare recalled warrants with downstream arrest records and verify when each receiving system acknowledged the recall."
+    ]
+  },
+  "goodlett-warrant": {
+    "proposed_mission": "Support search-warrant decisions with truthful, traceable factual evidence and the applicable legal authorization.",
+    "proposed_criteria": [
+      "Trace each material affidavit claim to its source and document discrepancies, review and disposition before authorization."
+    ]
+  },
+  "ciavarella-juvenile": {
+    "proposed_mission": "Make juvenile adjudication and placement decisions under applicable rights and welfare duties, with conflicts and financial interests disclosed and controlled.",
+    "proposed_criteria": [
+      "Trace placements to their evidence and lawful criteria, and independently review disclosed and undisclosed financial connections."
+    ]
+  },
+  "ms-l-tracking": {
+    "proposed_mission": "Preserve reliable parent-child identity links and interagency handoffs so lawful care, contact and reunification duties can be carried out.",
+    "proposed_criteria": [
+      "Reconcile person identifiers across each handoff and verify the responsible owner, location record and reunification status."
+    ]
+  },
+  "md-abbott": {
+    "proposed_mission": "Provide safe foster-care placements and effective case supervision within applicable child-protection duties.",
+    "proposed_criteria": [
+      "Reproduce workload, placement-safety and monitoring measures from dated source records and verify corrective action on identified hazards."
+    ]
+  },
+  "santosky-kramer": {
+    "proposed_mission": "Decide parental-rights termination using the required evidentiary standard and procedural protections.",
+    "proposed_criteria": [
+      "Show which findings satisfy each required element and evidentiary standard, with the affected person’s opportunity to contest recorded."
+    ]
+  },
+  "ferguson-2015": {
+    "proposed_mission": "Conduct municipal policing and court enforcement within constitutional requirements and public-safety objectives.",
+    "proposed_criteria": [
+      "Audit sampled enforcement decisions, revenue incentives, court practices and documented remedies against the applicable requirements."
+    ]
+  },
+  "evans-1995": {
+    "proposed_mission": "Transmit warrant withdrawals accurately and promptly so police decisions use current court authority.",
+    "proposed_criteria": [
+      "Confirm each quashed warrant is withdrawn from every receiving system and investigate any later reliance on the stale record."
+    ]
+  },
+  "kw-armstrong-2015": {
+    "proposed_mission": "Make Medicaid service-budget decisions with adequate reasons and a meaningful opportunity to challenge them.",
+    "proposed_criteria": [
+      "Reproduce each challenged budget calculation from disclosed inputs and rules, and verify the notice and review pathway."
+    ]
+  },
+  "brown-plata": {
+    "proposed_mission": "Provide constitutionally adequate prison medical and mental-health care within operational capacity limits.",
+    "proposed_criteria": [
+      "Measure care access, delays and outcomes against stated requirements, with independently reviewable capacity and correction records."
+    ]
+  },
+  "houston-evaas": {
+    "proposed_mission": "Support employment evaluations with reproducible scores and a meaningful opportunity to challenge consequential results.",
+    "proposed_criteria": [
+      "Reproduce a sampled score from its versioned inputs and method, and record how the affected employee can identify and correct an error."
+    ]
+  },
+  "cahoo-midas": {
+    "proposed_mission": "Determine unemployment-fraud allegations using validated evidence and lawful notice, review and collection procedures.",
+    "proposed_criteria": [
+      "Test fraud-decision rules against independently reviewed cases, record error counts and denominators, and trace corrections into collections."
+    ]
+  },
+  "mahoney-capitol-police-2026": {
+    "proposed_mission": "Administer access for protected expression using constitutional, consistent and reviewable permission rules.",
+    "proposed_criteria": [
+      "Compare permission decisions with their stated criteria, evidence and reasons, and verify the scope of any corrective order."
+    ]
+  },
+  "turner-rogers-2011": {
+    "proposed_mission": "Enforce child-support obligations through lawful procedures, including adequate ability-to-pay safeguards before civil-contempt incarceration.",
+    "proposed_criteria": [
+      "Before incarceration for civil contempt over unpaid child support, verify notice, financial information, opportunity to respond and an express ability-to-pay finding."
+    ]
+  },
+  "williams-detroit-2024": {
+    "proposed_mission": "Investigate crimes using independently corroborated evidence and documented approvals before facial-recognition-related arrests or warrant requests.",
+    "proposed_criteria": [
+      "Trace a sampled facial-recognition lead to independent reliable evidence, examiner and supervisor sign-offs, written command approvals and audit follow-up."
+    ]
+  },
+  "dl-child-find-2017": {
+    "proposed_mission": "Identify eligible preschool children and deliver timely special-education services and transitions under the applicable duties and court order.",
+    "proposed_criteria": [
+      "Reproduce delivery rates and denominators from eligibility deadlines, handoff timestamps and evidence of full required service delivery."
+    ]
+  },
+  "ralls-cfius-2014": {
+    "proposed_mission": "Review covered transactions for national-security risks while providing the procedural protections applicable to the affected property interests.",
+    "proposed_criteria": [
+      "Verify access to legally releasable adverse evidence and a meaningful rebuttal opportunity, with nondisclosure claims separately identified and reviewed."
+    ]
+  },
+  "nelson-colorado-2017": {
+    "proposed_mission": "Return eligible conviction-dependent payments after invalidation through a lawful, usable refund process.",
+    "proposed_criteria": [
+      "Trace a qualifying invalidated conviction through refund eligibility, responsible office, applicable deadlines and evidence of actual repayment."
+    ]
+  },
+  "jones-flowers-2006": {
+    "proposed_mission": "Carry out tax-sale procedures with constitutionally adequate notice and practical follow-up when delivery failure is known.",
+    "proposed_criteria": [
+      "For returned unclaimed notice, document additional reasonable steps before sale when practicable and the basis for the chosen response."
+    ]
+  }
+}

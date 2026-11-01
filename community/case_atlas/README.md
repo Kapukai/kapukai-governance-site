@@ -6,7 +6,7 @@ A curated public-source research database in Supabase schema `kapukai_case_atlas
 
 Each case identifies its historical decision, underlying jurisdiction, court, docket, named people's documented roles, a short event sequence, source pinpoints, finding, remedy and limitations. Names identify roles; reviewing judges and official-capacity defendants are not automatically accused wrongdoers. No private addresses, children’s identities or private customer records are collected.
 
-Engineering assurance is a testable reform proposal. Missing public signoff and causal responsibility remain unestablished unless evidence directly supports those propositions. Record designers, existing engineers, public-review obligations, attestations, counterevidence and rival causal explanations before making that claim.
+Publicly inspectable testing, evidence and accountable review are reform proposals. Missing public signoff and causal responsibility remain unestablished unless evidence directly supports those propositions. Record designers, existing engineers, public-review obligations, attestations, counterevidence and rival causal explanations before making that claim.
 
 ## Coverage protocol
 
@@ -23,6 +23,28 @@ Edition 1 is a purposive seed set. It is not all online cases, a national estima
 7. Publish and browser-test filter, empty-state, case links, sources and D.C. route guidance. Do not publish private intake or infer absent engineers from a silent opinion.
 
 Public page is a frozen reviewed edition, not live docket monitoring. No recurring crawl is configured. Source originals remain with their official publishers; URLs and pinpoints are stored here, not claimed preservation copies.
+
+## Current authoring and publication flow
+
+The current editorial input is the reviewed, manually authored `seed.json`, together with `edition.json`, `verification-contract.json` and `mission-proposals.json`. `build.py` generates public JSON/CSV/SQLite exports and `seed.sql`. The reviewed SQL is applied through authorized database tools to the restricted Supabase case, source and role tables and an immutable edition snapshot. The website serves the static public snapshot; it is not a dynamic database client and does not perform automated docket monitoring.
+
+Supabase therefore stores the structured records and edition history; it is not the sole authoring source in the current workflow. A future controlled editorial database workflow would require authenticated editing, version history, validation and a reviewed publication step before replacing the present authoring path. That workflow is not implemented by this edition.
+
+## Edition 3 verification and mission capability
+
+This edition adds transparency fields without adding external case findings. The original 20 cases, 30 case-source links and 52 documented roles are preserved.
+
+Each case has a `verification` object using the flat status keys in `verification-contract.json`. Source compilation is explicitly AI-assisted document review; independent human technical review is not recorded. Operational testing of the government decision process has not been performed by Kapukai. Test-run, metric and independent-replication arrays are empty. Third-party test evidence has not been systematically extracted. Current compliance is not independently verified, and insurance coverage is not reviewed. These statements concern Kapukai's work, not a claim that no other party has conducted testing. Browser and software checks of the atlas are separate.
+
+Empty arrays and absent estimates are not zeros, passes, failures or confidence scores. A future measurement record must state its claim, method, population, system version, conditions, sample design, denominator, missing-data treatment, uncertainty assumptions and limitations. A confidence interval is not an overall probability that a case claim or government decision is correct.
+
+Defaults fill missing verification and capability fields; explicitly authored fields in `seed.json` are preserved. The checks requiring empty operational arrays and UNASSESSED ratings apply specifically to edition 3.0. Before a later edition introduces assessed ratings, the evidence contract and validation checks must be reviewed and extended to enforce the assessment requirements. Changing a status string alone is not an assessment.
+
+`mission-proposals.json` defines a proposed mission and observable check for each bounded decision process. `mission_capability` carries that proposal, `criteria_status: proposed_not_validated`, `current_status: UNASSESSED`, null assessor/date and the reason assessment is blocked. Historical source findings remain separate. All 20 records are unassessed; no missing-data state is converted to NMC.
+
+The FMC/PMC/NMC terminology is a proposed governance adaptation of [AFMAN 13-1CRCV3, 26 April 2024, sections 4.3.1.1–4.3.1.3](https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1crcv3/afman13-1crcv3.pdf), whose original context is Control and Reporting Center operations. It is not an official military or government rating. A rating would require a current validated mission baseline, acceptance criteria, scoped operational evidence, a responsible assessor, date and currency limits. FMC denotes all defined objectives, PMC some but not all, and NMC total inability under the defined conditions; none is a statistical confidence percentage. Mission capability does not establish legal authority, rights compliance, safety certification or insurance coverage.
+
+The SQL starts with an edition-checksum guard. Reusing an edition ID with different content aborts the transaction; previously published edition rows are never overwritten. Reapplying the identical snapshot is allowed.
 
 ## Edition 2 priorities
 
