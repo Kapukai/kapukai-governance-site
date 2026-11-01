@@ -1,5 +1,5 @@
 {
-  "status": "prepared",
+  "status": "live_on_vercel",
   "edition": "1.0",
   "database_project": "tbxfsjipkrdwyctepesf",
   "database_schema": "kapukai_case_atlas",
@@ -19,6 +19,22 @@
     "community/public/evidence/decision-failures/cases.csv": "f3877ee0ac99bfe2acfb8e0231a0fb75d782b9d23e34a8cba602734dc3d9e005",
     "community/public/evidence/decision-failures/atlas.js": "137d93a0fbada72c9f036a35f841d21194b301a3c2220b7de890e5f79d0a2d78",
     "community/public/evidence/decision-failures/cases.json": "e2ffccf32c384093849a3ec8fa102f5dc18a8aec57c0b6e635c7b98cde1eb871",
-    "community/public/evidence/decision-failures/dc-guide.json": "029213b6cdd2c9f7d58a6d68666cdad4cb4072c8eafc41a03f603e246f0343a3"
-  }
+    "community/public/evidence/decision-failures/dc-guide.json": "029213b6cdd2c9f7d58a6d68666cdad4cb4072c8eafc41a03f603e246f0343a3",
+    "community/vercel.json": "97e3eea9756a35a8277148ae42962c6034c9e66e7e000695d684785e208b4ec4",
+    "docs/releases/decision-failures-atlas-2026-11-01.jpg": "29a186c7308dcf350d4cca89fadb9e7d40cdbcff02a73878a70e3292068e3bb3"
+  },
+  "git_commit": "190d3a1f57e6ff2a64e8e4a78a4627f7394a616e",
+  "pull_request": "https://github.com/Kapukai/kapukai-governance-site/pull/9",
+  "deployment_id": "dpl_8mfMUG7YQ1kgUJFRKWuP7ffNc8kz",
+  "public_url": "https://kapukai-community.vercel.app/evidence/decision-failures/",
+  "preview_url": "https://kapukai-community-ni2ljqfpn-kapukais-projects.vercel.app/evidence/decision-failures/",
+  "verification": [
+    "Vercel production READY; stable public route rendered 14 cases and 9 D.C. guide steps.",
+    "Browser tested D.C. filtering, name search, no-record state, reset and case deep links.",
+    "Downloaded SQLite byte-matches the release, integrity_check ok, 14 cases.",
+    "Independent review checked procedural posture, causal claims, documented roles and remedy scope.",
+    "Responsive CSS present; separate mobile device browser check not performed."
+  ],
+  "canonical_installation_blocker": "kapukai.org is a separate nginx host; no authenticated deployment access is available in this session.",
+  "proof_screenshot": "docs/releases/decision-failures-atlas-2026-11-01.jpg"
 }
