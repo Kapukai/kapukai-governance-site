@@ -13,15 +13,15 @@ required=['id','title','year','state','city','court','docket','level','pattern',
 for c in cases:
  for k in required:assert c.get(k), (c.get('id'),k)
  for s in c['sources']:assert s['url'].startswith('https://') and s['pinpoint']
- c['engineer_signoff_evidence']='Not established by reviewed source'
- c['engineering_causation_status']='not_established'
+ c.setdefault('engineer_signoff_evidence','Not established by reviewed source')
+ c.setdefault('engineering_causation_status','not_established')
  c.setdefault('current_status_note','Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.')
  c.setdefault('reviewed_at',edition['reviewed_at'])
  if 'evidence_type' not in c:
   status=c['status'].lower()
   c['evidence_type']='Guilty plea' if 'guilty' in status else 'Official investigation' if ('doj' in status or 'oig' in status or 'inspector' in status) else 'Preliminary relief' if 'preliminary' in status else 'Procedural ruling' if ('pleading' in status or 'survived' in status or 'summary judgment denied' in status) else 'Court merits decision'
  # Structured research gap: no inference from non-observation.
- c['signoff_research_needed']='Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.'
+ c.setdefault('signoff_research_needed','Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.')
  verification=copy.deepcopy(verification_contract['record_defaults'])
  verification.update(c.get('verification',{}))
  c['verification']=verification
