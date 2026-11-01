@@ -1,0 +1,62 @@
+{
+  "title": "One evidence standard. The right court for each claim.",
+  "reviewed_at": "2026-11-01",
+  "docket_certified": false,
+  "scope": "Research screening framework for qualified counsel, not a filed action or assurance of relief.",
+  "steps": [
+    {
+      "title": "Identify the injured person.",
+      "body": "Record concrete injury, its link to the defendant, and how the requested order would help. Prospective relief requires sufficient likelihood of future injury. Advocacy spending alone cannot manufacture standing.",
+      "source_url": "https://www.supremecourt.gov/opinions/23pdf/23-235_n7ip.pdf"
+    },
+    {
+      "title": "Identify the action and legal duty.",
+      "body": "For an APA claim, identify reviewable federal agency action, ordinarily final action with no other adequate judicial remedy. Name the constitutional, statutory or procedural duty allegedly breached. APA review and sovereign-immunity waiver remain subject to limits.",
+      "source_url": "https://uscode.house.gov/view.xhtml?edition=prelim&path=%2Fprelim%40title5%2Fpart1%2Fchapter7"
+    },
+    {
+      "title": "Establish why D.C. is the proper forum.",
+      "body": "Federal official residence or relevant events may support D.C. venue, subject to special statutes. A federal defendant does not automatically establish venue over unrelated state or local defendants.",
+      "source_url": "https://uscode.house.gov/us/usc/119-124/t28/s1391/"
+    },
+    {
+      "title": "Show why protection cannot wait.",
+      "body": "Prepare evidence addressing likely success, likely irreparable harm, the balance of equities and the public interest. Describe the threatened harm and requested protection precisely.",
+      "source_url": "https://www.supremecourt.gov/opinions/23pdf/23-367_f3b7.pdf"
+    },
+    {
+      "title": "Define who the remedy protects.",
+      "body": "CASA restricts universal equitable injunctions extending beyond complete relief for plaintiffs. It did not resolve APA vacatur. Broad relief needs its own lawful basis; a national map does not create one.",
+      "source_url": "https://www.supremecourt.gov/opinions/24pdf/24a884_8n59.pdf"
+    },
+    {
+      "title": "Test whether a real class exists.",
+      "body": "Rule 23 requires numerosity, commonality, typicality and adequate representation. Rule 23(b)(2) requires generally applicable conduct and appropriate classwide injunctive or declaratory relief. Rule 65 governs notice, specificity and persons bound.",
+      "source_url": "https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf"
+    },
+    {
+      "title": "Separate state and local claims.",
+      "body": "Section 1983 concerns federal-rights violations under color of state or D.C. law. It expressly restricts injunctions against judicial officers for judicial acts. Each claim needs its own forum, defendant and immunity analysis.",
+      "source_url": "https://uscode.house.gov/us/usc/119-124/t42/s1983/"
+    },
+    {
+      "title": "Check limits involving state proceedings.",
+      "body": "Section 2283 restricts federal injunctions staying state proceedings, with specified exceptions. Counsel must also assess other applicable jurisdictional and abstention rules; D.C. is not a universal appeal route.",
+      "source_url": "https://uscode.house.gov/us/usc/119-120/t28/s2283/"
+    },
+    {
+      "title": "Verify the remedy’s scope after appeal.",
+      "body": "Mahoney shows the distinction: the D.C. Circuit affirmed a First Amendment merits result in September 2026, but vacated the universal injunction and remanded for appropriately scoped relief.",
+      "source_url": "https://media.cadc.uscourts.gov/opinions/docs/2026/09/24-5207-2194324.pdf"
+    }
+  ],
+  "principles": [
+    "Treat absence of public engineering signoff as a reform hypothesis unless the source establishes that requirement and its violation.",
+    "Separate adjudicated findings, official investigative conclusions, allegations, settlements and engineering interpretation.",
+    "A shared failure pattern does not by itself establish common defendants, common facts, standing or class certification.",
+    "Publish official-capacity roles and public decisions; protect children, private addresses and sensitive case records.",
+    "A reviewing judge’s name identifies who decided the case; it is not an accusation of misconduct.",
+    "Record reversals, stays, limits, counterevidence and verification dates as visibly as the initial failure.",
+    "Proposed safety path: preserve originals, reproduce the failure, identify threatened injury and responsible actor, seek a precise protective remedy, then independently verify correction."
+  ]
+}

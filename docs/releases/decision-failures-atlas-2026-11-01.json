@@ -1,0 +1,24 @@
+{
+  "status": "prepared",
+  "edition": "1.0",
+  "database_project": "tbxfsjipkrdwyctepesf",
+  "database_schema": "kapukai_case_atlas",
+  "cases": 14,
+  "jurisdictions": 11,
+  "people": 38,
+  "sources": 17,
+  "canonical_installed": false,
+  "scope": "Curated initial edition; not exhaustive. Historical source review, not current docket monitoring.",
+  "database_verification": "Counts and edition checksum match local snapshot; RLS enabled on all 4 tables; anon/authenticated no schema/table access; no-policy informational advisory intentional.",
+  "snapshot_sha256": "e2ffccf32c384093849a3ec8fa102f5dc18a8aec57c0b6e635c7b98cde1eb871",
+  "files": {
+    "community/public/evidence/decision-failures/states.js": "a44526ccb62c8630cb95de7a524a204903ec0edb303e675b90546472a6847b14",
+    "community/public/evidence/decision-failures/index.html": "b82259de1be9f2cc79d8188327da9fab1201c5e6b798165e98d811291a151947",
+    "community/public/evidence/decision-failures/atlas.css": "1dbd0eba7e65d2604116269a32a39bf3fc6e2db6f9d3c121609f81e93875e81c",
+    "community/public/evidence/decision-failures/cases.sqlite": "1aee85cacb9de05c9c059307955ca61d0dbf7bae67465b7a4611690144c2d527",
+    "community/public/evidence/decision-failures/cases.csv": "f3877ee0ac99bfe2acfb8e0231a0fb75d782b9d23e34a8cba602734dc3d9e005",
+    "community/public/evidence/decision-failures/atlas.js": "137d93a0fbada72c9f036a35f841d21194b301a3c2220b7de890e5f79d0a2d78",
+    "community/public/evidence/decision-failures/cases.json": "e2ffccf32c384093849a3ec8fa102f5dc18a8aec57c0b6e635c7b98cde1eb871",
+    "community/public/evidence/decision-failures/dc-guide.json": "029213b6cdd2c9f7d58a6d68666cdad4cb4072c8eafc41a03f603e246f0343a3"
+  }
+}
