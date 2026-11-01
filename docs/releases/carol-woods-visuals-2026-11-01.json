@@ -1,5 +1,5 @@
 {
-  "status": "prepared; not installed on kapukai.org",
+  "status": "Vercel preview READY; canonical nginx installation pending",
   "canonical_url": "https://kapukai.org/evidence/carol-woods/",
   "original_page_sha256": "8eb3eac0e3a875c416bea1598a8f8d78b6fd00bf798f4d289222ebe2f49840c4",
   "files": {
@@ -13,5 +13,9 @@
     "evidence/carol-woods/visuals/01-record-to-consequence.png": "592f4c597d86dd1717789070402cedec0c39a674c8939283fa2f5991f6800bbc"
   },
   "source_scope": "Interview transcript reviewed; allegations not corroborated; audio not checked. CMA 2022 report used for historical market context only.",
-  "verification": "PNG renders inspected; HTML local assets checked; browser QA pending."
+  "verification": "PNG graphics inspected; local asset links checked; deployed page and first visual inspected in browser. Mobile browser QA not performed.",
+  "git_commit": "d3255b2ba75acc5ef3690b0256b48c5f80e28eed",
+  "vercel_deployment": "dpl_C3B143sGAFqNCVfM28JJjA6FVq3G",
+  "preview_url": "https://kapukai-community-jrkp00x1j-kapukais-projects.vercel.app/evidence/carol-woods/"
 }
+
