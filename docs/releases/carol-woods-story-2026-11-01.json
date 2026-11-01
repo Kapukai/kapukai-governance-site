@@ -1,0 +1,21 @@
+{
+  "status": "story sequence prepared; canonical nginx installation pending",
+  "canonical_url": "https://kapukai.org/evidence/carol-woods/",
+  "source_scope": "Nine scenes paraphrase the previously reviewed hosted transcript. Primary corroborating records and audio have not been independently checked.",
+  "files": {
+    "evidence/carol-woods/index.html": "580d0d5651c868227684e8f49c5f4de5188ea0154b366a3f10d28e61c76843c2",
+    "evidence/carol-woods/story.css": "744892f4ef4021ac8bbf865bdce953c06e9e8163dfa40eea08055c46d235134a",
+    "evidence/carol-woods/story/01.png": "415fab45171f51c7f69ced0f0c516e6f16f7ba33efb72dcb200ef5caa88b07ca",
+    "evidence/carol-woods/story/02.png": "92d6a7900d4574a6bc7e03ff742a1ff780001a9b6f414d22bd9f3af46b5d89b7",
+    "evidence/carol-woods/story/03.png": "b8284b2473b536aaf28d71b9df8721d9e85ea4ef096230d4e4c197b42ee98732",
+    "evidence/carol-woods/story/04.png": "b8fa7e7ff48a129dd144649fecf5c4194ff728c37b7b0cb4460fccc88bb14f4f",
+    "evidence/carol-woods/story/05.png": "f5a1851a1184279a9613edacea14e34480adedc7b90506c74a0cf0b7f34c32d2",
+    "evidence/carol-woods/story/06.png": "9eab39600791de2bb2030a8ffb359b170389e775c81fd32fb24fc228a4ea8419",
+    "evidence/carol-woods/story/07.png": "246f7f72bb603b03f048601e12fdcd8cfb91eab02bc05669cac80223c70ecc7a",
+    "evidence/carol-woods/story/08.png": "d6fe223e888bb7f805e1d84dae07c0f35e0fcb8925468db3fa9e44f9c405365d",
+    "evidence/carol-woods/story/09.png": "ffad9e2ef09cd224d2cb34a0245cfdd77f1c36a23e800a3a13e440bea28a0c81",
+    "evidence/carol-woods/story/carol-woods-story-sequence.zip": "1f0e1d5a79a8b7c421b1d93652701b2910334116d796a8bb905235e6b424afa6",
+    "evidence/carol-woods/story/source-map.json": "9708ac4c5339e3390a0502c2d093f081cf376ea266d7f6a5ee4a69b09c863034"
+  },
+  "verification": "Nine PNG slides inspected; page local download links verified."
+}
