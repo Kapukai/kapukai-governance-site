@@ -1,5 +1,5 @@
 {
-  "status": "prepared",
+  "status": "live_on_vercel",
   "edition": "2.0",
   "database_project": "tbxfsjipkrdwyctepesf",
   "database_schema": "kapukai_case_atlas",
@@ -23,6 +23,23 @@
     "community/public/evidence/decision-failures/cases.sqlite": "bfbe3f823d474df2ea183d2c616c33960daa2681749aa0aaeb3dd1866b9df09d",
     "community/public/evidence/decision-failures/index.html": "874e3f5abfadea762916e3072f11c1d4bca240584d57bbb991b95ebd35b1ceb8",
     "community/case_atlas/edition.json": "3fa7313c620845238c85511a083a8ef2546f1f449869efa48dd296ec04e2680c",
-    "community/case_atlas/research-edition-2.json": "5773f25ef47fcb133c7d089a98e802b8e4d3fbbc962467983d8bfe31631b56ec"
-  }
+    "community/case_atlas/research-edition-2.json": "5773f25ef47fcb133c7d089a98e802b8e4d3fbbc962467983d8bfe31631b56ec",
+    "docs/releases/decision-failures-atlas-edition-2-2026-11-01.jpg": "d507a1df4211257cf2ef73344af9154fa1f007245deb0b4d3af426711893a94c"
+  },
+  "git_commit": "eeb5f67e50b9fc056e06511e0334514d3561e7f7",
+  "pull_request": "https://github.com/Kapukai/kapukai-governance-site/pull/10",
+  "deployment_id": "dpl_5KQVUVrfZ3sF79u5RfbiQ5rTyf3Z",
+  "public_url": "https://kapukai-community.vercel.app/evidence/decision-failures/",
+  "preview_url": "https://kapukai-community-3zh1dn36w-kapukais-projects.vercel.app/evidence/decision-failures/",
+  "verification": [
+    "Production READY; stable public page renders 20 records, 3 featured cases and 9 guide steps.",
+    "Priority links clear conflicting filters, select the requested record and focus its heading.",
+    "D.C. case links and separately labelled follow-on disclosure note verified in browser.",
+    "Downloaded SQLite matches release bytes, integrity_check ok and edition 2.0 confirmed.",
+    "Supabase counts and edition 2.0 checksum match; edition 1.0 unchanged; RLS on and anon access denied.",
+    "Independent content review checked posture, roles, geography, causal limits and scoped remedies.",
+    "Responsive CSS present; separate mobile-device browser verification not performed."
+  ],
+  "proof_screenshot": "docs/releases/decision-failures-atlas-edition-2-2026-11-01.jpg",
+  "canonical_installation_blocker": "kapukai.org is a separate nginx host; authenticated deployment access remains unavailable."
 }
