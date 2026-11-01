@@ -1,5 +1,5 @@
 {
-  "status": "story sequence prepared; canonical nginx installation pending",
+  "status": "Public Vercel release deployed; canonical nginx installation pending",
   "canonical_url": "https://kapukai.org/evidence/carol-woods/",
   "source_scope": "Nine scenes paraphrase the previously reviewed hosted transcript. Primary corroborating records and audio have not been independently checked.",
   "files": {
@@ -17,5 +17,10 @@
     "evidence/carol-woods/story/carol-woods-story-sequence.zip": "1f0e1d5a79a8b7c421b1d93652701b2910334116d796a8bb905235e6b424afa6",
     "evidence/carol-woods/story/source-map.json": "9708ac4c5339e3390a0502c2d093f081cf376ea266d7f6a5ee4a69b09c863034"
   },
-  "verification": "Nine PNG slides inspected; page local download links verified."
+  "verification": "Nine slides visually inspected; local asset links checked; deployed desktop page and evidence disclosure tested. Mobile viewport not browser-tested. Stable public URL verified in browser.",
+  "git_commit": "19be4fdc291e7e4240e3003045fab79e8a82d04c",
+  "vercel_deployment": "dpl_DmUvKkn3F8XRsHUm4C3xPwSSZTDq",
+  "verified_preview_deployment": "dpl_GNmumrLY4XTameh6fyjh5mY7egLx",
+  "canonical_installed": false,
+  "public_url": "https://kapukai-community.vercel.app/evidence/carol-woods/"
 }
