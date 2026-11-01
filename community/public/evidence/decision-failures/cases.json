@@ -1,9 +1,58 @@
 {
-  "edition": "2.0",
+  "edition": "3.0",
   "reviewed_at": "2026-11-01",
   "scope_note": "Selected U.S. public-source cases and official findings. This is a curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.",
-  "engineering_note": "Kapukai proposes publicly accountable engineering assurance for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.",
+  "engineering_note": "Kapukai proposes publicly inspectable testing, evidence and accountable review for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.",
   "selection_method": "Editorial priorities reflect primary-source strength, understandable human impact, a specific failure that can be tested, concrete safeguards or correction duties, and distinct coverage added. They are not quantified return on investment, prevalence, culpability or danger scores.",
+  "verification_contract_version": "1.0",
+  "verification_method": {
+    "scope": "These statuses concern Kapukai's work on the government decision process in each case. Browser and software checks of the atlas itself are separate.",
+    "source_review": "Historical public-source documents were compiled with AI assistance. This is not an independent operational audit, human technical certification or real-time docket review.",
+    "missing_data": "An empty test, metric or replication array means no such evidence is recorded by Kapukai in this edition. It does not mean that nobody has tested the system, that there were zero errors, or that a result passed or failed.",
+    "measurement_requirements": [
+      "A specific claim, decision process, version, population, operating conditions and observation period.",
+      "A reproducible method, data provenance, sampling design, denominators, missing-data treatment and coverage limits.",
+      "Measured results and appropriate uncertainty estimates with their assumptions; hypothesis tests must identify the hypothesis, test method and decision rule.",
+      "Named review responsibility, independence, replication evidence, known limitations and conditions requiring re-evaluation."
+    ],
+    "confidence": "No numerical confidence, error-rate, significance or reliability estimate is generated from case counts, document review or absent data.",
+    "insurance": "Testing and measurement may inform underwriting. Insurability, insurer acceptance and actual policy coverage have not been reviewed in this edition.",
+    "references": [
+      {
+        "title": "NIST AI RMF Playbook: Measure",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
+        "pinpoint": "MEASURE 1.1: document risks not measured; MEASURE 2.1: document test sets, metrics and tools. Applied here as a measurement practice, not certification of this atlas."
+      },
+      {
+        "title": "NIST Engineering Statistics Handbook: Confidence Limits for the Mean",
+        "url": "https://itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+        "pinpoint": "Confidence-level interpretation, sampling assumptions and hypothesis-test definition. No statistical estimate is inferred for these case records."
+      }
+    ]
+  },
+  "mission_capability_method": {
+    "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+    "source": {
+      "title": "AFMAN 13-1CRCV3, 26 April 2024",
+      "url": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1crcv3/afman13-1crcv3.pdf",
+      "pinpoint": "Sections 4.3.1.1–4.3.1.3: FMC, PMC and NMC in the Control and Reporting Center operational context."
+    },
+    "adaptation_scope": "Each case proposes one bounded decision-process mission that includes applicable rights and legal constraints. The proposal is not an assigned agency mission or a validated assessment baseline.",
+    "status_definitions": {
+      "UNASSESSED": "A current capability determination has not been supported by a validated mission baseline, acceptance criteria and operational evidence.",
+      "FMC": "Proposed adaptation: current evidence demonstrates capability to perform all defined mission objectives within the validated criteria and stated conditions.",
+      "PMC": "Proposed adaptation: current evidence demonstrates capability to perform some, but not all, defined mission objectives within the validated criteria and stated conditions.",
+      "NMC": "Proposed adaptation: current evidence establishes total inability to perform the defined mission objectives under the stated conditions. Missing evidence alone is insufficient."
+    },
+    "assessment_requirements": [
+      "Specify the mission objectives, scope, applicable rights and legal constraints, operating conditions and version.",
+      "Validate acceptance criteria and the method of assessing each objective before assigning a rating.",
+      "Record current operational evidence, failures, uncertainties, assessment date, responsible assessor and independent review.",
+      "Document the re-evaluation triggers and expiry or currency limits of the rating."
+    ],
+    "legal_boundary": "Mission capability is separate from lawful authority, rights compliance, safety certification and insurance coverage. A capability label cannot authorize a government action or override a legal constraint.",
+    "interpretation": "All records are UNASSESSED in this edition. Historical court findings are retained separately; they do not establish a present whole-agency capability rating. FMC terminology does not imply 100% statistical confidence or zero risk."
+  },
   "cases": [
     {
       "id": "barry-2016",
@@ -52,7 +101,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Court merits decision",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Determine benefit eligibility using the governing legal test, with usable notice and a timely opportunity to challenge adverse decisions.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "For each matched record, retain the governing eligibility criteria, evidence applying each criterion, notice and correction history."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "Michigan automatically disqualified SNAP recipients on warrant matches. Its policy violated SNAP and its notices denied due process.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "herring-2009",
@@ -105,7 +183,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Court merits decision",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Support arrest decisions with accurate current warrant information and effective transmission of recalls.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Compare recalled warrants with downstream arrest records and verify when each receiving system acknowledged the recall."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "A recalled warrant remained in Dale County's database. Coffee County officers arrested Herring before the mistake was discovered.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "goodlett-warrant",
@@ -150,7 +257,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Guilty plea",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Support search-warrant decisions with truthful, traceable factual evidence and the applicable legal authorization.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Trace each material affidavit claim to its source and document discrepancies, review and disposition before authorization."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "Goodlett pleaded guilty and admitted conspiring to falsify the search-warrant affidavit for Breonna Taylor's home and conceal it from investigators.",
+        "historical_evidence_status": "Guilty plea",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "ciavarella-juvenile",
@@ -208,7 +344,36 @@
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Make juvenile adjudication and placement decisions under applicable rights and welfare duties, with conflicts and financial interests disclosed and controlled.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Trace placements to their evidence and lawful criteria, and independently review disclosed and undisclosed financial connections."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "Ciavarella was convicted in 2011. DOJ reported bribes and kickbacks connected to private juvenile detention; Pennsylvania vacated thousands of juvenile convictions.",
+        "historical_evidence_status": "Criminal conviction",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "ms-l-tracking",
@@ -254,7 +419,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Official investigation",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Preserve reliable parent-child identity links and interagency handoffs so lawful care, contact and reunification duties can be carried out.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Reconcile person identifiers across each handoff and verify the responsible owner, location record and reunification status."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "HHS OIG found that lack of an integrated tracking system complicated identifying separated children; some were still identified months after the court order.",
+        "historical_evidence_status": "Official investigation",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "md-abbott",
@@ -303,7 +497,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Court merits decision",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Provide safe foster-care placements and effective case supervision within applicable child-protection duties.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Reproduce workload, placement-safety and monitoring measures from dated source records and verify corrective action on identified hazards."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The Fifth Circuit recounted upheld due-process violations from overburdened caseworkers and inadequate monitoring of licensed placements.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "santosky-kramer",
@@ -348,7 +571,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Court merits decision",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Decide parental-rights termination using the required evidentiary standard and procedural protections.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Show which findings satisfy each required element and evidentiary standard, with the affected person’s opportunity to contest recorded."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "Due process requires at least clear and convincing evidence before a state permanently terminates parental rights.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "ferguson-2015",
@@ -402,7 +654,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Official investigation",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Conduct municipal policing and court enforcement within constitutional requirements and public-safety objectives.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Audit sampled enforcement decisions, revenue incentives, court practices and documented remedies against the applicable requirements."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "DOJ found unconstitutional police and municipal-court practices, undue emphasis on revenue generation and racial bias.",
+        "historical_evidence_status": "Official investigation",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "evans-1995",
@@ -447,7 +728,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Court merits decision",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Transmit warrant withdrawals accurately and promptly so police decisions use current court authority.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Confirm each quashed warrant is withdrawn from every receiving system and investigate any later reliance on the stale record."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The police computer indicated an outstanding warrant that had already been quashed.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "kw-armstrong-2015",
@@ -500,7 +810,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Preliminary relief",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Make Medicaid service-budget decisions with adequate reasons and a meaningful opportunity to challenge them.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Reproduce each challenged budget calculation from disclosed inputs and rules, and verify the notice and review pathway."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The Ninth Circuit upheld an injunction preventing individual Developmental Disabilities Waiver budget reductions without adequate notice.",
+        "historical_evidence_status": "Preliminary relief",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "brown-plata",
@@ -545,7 +884,36 @@
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
       "evidence_type": "Court merits decision",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Provide constitutionally adequate prison medical and mental-health care within operational capacity limits.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Measure care access, delays and outcomes against stated requirements, with independently reviewable capacity and correction records."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The Supreme Court upheld a population-reduction order; overcrowding was a primary cause of unconstitutional care.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "houston-evaas",
@@ -586,7 +954,36 @@
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Support employment evaluations with reproducible scores and a meaningful opportunity to challenge consequential results.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Reproduce a sampled score from its versioned inputs and method, and record how the affected employee can identify and correct an error."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The court denied the district summary judgment on procedural due process while granting it on other claims.",
+        "historical_evidence_status": "Procedural ruling",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "cahoo-midas",
@@ -635,7 +1032,36 @@
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "reviewed_at": "2026-11-01",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Determine unemployment-fraud allegations using validated evidence and lawful notice, review and collection procedures.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Test fraud-decision rules against independently reviewed cases, record error counts and denominators, and trace corrections into collections."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The Sixth Circuit allowed the due-process claim to proceed past qualified-immunity dismissal.",
+        "historical_evidence_status": "Procedural ruling",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "mahoney-capitol-police-2026",
@@ -692,7 +1118,36 @@
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
       "evidence_type": "Court merits decision",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Administer access for protected expression using constitutional, consistent and reviewable permission rules.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Compare permission decisions with their stated criteria, evidence and reasons, and verify the scope of any corrective order."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "Congressional discretion over public speech made the restriction unreasonable, even in a nonpublic forum.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "turner-rogers-2011",
@@ -737,7 +1192,36 @@
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Enforce child-support obligations through lawful procedures, including adequate ability-to-pay safeguards before civil-contempt incarceration.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Before incarceration for civil contempt over unpaid child support, verify notice, financial information, opportunity to respond and an express ability-to-pay finding."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "Turner received neither counsel nor adequate alternative safeguards. The court made no express finding that he could pay.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "williams-detroit-2024",
@@ -795,7 +1279,36 @@
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Investigate crimes using independently corroborated evidence and documented approvals before facial-recognition-related arrests or warrant requests.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Trace a sampled facial-recognition lead to independent reliable evidence, examiner and supervisor sign-offs, written command approvals and audit follow-up."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The complaint alleges wrongful arrest; liability was not adjudicated. The signed settlement requires independent reliable evidence beyond a face-recognition lead and lineup.",
+        "historical_evidence_status": "Settlement with retained enforcement jurisdiction",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "dl-child-find-2017",
@@ -856,7 +1369,36 @@
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Identify eligible preschool children and deliver timely special-education services and transitions under the applicable duties and court order.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Reproduce delivery rates and denominators from eligibility deadlines, handoff timestamps and evidence of full required service delivery."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The District violated IDEA duties concerning identification, timely eligibility determinations and transition into preschool services.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "ralls-cfius-2014",
@@ -911,7 +1453,36 @@
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Review covered transactions for national-security risks while providing the procedural protections applicable to the affected property interests.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Verify access to legally releasable adverse evidence and a meaningful rebuttal opportunity, with nondisclosure claims separately identified and reviewed."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "The presidential order deprived Ralls of protected property interests without due process.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "nelson-colorado-2017",
@@ -975,7 +1546,36 @@
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Return eligible conviction-dependent payments after invalidation through a lawful, usable refund process.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "Trace a qualifying invalidated conviction through refund eligibility, responsible office, applicable deadlines and evidence of actual repayment."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "Retaining these conviction-dependent payments under Colorado's exoneration scheme violated procedural due process after the convictions were invalidated and no retrial would occur.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     },
     {
       "id": "jones-flowers-2006",
@@ -1034,7 +1634,36 @@
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
-      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation."
+      "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.",
+      "verification": {
+        "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+        "source_review": "document_review_only",
+        "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+        "test_status": "not_performed_by_kapukai",
+        "operational_test_runs": [],
+        "measurement_status": "not_estimated_by_kapukai",
+        "metrics": [],
+        "independent_replications": [],
+        "third_party_test_evidence": "not_systematically_extracted",
+        "current_compliance": "not_independently_verified",
+        "insurance_coverage": "not_reviewed"
+      },
+      "mission_capability": {
+        "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+        "current_status": "UNASSESSED",
+        "mission": "Carry out tax-sale procedures with constitutionally adequate notice and practical follow-up when delivery failure is known.",
+        "scope": "The specific decision process described in this record, not the whole agency, court or government.",
+        "criteria_status": "proposed_not_validated",
+        "proposed_criteria": [
+          "For returned unclaimed notice, document additional reasonable steps before sale when practicable and the basis for the chosen response."
+        ],
+        "assessed_at": null,
+        "assessor": null,
+        "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.",
+        "historical_evidence": "When mailed tax-sale notice returns unclaimed, the state must take additional reasonable steps before selling the property if practicable. Available steps made the notice effort insufficient here.",
+        "historical_evidence_status": "Court merits decision",
+        "legal_authorization_status": "not_determined_by_capability_rating"
+      }
     }
   ]
 }

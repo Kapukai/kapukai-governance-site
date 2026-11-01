@@ -1,0 +1,63 @@
+{
+  "record_defaults": {
+    "scope": "Kapukai work on this record; source authors may have separate evaluations.",
+    "source_review": "document_review_only",
+    "review_method": "AI-assisted source compilation; independent human technical review not recorded.",
+    "test_status": "not_performed_by_kapukai",
+    "operational_test_runs": [],
+    "measurement_status": "not_estimated_by_kapukai",
+    "metrics": [],
+    "independent_replications": [],
+    "third_party_test_evidence": "not_systematically_extracted",
+    "current_compliance": "not_independently_verified",
+    "insurance_coverage": "not_reviewed"
+  },
+  "methodology": {
+    "scope": "These statuses concern Kapukai's work on the government decision process in each case. Browser and software checks of the atlas itself are separate.",
+    "source_review": "Historical public-source documents were compiled with AI assistance. This is not an independent operational audit, human technical certification or real-time docket review.",
+    "missing_data": "An empty test, metric or replication array means no such evidence is recorded by Kapukai in this edition. It does not mean that nobody has tested the system, that there were zero errors, or that a result passed or failed.",
+    "measurement_requirements": [
+      "A specific claim, decision process, version, population, operating conditions and observation period.",
+      "A reproducible method, data provenance, sampling design, denominators, missing-data treatment and coverage limits.",
+      "Measured results and appropriate uncertainty estimates with their assumptions; hypothesis tests must identify the hypothesis, test method and decision rule.",
+      "Named review responsibility, independence, replication evidence, known limitations and conditions requiring re-evaluation."
+    ],
+    "confidence": "No numerical confidence, error-rate, significance or reliability estimate is generated from case counts, document review or absent data.",
+    "insurance": "Testing and measurement may inform underwriting. Insurability, insurer acceptance and actual policy coverage have not been reviewed in this edition.",
+    "references": [
+      {
+        "title": "NIST AI RMF Playbook: Measure",
+        "url": "https://airc.nist.gov/airmf-resources/playbook/measure/",
+        "pinpoint": "MEASURE 1.1: document risks not measured; MEASURE 2.1: document test sets, metrics and tools. Applied here as a measurement practice, not certification of this atlas."
+      },
+      {
+        "title": "NIST Engineering Statistics Handbook: Confidence Limits for the Mean",
+        "url": "https://itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+        "pinpoint": "Confidence-level interpretation, sampling assumptions and hypothesis-test definition. No statistical estimate is inferred for these case records."
+      }
+    ]
+  },
+  "mission_capability_method": {
+    "framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.",
+    "source": {
+      "title": "AFMAN 13-1CRCV3, 26 April 2024",
+      "url": "https://static.e-publishing.af.mil/production/1/af_a3/publication/afman13-1crcv3/afman13-1crcv3.pdf",
+      "pinpoint": "Sections 4.3.1.1–4.3.1.3: FMC, PMC and NMC in the Control and Reporting Center operational context."
+    },
+    "adaptation_scope": "Each case proposes one bounded decision-process mission that includes applicable rights and legal constraints. The proposal is not an assigned agency mission or a validated assessment baseline.",
+    "status_definitions": {
+      "UNASSESSED": "A current capability determination has not been supported by a validated mission baseline, acceptance criteria and operational evidence.",
+      "FMC": "Proposed adaptation: current evidence demonstrates capability to perform all defined mission objectives within the validated criteria and stated conditions.",
+      "PMC": "Proposed adaptation: current evidence demonstrates capability to perform some, but not all, defined mission objectives within the validated criteria and stated conditions.",
+      "NMC": "Proposed adaptation: current evidence establishes total inability to perform the defined mission objectives under the stated conditions. Missing evidence alone is insufficient."
+    },
+    "assessment_requirements": [
+      "Specify the mission objectives, scope, applicable rights and legal constraints, operating conditions and version.",
+      "Validate acceptance criteria and the method of assessing each objective before assigning a rating.",
+      "Record current operational evidence, failures, uncertainties, assessment date, responsible assessor and independent review.",
+      "Document the re-evaluation triggers and expiry or currency limits of the rating."
+    ],
+    "legal_boundary": "Mission capability is separate from lawful authority, rights compliance, safety certification and insurance coverage. A capability label cannot authorize a government action or override a legal constraint.",
+    "interpretation": "All records are UNASSESSED in this edition. Historical court findings are retained separately; they do not establish a present whole-agency capability rating. FMC terminology does not imply 100% statistical confidence or zero risk."
+  }
+}
