@@ -2,6 +2,7 @@
 import csv,hashlib,json,sqlite3
 from pathlib import Path
 R=Path(__file__).resolve().parent
+edition=json.loads((R/'edition.json').read_text())
 O=R.parent/'public/evidence/decision-failures';O.mkdir(parents=True,exist_ok=True)
 cases=json.loads((R/'seed.json').read_text())
 assert len({x['id'] for x in cases})==len(cases)
@@ -11,16 +12,16 @@ for c in cases:
  for s in c['sources']:assert s['url'].startswith('https://') and s['pinpoint']
  c['engineer_signoff_evidence']='Not established by reviewed source'
  c['engineering_causation_status']='not_established'
- c['current_status_note']='Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.'
- c['reviewed_at']='2026-11-01'
+ c.setdefault('current_status_note','Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.')
+ c.setdefault('reviewed_at',edition['reviewed_at'])
  if 'evidence_type' not in c:
   status=c['status'].lower()
   c['evidence_type']='Guilty plea' if 'guilty' in status else 'Official investigation' if ('doj' in status or 'oig' in status or 'inspector' in status) else 'Preliminary relief' if 'preliminary' in status else 'Procedural ruling' if ('pleading' in status or 'survived' in status or 'summary judgment denied' in status) else 'Court merits decision'
  # Structured research gap: no inference from non-observation.
  c['signoff_research_needed']='Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.'
-metadata={'edition':'1.0','reviewed_at':'2026-11-01','scope_note':'Selected U.S. public-source cases and official findings. This is an initial curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.','engineering_note':'Kapukai proposes publicly accountable engineering assurance for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.','cases':cases}
+metadata={'edition':edition['edition'],'reviewed_at':edition['reviewed_at'],'scope_note':'Selected U.S. public-source cases and official findings. This is a curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.','engineering_note':'Kapukai proposes publicly accountable engineering assurance for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.','selection_method':edition['selection_method'],'cases':cases}
 encoded=json.dumps(metadata,ensure_ascii=False,indent=2)+'\n';(O/'cases.json').write_text(encoded)
-fields=required+['evidence_type','engineer_signoff_evidence','engineering_causation_status','current_status_note','reviewed_at','signoff_research_needed']
+fields=required+['evidence_type','engineer_signoff_evidence','engineering_causation_status','current_status_note','reviewed_at','signoff_research_needed','strategic_value','control_to_test','editorial_priority','featured','follow_on_note']
 with (O/'cases.csv').open('w',newline='') as f:
  w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');w.writeheader()
  for c in cases:w.writerow({k:json.dumps(v,ensure_ascii=False) if isinstance(v,(list,dict)) else v for k,v in c.items() if k in fields})
@@ -30,7 +31,7 @@ db=sqlite3.connect(p);db.executescript('PRAGMA foreign_keys=ON; CREATE TABLE cas
 for c in cases:
  db.execute('INSERT INTO cases VALUES(?,?,?,?,?,?,?)',(c['id'],c['title'],c['state'],c['level'],c['pattern'],c['evidence_type'],json.dumps(c,ensure_ascii=False)))
  db.executemany('INSERT INTO sources VALUES(?,?,?,?)',[(c['id'],s['url'],s['title'],s['pinpoint']) for s in c['sources']]);db.executemany('INSERT INTO people VALUES(?,?,?)',[(c['id'],s['name'],s['role']) for s in c['people']])
-checksum=hashlib.sha256(encoded.encode()).hexdigest();db.execute('INSERT INTO edition VALUES(?,?,?,?,?)',('1.0','2026-11-01',metadata['scope_note'],metadata['engineering_note'],checksum));db.commit();assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok';db.close()
+checksum=hashlib.sha256(encoded.encode()).hexdigest();db.execute('INSERT INTO edition VALUES(?,?,?,?,?)',(edition['edition'],edition['reviewed_at'],metadata['scope_note'],metadata['engineering_note'],checksum));db.commit();assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok';db.close()
 def quote(s):return "'"+str(s).replace("'","''")+"'"
 values=[]
 for c in cases:
@@ -40,6 +41,6 @@ sql='BEGIN;\nINSERT INTO kapukai_case_atlas.cases(id,title,state,government_leve
 for c in cases:
  for s in c['sources']:sql+='INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('+','.join(map(quote,[c['id'],s['url'],s['title'],s['pinpoint']]))+') ON CONFLICT(case_id,url) DO UPDATE SET title=excluded.title,pinpoint=excluded.pinpoint;\n'
  for s in c['people']:sql+='INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('+','.join(map(quote,[c['id'],s['name'],s['role']]))+') ON CONFLICT DO NOTHING;\n'
-sql+='INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha256,source_review_date) VALUES('+','.join(map(quote,['1.0',encoded,checksum,'2026-11-01']))+') ON CONFLICT(edition) DO NOTHING;\nCOMMIT;\n'
+sql+='INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha256,source_review_date) VALUES('+','.join(map(quote,[edition['edition'],encoded,checksum,edition['reviewed_at']]))+') ON CONFLICT(edition) DO NOTHING;\nCOMMIT;\n'
 (R/'seed.sql').write_text(sql)
 print(json.dumps({'cases':len(cases),'jurisdictions':len(set(c['state'] for c in cases)),'people':sum(len(c['people']) for c in cases),'sources':sum(len(c['sources']) for c in cases),'sha256':checksum}))
