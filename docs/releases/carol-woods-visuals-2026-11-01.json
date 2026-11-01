@@ -1,0 +1,17 @@
+{
+  "status": "prepared; not installed on kapukai.org",
+  "canonical_url": "https://kapukai.org/evidence/carol-woods/",
+  "original_page_sha256": "8eb3eac0e3a875c416bea1598a8f8d78b6fd00bf798f4d289222ebe2f49840c4",
+  "files": {
+    "evidence/carol-woods/index.html": "564c5f52ae50188967b4e7948db363c2e263b907243c86ce791925b1378719b5",
+    "evidence/carol-woods/visuals/03-verify-before-impact.svg": "95ba765477807efe4c08af996f78cf4d93e62a4e228c0576cf131a2efbd2e00e",
+    "evidence/carol-woods/visuals/carol-woods-visual-kit.zip": "8ea6e1d34e2174cc75431ba7f3e510dd1caeb5c0be286069958f7ded1b11f90d",
+    "evidence/carol-woods/visuals/01-record-to-consequence.svg": "45a8ec1e5176d26ca9e1740611929730d63f6ddcdf8068556ad0ed9517e548fd",
+    "evidence/carol-woods/visuals/02-follow-the-money.png": "1bc192bfa3c0fdfa95175812972c62abdc0f053eed5158de34668e5822c54db9",
+    "evidence/carol-woods/visuals/02-follow-the-money.svg": "a797b2dbaa9d5c7b5826d714e36c564b6b62be848e25fbe309194b64afc94295",
+    "evidence/carol-woods/visuals/03-verify-before-impact.png": "e8828120643d5896cf911962f208638aa49daf95ea99c3aac26f9187a5fc42a2",
+    "evidence/carol-woods/visuals/01-record-to-consequence.png": "592f4c597d86dd1717789070402cedec0c39a674c8939283fa2f5991f6800bbc"
+  },
+  "source_scope": "Interview transcript reviewed; allegations not corroborated; audio not checked. CMA 2022 report used for historical market context only.",
+  "verification": "PNG renders inspected; HTML local assets checked; browser QA pending."
+}
