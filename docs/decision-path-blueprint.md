@@ -1,6 +1,6 @@
 # Decision paths: build blueprint
 
-Design date: November 1, 2026. Target: atlas edition 4.0, three mapped cases within the existing 20-case collection. Deployment and completed checks are recorded in the [release manifests](releases/); this blueprint does not certify a live release.
+Design date: November 1, 2026. Implemented: atlas edition 4.0, three mapped cases within the existing 20-case collection. The pilot is published at the [Vercel atlas](https://kapukai-community.vercel.app/evidence/decision-failures/). Deployment evidence and limitations are recorded in the [edition 4 release manifest](releases/decision-failures-atlas-edition-4-2026-11-01.json).
 
 ## The reader’s task
 
@@ -13,7 +13,7 @@ The pilot covers Barry’s benefits database match, Turner’s ability-to-pay de
 ## Evidence and role contract
 
 - Every actor and factual step needs a source URL and pinpoint. A valid URL is not evidence that the source supports the claim; source review is a separate task.
-- Classify the actor’s role in this record: institutional operator, decision authority, affected person, reviewer or representative. A reviewing judge is not automatically the operator of the challenged decision. Membership, delegated authority and actual exercise of control are separate facts.
+- Classify the actor’s role in this record: institutional operator, decision maker, affected person, reviewer or representative. The stored decision_authority category is displayed as “Decision maker”; it does not certify lawful authority. A reviewing judge is not automatically the operator of the challenged decision. Membership, delegated authority and actual exercise of control are separate facts.
 - Label allegations, court findings, court orders, settlement terms and source descriptions distinctly. An agreed or ordered correction does not prove implementation.
 - Record access to see, challenge or correct a decision with a scoped description. Distinguish a permission on paper from practical access and its actual use; do not infer one from another.
 - Record technology use per actor. Institutional and affected-person AI use can differ. Automation does not automatically mean AI. Missing evidence remains “not established.”
@@ -27,11 +27,11 @@ The public site reads the frozen JSON export with the existing vanilla JavaScrip
 
 ## Milestones and completion gates
 
-| Milestone | Gate | Status at blueprint creation |
+| Milestone | Gate | Release status |
 |---|---|---|
-| 1. Three source-backed paths | Four scoped stages per case; all actors resolve; evidence labels and pinpoints reviewed; unknowns explicit | Being implemented |
-| 2. Readable visual pilot | Map/Compare leads to the correct path; every stage exposes its source; narrow screens and keyboard use remain practical | Being implemented |
-| 3. Reproducible release | Contract and mutation tests pass; exports agree; original case fields remain unchanged; database snapshot checksum matches; preview and production checks recorded | Pending verification |
+| 1. Three source-backed paths | Four scoped stages per case; all actors resolve; evidence labels and pinpoints reviewed; unknowns explicit | Implemented; AI-assisted source consistency review passed |
+| 2. Readable visual pilot | Map/Compare leads to the correct path; every stage exposes its source; narrow screens and keyboard use remain practical | Implemented; desktop browser checks passed. Separate phone-device verification pending |
+| 3. Reproducible release | Contract and mutation tests pass; exports agree; original case fields remain unchanged; database snapshot checksum matches; preview and production checks recorded | 23 automated tests and GitHub CI passed; database snapshot verified; production deployed |
 | 4. Independent review and reader trial | Human reviewer checks each factual link; trial measures comprehension and correct interpretation of unknowns | Not performed |
 | 5. Expand coverage | Resolve pilot findings; apply the same source and test gates to each additional case | Deferred |
 
@@ -51,6 +51,8 @@ python3 -m http.server 8000 --directory community/public
 ```
 
 Open `http://localhost:8000/evidence/decision-failures/`. Check all three mapped cases, an unmapped case, direct links, shared filters, an empty result, source links, keyboard focus and disclosures. Also inspect at phone width; desktop success alone does not establish mobile usability. The build regenerates local exports but does not publish or change Supabase.
+
+The 23 automated checks include rejection of dangling actors, missing source pinpoints, invalid evidence states and attempts to turn allegations or remedy requirements into documented use or availability. The read-only GitHub Actions workflow runs on relevant pull requests and main-branch changes; it does not publish data, access Supabase or hold deployment credentials. Repository branch protection is not configured by this release.
 
 Mutation tests should reject dangling actors, missing source pinpoints and invalid evidence states. Export checks should confirm deterministic data, SQLite integrity and preserved historical fields. Publish the exact verified commit to Vercel and record its deployment and checks. Install that tested release on the separate kapukai.org host only when authenticated access is available; preserve existing pages and DNS.
 
