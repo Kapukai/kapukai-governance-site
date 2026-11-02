@@ -1,5 +1,5 @@
 {
-  "edition": "3.0",
+  "edition": "4.0",
   "reviewed_at": "2026-11-01",
   "scope_note": "Selected U.S. public-source cases and official findings. This is a curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.",
   "engineering_note": "Kapukai proposes publicly inspectable testing, evidence and accountable review for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.",
@@ -96,6 +96,216 @@
         }
       ],
       "engineering_hypothesis": "Test executable eligibility rules against governing law and make notice and correction usable; no engineering-licensure issue was decided.",
+      "decision_path": {
+        "schema_version": "1.0",
+        "reviewed_at": "2026-11-01",
+        "review_method": "AI-assisted primary-source extraction; independent human review not recorded.",
+        "actors": [
+          {
+            "id": "state_police",
+            "label": "Michigan State Police",
+            "kind": "institution",
+            "role": "institutional_operator",
+            "affiliation": "Michigan State Police",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 3: LEIN warrant records"
+              }
+            ]
+          },
+          {
+            "id": "benefits_agency",
+            "label": "Michigan benefits agency",
+            "kind": "institution",
+            "role": "decision_authority",
+            "affiliation": "Michigan Department of Health and Human Services",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 2–4"
+              }
+            ]
+          },
+          {
+            "id": "barry",
+            "label": "Walter Barry",
+            "kind": "person",
+            "role": "affected_person",
+            "affiliation": "Private individual",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 4–5"
+              }
+            ]
+          },
+          {
+            "id": "sixth_circuit",
+            "label": "Sixth Circuit",
+            "kind": "institution",
+            "role": "reviewer",
+            "affiliation": "Federal appellate court",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 1–2, 14–17"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": "warrant_match",
+            "phase": "information",
+            "title": "A warrant record becomes a match",
+            "actor_ids": [
+              "state_police",
+              "benefits_agency"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "Michigan matched assistance recipients against police warrant records.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 3"
+              }
+            ]
+          },
+          {
+            "id": "benefits_close",
+            "phase": "decision",
+            "title": "The match closes the case",
+            "actor_ids": [
+              "benefits_agency"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "The interface automatically closed SNAP cases and generated a generic disqualification notice.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 3–4"
+              }
+            ]
+          },
+          {
+            "id": "benefits_lost",
+            "phase": "impact",
+            "title": "Barry loses food assistance",
+            "actor_ids": [
+              "benefits_agency"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "Barry missed July 2013 benefits while awaiting a hearing; payment followed his federal lawsuit.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 5"
+              }
+            ]
+          },
+          {
+            "id": "injunction_affirmed",
+            "phase": "correction",
+            "title": "The court rejects the shortcut",
+            "actor_ids": [
+              "sixth_circuit"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "The Sixth Circuit affirmed relief against warrant-only disqualification and inadequate notice.",
+            "evidence_status": "court_order",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 14–17, 20"
+              }
+            ]
+          }
+        ],
+        "access": [
+          {
+            "actor_id": "barry",
+            "capability": "see",
+            "status": "documented_barrier",
+            "detail": "Notices omitted the warrant details needed to understand and contest disqualification.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 15–16"
+              }
+            ]
+          },
+          {
+            "actor_id": "barry",
+            "capability": "challenge",
+            "status": "documented_available",
+            "detail": "Barry requested hearings and filed suit; his second hearing was delayed.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 4–5"
+              }
+            ]
+          }
+        ],
+        "technology": [
+          {
+            "actor_id": "benefits_agency",
+            "kind": "automation",
+            "status": "documented_use",
+            "detail": "Automated recipient-to-warrant matching and case closure.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 3"
+              }
+            ]
+          },
+          {
+            "actor_id": "benefits_agency",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "barry",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          }
+        ],
+        "correction": {
+          "status": "ordered",
+          "description": "Affirmed injunction against SNAP disqualification solely on an outstanding felony warrant.",
+          "implementation_status": "not_independently_verified",
+          "source_refs": [
+            {
+              "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+              "pinpoint": "Opinion pp. 14, 17, 20"
+            }
+          ]
+        },
+        "limitations": [
+          "Historical Michigan policy; current implementation is unverified.",
+          "This path does not establish that an absent engineer caused the failure."
+        ]
+      },
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
@@ -1189,6 +1399,209 @@
       "featured": true,
       "control_to_test": "Before incarceration for civil contempt over unpaid child support, does the record establish the required ability-to-pay assessment, notice, financial information, opportunity to respond and express finding?",
       "reviewed_at": "2026-11-01",
+      "decision_path": {
+        "schema_version": "1.0",
+        "reviewed_at": "2026-11-01",
+        "review_method": "AI-assisted primary-source extraction; independent human review not recorded.",
+        "actors": [
+          {
+            "id": "clerk",
+            "label": "Family-court clerk",
+            "kind": "person",
+            "role": "institutional_operator",
+            "affiliation": "South Carolina family court",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 436–437"
+              }
+            ]
+          },
+          {
+            "id": "family_court",
+            "label": "South Carolina family court",
+            "kind": "institution",
+            "role": "decision_authority",
+            "affiliation": "South Carolina judiciary",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 437–438"
+              }
+            ]
+          },
+          {
+            "id": "turner",
+            "label": "Michael Turner",
+            "kind": "person",
+            "role": "affected_person",
+            "affiliation": "Private individual",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 436–438"
+              }
+            ]
+          },
+          {
+            "id": "supreme_court",
+            "label": "U.S. Supreme Court",
+            "kind": "institution",
+            "role": "reviewer",
+            "affiliation": "Federal judiciary",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 447–449"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": "arrears_report",
+            "phase": "information",
+            "title": "Arrears enter the hearing",
+            "actor_ids": [
+              "clerk"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "The clerk reported $5,728.76 in unpaid support; both parents appeared without counsel.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 436–437"
+              }
+            ]
+          },
+          {
+            "id": "custody_order",
+            "phase": "decision",
+            "title": "Incarceration without the finding",
+            "actor_ids": [
+              "family_court"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "The court imposed twelve months without an express ability-to-pay finding.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 437–438"
+              }
+            ]
+          },
+          {
+            "id": "term_served",
+            "phase": "impact",
+            "title": "The sentence precedes review",
+            "actor_ids": [
+              "family_court"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "Turner completed the term before the state appellate court decided his appeal.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 438"
+              }
+            ]
+          },
+          {
+            "id": "judgment_vacated",
+            "phase": "correction",
+            "title": "Due process requires safeguards",
+            "actor_ids": [
+              "supreme_court"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "The Supreme Court found a due-process violation, vacated the judgment and remanded.",
+            "evidence_status": "court_order",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 447–449"
+              }
+            ]
+          }
+        ],
+        "access": [
+          {
+            "actor_id": "turner",
+            "capability": "challenge",
+            "status": "documented_barrier",
+            "detail": "Clear ability-to-pay notice and adequate financial-information procedures were missing.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 449"
+              }
+            ]
+          },
+          {
+            "actor_id": "turner",
+            "capability": "correct",
+            "status": "documented_available",
+            "detail": "Pro bono counsel helped him appeal, but the sentence ended before the state ruling.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 438"
+              }
+            ]
+          }
+        ],
+        "technology": [
+          {
+            "actor_id": "family_court",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "turner",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "family_court",
+            "kind": "automation",
+            "status": "not_established",
+            "detail": "A prewritten form does not establish an automated decision system.",
+            "source_refs": []
+          }
+        ],
+        "correction": {
+          "status": "ordered",
+          "description": "Vacatur and remand; safeguards include notice, financial information, response opportunity and an express finding.",
+          "implementation_status": "not_independently_verified",
+          "source_refs": [
+            {
+              "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+              "pinpoint": "564 U.S. 447–449"
+            }
+          ]
+        },
+        "limitations": [
+          "No automatic counsel right in the specified circumstances with adequate alternative safeguards; State-owed support and unusually complex cases were left open.",
+          "The remand does not demonstrate later implementation."
+        ]
+      },
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
@@ -1276,6 +1689,230 @@
       "featured": true,
       "control_to_test": "For a sampled arrest, can reviewers trace the facial-recognition lead to independent evidence, required sign-offs, written approvals and any corrective audit?",
       "reviewed_at": "2026-11-01",
+      "decision_path": {
+        "schema_version": "1.0",
+        "reviewed_at": "2026-11-01",
+        "review_method": "AI-assisted primary-source extraction; independent human review not recorded.",
+        "actors": [
+          {
+            "id": "police",
+            "label": "Detroit police investigators",
+            "kind": "group",
+            "role": "institutional_operator",
+            "affiliation": "Detroit Police Department",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶4, 8–12; allegations"
+              }
+            ]
+          },
+          {
+            "id": "magistrate",
+            "label": "Warrant-issuing magistrate",
+            "kind": "person",
+            "role": "decision_authority",
+            "affiliation": "Court issuing the arrest warrant",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶12; allegation"
+              }
+            ]
+          },
+          {
+            "id": "williams",
+            "label": "Robert Williams",
+            "kind": "person",
+            "role": "affected_person",
+            "affiliation": "Private individual",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶1–4"
+              }
+            ]
+          },
+          {
+            "id": "city",
+            "label": "City of Detroit",
+            "kind": "institution",
+            "role": "decision_authority",
+            "affiliation": "City of Detroit",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Agreement §§1–4"
+              }
+            ]
+          },
+          {
+            "id": "district_court",
+            "label": "U.S. District Court",
+            "kind": "institution",
+            "role": "reviewer",
+            "affiliation": "Eastern District of Michigan",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Dismissal order ¶3"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": "face_lead",
+            "phase": "information",
+            "title": "A face search produces a lead",
+            "actor_ids": [
+              "police"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "Williams alleges surveillance imagery generated an incorrect facial-recognition lead.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶1, 4"
+              }
+            ]
+          },
+          {
+            "id": "warrant_request",
+            "phase": "decision",
+            "title": "A lineup supports a warrant request",
+            "actor_ids": [
+              "police",
+              "magistrate"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "He alleges a non-eyewitness lineup reinforced the lead and material omissions preceded the warrant.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶8–12"
+              }
+            ]
+          },
+          {
+            "id": "arrest_detention",
+            "phase": "impact",
+            "title": "Arrest and detention follow",
+            "actor_ids": [
+              "police"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "He alleges arrest and approximately thirty hours in detention.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶1, 3"
+              }
+            ]
+          },
+          {
+            "id": "settlement_controls",
+            "phase": "correction",
+            "title": "The parties agree to checks",
+            "actor_ids": [
+              "city",
+              "district_court"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "The settlement adds independent evidence, examiner approvals and a retrospective audit; the court retained enforcement jurisdiction.",
+            "evidence_status": "settlement_term",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Order ¶3; agreement §6; Attachment A §§5.3, 5.5(4)"
+              }
+            ]
+          }
+        ],
+        "access": [
+          {
+            "actor_id": "magistrate",
+            "capability": "see",
+            "status": "alleged_barrier",
+            "detail": "The complaint alleges the warrant request omitted material reliability information.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶9–12"
+              }
+            ]
+          },
+          {
+            "actor_id": "williams",
+            "capability": "correct",
+            "status": "required_by_remedy",
+            "detail": "The agreement provides an enforcement-motion route for alleged breaches.",
+            "evidence_status": "settlement_term",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Agreement §§10–11; order ¶3"
+              }
+            ]
+          }
+        ],
+        "technology": [
+          {
+            "actor_id": "police",
+            "kind": "automation",
+            "status": "alleged_use",
+            "detail": "The complaint alleges facial-recognition use in this investigation.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶4, 8–12"
+              }
+            ]
+          },
+          {
+            "actor_id": "police",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "williams",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          }
+        ],
+        "correction": {
+          "status": "agreed",
+          "description": "Independent corroboration, documented approvals and an audit were agreed; implementation is not independently verified.",
+          "implementation_status": "not_independently_verified",
+          "source_refs": [
+            {
+              "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+              "pinpoint": "Agreement §§3–6; Attachment A §§5.3, 5.5(4), 6.1(4)"
+            }
+          ]
+        },
+        "limitations": [
+          "The settlement admits no liability; the historical arrest account remains pleaded allegations.",
+          "This map records facial recognition without inferring the model architecture or assigning an AI classification."
+        ]
+      },
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
@@ -1665,5 +2302,11 @@
         "legal_authorization_status": "not_determined_by_capability_rating"
       }
     }
-  ]
+  ],
+  "decision_paths": {
+    "schema_version": "1.0",
+    "mapped_cases": 3,
+    "total_cases": 20,
+    "review_scope": "Three historical source-backed decision paths added. Existing case review dates and current-compliance gaps are preserved; this is not a fresh docket review."
+  }
 }

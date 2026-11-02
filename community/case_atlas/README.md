@@ -65,3 +65,14 @@ Reuses `states.js` from https://kapukai-human-liberty-atlas.christinehillier.cha
 ## Safety path
 
 The D.C. guide is a research-screening framework for qualified counsel. A national pattern does not create standing, venue, a cause of action, an adequate class or universal injunctive authority. No filing, representation, legal service or emergency response has been initiated.
+
+
+## Edition 4 decision paths
+
+The same 20 indexed cases remain. `decision-paths.json` adds a separate, source-backed decision map for Barry, Turner and Williams. `build.py` validates the overlay through `decision_path_contract.py` before writing exports. Unmapped records have no manufactured path. The path is included in JSON, the CSV `decision_path` field, SQLite `record_json`, and the existing Supabase case `record` and immutable edition snapshot. No database schema change or client access is required.
+
+Every path has four reading stages: information, decision, impact and correction. Each stage identifies acting and affected actors, its evidence posture and source pinpoints. This is a source interpretation, not a causal model. Roles describe that record; a reviewing judge is not automatically a challenged operator. Access records distinguish documented availability, a documented or alleged barrier, a future requirement of a remedy, and what is not established. Technology records distinguish documented or alleged use from unknown use. Automation does not imply AI. An AI claim can attach to an institutional actor or an affected person; neither receives a default AI-use classification.
+
+An agreement or order does not establish implementation. All pilot correction implementation statuses remain `not_independently_verified`; all 20 capability ratings remain `UNASSESSED`, with no government-system test results or measured error rates added. Path review dates concern the named source extraction, not a current docket or personnel audit. Independent human source review and reader testing remain separate milestones.
+
+Run `python3 -m unittest discover -s community/case_atlas -p 'test_decision_paths.py' -v` from the repository root. Tests reject dangling actors, missing pinpoints, unsupported statuses and accidental upgrades of unknown use to sourced use. They establish data-contract behavior, not factual truth. See [the decision-path blueprint](../../docs/decision-path-blueprint.md) for acceptance gates and reproduction commands.

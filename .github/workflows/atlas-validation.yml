@@ -1,0 +1,34 @@
+name: Atlas validation
+
+on:
+  pull_request:
+    paths:
+      - 'community/case_atlas/**'
+      - 'community/public/evidence/decision-failures/**'
+      - '.github/workflows/atlas-validation.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'community/case_atlas/**'
+      - 'community/public/evidence/decision-failures/**'
+      - '.github/workflows/atlas-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Validate evidence contract and failure cases
+        run: python3 -m unittest discover -s community/case_atlas -p 'test_*.py' -v
+      - name: Rebuild the public edition
+        run: python3 community/case_atlas/build.py
+      - name: Verify committed text exports match their inputs
+        run: git diff --exit-code -- community/public/evidence/decision-failures/cases.json community/public/evidence/decision-failures/cases.csv community/case_atlas/seed.sql
+      - name: Check browser JavaScript syntax
+        run: node --check community/public/evidence/decision-failures/atlas.js

@@ -1,6 +1,6 @@
 BEGIN;
-DO $edition_guard$ BEGIN IF EXISTS (SELECT 1 FROM kapukai_case_atlas.editions WHERE edition='3.0' AND checksum_sha256<>'0f6932139e6b6a1b7b2164297bad0c1a80576d032bba4fdba994d6b4c58499d2') THEN RAISE EXCEPTION 'Edition ID already has a different snapshot; use a new edition ID.'; END IF; END $edition_guard$;
-INSERT INTO kapukai_case_atlas.cases(id,title,state,government_level,pattern,evidence_status,source_review_date,record) VALUES ('barry-2016','Barry v. Lyon','MI','State','Automation substitutes for legal test','Court merits decision','2026-11-01','{"id": "barry-2016", "title": "Barry v. Lyon", "year": 2016, "state": "MI", "city": "Ann Arbor", "court": "Sixth Circuit; Eastern District of Michigan", "docket": "15-1390; district 5:13-cv-13185", "level": "State", "pattern": "Automation substitutes for legal test", "headline": "A match ended benefits. The law required more.", "sequence": ["Automated warrant match", "SNAP case closes with generic notice", "Class judgment for recipients affirmed"], "finding": "Michigan automatically disqualified SNAP recipients on warrant matches. Its policy violated SNAP and its notices denied due process.", "remedy": "Sixth Circuit affirmed district judgment August 25, 2016.", "status": "Published appellate holding affirming summary judgment", "limitation": "Historical Michigan policy; not a finding about all benefit algorithms. Official-capacity defendant does not imply personal liability.", "people": [{"name": "Nick Lyon", "role": "Official-capacity defendant as acting department director"}, {"name": "Judith E. Levy", "role": "District judge granting relief"}, {"name": "Martha Craig Daughtrey", "role": "Appellate opinion author"}], "sources": [{"title": "Barry v. Lyon, Sixth Circuit opinion", "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Pages 1–3: judges, holding and automated fugitive-felon interface"}], "engineering_hypothesis": "Test executable eligibility rules against governing law and make notice and correction usable; no engineering-licensure issue was decided.", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "evidence_type": "Court merits decision", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Determine benefit eligibility using the governing legal test, with usable notice and a timely opportunity to challenge adverse decisions.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["For each matched record, retain the governing eligibility criteria, evidence applying each criterion, notice and correction history."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Michigan automatically disqualified SNAP recipients on warrant matches. Its policy violated SNAP and its notices denied due process.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
+DO $edition_guard$ BEGIN IF EXISTS (SELECT 1 FROM kapukai_case_atlas.editions WHERE edition='4.0' AND checksum_sha256<>'4894cc1c8e067e0636f7dcef139975519f5b47f59292bb72ba31aa526cc052a4') THEN RAISE EXCEPTION 'Edition ID already has a different snapshot; use a new edition ID.'; END IF; END $edition_guard$;
+INSERT INTO kapukai_case_atlas.cases(id,title,state,government_level,pattern,evidence_status,source_review_date,record) VALUES ('barry-2016','Barry v. Lyon','MI','State','Automation substitutes for legal test','Court merits decision','2026-11-01','{"id": "barry-2016", "title": "Barry v. Lyon", "year": 2016, "state": "MI", "city": "Ann Arbor", "court": "Sixth Circuit; Eastern District of Michigan", "docket": "15-1390; district 5:13-cv-13185", "level": "State", "pattern": "Automation substitutes for legal test", "headline": "A match ended benefits. The law required more.", "sequence": ["Automated warrant match", "SNAP case closes with generic notice", "Class judgment for recipients affirmed"], "finding": "Michigan automatically disqualified SNAP recipients on warrant matches. Its policy violated SNAP and its notices denied due process.", "remedy": "Sixth Circuit affirmed district judgment August 25, 2016.", "status": "Published appellate holding affirming summary judgment", "limitation": "Historical Michigan policy; not a finding about all benefit algorithms. Official-capacity defendant does not imply personal liability.", "people": [{"name": "Nick Lyon", "role": "Official-capacity defendant as acting department director"}, {"name": "Judith E. Levy", "role": "District judge granting relief"}, {"name": "Martha Craig Daughtrey", "role": "Appellate opinion author"}], "sources": [{"title": "Barry v. Lyon, Sixth Circuit opinion", "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Pages 1–3: judges, holding and automated fugitive-felon interface"}], "engineering_hypothesis": "Test executable eligibility rules against governing law and make notice and correction usable; no engineering-licensure issue was decided.", "decision_path": {"schema_version": "1.0", "reviewed_at": "2026-11-01", "review_method": "AI-assisted primary-source extraction; independent human review not recorded.", "actors": [{"id": "state_police", "label": "Michigan State Police", "kind": "institution", "role": "institutional_operator", "affiliation": "Michigan State Police", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion p. 3: LEIN warrant records"}]}, {"id": "benefits_agency", "label": "Michigan benefits agency", "kind": "institution", "role": "decision_authority", "affiliation": "Michigan Department of Health and Human Services", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 2–4"}]}, {"id": "barry", "label": "Walter Barry", "kind": "person", "role": "affected_person", "affiliation": "Private individual", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 4–5"}]}, {"id": "sixth_circuit", "label": "Sixth Circuit", "kind": "institution", "role": "reviewer", "affiliation": "Federal appellate court", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 1–2, 14–17"}]}], "steps": [{"id": "warrant_match", "phase": "information", "title": "A warrant record becomes a match", "actor_ids": ["state_police", "benefits_agency"], "affected_actor_ids": ["barry"], "account": "Michigan matched assistance recipients against police warrant records.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion p. 3"}]}, {"id": "benefits_close", "phase": "decision", "title": "The match closes the case", "actor_ids": ["benefits_agency"], "affected_actor_ids": ["barry"], "account": "The interface automatically closed SNAP cases and generated a generic disqualification notice.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 3–4"}]}, {"id": "benefits_lost", "phase": "impact", "title": "Barry loses food assistance", "actor_ids": ["benefits_agency"], "affected_actor_ids": ["barry"], "account": "Barry missed July 2013 benefits while awaiting a hearing; payment followed his federal lawsuit.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion p. 5"}]}, {"id": "injunction_affirmed", "phase": "correction", "title": "The court rejects the shortcut", "actor_ids": ["sixth_circuit"], "affected_actor_ids": ["barry"], "account": "The Sixth Circuit affirmed relief against warrant-only disqualification and inadequate notice.", "evidence_status": "court_order", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 14–17, 20"}]}], "access": [{"actor_id": "barry", "capability": "see", "status": "documented_barrier", "detail": "Notices omitted the warrant details needed to understand and contest disqualification.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 15–16"}]}, {"actor_id": "barry", "capability": "challenge", "status": "documented_available", "detail": "Barry requested hearings and filed suit; his second hearing was delayed.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 4–5"}]}], "technology": [{"actor_id": "benefits_agency", "kind": "automation", "status": "documented_use", "detail": "Automated recipient-to-warrant matching and case closure.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion p. 3"}]}, {"actor_id": "benefits_agency", "kind": "ai", "status": "not_established", "detail": "AI use by this actor is not established by the mapped source passages.", "source_refs": []}, {"actor_id": "barry", "kind": "ai", "status": "not_established", "detail": "AI use by this actor is not established by the mapped source passages.", "source_refs": []}], "correction": {"status": "ordered", "description": "Affirmed injunction against SNAP disqualification solely on an outstanding felony warrant.", "implementation_status": "not_independently_verified", "source_refs": [{"url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf", "pinpoint": "Opinion pp. 14, 17, 20"}]}, "limitations": ["Historical Michigan policy; current implementation is unverified.", "This path does not establish that an absent engineer caused the failure."]}, "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "evidence_type": "Court merits decision", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Determine benefit eligibility using the governing legal test, with usable notice and a timely opportunity to challenge adverse decisions.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["For each matched record, retain the governing eligibility criteria, evidence applying each criterion, notice and correction history."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Michigan automatically disqualified SNAP recipients on warrant matches. Its policy violated SNAP and its notices denied due process.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('herring-2009','Herring v. United States','AL','Local','Correction fails to propagate','Court merits decision','2026-11-01','{"id": "herring-2009", "title": "Herring v. United States", "year": 2009, "state": "AL", "city": "Coffee County / Dale County", "court": "U.S. Supreme Court; underlying prosecution in Middle District of Alabama", "docket": "07-513; 555 U.S. 135", "level": "Local", "pattern": "Correction fails to propagate", "headline": "The warrant was recalled. The database still said arrest.", "sequence": ["Warrant recalled five months earlier", "Database still reports active warrant", "Arrest precedes correction by minutes"], "finding": "A recalled warrant remained in Dale County''s database. Coffee County officers arrested Herring before the mistake was discovered.", "remedy": "Suppression denied; Supreme Court affirmed January 14, 2009.", "status": "Supreme Court opinion; remedy denied", "limitation": "The Court treated the error as isolated negligence, not proven systemic error. It did not find wrongdoing by arresting officers.", "people": [{"name": "Mark Anderson", "role": "Coffee County investigator who requested checks and arrested Herring"}, {"name": "Sandy Pope", "role": "Coffee County warrant clerk relaying inquiry and correction"}, {"name": "Sharon Morgan", "role": "Dale County warrant clerk who discovered and reported error"}, {"name": "John G. Roberts Jr.", "role": "Chief Justice; majority opinion author"}], "sources": [{"title": "Herring v. United States, official opinion", "url": "https://www.govinfo.gov/content/pkg/USREPORTS-555/pdf/USREPORTS-555-135.pdf", "pinpoint": "555 U.S. 137–138 (facts, five-month recall); 147–148 (holding)"}], "engineering_hypothesis": "Acknowledged revocation updates and underlying-record confirmation could reduce stale-authority errors; no engineer-signature requirement was decided.", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "evidence_type": "Court merits decision", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Support arrest decisions with accurate current warrant information and effective transmission of recalls.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Compare recalled warrants with downstream arrest records and verify when each receiving system acknowledged the recall."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "A recalled warrant remained in Dale County''s database. Coffee County officers arrested Herring before the mistake was discovered.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('goodlett-warrant','United States v. Kelly Goodlett','KY','Local','False records and authorization','Guilty plea','2026-11-01','{"id": "goodlett-warrant", "title": "United States v. Kelly Goodlett", "year": 2022, "state": "KY", "city": "Louisville", "court": "U.S. District Court, Western District of Kentucky", "docket": "Not independently verified in reviewed release", "level": "Local", "pattern": "False records and authorization", "headline": "A false affidavit became authority to search a home.", "sequence": ["Detective helped falsify a warrant affidavit", "A search followed", "Detective admitted a conspiracy and cover story"], "finding": "Goodlett pleaded guilty and admitted conspiring to falsify the search-warrant affidavit for Breonna Taylor''s home and conceal it from investigators.", "remedy": "Federal criminal prosecution and guilty plea.", "status": "Guilty plea and admissions", "limitation": "This records the August 2022 plea, not current sentencing status. Her admissions must not be treated as convictions of other officers.", "people": [{"name": "Kelly Goodlett", "role": "Former LMPD detective; pleaded guilty"}, {"name": "Rebecca Grady Jennings", "role": "Federal judge accepting plea"}], "sources": [{"title": "DOJ guilty-plea announcement, August 23, 2022", "url": "https://www.justice.gov/archives/opa/pr/former-louisville-kentucky-police-detective-pleads-guilty-federal-crime-related-death-breonna", "pinpoint": "Opening findings and plea-agreement description"}], "engineering_hypothesis": "Verify source claims before authorizing force and preserve record provenance. This is evidence falsification, not proof that engineer absence caused the offense.", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "evidence_type": "Guilty plea", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Support search-warrant decisions with truthful, traceable factual evidence and the applicable legal authorization.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Trace each material affidavit claim to its source and document discrepancies, review and disposition before authorization."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Goodlett pleaded guilty and admitted conspiring to falsify the search-warrant affidavit for Breonna Taylor''s home and conceal it from investigators.", "historical_evidence_status": "Guilty plea", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('ciavarella-juvenile','United States v. Mark A. Ciavarella / juvenile-detention corruption','PA','State','Financial conflicts','Criminal conviction','2026-11-01','{"id": "ciavarella-juvenile", "title": "United States v. Mark A. Ciavarella / juvenile-detention corruption", "year": 2011, "state": "PA", "city": "Wilkes-Barre / Luzerne County", "court": "U.S. District Court, Middle District of Pennsylvania; Luzerne County proceedings affected", "docket": "Not independently verified in reviewed releases", "level": "State", "pattern": "Financial conflicts", "headline": "Judicial decisions. Private detention. Hidden payments.", "sequence": ["Private juvenile facilities replaced county capacity", "Judges received concealed payments and juveniles were sent to facilities", "Federal prosecution and mass vacatur followed"], "finding": "Ciavarella was convicted in 2011. DOJ reported bribes and kickbacks connected to private juvenile detention; Pennsylvania vacated thousands of juvenile convictions.", "remedy": "28-year sentence; juvenile-case vacatur and oversight reforms. DOJ reported the sentence upheld in 2020 despite some counts being vacated.", "status": "Criminal conviction; subsequent count revisions", "limitation": "Historical 2011/2020 record, not current custody status. Do not claim every detention was individually bought or that all original counts remain valid.", "people": [{"name": "Mark A. Ciavarella", "role": "Former state juvenile/president judge; convicted"}, {"name": "Michael Conahan", "role": "Former state president judge; pleaded guilty to racketeering conspiracy"}, {"name": "Edwin M. Kosik", "role": "Federal sentencing judge"}, {"name": "Christopher C. Conner", "role": "Federal judge reviewing resentencing in 2020"}], "sources": [{"title": "FBI/USAO sentencing announcement, August 11, 2011", "url": "https://archives.fbi.gov/archives/philadelphia/press-releases/2011/former-pennsylvania-county-president-judge-and-juvenile-judge-mark-ciavarella-sentenced-to-28-years-in-prison", "pinpoint": "Trial evidence and juvenile-conviction vacatur"}, {"title": "DOJ resentencing update, August 2020", "url": "https://www.justice.gov/usao-mdpa/pr/corrupt-judge-s-request-resentencing-denied", "pinpoint": "Vacated counts and unchanged sentence"}], "engineering_hypothesis": "Independent conflict audits and traceable placement/payment decisions could expose risk. The crimes establish corruption, not a sole missing-engineer cause.", "evidence_type": "Criminal conviction", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Make juvenile adjudication and placement decisions under applicable rights and welfare duties, with conflicts and financial interests disclosed and controlled.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Trace placements to their evidence and lawful criteria, and independently review disclosed and undisclosed financial connections."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Ciavarella was convicted in 2011. DOJ reported bribes and kickbacks connected to private juvenile detention; Pennsylvania vacated thousands of juvenile convictions.", "historical_evidence_status": "Criminal conviction", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
@@ -14,8 +14,8 @@ INSERT INTO kapukai_case_atlas.cases(id,title,state,government_level,pattern,evi
 ('houston-evaas','Houston Federation of Teachers v. Houston ISD','TX','Local','Opaque automation','Procedural ruling','2026-11-01','{"id": "houston-evaas", "title": "Houston Federation of Teachers v. Houston ISD", "year": 2017, "state": "TX", "city": "Houston", "court": "U.S. District Court, Southern District of Texas", "docket": "4:14-cv-01189", "level": "Local", "pattern": "Opaque automation", "headline": "Teachers faced job consequences from scores they could not reproduce.", "sequence": ["District used proprietary teacher-effectiveness scores", "Teachers challenged inability to verify the scores", "Procedural due-process claim survived summary judgment"], "finding": "The court denied the district summary judgment on procedural due process while granting it on other claims.", "remedy": "The due-process claim could proceed.", "status": "Claim survived summary judgment", "limitation": "This decision was not a final liability verdict on every disputed fact.", "people": [{"name": "Stephen Wm. Smith", "role": "U.S. magistrate judge, adjudicator"}], "sources": [{"title": "Amended summary judgment opinion, May 4, 2017", "url": "https://www.govinfo.gov/content/pkg/USCOURTS-txsd-4_14-cv-01189/pdf/USCOURTS-txsd-4_14-cv-01189-0.pdf", "pinpoint": "Procedural due-process discussion; concluding disposition"}], "engineering_hypothesis": "Independently reproducible scores and reviewable reasons could support meaningful challenges. Absence of engineers was not the holding.", "evidence_type": "Procedural ruling", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Support employment evaluations with reproducible scores and a meaningful opportunity to challenge consequential results.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Reproduce a sampled score from its versioned inputs and method, and record how the affected employee can identify and correct an error."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "The court denied the district summary judgment on procedural due process while granting it on other claims.", "historical_evidence_status": "Procedural ruling", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('cahoo-midas','Cahoo v. SAS Analytics Inc.','MI','State','Opaque automation','Procedural ruling','2026-11-01','{"id": "cahoo-midas", "title": "Cahoo v. SAS Analytics Inc.", "year": 2019, "state": "MI", "city": "Detroit", "court": "U.S. District Court, Eastern District of Michigan; Sixth Circuit appeal", "docket": "2:17-cv-10657; 18-1295/1296", "level": "State", "pattern": "Opaque automation", "headline": "Discrepancy. Fraud label. Collection. Plaintiffs challenged the pipeline.", "sequence": ["MiDAS flagged income discrepancies", "Plaintiffs alleged automated fraud findings and deficient notice", "Collections triggered a due-process challenge"], "finding": "The Sixth Circuit allowed the due-process claim to proceed past qualified-immunity dismissal.", "remedy": "Remand for further proceedings on due process.", "status": "Claim survived dismissal", "limitation": "Pleading-stage allegations were accepted as true; not final findings against each official. Other constitutional claims failed in this appeal.", "people": [{"name": "David M. Lawson", "role": "District judge, adjudicator"}, {"name": "Eric L. Clay", "role": "Appellate opinion author"}, {"name": "Sharon Moffet-Massey", "role": "Named agency defendant; alleged conduct not adjudicated here"}], "sources": [{"title": "Sixth Circuit opinion, January 3, 2019", "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/19a0001p-06.pdf", "pinpoint": "Pages 1–6, 17–24"}], "engineering_hypothesis": "Test fraud logic and false positives; preserve meaningful notice and contestability. Engineer-absence causation not established.", "evidence_type": "Procedural ruling", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "reviewed_at": "2026-11-01", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Determine unemployment-fraud allegations using validated evidence and lawful notice, review and collection procedures.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Test fraud-decision rules against independently reviewed cases, record error counts and denominators, and trace corrections into collections."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "The Sixth Circuit allowed the due-process claim to proceed past qualified-immunity dismissal.", "historical_evidence_status": "Procedural ruling", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('mahoney-capitol-police-2026','Mahoney v. United States Capitol Police Board','DC','Federal','Unbounded discretion','Court merits decision','2026-11-01','{"id": "mahoney-capitol-police-2026", "title": "Mahoney v. United States Capitol Police Board", "year": 2026, "state": "DC", "city": "Washington", "court": "U.S. Court of Appeals for the District of Columbia Circuit", "docket": "24-5207; originating D.D.C. 1:21-cv-02314", "level": "Federal", "pattern": "Unbounded discretion", "headline": "Speech permission depended on political sponsorship.", "sequence": ["Capitol rules barred public demonstrations on Eastern Steps without congressional sponsorship.", "Mahoney challenged the restriction; the district court ruled for him.", "The appellate court affirmed the First Amendment result but rejected universal relief."], "finding": "Congressional discretion over public speech made the restriction unreasonable, even in a nonpublic forum.", "remedy": "Universal injunction vacated; remanded for relief addressing Mahoney’s injury.", "status": "September 22, 2026 opinion reviewed; subsequent docket not certified.", "limitation": "No finding that an absent engineer caused the violation. Reviewing judges are not accused actors.", "people": [{"name": "Patrick J. Mahoney", "role": "Plaintiff"}, {"name": "Neomi Rao", "role": "Reviewing judge; majority author"}, {"name": "Karen LeCraft Henderson", "role": "Reviewing panel judge"}, {"name": "Judith W. Rogers", "role": "Reviewing judge; dissent"}], "authorities": ["United States Capitol Police Board — challenged policymaking body"], "sources": [{"title": "Official appellate opinion, September 22, 2026", "url": "https://media.cadc.uscourts.gov/opinions/docs/2026/09/24-5207-2194324.pdf", "pinpoint": "Opinion pp. 2–5, 19–23"}], "engineering_hypothesis": "Kapukai proposal: test permission rules for consistent, reviewable criteria and narrowly scoped remedies.", "reviewed_at": "2026-11-01", "docket_certified": false, "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "evidence_type": "Court merits decision", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Administer access for protected expression using constitutional, consistent and reviewable permission rules.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Compare permission decisions with their stated criteria, evidence and reasons, and verify the scope of any corrective order."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Congressional discretion over public speech made the restriction unreasonable, even in a nonpublic forum.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
-('turner-rogers-2011','Turner v. Rogers','SC','State','Required factual check omitted','Court merits decision','2026-11-01','{"id": "turner-rogers-2011", "title": "Turner v. Rogers", "year": 2011, "state": "SC", "city": "Oconee County", "court": "U.S. Supreme Court; South Carolina family-court proceedings", "docket": "10-10; 564 U.S. 431", "level": "State", "pattern": "Required factual check omitted", "headline": "He was jailed. The court never decided whether he could pay.", "sequence": ["Child-support arrears triggered a civil-contempt hearing", "The court left the ability-to-pay finding blank and imposed twelve months in jail", "The Supreme Court found the incarceration violated due process"], "finding": "Turner received neither counsel nor adequate alternative safeguards. The court made no express finding that he could pay.", "remedy": "Judgment vacated and remanded. The opinion identified notice, financial-information collection, an opportunity to respond, and an express ability-to-pay finding as safeguards.", "status": "Supreme Court merits decision, June 20, 2011", "evidence_type": "Court merits decision", "limitation": "No automatic right to counsel in every such proceeding. State-owed support and unusually complex cases were left open. No missing-engineer causation finding.", "people": [{"name": "Stephen G. Breyer", "role": "Supreme Court majority opinion author; reviewing justice"}], "sources": [{"title": "Turner v. Rogers, official U.S. Reports opinion", "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 436–438 (sequence); 447–449 (safeguards, limits and holding)"}], "engineering_hypothesis": "Before a liberty-depriving order, require the decision record to show each governing factual check and a usable opportunity to contest it. Credentials alone cannot supply that evidence.", "strategic_value": "A highly legible example of a decisive factual field left unresolved while coercion proceeded. The remedy translates into auditable decision requirements.", "editorial_priority": 2, "featured": true, "control_to_test": "Before incarceration for civil contempt over unpaid child support, does the record establish the required ability-to-pay assessment, notice, financial information, opportunity to respond and express finding?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Enforce child-support obligations through lawful procedures, including adequate ability-to-pay safeguards before civil-contempt incarceration.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Before incarceration for civil contempt over unpaid child support, verify notice, financial information, opportunity to respond and an express ability-to-pay finding."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Turner received neither counsel nor adequate alternative safeguards. The court made no express finding that he could pay.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
-('williams-detroit-2024','Williams v. City of Detroit','MI','Local','Automated lead treated as corroborated evidence','Settlement with retained enforcement jurisdiction','2026-11-01','{"id": "williams-detroit-2024", "title": "Williams v. City of Detroit", "year": 2024, "state": "MI", "city": "Detroit", "court": "U.S. District Court, Eastern District of Michigan", "docket": "2:21-cv-10827-LJM-DRG; ECF 73 and 73-1", "level": "Local", "pattern": "Automated lead treated as corroborated evidence", "headline": "A challenged face-match arrest led to enforceable checks.", "sequence": ["Williams alleged a faulty facial-recognition lead from shop surveillance", "He alleged a lineup using a non-eyewitness reinforced the same weak input, followed by arrest and roughly thirty hours of detention", "The parties settled in 2024 with verification, approval and audit requirements"], "finding": "The complaint alleges wrongful arrest; liability was not adjudicated. The signed settlement requires independent reliable evidence beyond a face-recognition lead and lineup.", "remedy": "Required two examiners and a supervisor to sign off on leads, written command approvals before arrest or warrant requests, and a retrospective audit. The June 28, 2024 dismissal retained enforcement jurisdiction for four years.", "status": "Settlement and stipulated dismissal; no admission of liability", "evidence_type": "Settlement with retained enforcement jurisdiction", "limitation": "Allegations and agreed safeguards are not merits findings. Current compliance is not verified. Required examiner and police approvals are not professional-engineer certification.", "people": [{"name": "Donald Bussa", "role": "Detective named as an individual-capacity defendant; liability not adjudicated"}, {"name": "James White", "role": "Police chief named in official capacity in the settlement"}, {"name": "Laurie J. Michelson", "role": "District judge entering dismissal with retained enforcement jurisdiction"}], "sources": [{"title": "Filed first amended complaint, ECF 54 (ACLU-hosted party pleading)", "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Filed June 23, 2023; paragraphs 1, 3–12 (alleged recognition, lineup, warrant and detention sequence)"}, {"title": "Filed dismissal order and signed settlement, ECF 73/73-1 (ACLU-hosted court documents)", "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Order ¶3; agreement §§2, 6, 10–11; Attachment A, Manual 307.5 §§5.3, 5.5(4), 6.1(4)"}], "engineering_hypothesis": "Separate a machine-generated lead from independent corroboration; preserve source lineage, approval records and correction audits. This settlement supplies concrete controls, not proof that an absent engineer caused the arrest.", "strategic_value": "Priority example for turning a harm story into inspectable controls: independent evidence, named sign-offs, backward review and a forum for enforcement.", "editorial_priority": 1, "featured": true, "control_to_test": "For a sampled arrest, can reviewers trace the facial-recognition lead to independent evidence, required sign-offs, written approvals and any corrective audit?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Investigate crimes using independently corroborated evidence and documented approvals before facial-recognition-related arrests or warrant requests.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Trace a sampled facial-recognition lead to independent reliable evidence, examiner and supervisor sign-offs, written command approvals and audit follow-up."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "The complaint alleges wrongful arrest; liability was not adjudicated. The signed settlement requires independent reliable evidence beyond a face-recognition lead and lineup.", "historical_evidence_status": "Settlement with retained enforcement jurisdiction", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
+('turner-rogers-2011','Turner v. Rogers','SC','State','Required factual check omitted','Court merits decision','2026-11-01','{"id": "turner-rogers-2011", "title": "Turner v. Rogers", "year": 2011, "state": "SC", "city": "Oconee County", "court": "U.S. Supreme Court; South Carolina family-court proceedings", "docket": "10-10; 564 U.S. 431", "level": "State", "pattern": "Required factual check omitted", "headline": "He was jailed. The court never decided whether he could pay.", "sequence": ["Child-support arrears triggered a civil-contempt hearing", "The court left the ability-to-pay finding blank and imposed twelve months in jail", "The Supreme Court found the incarceration violated due process"], "finding": "Turner received neither counsel nor adequate alternative safeguards. The court made no express finding that he could pay.", "remedy": "Judgment vacated and remanded. The opinion identified notice, financial-information collection, an opportunity to respond, and an express ability-to-pay finding as safeguards.", "status": "Supreme Court merits decision, June 20, 2011", "evidence_type": "Court merits decision", "limitation": "No automatic right to counsel in every such proceeding. State-owed support and unusually complex cases were left open. No missing-engineer causation finding.", "people": [{"name": "Stephen G. Breyer", "role": "Supreme Court majority opinion author; reviewing justice"}], "sources": [{"title": "Turner v. Rogers, official U.S. Reports opinion", "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 436–438 (sequence); 447–449 (safeguards, limits and holding)"}], "engineering_hypothesis": "Before a liberty-depriving order, require the decision record to show each governing factual check and a usable opportunity to contest it. Credentials alone cannot supply that evidence.", "strategic_value": "A highly legible example of a decisive factual field left unresolved while coercion proceeded. The remedy translates into auditable decision requirements.", "editorial_priority": 2, "featured": true, "control_to_test": "Before incarceration for civil contempt over unpaid child support, does the record establish the required ability-to-pay assessment, notice, financial information, opportunity to respond and express finding?", "reviewed_at": "2026-11-01", "decision_path": {"schema_version": "1.0", "reviewed_at": "2026-11-01", "review_method": "AI-assisted primary-source extraction; independent human review not recorded.", "actors": [{"id": "clerk", "label": "Family-court clerk", "kind": "person", "role": "institutional_operator", "affiliation": "South Carolina family court", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 436–437"}]}, {"id": "family_court", "label": "South Carolina family court", "kind": "institution", "role": "decision_authority", "affiliation": "South Carolina judiciary", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 437–438"}]}, {"id": "turner", "label": "Michael Turner", "kind": "person", "role": "affected_person", "affiliation": "Private individual", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 436–438"}]}, {"id": "supreme_court", "label": "U.S. Supreme Court", "kind": "institution", "role": "reviewer", "affiliation": "Federal judiciary", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 447–449"}]}], "steps": [{"id": "arrears_report", "phase": "information", "title": "Arrears enter the hearing", "actor_ids": ["clerk"], "affected_actor_ids": ["turner"], "account": "The clerk reported $5,728.76 in unpaid support; both parents appeared without counsel.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 436–437"}]}, {"id": "custody_order", "phase": "decision", "title": "Incarceration without the finding", "actor_ids": ["family_court"], "affected_actor_ids": ["turner"], "account": "The court imposed twelve months without an express ability-to-pay finding.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 437–438"}]}, {"id": "term_served", "phase": "impact", "title": "The sentence precedes review", "actor_ids": ["family_court"], "affected_actor_ids": ["turner"], "account": "Turner completed the term before the state appellate court decided his appeal.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 438"}]}, {"id": "judgment_vacated", "phase": "correction", "title": "Due process requires safeguards", "actor_ids": ["supreme_court"], "affected_actor_ids": ["turner"], "account": "The Supreme Court found a due-process violation, vacated the judgment and remanded.", "evidence_status": "court_order", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 447–449"}]}], "access": [{"actor_id": "turner", "capability": "challenge", "status": "documented_barrier", "detail": "Clear ability-to-pay notice and adequate financial-information procedures were missing.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 449"}]}, {"actor_id": "turner", "capability": "correct", "status": "documented_available", "detail": "Pro bono counsel helped him appeal, but the sentence ended before the state ruling.", "evidence_status": "court_finding", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 438"}]}], "technology": [{"actor_id": "family_court", "kind": "ai", "status": "not_established", "detail": "AI use by this actor is not established by the mapped source passages.", "source_refs": []}, {"actor_id": "turner", "kind": "ai", "status": "not_established", "detail": "AI use by this actor is not established by the mapped source passages.", "source_refs": []}, {"actor_id": "family_court", "kind": "automation", "status": "not_established", "detail": "A prewritten form does not establish an automated decision system.", "source_refs": []}], "correction": {"status": "ordered", "description": "Vacatur and remand; safeguards include notice, financial information, response opportunity and an express finding.", "implementation_status": "not_independently_verified", "source_refs": [{"url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf", "pinpoint": "564 U.S. 447–449"}]}, "limitations": ["No automatic counsel right in the specified circumstances with adequate alternative safeguards; State-owed support and unusually complex cases were left open.", "The remand does not demonstrate later implementation."]}, "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Enforce child-support obligations through lawful procedures, including adequate ability-to-pay safeguards before civil-contempt incarceration.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Before incarceration for civil contempt over unpaid child support, verify notice, financial information, opportunity to respond and an express ability-to-pay finding."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Turner received neither counsel nor adequate alternative safeguards. The court made no express finding that he could pay.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
+('williams-detroit-2024','Williams v. City of Detroit','MI','Local','Automated lead treated as corroborated evidence','Settlement with retained enforcement jurisdiction','2026-11-01','{"id": "williams-detroit-2024", "title": "Williams v. City of Detroit", "year": 2024, "state": "MI", "city": "Detroit", "court": "U.S. District Court, Eastern District of Michigan", "docket": "2:21-cv-10827-LJM-DRG; ECF 73 and 73-1", "level": "Local", "pattern": "Automated lead treated as corroborated evidence", "headline": "A challenged face-match arrest led to enforceable checks.", "sequence": ["Williams alleged a faulty facial-recognition lead from shop surveillance", "He alleged a lineup using a non-eyewitness reinforced the same weak input, followed by arrest and roughly thirty hours of detention", "The parties settled in 2024 with verification, approval and audit requirements"], "finding": "The complaint alleges wrongful arrest; liability was not adjudicated. The signed settlement requires independent reliable evidence beyond a face-recognition lead and lineup.", "remedy": "Required two examiners and a supervisor to sign off on leads, written command approvals before arrest or warrant requests, and a retrospective audit. The June 28, 2024 dismissal retained enforcement jurisdiction for four years.", "status": "Settlement and stipulated dismissal; no admission of liability", "evidence_type": "Settlement with retained enforcement jurisdiction", "limitation": "Allegations and agreed safeguards are not merits findings. Current compliance is not verified. Required examiner and police approvals are not professional-engineer certification.", "people": [{"name": "Donald Bussa", "role": "Detective named as an individual-capacity defendant; liability not adjudicated"}, {"name": "James White", "role": "Police chief named in official capacity in the settlement"}, {"name": "Laurie J. Michelson", "role": "District judge entering dismissal with retained enforcement jurisdiction"}], "sources": [{"title": "Filed first amended complaint, ECF 54 (ACLU-hosted party pleading)", "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Filed June 23, 2023; paragraphs 1, 3–12 (alleged recognition, lineup, warrant and detention sequence)"}, {"title": "Filed dismissal order and signed settlement, ECF 73/73-1 (ACLU-hosted court documents)", "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Order ¶3; agreement §§2, 6, 10–11; Attachment A, Manual 307.5 §§5.3, 5.5(4), 6.1(4)"}], "engineering_hypothesis": "Separate a machine-generated lead from independent corroboration; preserve source lineage, approval records and correction audits. This settlement supplies concrete controls, not proof that an absent engineer caused the arrest.", "strategic_value": "Priority example for turning a harm story into inspectable controls: independent evidence, named sign-offs, backward review and a forum for enforcement.", "editorial_priority": 1, "featured": true, "control_to_test": "For a sampled arrest, can reviewers trace the facial-recognition lead to independent evidence, required sign-offs, written approvals and any corrective audit?", "reviewed_at": "2026-11-01", "decision_path": {"schema_version": "1.0", "reviewed_at": "2026-11-01", "review_method": "AI-assisted primary-source extraction; independent human review not recorded.", "actors": [{"id": "police", "label": "Detroit police investigators", "kind": "group", "role": "institutional_operator", "affiliation": "Detroit Police Department", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶¶4, 8–12; allegations"}]}, {"id": "magistrate", "label": "Warrant-issuing magistrate", "kind": "person", "role": "decision_authority", "affiliation": "Court issuing the arrest warrant", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶12; allegation"}]}, {"id": "williams", "label": "Robert Williams", "kind": "person", "role": "affected_person", "affiliation": "Private individual", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶¶1–4"}]}, {"id": "city", "label": "City of Detroit", "kind": "institution", "role": "decision_authority", "affiliation": "City of Detroit", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Agreement §§1–4"}]}, {"id": "district_court", "label": "U.S. District Court", "kind": "institution", "role": "reviewer", "affiliation": "Eastern District of Michigan", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Dismissal order ¶3"}]}], "steps": [{"id": "face_lead", "phase": "information", "title": "A face search produces a lead", "actor_ids": ["police"], "affected_actor_ids": ["williams"], "account": "Williams alleges surveillance imagery generated an incorrect facial-recognition lead.", "evidence_status": "allegation", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶¶1, 4"}]}, {"id": "warrant_request", "phase": "decision", "title": "A lineup supports a warrant request", "actor_ids": ["police", "magistrate"], "affected_actor_ids": ["williams"], "account": "He alleges a non-eyewitness lineup reinforced the lead and material omissions preceded the warrant.", "evidence_status": "allegation", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶¶8–12"}]}, {"id": "arrest_detention", "phase": "impact", "title": "Arrest and detention follow", "actor_ids": ["police"], "affected_actor_ids": ["williams"], "account": "He alleges arrest and approximately thirty hours in detention.", "evidence_status": "allegation", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶¶1, 3"}]}, {"id": "settlement_controls", "phase": "correction", "title": "The parties agree to checks", "actor_ids": ["city", "district_court"], "affected_actor_ids": ["williams"], "account": "The settlement adds independent evidence, examiner approvals and a retrospective audit; the court retained enforcement jurisdiction.", "evidence_status": "settlement_term", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Order ¶3; agreement §6; Attachment A §§5.3, 5.5(4)"}]}], "access": [{"actor_id": "magistrate", "capability": "see", "status": "alleged_barrier", "detail": "The complaint alleges the warrant request omitted material reliability information.", "evidence_status": "allegation", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶¶9–12"}]}, {"actor_id": "williams", "capability": "correct", "status": "required_by_remedy", "detail": "The agreement provides an enforcement-motion route for alleged breaches.", "evidence_status": "settlement_term", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Agreement §§10–11; order ¶3"}]}], "technology": [{"actor_id": "police", "kind": "automation", "status": "alleged_use", "detail": "The complaint alleges facial-recognition use in this investigation.", "evidence_status": "allegation", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf", "pinpoint": "Complaint ¶¶4, 8–12"}]}, {"actor_id": "police", "kind": "ai", "status": "not_established", "detail": "AI use by this actor is not established by the mapped source passages.", "source_refs": []}, {"actor_id": "williams", "kind": "ai", "status": "not_established", "detail": "AI use by this actor is not established by the mapped source passages.", "source_refs": []}], "correction": {"status": "agreed", "description": "Independent corroboration, documented approvals and an audit were agreed; implementation is not independently verified.", "implementation_status": "not_independently_verified", "source_refs": [{"url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf", "pinpoint": "Agreement §§3–6; Attachment A §§5.3, 5.5(4), 6.1(4)"}]}, "limitations": ["The settlement admits no liability; the historical arrest account remains pleaded allegations.", "This map records facial recognition without inferring the model architecture or assigning an AI classification."]}, "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Investigate crimes using independently corroborated evidence and documented approvals before facial-recognition-related arrests or warrant requests.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Trace a sampled facial-recognition lead to independent reliable evidence, examiner and supervisor sign-offs, written command approvals and audit follow-up."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "The complaint alleges wrongful arrest; liability was not adjudicated. The signed settlement requires independent reliable evidence beyond a face-recognition lead and lineup.", "historical_evidence_status": "Settlement with retained enforcement jurisdiction", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('dl-child-find-2017','D.L. v. District of Columbia','DC','Local','Broken handoffs','Court merits decision','2026-11-01','{"id": "dl-child-find-2017", "title": "D.L. v. District of Columbia", "year": 2017, "state": "DC", "city": "Washington", "court": "D.C. Circuit; U.S. District Court for the District of Columbia", "docket": "16-7076; district 1:05-cv-01437; 860 F.3d 713", "level": "Local", "pattern": "Broken handoffs", "headline": "Children missed services. The remedy measured delivery.", "sequence": ["Preschool children were missed, eligibility decisions delayed, and service transitions disrupted", "An overbroad class certification was vacated; narrower process-specific subclasses followed", "Trial findings led to an injunction with delivery benchmarks, tracking and reporting", "The D.C. Circuit affirmed in 2017"], "finding": "The District violated IDEA duties concerning identification, timely eligibility determinations and transition into preschool services.", "remedy": "Affirmed targets including 8.5% of D.C.’s three-to-five-year-olds receiving their full IEP services, plus 95% timely eligibility determinations and smooth transitions in the respective covered groups. Incremental improvement, databases and court reporting were required.", "status": "2017 injunction affirmed; June 2026 court-hosted fee-motion notice reviewed, not a current compliance determination", "evidence_type": "Court merits decision", "limitation": "Benchmarks were tailored to this record, not nationwide standards. The initial-evaluation subclass had resolved in the District''s favor. Reviewing judges are corrective actors.", "people": [{"name": "Royce C. Lamberth", "role": "District judge who ordered corrective relief"}, {"name": "David S. Tatel", "role": "Appellate opinion author affirming relief"}], "sources": [{"title": "D.L. v. District of Columbia, official D.C. Circuit opinion, June 23, 2017", "url": "https://www.govinfo.gov/content/pkg/USCOURTS-caDC-16-07076/pdf/USCOURTS-caDC-16-07076-0.pdf", "pinpoint": "Opinion pp. 4–9 (history, findings and remedies); 15–17 (process-specific subclasses); 21–26 (benchmarks and programmatic relief)"}, {"title": "D.D.C. class notice concerning fees for second-half 2025 work, posted June 2026", "url": "https://www.dcd.uscourts.gov/sites/dcd/files/05cv1437%20Notice_3.pdf", "pinpoint": "Pages 1–2: pending fee request and class description; not a determination of present substantive compliance"}, {"title": "Follow-on disclosure case: D.C. v. Terris, Pravlik & Millian, court opinion hosted by Justia, June 5, 2025", "url": "https://cases.justia.com/district-of-columbia/court-of-appeals/2025-21-cv-0543.pdf?ts=1749132187", "pinpoint": "Opinion pp. 2–4 (scope, connection to D.L. monitoring and request); 26–28 (information injury); 34–36 (publication relief and remand)"}], "follow_on_note": "Disclosure follow-on, not a separate indexed failure: in D.C. v. Terris, Pravlik & Millian, No. 21-CV-0543 (June 5, 2025), the D.C. Court of Appeals upheld disclosure and online publication of requested agency budget documents for fiscal years 2019 through the decision, while vacating and remanding the broader publication order for other documents. Counsel sought the budgets to monitor the D.L. injunction. This applies D.C. FOIA and does not establish universal federal publication rights.", "engineering_hypothesis": "Kapukai proposal: measure actual service delivery, preserve handoff timestamps and independently reproduce compliance reports. No absent-engineer causation was established.", "strategic_value": "Kapukai assessment: a concrete model for binding a remedy to measurable delivery, shared failure mechanisms and publicly inspectable compliance evidence.", "editorial_priority": 3, "featured": true, "control_to_test": "Can an independent reviewer reproduce reported rates from eligibility deadlines, handoff timestamps, defined denominators and evidence that services were actually delivered?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Identify eligible preschool children and deliver timely special-education services and transitions under the applicable duties and court order.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Reproduce delivery rates and denominators from eligibility deadlines, handoff timestamps and evidence of full required service delivery."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "The District violated IDEA duties concerning identification, timely eligibility determinations and transition into preschool services.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('ralls-cfius-2014','Ralls Corporation v. Committee on Foreign Investment in the United States','OR','Federal','Decision cannot be meaningfully challenged','Court merits decision','2026-11-01','{"id": "ralls-cfius-2014", "title": "Ralls Corporation v. Committee on Foreign Investment in the United States", "year": 2014, "state": "OR", "city": "Butter Creek wind-farm sites, north-central Oregon", "court": "D.C. Circuit; U.S. District Court for the District of Columbia", "docket": "13-5315; district 1:12-cv-01513; 758 F.3d 296", "level": "Federal", "pattern": "Decision cannot be meaningfully challenged", "headline": "The owner could not rebut evidence it could not see.", "sequence": ["Ralls acquired four Oregon wind-farm companies", "CFIUS restrictions and a presidential divestment order followed", "The government withheld the adverse evidence and a chance to rebut it", "The D.C. Circuit required procedural protections on remand"], "finding": "The presidential order deprived Ralls of protected property interests without due process.", "remedy": "Reversed and remanded for access to the unclassified evidence relied upon and an opportunity to respond; remaining CFIUS claims returned for consideration.", "status": "Published appellate constitutional holding, July 15, 2014; later settlement terms not independently verified here", "evidence_type": "Court merits decision", "limitation": "The court did not decide the national-security merits, require classified disclosure or compel disclosure of presidential deliberations. Executive-privilege disputes remained for remand.", "people": [{"name": "Jacob J. Lew", "role": "Treasury Secretary and CFIUS chair; official-capacity appellee"}, {"name": "Karen LeCraft Henderson", "role": "Appellate opinion author ordering procedural relief"}], "sources": [{"title": "Ralls v. CFIUS, official D.C. Circuit opinion, July 15, 2014", "url": "https://media.cadc.uscourts.gov/opinions/docs/2014/07/13-5315-1502552.pdf", "pinpoint": "Opinion pp. 2, 7–12 (roles, location and orders); 35–38 (unclassified evidence, rebuttal and limits); 46–47 (disposition)"}, {"title": "Treasury statement on the challenged presidential decision, September 28, 2012", "url": "https://home.treasury.gov/news/press-releases/tg1724", "pinpoint": "Opening paragraphs describe divestment, Oregon military-airspace context and transaction-specific national-security rationale"}], "engineering_hypothesis": "Kapukai proposal: disclose the legally releasable evidence behind consequential decisions and preserve a meaningful rebuttal stage. Engineer absence or causation was not decided.", "strategic_value": "Kapukai assessment: a strong federal example separating authority to act from a lawful, challengeable decision process.", "editorial_priority": 4, "featured": false, "control_to_test": "Can the affected party inspect the legally releasable adverse evidence and meaningfully rebut it, with lawful nondisclosure claims separately reviewed?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Review covered transactions for national-security risks while providing the procedural protections applicable to the affected property interests.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Verify access to legally releasable adverse evidence and a meaningful rebuttal opportunity, with nondisclosure claims separately identified and reviewed."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "The presidential order deprived Ralls of protected property interests without due process.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
 ('nelson-colorado-2017','Nelson v. Colorado (with Madden v. Colorado)','CO','State','Correction fails to propagate','Court merits decision','2026-11-01','{"id": "nelson-colorado-2017", "title": "Nelson v. Colorado (with Madden v. Colorado)", "year": 2017, "state": "CO", "city": "Colorado (statewide refund rule)", "court": "U.S. Supreme Court, reviewing the Colorado Supreme Court", "docket": "15-1256; 581 U.S. 128", "level": "State", "pattern": "Correction fails to propagate", "headline": "The convictions were gone. The state kept the money.", "sequence": ["Colorado collected costs, fees and restitution based on criminal convictions.", "Nelson was acquitted on retrial; Madden''s convictions were invalidated with no retrial.", "Refunds depended on a separate proceeding proving innocence by clear and convincing evidence.", "The Supreme Court rejected that burden and reversed the state judgments."], "finding": "Retaining these conviction-dependent payments under Colorado''s exoneration scheme violated procedural due process after the convictions were invalidated and no retrial would occur.", "remedy": "Reversed and remanded April 19, 2017; no more than minimal refund procedures allowed. Separately, Colorado enacted HB17-1071 for qualifying later cases: a court-motion process and a 28-day payment deadline for the state court administrator after receiving a refund order.", "status": "Supreme Court merits decision; judgments reversed and remanded", "evidence_type": "Court merits decision", "limitation": "Refund is distinct from compensation for wrongful imprisonment. HB17-1071 applies prospectively from September 1, 2017 and did not resolve these petitioners'' cases. This record does not certify present refund practice or actual payment.", "people": [{"name": "Shannon Nelson", "role": "Petitioner seeking repayment after acquittal"}, {"name": "Louis Alonzo Madden", "role": "Petitioner seeking repayment after convictions were invalidated"}, {"name": "Ruth Bader Ginsburg", "role": "Supreme Court justice; majority opinion author ordering correction"}], "sources": [{"title": "Nelson v. Colorado, official Supreme Court opinion, April 19, 2017", "url": "https://www.supremecourt.gov/opinions/16pdf/15-1256_5i36.pdf", "pinpoint": "Majority slip opinion pp. 1–5 (sequence and historical law), p. 4 n. 4 (new legislation), pp. 6–11 (holding and disposition)"}, {"title": "Supreme Court docket 15-1256", "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/15-1256.html", "pinpoint": "April 19, 2017 judgment and opinion authorship; May 22, 2017 mandate"}, {"title": "Colorado HB17-1071, signed legislation", "url": "https://content.leg.colorado.gov/sites/default/files/2017a_1071_signed.pdf", "pinpoint": "Section 1, adding §18-1.3-703 (eligibility, motion and refund order); section 2, §13-3-114.5 (28-day payment deadline); section 3 (effective date and prospective applicability)"}], "engineering_hypothesis": "Kapukai proposal: connect a vacated conviction to its dependent financial consequences, identify the refund owner and verify completion. This control proposal is not a finding that missing engineer sign-off caused the violation.", "strategic_value": "Changing the authoritative decision must trigger review of downstream consequences. The separate statutory response makes correction measurable: a named responsible office and a payment deadline.", "editorial_priority": 6, "featured": false, "control_to_test": "Does an invalidated conviction trigger review of dependent payments, eligibility for a refund, the responsible office, applicable deadlines and proof of repayment?", "reviewed_at": "2026-11-01", "engineer_signoff_evidence": "Not established by reviewed source", "engineering_causation_status": "not_established", "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.", "signoff_research_needed": "Identify the actual decision-system designers, professional credentials, review obligations, attestations and causal evidence before assigning absence or causation.", "verification": {"scope": "Kapukai work on this record; source authors may have separate evaluations.", "source_review": "document_review_only", "review_method": "AI-assisted source compilation; independent human technical review not recorded.", "test_status": "not_performed_by_kapukai", "operational_test_runs": [], "measurement_status": "not_estimated_by_kapukai", "metrics": [], "independent_replications": [], "third_party_test_evidence": "not_systematically_extracted", "current_compliance": "not_independently_verified", "insurance_coverage": "not_reviewed"}, "mission_capability": {"framework": "Kapukai proposed governance adaptation of AFMAN 13-1CRCV3 mission-capability terminology; not an official military or government rating.", "current_status": "UNASSESSED", "mission": "Return eligible conviction-dependent payments after invalidation through a lawful, usable refund process.", "scope": "The specific decision process described in this record, not the whole agency, court or government.", "criteria_status": "proposed_not_validated", "proposed_criteria": ["Trace a qualifying invalidated conviction through refund eligibility, responsible office, applicable deadlines and evidence of actual repayment."], "assessed_at": null, "assessor": null, "blocked_reason": "No current validated mission baseline, approved acceptance criteria and operational evidence set have been recorded. Historical findings and missing test data do not establish a current capability rating.", "historical_evidence": "Retaining these conviction-dependent payments under Colorado''s exoneration scheme violated procedural due process after the convictions were invalidated and no retrial would occur.", "historical_evidence_status": "Court merits decision", "legal_authorization_status": "not_determined_by_capability_rating"}}'),
@@ -102,8 +102,8 @@ INSERT INTO kapukai_case_atlas.sources(case_id,url,title,pinpoint) VALUES('jones
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('jones-flowers-2006','Gary Kent Jones','Property-owner petitioner challenging notice before the tax sale') ON CONFLICT DO NOTHING;
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('jones-flowers-2006','Mark Wilcox','Respondent as Arkansas Commissioner of State Lands; agency notice procedure at issue') ON CONFLICT DO NOTHING;
 INSERT INTO kapukai_case_atlas.people(case_id,name,documented_role) VALUES('jones-flowers-2006','John G. Roberts Jr.','Chief Justice; majority opinion author ordering correction') ON CONFLICT DO NOTHING;
-INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha256,source_review_date) VALUES('3.0','{
-  "edition": "3.0",
+INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha256,source_review_date) VALUES('4.0','{
+  "edition": "4.0",
   "reviewed_at": "2026-11-01",
   "scope_note": "Selected U.S. public-source cases and official findings. This is a curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.",
   "engineering_note": "Kapukai proposes publicly inspectable testing, evidence and accountable review for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.",
@@ -200,6 +200,216 @@ INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha2
         }
       ],
       "engineering_hypothesis": "Test executable eligibility rules against governing law and make notice and correction usable; no engineering-licensure issue was decided.",
+      "decision_path": {
+        "schema_version": "1.0",
+        "reviewed_at": "2026-11-01",
+        "review_method": "AI-assisted primary-source extraction; independent human review not recorded.",
+        "actors": [
+          {
+            "id": "state_police",
+            "label": "Michigan State Police",
+            "kind": "institution",
+            "role": "institutional_operator",
+            "affiliation": "Michigan State Police",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 3: LEIN warrant records"
+              }
+            ]
+          },
+          {
+            "id": "benefits_agency",
+            "label": "Michigan benefits agency",
+            "kind": "institution",
+            "role": "decision_authority",
+            "affiliation": "Michigan Department of Health and Human Services",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 2–4"
+              }
+            ]
+          },
+          {
+            "id": "barry",
+            "label": "Walter Barry",
+            "kind": "person",
+            "role": "affected_person",
+            "affiliation": "Private individual",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 4–5"
+              }
+            ]
+          },
+          {
+            "id": "sixth_circuit",
+            "label": "Sixth Circuit",
+            "kind": "institution",
+            "role": "reviewer",
+            "affiliation": "Federal appellate court",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 1–2, 14–17"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": "warrant_match",
+            "phase": "information",
+            "title": "A warrant record becomes a match",
+            "actor_ids": [
+              "state_police",
+              "benefits_agency"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "Michigan matched assistance recipients against police warrant records.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 3"
+              }
+            ]
+          },
+          {
+            "id": "benefits_close",
+            "phase": "decision",
+            "title": "The match closes the case",
+            "actor_ids": [
+              "benefits_agency"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "The interface automatically closed SNAP cases and generated a generic disqualification notice.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 3–4"
+              }
+            ]
+          },
+          {
+            "id": "benefits_lost",
+            "phase": "impact",
+            "title": "Barry loses food assistance",
+            "actor_ids": [
+              "benefits_agency"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "Barry missed July 2013 benefits while awaiting a hearing; payment followed his federal lawsuit.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 5"
+              }
+            ]
+          },
+          {
+            "id": "injunction_affirmed",
+            "phase": "correction",
+            "title": "The court rejects the shortcut",
+            "actor_ids": [
+              "sixth_circuit"
+            ],
+            "affected_actor_ids": [
+              "barry"
+            ],
+            "account": "The Sixth Circuit affirmed relief against warrant-only disqualification and inadequate notice.",
+            "evidence_status": "court_order",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 14–17, 20"
+              }
+            ]
+          }
+        ],
+        "access": [
+          {
+            "actor_id": "barry",
+            "capability": "see",
+            "status": "documented_barrier",
+            "detail": "Notices omitted the warrant details needed to understand and contest disqualification.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 15–16"
+              }
+            ]
+          },
+          {
+            "actor_id": "barry",
+            "capability": "challenge",
+            "status": "documented_available",
+            "detail": "Barry requested hearings and filed suit; his second hearing was delayed.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion pp. 4–5"
+              }
+            ]
+          }
+        ],
+        "technology": [
+          {
+            "actor_id": "benefits_agency",
+            "kind": "automation",
+            "status": "documented_use",
+            "detail": "Automated recipient-to-warrant matching and case closure.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+                "pinpoint": "Opinion p. 3"
+              }
+            ]
+          },
+          {
+            "actor_id": "benefits_agency",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "barry",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          }
+        ],
+        "correction": {
+          "status": "ordered",
+          "description": "Affirmed injunction against SNAP disqualification solely on an outstanding felony warrant.",
+          "implementation_status": "not_independently_verified",
+          "source_refs": [
+            {
+              "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/16a0208p-06.pdf",
+              "pinpoint": "Opinion pp. 14, 17, 20"
+            }
+          ]
+        },
+        "limitations": [
+          "Historical Michigan policy; current implementation is unverified.",
+          "This path does not establish that an absent engineer caused the failure."
+        ]
+      },
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
@@ -1293,6 +1503,209 @@ INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha2
       "featured": true,
       "control_to_test": "Before incarceration for civil contempt over unpaid child support, does the record establish the required ability-to-pay assessment, notice, financial information, opportunity to respond and express finding?",
       "reviewed_at": "2026-11-01",
+      "decision_path": {
+        "schema_version": "1.0",
+        "reviewed_at": "2026-11-01",
+        "review_method": "AI-assisted primary-source extraction; independent human review not recorded.",
+        "actors": [
+          {
+            "id": "clerk",
+            "label": "Family-court clerk",
+            "kind": "person",
+            "role": "institutional_operator",
+            "affiliation": "South Carolina family court",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 436–437"
+              }
+            ]
+          },
+          {
+            "id": "family_court",
+            "label": "South Carolina family court",
+            "kind": "institution",
+            "role": "decision_authority",
+            "affiliation": "South Carolina judiciary",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 437–438"
+              }
+            ]
+          },
+          {
+            "id": "turner",
+            "label": "Michael Turner",
+            "kind": "person",
+            "role": "affected_person",
+            "affiliation": "Private individual",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 436–438"
+              }
+            ]
+          },
+          {
+            "id": "supreme_court",
+            "label": "U.S. Supreme Court",
+            "kind": "institution",
+            "role": "reviewer",
+            "affiliation": "Federal judiciary",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 447–449"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": "arrears_report",
+            "phase": "information",
+            "title": "Arrears enter the hearing",
+            "actor_ids": [
+              "clerk"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "The clerk reported $5,728.76 in unpaid support; both parents appeared without counsel.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 436–437"
+              }
+            ]
+          },
+          {
+            "id": "custody_order",
+            "phase": "decision",
+            "title": "Incarceration without the finding",
+            "actor_ids": [
+              "family_court"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "The court imposed twelve months without an express ability-to-pay finding.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 437–438"
+              }
+            ]
+          },
+          {
+            "id": "term_served",
+            "phase": "impact",
+            "title": "The sentence precedes review",
+            "actor_ids": [
+              "family_court"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "Turner completed the term before the state appellate court decided his appeal.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 438"
+              }
+            ]
+          },
+          {
+            "id": "judgment_vacated",
+            "phase": "correction",
+            "title": "Due process requires safeguards",
+            "actor_ids": [
+              "supreme_court"
+            ],
+            "affected_actor_ids": [
+              "turner"
+            ],
+            "account": "The Supreme Court found a due-process violation, vacated the judgment and remanded.",
+            "evidence_status": "court_order",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 447–449"
+              }
+            ]
+          }
+        ],
+        "access": [
+          {
+            "actor_id": "turner",
+            "capability": "challenge",
+            "status": "documented_barrier",
+            "detail": "Clear ability-to-pay notice and adequate financial-information procedures were missing.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 449"
+              }
+            ]
+          },
+          {
+            "actor_id": "turner",
+            "capability": "correct",
+            "status": "documented_available",
+            "detail": "Pro bono counsel helped him appeal, but the sentence ended before the state ruling.",
+            "evidence_status": "court_finding",
+            "source_refs": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+                "pinpoint": "564 U.S. 438"
+              }
+            ]
+          }
+        ],
+        "technology": [
+          {
+            "actor_id": "family_court",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "turner",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "family_court",
+            "kind": "automation",
+            "status": "not_established",
+            "detail": "A prewritten form does not establish an automated decision system.",
+            "source_refs": []
+          }
+        ],
+        "correction": {
+          "status": "ordered",
+          "description": "Vacatur and remand; safeguards include notice, financial information, response opportunity and an express finding.",
+          "implementation_status": "not_independently_verified",
+          "source_refs": [
+            {
+              "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-431.pdf",
+              "pinpoint": "564 U.S. 447–449"
+            }
+          ]
+        },
+        "limitations": [
+          "No automatic counsel right in the specified circumstances with adequate alternative safeguards; State-owed support and unusually complex cases were left open.",
+          "The remand does not demonstrate later implementation."
+        ]
+      },
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
@@ -1380,6 +1793,230 @@ INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha2
       "featured": true,
       "control_to_test": "For a sampled arrest, can reviewers trace the facial-recognition lead to independent evidence, required sign-offs, written approvals and any corrective audit?",
       "reviewed_at": "2026-11-01",
+      "decision_path": {
+        "schema_version": "1.0",
+        "reviewed_at": "2026-11-01",
+        "review_method": "AI-assisted primary-source extraction; independent human review not recorded.",
+        "actors": [
+          {
+            "id": "police",
+            "label": "Detroit police investigators",
+            "kind": "group",
+            "role": "institutional_operator",
+            "affiliation": "Detroit Police Department",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶4, 8–12; allegations"
+              }
+            ]
+          },
+          {
+            "id": "magistrate",
+            "label": "Warrant-issuing magistrate",
+            "kind": "person",
+            "role": "decision_authority",
+            "affiliation": "Court issuing the arrest warrant",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶12; allegation"
+              }
+            ]
+          },
+          {
+            "id": "williams",
+            "label": "Robert Williams",
+            "kind": "person",
+            "role": "affected_person",
+            "affiliation": "Private individual",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶1–4"
+              }
+            ]
+          },
+          {
+            "id": "city",
+            "label": "City of Detroit",
+            "kind": "institution",
+            "role": "decision_authority",
+            "affiliation": "City of Detroit",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Agreement §§1–4"
+              }
+            ]
+          },
+          {
+            "id": "district_court",
+            "label": "U.S. District Court",
+            "kind": "institution",
+            "role": "reviewer",
+            "affiliation": "Eastern District of Michigan",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Dismissal order ¶3"
+              }
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": "face_lead",
+            "phase": "information",
+            "title": "A face search produces a lead",
+            "actor_ids": [
+              "police"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "Williams alleges surveillance imagery generated an incorrect facial-recognition lead.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶1, 4"
+              }
+            ]
+          },
+          {
+            "id": "warrant_request",
+            "phase": "decision",
+            "title": "A lineup supports a warrant request",
+            "actor_ids": [
+              "police",
+              "magistrate"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "He alleges a non-eyewitness lineup reinforced the lead and material omissions preceded the warrant.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶8–12"
+              }
+            ]
+          },
+          {
+            "id": "arrest_detention",
+            "phase": "impact",
+            "title": "Arrest and detention follow",
+            "actor_ids": [
+              "police"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "He alleges arrest and approximately thirty hours in detention.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶1, 3"
+              }
+            ]
+          },
+          {
+            "id": "settlement_controls",
+            "phase": "correction",
+            "title": "The parties agree to checks",
+            "actor_ids": [
+              "city",
+              "district_court"
+            ],
+            "affected_actor_ids": [
+              "williams"
+            ],
+            "account": "The settlement adds independent evidence, examiner approvals and a retrospective audit; the court retained enforcement jurisdiction.",
+            "evidence_status": "settlement_term",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Order ¶3; agreement §6; Attachment A §§5.3, 5.5(4)"
+              }
+            ]
+          }
+        ],
+        "access": [
+          {
+            "actor_id": "magistrate",
+            "capability": "see",
+            "status": "alleged_barrier",
+            "detail": "The complaint alleges the warrant request omitted material reliability information.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶9–12"
+              }
+            ]
+          },
+          {
+            "actor_id": "williams",
+            "capability": "correct",
+            "status": "required_by_remedy",
+            "detail": "The agreement provides an enforcement-motion route for alleged breaches.",
+            "evidence_status": "settlement_term",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+                "pinpoint": "Agreement §§10–11; order ¶3"
+              }
+            ]
+          }
+        ],
+        "technology": [
+          {
+            "actor_id": "police",
+            "kind": "automation",
+            "status": "alleged_use",
+            "detail": "The complaint alleges facial-recognition use in this investigation.",
+            "evidence_status": "allegation",
+            "source_refs": [
+              {
+                "url": "https://assets.aclu.org/live/uploads/2024/01/54.-First-Amended-Complaint.pdf",
+                "pinpoint": "Complaint ¶¶4, 8–12"
+              }
+            ]
+          },
+          {
+            "actor_id": "police",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          },
+          {
+            "actor_id": "williams",
+            "kind": "ai",
+            "status": "not_established",
+            "detail": "AI use by this actor is not established by the mapped source passages.",
+            "source_refs": []
+          }
+        ],
+        "correction": {
+          "status": "agreed",
+          "description": "Independent corroboration, documented approvals and an audit were agreed; implementation is not independently verified.",
+          "implementation_status": "not_independently_verified",
+          "source_refs": [
+            {
+              "url": "https://assets.aclu.org/live/uploads/2024/06/Final-Order-of-Dismissal-and-Settlement-Agreement.pdf",
+              "pinpoint": "Agreement §§3–6; Attachment A §§5.3, 5.5(4), 6.1(4)"
+            }
+          ]
+        },
+        "limitations": [
+          "The settlement admits no liability; the historical arrest account remains pleaded allegations.",
+          "This map records facial recognition without inferring the model architecture or assigning an AI classification."
+        ]
+      },
       "engineer_signoff_evidence": "Not established by reviewed source",
       "engineering_causation_status": "not_established",
       "current_status_note": "Historical decision or report summarized. Subsequent docket, compliance and current personnel are not comprehensively verified.",
@@ -1769,7 +2406,13 @@ INSERT INTO kapukai_case_atlas.editions(edition,published_snapshot,checksum_sha2
         "legal_authorization_status": "not_determined_by_capability_rating"
       }
     }
-  ]
+  ],
+  "decision_paths": {
+    "schema_version": "1.0",
+    "mapped_cases": 3,
+    "total_cases": 20,
+    "review_scope": "Three historical source-backed decision paths added. Existing case review dates and current-compliance gaps are preserved; this is not a fresh docket review."
+  }
 }
-','0f6932139e6b6a1b7b2164297bad0c1a80576d032bba4fdba994d6b4c58499d2','2026-11-01') ON CONFLICT(edition) DO NOTHING;
+','4894cc1c8e067e0636f7dcef139975519f5b47f59292bb72ba31aa526cc052a4','2026-11-01') ON CONFLICT(edition) DO NOTHING;
 COMMIT;
