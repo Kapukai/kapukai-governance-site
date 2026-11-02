@@ -1,16 +1,20 @@
 """Build portable read-only research editions. seed.json is reviewed public-source material."""
 import copy,csv,hashlib,json,sqlite3
 from pathlib import Path
+from decision_path_contract import SCHEMA_VERSION, PILOT_CASE_IDS, validate_paths
 R=Path(__file__).resolve().parent
 edition=json.loads((R/'edition.json').read_text())
 verification_contract=json.loads((R/'verification-contract.json').read_text())
 mission_proposals=json.loads((R/'mission-proposals.json').read_text())
 O=R.parent/'public/evidence/decision-failures';O.mkdir(parents=True,exist_ok=True)
 cases=json.loads((R/'seed.json').read_text())
+decision_paths=json.loads((R/'decision-paths.json').read_text())
+validate_paths(decision_paths, {c['id'] for c in cases}, PILOT_CASE_IDS if edition['edition']=='4.0' else None)
 assert len({x['id'] for x in cases})==len(cases)
 assert set(mission_proposals)=={x['id'] for x in cases}, 'Every indexed process needs one proposed mission; no stale mission records.'
 required=['id','title','year','state','city','court','docket','level','pattern','headline','sequence','finding','remedy','status','limitation','people','sources','engineering_hypothesis']
 for c in cases:
+ if c['id'] in decision_paths:c['decision_path']=copy.deepcopy(decision_paths[c['id']])
  for k in required:assert c.get(k), (c.get('id'),k)
  for s in c['sources']:assert s['url'].startswith('https://') and s['pinpoint']
  c.setdefault('engineer_signoff_evidence','Not established by reviewed source')
@@ -46,15 +50,16 @@ for c in cases:
  for field in ['operational_test_runs','metrics','independent_replications']:assert isinstance(verification[field],list)
  # This publication adds explicit gaps, not new operational findings. Later editions
  # must deliberately review evidence and update the contract before assigning ratings.
- if edition['edition']=='3.0':
+ if edition['edition'] in {'3.0','4.0'}:
   assert mission_capability['current_status']=='UNASSESSED'
   assert mission_capability['assessed_at'] is None and mission_capability['assessor'] is None
   assert not verification['operational_test_runs'] and not verification['metrics'] and not verification['independent_replications']
 metadata={'edition':edition['edition'],'reviewed_at':edition['reviewed_at'],'scope_note':'Selected U.S. public-source cases and official findings. This is a curated edition, not all online cases, a representative sample or a prevalence estimate. States without records are not yet indexed. Map geography is underlying jurisdiction, not deciding-court location.','engineering_note':'Kapukai proposes publicly inspectable testing, evidence and accountable review for consequential decision systems. These records do not establish that an absent engineer caused the failure or that every government decision legally requires an engineer’s sign-off.','selection_method':edition['selection_method'],'verification_contract_version':edition['verification_contract_version'],'verification_method':verification_contract['methodology'],'mission_capability_method':verification_contract['mission_capability_method'],'cases':cases}
+metadata['decision_paths']={'schema_version':SCHEMA_VERSION,'mapped_cases':len(decision_paths),'total_cases':len(cases),'review_scope':edition.get('decision_path_review_scope','Historical source mapping; current implementation not independently verified.')}
 encoded=json.dumps(metadata,ensure_ascii=False,indent=2)+'\n';(O/'cases.json').write_text(encoded)
-fields=required+['evidence_type','engineer_signoff_evidence','engineering_causation_status','current_status_note','reviewed_at','signoff_research_needed','strategic_value','control_to_test','editorial_priority','featured','follow_on_note','verification','mission_capability']
+fields=required+['evidence_type','engineer_signoff_evidence','engineering_causation_status','current_status_note','reviewed_at','signoff_research_needed','strategic_value','control_to_test','editorial_priority','featured','follow_on_note','verification','mission_capability','decision_path']
 with (O/'cases.csv').open('w',newline='') as f:
- w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');w.writeheader()
+ w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore',lineterminator='\n');w.writeheader()
  for c in cases:w.writerow({k:json.dumps(v,ensure_ascii=False) if isinstance(v,(list,dict)) else v for k,v in c.items() if k in fields})
 p=O/'cases.sqlite'
 if p.exists():p.unlink()

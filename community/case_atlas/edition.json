@@ -1,6 +1,8 @@
 {
-  "edition": "3.0",
+  "edition": "4.0",
   "reviewed_at": "2026-11-01",
   "selection_method": "Editorial priorities reflect primary-source strength, understandable human impact, a specific failure that can be tested, concrete safeguards or correction duties, and distinct coverage added. They are not quantified return on investment, prevalence, culpability or danger scores.",
-  "verification_contract_version": "1.0"
+  "verification_contract_version": "1.0",
+  "decision_path_schema_version": "1.0",
+  "decision_path_review_scope": "Three historical source-backed decision paths added. Existing case review dates and current-compliance gaps are preserved; this is not a fresh docket review."
 }

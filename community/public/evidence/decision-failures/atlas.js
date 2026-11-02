@@ -3,8 +3,9 @@
 const $ = id => document.getElementById(id);
 const el = (tag, text, cls) => { const n=document.createElement(tag); if(text!==undefined)n.textContent=text; if(cls)n.className=cls; return n; };
 const link = (text,url) => {const a=el('a',text);try{const u=new URL(url,location.href);if(['https:','http:'].includes(u.protocol))a.href=u.href;}catch{}return a;};
-let all=[],selected='barry-2016',state='',query='',pattern='',level='',status='',capability='',view='map';
+let all=[],selected='barry-2016',state='',query='',pattern='',level='',status='',capability='',pathFilter='',view='map';
 let shapes=new Map(),labels=new Map();
+const hasPath=c=>Array.isArray(c.decision_path?.steps)&&c.decision_path.steps.length===4&&Array.isArray(c.decision_path.actors);
 const statusOf=c=>c.status||c.evidence_status||'See source';
 const typeOf=c=>c.evidence_type||statusOf(c);
 const levelOf=c=>c.level||c.government_level||'Unspecified';
@@ -13,7 +14,7 @@ const capabilityOf=c=>['FMC','PMC','NMC','UNASSESSED'].includes(c.mission_capabi
 const capabilityLabel=value=>value==='UNASSESSED'?'Unassessed':value;
 function options(id,values){for(const v of [...new Set(values.filter(Boolean))].sort()) {const o=el('option',v);o.value=v;$(id).append(o);}}
 function searchable(c){return JSON.stringify(c).toLocaleLowerCase();}
-function matches(c,withState=true){return (!withState||!state||c.state===state)&&(!query||searchable(c).includes(query))&&(!pattern||c.pattern===pattern)&&(!level||levelOf(c)===level)&&(!status||typeOf(c)===status)&&(!capability||capabilityOf(c)===capability);}
+function matches(c,withState=true){return (!withState||!state||c.state===state)&&(!query||searchable(c).includes(query))&&(!pattern||c.pattern===pattern)&&(!level||levelOf(c)===level)&&(!status||typeOf(c)===status)&&(!capability||capabilityOf(c)===capability)&&(!pathFilter||(pathFilter==='mapped'?hasPath(c):!hasPath(c)));}
 function setState(s){state=s;$('state').value=s;selected='';render();}
 function bindCaseLink(anchor,id){
  anchor.addEventListener('click',event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!all.some(c=>c.id===id))return;event.preventDefault();history.pushState(null,'','#case='+encodeURIComponent(id));selectCase(id,true);});
@@ -90,6 +91,53 @@ function verificationSummary(c,parent){
  summary.append(el('p',`${source}. ${tests}. Capability: ${capabilityLabel(capabilityOf(c))}. ${compliance}.`));
  summary.append(el('p','Source review does not establish operational testing or current system performance.','review-note'));parent.append(summary);
 }
+const actorRoles={institutional_operator:'Institutional operator',decision_authority:'Decision maker',affected_person:'Affected person',reviewer:'Reviewer',representative:'Representative'};
+const evidenceLabels={court_finding:'Court finding',allegation:'Allegation',settlement_term:'Settlement term',court_order:'Court order',source_described:'Source-described account'};
+const phaseLabels={information:'Information',decision:'Decision',impact:'Impact',correction:'Correction'};
+function pathReferences(parent,refs,label='Read the source'){
+ const sources=Array.isArray(refs)?refs:[];
+ if(!sources.length){parent.append(el('p','Source reference not recorded.','path-source-note'));return;}
+ const links=el('p',undefined,'path-source-links');sources.forEach((ref,i)=>{if(i)links.append(document.createTextNode(' · '));links.append(link(sources.length===1?label:`Source ${i+1}`,ref.url));});parent.append(links);
+ if(sources.some(ref=>ref.pinpoint)){const disclosure=el('details',undefined,'path-pinpoints');disclosure.append(el('summary','Source passages'));const list=el('ul');sources.forEach((ref,i)=>{if(ref.pinpoint)list.append(el('li',`${sources.length>1?'Source '+(i+1)+': ':''}${ref.pinpoint}`));});disclosure.append(list);parent.append(disclosure);}
+}
+function actorText(actor){if(!actor)return 'Actor not established in the path record';return actor.label+' · '+(actorRoles[actor.role]||'Role not established')+(actor.affiliation&&actor.affiliation.trim().toLocaleLowerCase()!==String(actor.label).trim().toLocaleLowerCase()?' · '+actor.affiliation:'');}
+function pathEvidenceTable(parent,title,headings,records,actors,technology=false){
+ parent.append(el('h5',title));
+ if(!Array.isArray(records)||!records.length){parent.append(el('p','No evidence entries recorded for this category.','path-unknown'));return;}
+ const table=el('table',undefined,'path-evidence-table');const caption=el('caption',title);caption.className='sr-only';table.append(caption);
+ const thead=el('thead'),header=el('tr');for(const h of headings){const th=el('th',h);th.scope='col';header.append(th);}thead.append(header);table.append(thead);const body=el('tbody');
+ for(const entry of records){const row=el('tr'),who=el('th',actorText(actors.get(entry.actor_id)));who.scope='row';const type=technology?(entry.kind==='ai'?'AI':entry.kind==='automation'?'Automation':'Not established'):({see:'See information',challenge:'Challenge',correct:'Correct'}[entry.capability]||'Not established');
+ const status=technology?({documented_use:'Documented use',alleged_use:'Alleged use',not_established:'Not established'}[entry.status]||'Not established'):({documented_available:'Documented available',documented_barrier:'Documented barrier',required_by_remedy:'Required by remedy',alleged_barrier:'Alleged barrier',not_established:'Not established'}[entry.status]||'Not established');
+ const evidence=el('td');evidence.append(el('p',status,'path-evidence-status'));if(entry.evidence_status)evidence.append(el('p',evidenceLabels[entry.evidence_status]||'Evidence status not established','path-table-posture'));evidence.append(el('p',entry.detail||'Detail not recorded.'));if(entry.status!=='not_established'||(Array.isArray(entry.source_refs)&&entry.source_refs.length))pathReferences(evidence,entry.source_refs,'Source');row.append(who,el('td',type),evidence);body.append(row);
+ }table.append(body);const wrap=el('div',undefined,'path-table-scroll');wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label',title+' table');wrap.append(table);parent.append(wrap);
+}
+function decisionPath(c,parent){
+ const section=el('section',undefined,'detail-section decision-path');section.append(el('h4','Decision path'));
+ if(!hasPath(c)){section.append(el('p','Detailed decision path not yet mapped for this record.','path-unmapped'));parent.append(section);return false;}
+ const data=c.decision_path,actors=new Map(data.actors.map(a=>[a.id,a]));
+ section.append(el('p','Follow who acted, what information mattered, who was affected and the stated correction. Each step retains its evidence status. Roles describe participation in this event, not a finding of lawful authority or liability.','path-intro'));
+ const steps=el('ol',undefined,'decision-steps');
+ data.steps.forEach((step,i)=>{const item=el('li',undefined,'decision-step');item.dataset.phase=step.phase||'';
+ item.append(el('p',`${String(i+1).padStart(2,'0')} / ${phaseLabels[step.phase]||'Phase not established'}`,'path-phase'),el('h5',step.title||'Untitled step'),el('p',evidenceLabels[step.evidence_status]||'Evidence status not established','path-posture'));
+ const who=el('div',undefined,'path-actors');who.append(el('strong','Who acted'));
+ for(const id of step.actor_ids||[])who.append(el('p',actorText(actors.get(id))));if(!(step.actor_ids||[]).length)who.append(el('p','Actor not established in the path record.'));item.append(who);
+ item.append(el('p',step.account||'Account not recorded.','path-account'));
+ const affected=el('div',undefined,'path-affected');affected.append(el('strong','Who was affected'));
+ for(const id of step.affected_actor_ids||[])affected.append(el('p',actorText(actors.get(id))));if(!(step.affected_actor_ids||[]).length)affected.append(el('p','Affected actor not established in the path record.'));item.append(affected);
+ pathReferences(item,step.source_refs);steps.append(item);
+ });section.append(steps);
+ const correction=data.correction||{},status=correction.status==='ordered'?'Correction ordered':correction.status==='agreed'?'Correction agreed':'Correction status not established';
+ const follow=el('aside',undefined,'path-correction');follow.append(el('strong',status),el('p',correction.description||'Correction description not recorded.'));
+ follow.append(el('p',correction.implementation_status==='not_independently_verified'?'Implementation has not been independently verified.':'Implementation verification is not established in this record.','path-implementation'));pathReferences(follow,correction.source_refs);section.append(follow);
+ const limits=el('div',undefined,'path-limits');limits.append(el('strong','Limits of this path'));const ul=el('ul');for(const limit of data.limitations||[])ul.append(el('li',limit));if(!ul.children.length)ul.append(el('li','A mapped path does not establish current performance or implementation.'));limits.append(ul);section.append(limits);
+ section.append(el('p',`Path reviewed: ${data.reviewed_at||'date not recorded'}. ${data.review_method||'Review method not recorded.'}`,'path-review'));
+ const access=el('details',undefined,'detail-disclosure path-access');access.append(el('summary','Access, challenge rights and technology evidence'));
+ access.append(el('p','“Not established” identifies an evidence gap. It does not mean a capability or technology was absent. Automation is not automatically AI.','path-unknown'));
+ pathEvidenceTable(access,'Access to information and correction',['Actor and role','Capability','Evidence'],data.access,actors);
+ pathEvidenceTable(access,'AI and automation',['Actor and role','Technology','Evidence'],data.technology,actors,true);
+ section.append(access);parent.append(section);return true;
+}
+
 function detail(c){
  const d=$('case-detail');d.replaceChildren();
  const back=link(view==='compare'?'← Back to comparison':'← Back to cases','#results-title');back.className='reader-back';d.append(back);
@@ -99,7 +147,8 @@ function detail(c){
  d.append(el('p',c.title,'case-title'),el('p',[c.court,c.docket||c.citation,placeOf(c)].filter(Boolean).join(' · '),'case-meta'),el('p',statusOf(c),'status-tag'));
  verificationSummary(c,d);
  if(c.strategic_value)section(d,'Why this case matters',c.strategic_value);
- const sequenceSection=el('section',undefined,'detail-section');sequenceSection.append(el('h4','Sequence in the cited record'));
+ const mapped=decisionPath(c,d);
+ const sequenceSection=el(mapped?'details':'section',undefined,mapped?'detail-disclosure original-sequence':'detail-section');sequenceSection.append(el(mapped?'summary':'h4',mapped?'Original case summary':'Sequence in the cited record'));
  const seq=el('ol',undefined,'sequence');for(const item of c.sequence||[])seq.append(el('li',item));sequenceSection.append(seq);d.append(sequenceSection);
  section(d,'What the source establishes',c.finding);section(d,'Remedy',c.remedy||c.outcome);section(d,'Limit of this record',c.limitation);
  if(c.follow_on_note)section(d,'Follow-on ruling',c.follow_on_note);
@@ -127,19 +176,19 @@ function compare(list){
 }
 function setView(next){view=next;const back=document.querySelector('.reader-back');if(back)back.textContent=view==='compare'?'← Back to comparison':'← Back to cases';$('map-view').hidden=view!=='map';$('compare-view').hidden=view!=='compare';$('case-list').hidden=view==='compare';$('evidence-layout').classList.toggle('compare-layout',view==='compare');$('view-map').setAttribute('aria-pressed',String(view==='map'));$('view-compare').setAttribute('aria-pressed',String(view==='compare'));}
 function render(){const list=all.filter(c=>matches(c));const coverage=all.filter(c=>matches(c,false));for(const s of window.ATLAS_MAP?.states||[]){const total=all.filter(c=>c.state===s.abbr).length,count=coverage.filter(c=>c.state===s.abbr).length;const p=shapes.get(s.abbr);p.setAttribute('class','state-shape'+(total?' indexed':'')+(total&&!count?' filtered-out':'')+(state===s.abbr?' selected':''));p.setAttribute('aria-pressed',String(state===s.abbr));p.setAttribute('aria-label',`${s.name}: ${count} matching case${count===1?'':'s'}${!total?', not yet indexed':''}`);labels.get(s.abbr)?.setAttribute('class','state-label'+(state===s.abbr?' selected':''));}
- $('result-count').textContent=`${list.length} of ${all.length} case records${state?' · '+state:''}${capability?' · Capability: '+capabilityLabel(capability):''}`;$('results-title').textContent=state?`${$('state').selectedOptions[0]?.textContent||state} case records`:'Case records';const current=list.find(c=>c.id===selected)||list[0];selected=current?.id||'';const container=$('case-list');container.replaceChildren();for(const c of list){const b=el('button',undefined,'case-pick'+(c.id===selected?' active':''));b.type='button';b.setAttribute('aria-pressed',String(c.id===selected));b.append(el('span',`${c.state} · ${c.year}`,'small'));b.append(el('strong',c.headline||c.pattern||c.title));b.append(el('span',c.title,'case-name'));b.addEventListener('click',()=>openRecord(c.id));container.append(b);}if(!list.length)container.append(el('p','Try another state or reset the filters.','empty-result'));detail(current);compare(list);setView(view);}
+ $('result-count').textContent=`${list.length} of ${all.length} case records${state?' · '+state:''}${capability?' · Capability: '+capabilityLabel(capability):''}${pathFilter?' · Path: '+(pathFilter==='mapped'?'Mapped':'Not yet mapped'):''}`;$('results-title').textContent=state?`${$('state').selectedOptions[0]?.textContent||state} case records`:'Case records';const current=list.find(c=>c.id===selected)||list[0];selected=current?.id||'';const container=$('case-list');container.replaceChildren();for(const c of list){const b=el('button',undefined,'case-pick'+(c.id===selected?' active':''));b.type='button';b.setAttribute('aria-pressed',String(c.id===selected));b.append(el('span',`${c.state} · ${c.year}`,'small'));b.append(el('strong',c.headline||c.pattern||c.title));b.append(el('span',c.title,'case-name'));b.addEventListener('click',()=>openRecord(c.id));container.append(b);}if(!list.length)container.append(el('p','Try another state or reset the filters.','empty-result'));detail(current);compare(list);setView(view);}
 function selectCase(id,focus=false){
  if(!all.some(c=>c.id===id))return false;
- selected=id;state=query=pattern=level=status=capability='';
- for(const field of ['search','state','pattern','level','status','capability'])$(field).value='';
+ selected=id;state=query=pattern=level=status=capability=pathFilter='';
+ for(const field of ['search','state','pattern','level','status','capability','path-filter'])$(field).value='';
  render();
  if(focus)focusDetail();
  return true;
 }
 function fromHash(){if(!location.hash.startsWith('#case='))return false;let id;try{id=decodeURIComponent(location.hash.slice(6));}catch{return false;}return selectCase(id,true);}
 async function guide(){try{const data=await fetch('dc-guide.json').then(r=>{if(!r.ok)throw Error();return r.json();});const steps=Array.isArray(data)?data:(data.steps||[]);const root=$('route-steps');root.replaceChildren();steps.forEach((s,i)=>{const article=el('article',undefined,'route-step');article.append(el('span',String(i+1).padStart(2,'0'),'step-no'));article.append(el('h3',s.title));article.append(el('p',s.body));if(s.source_url)article.append(link('Read the authority ↗',s.source_url));root.append(article);});if(!steps.length)root.append(el('p','Source-linked route under review. Do not infer jurisdiction or available relief from the map.'));}catch{$('route-steps').textContent='The route source file could not load. This map does not determine jurisdiction or available relief.';}}
-async function init(){map();guide();try{const response=await fetch('cases.json');if(!response.ok)throw Error('data unavailable');const data=await response.json();all=Array.isArray(data)?data:(data.cases||[]);options('pattern',all.map(c=>c.pattern));options('level',all.map(levelOf));options('status',all.map(typeOf));$('coverage').textContent=`${all.length} source-linked records · ${new Set(all.filter(c=>c.state!=="DC").map(c=>c.state)).size} states${all.some(c=>c.state==="DC")?" + D.C.":""} represented. Curated edition ${data.edition||'1'}.`;if(data.scope_note)$('scope').textContent=data.scope_note;$('edition').textContent=`Edition: ${data.edition||'1'} · Reviewed: ${data.reviewed_at||'See individual sources'}. Historical source review is not current docket certification.`;featuredCases();if(!fromHash())render();}catch{$('coverage').textContent='The case data could not load.';$('case-detail').replaceChildren(el('h3','Data unavailable'),el('p','Use the downloadable files or try reloading. No conclusion about case coverage can be drawn from this loading failure.'));}}
+async function init(){map();guide();try{const response=await fetch('cases.json');if(!response.ok)throw Error('data unavailable');const data=await response.json();all=Array.isArray(data)?data:(data.cases||[]);options('pattern',all.map(c=>c.pattern));options('level',all.map(levelOf));options('status',all.map(typeOf));$('coverage').textContent=`${all.length} source-linked records · ${new Set(all.filter(c=>c.state!=="DC").map(c=>c.state)).size} states${all.some(c=>c.state==="DC")?" + D.C.":""} represented. Curated edition ${data.edition||'1'}.`;if(data.scope_note)$('scope').textContent=data.scope_note;$('edition').textContent=`Edition: ${data.edition||'1'} · Reviewed: ${data.reviewed_at||'See individual sources'}. Historical source review is not current docket certification.`;$('path-coverage').textContent=`${all.filter(hasPath).length} of ${all.length} records have a detailed decision path. Mapping coverage is not a performance rating.`;featuredCases();if(!fromHash())render();}catch{$('coverage').textContent='The case data could not load.';$('case-detail').replaceChildren(el('h3','Data unavailable'),el('p','Use the downloadable files or try reloading. No conclusion about case coverage can be drawn from this loading failure.'));}}
 document.querySelectorAll('a[data-case-id]').forEach(a=>bindCaseLink(a,a.dataset.caseId));
 $('view-map').addEventListener('click',()=>setView('map'));$('view-compare').addEventListener('click',()=>setView('compare'));
-$('filters').addEventListener('submit',e=>e.preventDefault());$('search').addEventListener('input',e=>{query=e.target.value.trim().toLocaleLowerCase();render();});$('state').addEventListener('change',e=>setState(e.target.value));$('pattern').addEventListener('change',e=>{pattern=e.target.value;render();});$('level').addEventListener('change',e=>{level=e.target.value;render();});$('status').addEventListener('change',e=>{status=e.target.value;render();});$('capability').addEventListener('change',e=>{capability=e.target.value;render();});$('dc').addEventListener('click',()=>setState('DC'));$('filters').addEventListener('reset',()=>{state=query=pattern=level=status=capability=selected='';setTimeout(render,0);history.replaceState(null,'',location.pathname+'#explore');});window.addEventListener('hashchange',fromHash);init();
+$('filters').addEventListener('submit',e=>e.preventDefault());$('search').addEventListener('input',e=>{query=e.target.value.trim().toLocaleLowerCase();render();});$('state').addEventListener('change',e=>setState(e.target.value));$('pattern').addEventListener('change',e=>{pattern=e.target.value;render();});$('level').addEventListener('change',e=>{level=e.target.value;render();});$('status').addEventListener('change',e=>{status=e.target.value;render();});$('path-filter').addEventListener('change',e=>{pathFilter=e.target.value;render();});$('capability').addEventListener('change',e=>{capability=e.target.value;render();});$('dc').addEventListener('click',()=>setState('DC'));$('filters').addEventListener('reset',()=>{state=query=pattern=level=status=capability=pathFilter=selected='';setTimeout(render,0);history.replaceState(null,'',location.pathname+'#explore');});window.addEventListener('hashchange',fromHash);init();
 })();
