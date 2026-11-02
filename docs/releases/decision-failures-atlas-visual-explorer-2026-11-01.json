@@ -1,0 +1,33 @@
+{
+  "status": "live_on_vercel",
+  "release": "visual-explorer",
+  "data_edition": "3.0",
+  "cases": 20,
+  "scope": "UI-only: shared-filter Map/Compare views and focused case reading. No new case facts, system tests, capability assessments, database migrations or subscriptions.",
+  "git_commit": "c297efbe0a74204731053c9830cc130894e56e4b",
+  "pull_request": "https://github.com/Kapukai/kapukai-governance-site/pull/12",
+  "deployment_id": "dpl_B49krwjC648NEEraWRCQtqNGWisb",
+  "public_url": "https://kapukai-community.vercel.app/evidence/decision-failures/",
+  "production_deployment_url": "https://kapukai-community-oqa5uynzq-kapukais-projects.vercel.app/evidence/decision-failures/",
+  "preview_deployment_id": "dpl_GLuXs7mNwmRFmBsUTfUcKg9NWEeQ",
+  "canonical_installed": false,
+  "canonical_installation_blocker": "kapukai.org is a separate nginx host; authenticated deployment access remains unavailable.",
+  "verification": [
+    "JavaScript syntax, whitespace checks and independent UI code review passed.",
+    "Live preview: Map/Compare shared filters, Michigan subset, row selection preserving filters and heading focus, return link and expanded testing details passed.",
+    "Live preview: NMC empty state remains explicit; priority link clears conflicting filters; direct case link reload retains selected record and focuses its heading.",
+    "Stable production page shows Compare and three Michigan records with distinct legal postures.",
+    "Edition 3.0 cases.json checksum unchanged. No factual data or database changes.",
+    "Desktop visual inspection and overflow check passed. Responsive CSS reviewed; separate mobile-device browser testing not performed."
+  ],
+  "files": {
+    "community/public/evidence/decision-failures/index.html": "ac3fe34055e2352be017855c8753e7f8f81597b82c4729bb05c89c7549fb6573",
+    "community/public/evidence/decision-failures/atlas.css": "8da799da0cfc4dee8911be312a7bfdbf3a428ba7b88d1e08c8df86c890aaf112",
+    "community/public/evidence/decision-failures/atlas.js": "17eccc299d9156ff95fbf643aa3bdf92bddbf88bc06bbe0d4016b9ba5cb34e64",
+    "community/public/evidence/decision-failures/cases.json": "0f6932139e6b6a1b7b2164297bad0c1a80576d032bba4fdba994d6b4c58499d2",
+    "docs/releases/decision-failures-atlas-visual-explorer-2026-11-01.jpg": "746821feddd0659dfd4df02af8a20bab16e58816b8ea388e6c8dc78678a16a01"
+  },
+  "proof_screenshot": "docs/releases/decision-failures-atlas-visual-explorer-2026-11-01.jpg",
+  "deployment_ready_at_utc": "2026-11-02T00:39:50.964000+00:00"
+}
+
