@@ -1,0 +1,19 @@
+{
+  "module": "eagle-eyes",
+  "source_commit": "f4c3ef77b647c85f87ab95f2ff14f6582e7813fc",
+  "vercel_deployment": "dpl_Gs6PGbrFbRXUBprZhtUUr7V9B5iP",
+  "verified_origin": "https://kapukai-eagle-eyes-public-onw1putjj-kapukais-projects.vercel.app",
+  "canonical_origin": "https://kapukai.org",
+  "canonical_status": "pending host installation; SSH network unreachable from agent",
+  "desk_mode": "entry page linking to existing protected ChatGPT Sites app; no auth/storage migration",
+  "files": {
+    "eagle-eyes/desk/index.html": "0fd6b20d135b3dd96065c6364a23d973e54083c8604fbd0a1cff73992ead9003",
+    "eagle-eyes/index.html": "6da80107417b421b15f1c1a4c2f0af28e49920736dcebad4ee3f56a05b9ce46e",
+    "eagle-eyes/reference/cases.json": "630b39c22222dbc251c879282404b44b330b3fc68756cc1a5a73b8a34fb0eb04",
+    "eagle-eyes/reference/favicon.svg": "dcfa1abedd361fc76616cb89b7435039cfc0010d384f981d92a50c2e2190386d",
+    "eagle-eyes/reference/filter.js": "3a0ef9d23c65edf6f198a9a98197e6a0f8757c66fe6a426e873247b9bedca900",
+    "eagle-eyes/reference/index.html": "ceadb287447d74778c99a01e6d73a19471fdb3ad36330d6af238c2a138ae192f",
+    "eagle-eyes/reference/share.png": "9d989ff6887aafd6d0221e18d90510ffd05015bf3bff5158974e0ec9b187f6b9",
+    "eagle-eyes/reference/style.css": "6d2d08a72546ed0284718d07fd2e6648da94a7927b569f16b6521316068c76b8"
+  }
+}
