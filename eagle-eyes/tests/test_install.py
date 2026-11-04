@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 SOURCE = pathlib.Path(__file__).resolve().parents[1] / 'install.py'
 spec = importlib.util.spec_from_file_location('installer', SOURCE)
@@ -81,5 +82,41 @@ class InstallTest(unittest.TestCase):
         values={**self.files,'eagle-eyes/reference':b'file conflicts with directory'}
         self.assertNotEqual(self.run_install(values).returncode,0)
         self.assertFalse((self.root/'eagle-eyes').exists())
+
+class ErrorReportingTest(unittest.TestCase):
+    def run_main(self):
+        with mock.patch.object(sys, 'argv', ['install.py']), self.assertRaises(SystemExit) as error:
+            installer.main()
+        return str(error.exception)
+
+    def test_ssh_failure_does_not_dump_remote_command(self):
+        command = ['ssh', 'host', installer.REMOTE]
+        failure = subprocess.CalledProcessError(255, command)
+        with mock.patch.object(installer, 'payload', return_value={'files': {}}), mock.patch.object(installer.subprocess, 'run', side_effect=failure):
+            message = self.run_main()
+        self.assertIn('exit 255', message)
+        self.assertIn('may be incomplete', message)
+        self.assertNotIn(installer.REMOTE, message)
+        self.assertNotIn(str(command), message)
+        self.assertLess(len(message), 300)
+
+    def test_download_network_failure_does_not_attempt_ssh(self):
+        for failure in (installer.urllib.error.URLError('offline'), TimeoutError('timeout')):
+            with self.subTest(failure=type(failure).__name__), mock.patch.object(installer, 'payload', side_effect=failure), mock.patch.object(installer.subprocess, 'run') as ssh:
+                message = self.run_main()
+                ssh.assert_not_called()
+            self.assertIn('No SSH connection was attempted', message)
+
+    def test_hash_failure_keeps_specific_message(self):
+        with mock.patch.object(installer, 'payload', side_effect=SystemExit('STOP: downloaded content differs from reviewed release: example')), mock.patch.object(installer.subprocess, 'run') as ssh:
+            message = self.run_main()
+            ssh.assert_not_called()
+        self.assertIn('downloaded content differs', message)
+
+    def test_public_verification_network_failure_keeps_install_status(self):
+        with mock.patch.object(installer, 'payload', return_value={'files': {}}), mock.patch.object(installer.subprocess, 'run'), mock.patch.object(installer.urllib.request, 'urlopen', side_effect=installer.urllib.error.URLError('offline')):
+            message = self.run_main()
+        self.assertIn('Installation finished', message)
+        self.assertIn('Publication is not verified', message)
 
 if __name__=='__main__': unittest.main()

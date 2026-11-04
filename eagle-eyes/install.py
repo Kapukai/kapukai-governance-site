@@ -7,6 +7,7 @@ import json
 import pathlib
 import shlex
 import subprocess
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -117,16 +118,30 @@ def main():
     parser.add_argument('--check-only', action='store_true', help='Download and verify this release without SSH or host changes.')
     args = parser.parse_args()
     print('Downloading the exact reviewed release and verifying every file…', flush=True)
-    release = payload(args.web_root)
+    try:
+        release = payload(args.web_root)
+    except (urllib.error.URLError, TimeoutError):
+        raise SystemExit('STOP: release download failed. Check your network connection and try again. No SSH connection was attempted.') from None
     if args.check_only:
         print('VERIFIED: {} release files; no SSH or host changes.'.format(len(release['files'])))
         return
     print('Installing via SSH; any credential prompt comes from SSH.', flush=True)
-    subprocess.run(['ssh', '-o', 'ConnectTimeout=15', args.ssh, 'python3 -c ' + shlex.quote(REMOTE)], input=json.dumps(release), text=True, check=True)
+    try:
+        subprocess.run(['ssh', '-o', 'ConnectTimeout=15', args.ssh, 'python3 -c ' + shlex.quote(REMOTE)], input=json.dumps(release), text=True, check=True)
+    except subprocess.CalledProcessError as error:
+        raise SystemExit(
+            'STOP: SSH connection or remote installation failed (exit {}). '
+            'Check the preceding SSH/server message. Installation may be incomplete '
+            'if the remote command started; verify the server before retrying.'
+            .format(error.returncode)
+        ) from None
     print('Checking the public destination…', flush=True)
     for name, sha in HASHES.items():
-        with urllib.request.urlopen('https://kapukai.org/' + name, timeout=30) as response:
-            data = response.read()
+        try:
+            with urllib.request.urlopen('https://kapukai.org/' + name, timeout=30) as response:
+                data = response.read()
+        except (urllib.error.URLError, TimeoutError):
+            raise SystemExit('Installation finished, but public verification could not connect. Publication is not verified; check the connection before changing server settings.') from None
         if hashlib.sha256(data).hexdigest() != sha:
             raise SystemExit('Installed, but public verification differs. Do not change DNS/nginx; share this message for review.')
     print('VERIFIED: https://kapukai.org/eagle-eyes/ — all public files match the reviewed release.')
