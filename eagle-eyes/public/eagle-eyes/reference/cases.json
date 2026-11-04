@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-03.1",
+  "method": "Purposive starter selection of four public Supreme Court decisions illustrating family rights, evidentiary standards, correction and public authority. Not representative; selected cases emphasize successful challenges. State means origin of dispute, not location of reviewing court. One record per selected ruling; Nelson includes its companion Madden proceeding.",
+  "sourcePolicy": "Official opinions are linked, not copied into private evidence storage. Summaries are editorial paraphrases checked against the linked sources; no independent human legal review or full later-history check is claimed.",
+  "records": [
+    {
+      "id": "troxel-2000",
+      "name": "Troxel v. Granville",
+      "state": "Washington",
+      "stateId": "53",
+      "date": "2000-06-05",
+      "citation": "530 U.S. 57",
+      "topic": "Parental decision-making",
+      "institution": "Washington courts",
+      "author": "Justice Sandra Day O’Connor",
+      "authorRole": "Announced the judgment; authored the plurality opinion",
+      "decision": "The Supreme Court affirmed the Washington Supreme Court judgment. The plurality concluded that the visitation statute, as applied here, violated the parent’s due process rights.",
+      "history": [
+        "Washington Superior Court ordered visitation.",
+        "Washington Court of Appeals reversed and dismissed the petition.",
+        "Washington Supreme Court affirmed.",
+        "U.S. Supreme Court affirmed on June 5, 2000."
+      ],
+      "limit": "The plurality did not resolve the validity of every nonparent visitation law or require a harm finding in every such case.",
+      "source": "https://www.govinfo.gov/content/pkg/USREPORTS-530/pdf/USREPORTS-530-57.pdf",
+      "locator": "530 U.S. 57–60, 67–75; PDF pages 1–4, 11–19",
+      "collection": "curated_public_reference",
+      "reviewedOn": "2026-11-03",
+      "reviewingCourt": "Supreme Court of the United States",
+      "laterHistory": "Not assessed beyond the selected ruling; not a current-law citator check."
+    },
+    {
+      "id": "santosky-1982",
+      "name": "Santosky v. Kramer",
+      "state": "New York",
+      "stateId": "36",
+      "date": "1982-03-24",
+      "citation": "455 U.S. 745",
+      "topic": "Termination and proof",
+      "institution": "Ulster County Department of Social Services; New York courts",
+      "author": "Justice Harry A. Blackmun",
+      "authorRole": "Authored the opinion of the Court",
+      "decision": "The Court held that due process requires at least clear and convincing evidence before a state completely and irrevocably terminates parental rights. It vacated the judgment and remanded.",
+      "history": [
+        "Family Court found permanent neglect under a preponderance standard and terminated parental rights.",
+        "Appellate Division affirmed; New York Court of Appeals dismissed the appeal.",
+        "U.S. Supreme Court vacated and remanded on March 24, 1982."
+      ],
+      "limit": "This ruling changed the required proof standard; it did not itself establish parental fitness or order reunification.",
+      "source": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep455/usrep455745/usrep455745.pdf",
+      "locator": "455 U.S. 745–748, 768–770; PDF pages 1–4, 24–26",
+      "collection": "curated_public_reference",
+      "reviewedOn": "2026-11-03",
+      "reviewingCourt": "Supreme Court of the United States",
+      "laterHistory": "Not assessed beyond the selected ruling; not a current-law citator check."
+    },
+    {
+      "id": "nelson-2017",
+      "name": "Nelson v. Colorado",
+      "state": "Colorado",
+      "stateId": "08",
+      "date": "2017-04-19",
+      "citation": "No. 15–1256 (with Madden)",
+      "topic": "Correction and restoration",
+      "institution": "Colorado courts; State of Colorado",
+      "author": "Justice Ruth Bader Ginsburg",
+      "authorRole": "Authored the opinion of the Court",
+      "decision": "The Court rejected Colorado’s challenged refund procedure for conviction-based payments after invalidation of convictions with no prospect of reprosecution. It reversed and remanded.",
+      "history": [
+        "The convictions were invalidated; Nelson was acquitted on retrial and Madden was not retried.",
+        "Colorado Supreme Court required use of the Exoneration Act procedure for refunds.",
+        "U.S. Supreme Court reversed and remanded on April 19, 2017."
+      ],
+      "limit": "Return of conviction-based payments is distinct from damages for all resulting harm. This record does not verify actual repayment.",
+      "source": "https://www.supremecourt.gov/opinions/16pdf/15-1256_5i36.pdf",
+      "locator": "Syllabus and opinion pages 1–11; PDF pages 1–14",
+      "collection": "curated_public_reference",
+      "reviewedOn": "2026-11-03",
+      "reviewingCourt": "Supreme Court of the United States",
+      "laterHistory": "Not assessed beyond the selected ruling; not a current-law citator check."
+    },
+    {
+      "id": "tyler-2023",
+      "name": "Tyler v. Hennepin County",
+      "state": "Minnesota",
+      "stateId": "27",
+      "date": "2023-05-25",
+      "citation": "No. 22–166",
+      "topic": "Property and public authority",
+      "institution": "Hennepin County, Minnesota; Eighth Circuit",
+      "author": "Chief Justice John G. Roberts, Jr.",
+      "authorRole": "Authored the unanimous opinion of the Court",
+      "decision": "The Court held that Tyler plausibly alleged a Takings Clause violation when the county retained sale proceeds exceeding her tax debt. It reversed the Eighth Circuit judgment.",
+      "history": [
+        "District Court dismissed the suit for failure to state a claim.",
+        "Eighth Circuit affirmed.",
+        "U.S. Supreme Court reversed on May 25, 2023."
+      ],
+      "limit": "This was a pleading-stage ruling, not an award of damages. The later payment or settlement history has not been reviewed here.",
+      "source": "https://www.supremecourt.gov/opinions/22pdf/22-166_8n59.pdf",
+      "locator": "Syllabus and opinion pages 1–14; PDF pages 1–17",
+      "collection": "curated_public_reference",
+      "reviewedOn": "2026-11-03",
+      "reviewingCourt": "Supreme Court of the United States",
+      "laterHistory": "Not assessed beyond the selected ruling; not a current-law citator check."
+    }
+  ]
+}
