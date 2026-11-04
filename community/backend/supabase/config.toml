@@ -11,3 +11,8 @@ entrypoint = "./functions/kapukai-community-apply/index.ts"
 [functions.kapukai-members]
 verify_jwt = false
 entrypoint = "./functions/kapukai-members/index.ts"
+
+# Lab verifies each session via Auth and current private database grants.
+[functions.kapukai-lab]
+verify_jwt = false
+entrypoint = "./functions/kapukai-lab/index.ts"

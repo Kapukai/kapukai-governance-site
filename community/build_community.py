@@ -38,6 +38,8 @@ from lifecycle_pages import build_lifecycle
 build_lifecycle(page)
 from member_pages import build_members
 build_members(page)
+from lab_pages import build_lab
+build_lab(page)
 from architecture_page import build_architecture
 build_architecture(page, P)
 from architecture_atlas import build_atlas
@@ -53,7 +55,7 @@ print('Article, community signup, homepage and discovery metadata built.')
 import shutil
 assets_out=P/'assets'/'community'
 assets_out.mkdir(parents=True,exist_ok=True)
-for name in ['style.css','app.js','applications.js','operations.js','members.js','members.css','favicon.svg']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
+for name in ['style.css','app.js','applications.js','operations.js','members.js','members.css','lab.js','lab.css','favicon.svg']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
 for route,target in [('', '/community/'), ('tort','/articles/tort-law-and-accountability/')]:
     d=P/route;d.mkdir(parents=True,exist_ok=True)
     (d/'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url='+target+'"><title>Kapukai Governance Lab</title><link rel="canonical" href="'+ORIGIN+target+'"><a href="'+target+'">Continue to Kapukai</a></html>')
@@ -61,3 +63,5 @@ for route,target in [('', '/community/'), ('tort','/articles/tort-law-and-accoun
 # Repair the public contact destination without replacing the primary homepage.
 contact=P/'contact';contact.mkdir(parents=True,exist_ok=True)
 contact.joinpath('index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=/community/contact/"><title>Contact Kapukai</title><link rel="canonical" href="https://kapukai.org/community/contact/"></head><body><p><a href="/community/contact/">Contact Kapukai Governance Lab</a></p></body></html>')
+
+shutil.copytree(Path(__file__).parent/'assets'/'lab-fonts',assets_out/'lab-fonts',dirs_exist_ok=True)
