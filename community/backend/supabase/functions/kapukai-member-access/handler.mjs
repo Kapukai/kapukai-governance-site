@@ -3,6 +3,9 @@ import { MemberError, UUID_RE, boundedJson, serviceHeaders } from "../kapukai-me
 export const CONSENT_VERSION = "kapukai-member-access-v1-2026-10-20";
 export const MEMBER_PAGE = "https://kapukai-community.vercel.app/community/members/";
 export const ALLOWED_ORIGINS = new Set(["https://kapukai.org", "https://www.kapukai.org", "https://kapukai-community.vercel.app"]);
+export const RECOVERY_ORIGIN = "https://www.humanlibertyledger.org";
+const knownOrigin = origin => ALLOWED_ORIGINS.has(origin) || origin === RECOVERY_ORIGIN;
+export const originAllowsAction = (origin, action) => action === "auth_recovery_request" ? origin === RECOVERY_ORIGIN : ALLOWED_ORIGINS.has(origin);
 export const MAX_BODY_BYTES = 4096;
 export const TOKEN_RE = /^[A-Za-z0-9_-]{43}$/;
 export const INVITATION_TOKEN_RE = /^[a-f0-9]{64}$/;
@@ -27,6 +30,11 @@ export function randomToken() {
 export function normalizeRequest(body, now = Date.now()) {
   if (!exactKeys(body, ["action", "payload"]) || typeof body.action !== "string" || !isObject(body.payload)) throw bad();
   const p = body.payload;
+  if (body.action === "auth_recovery_request") {
+    const address = typeof p.email === "string" ? p.email.trim().toLowerCase() : "";
+    if (!exactKeys(p, ["email", "request_id"]) || typeof p.email !== "string" || p.email.length > 254 || /[\u0000-\u001f\u007f]/.test(p.email) || !email(address) || !uuid(p.request_id)) throw bad();
+    return { action: body.action, payload: { email: address, request_id: p.request_id.toLowerCase() } };
+  }
   if (body.action === "access_status" && exactKeys(p, [])) return { action: body.action, payload: {} };
   if (body.action === "access_request") {
     if (!exactKeys(p, ["email", "display_name", "request_id", "consent_version", "adult", "privacy_acknowledged", "human_review_acknowledged", "started_at", "website"]) || typeof p.website !== "string" || p.website.length > 200) throw bad();
@@ -76,7 +84,7 @@ async function readBody(request) {
 
 function json(status, body, origin) {
   const headers = { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "Referrer-Policy": "no-referrer", "X-Content-Type-Options": "nosniff", Vary: "Origin" };
-  if (ALLOWED_ORIGINS.has(origin)) headers["Access-Control-Allow-Origin"] = origin;
+  if (knownOrigin(origin)) headers["Access-Control-Allow-Origin"] = origin;
   if (status === 429) headers["Retry-After"] = "60";
   return new Response(JSON.stringify(body), { status, headers });
 }
@@ -107,7 +115,7 @@ function operatorProjection(action, result) {
   return { ok: true, result: "ok" };
 }
 
-const RPC_NAMES = new Set(["kapukai_claim_signup_attempt", "kapukai_member_access_is_open", "kapukai_member_access_request", "kapukai_member_access_token", "kapukai_member_access_mail_result", "kapukai_member_access_operator", "kapukai_member_invitation_delivery", "kapukai_member_invitation_mail_result"]);
+const RPC_NAMES = new Set(["kapukai_claim_signup_attempt", "kapukai_member_access_is_open", "kapukai_member_access_request", "kapukai_member_access_token", "kapukai_member_access_mail_result", "kapukai_member_access_operator", "kapukai_member_invitation_delivery", "kapukai_member_invitation_mail_result", "kapukai_auth_recovery_claim", "kapukai_auth_recovery_mail_result"]);
 export function createRpc({ baseUrl, serviceKey, fetchImpl = fetch }) {
   return async (name, parameters) => {
     if (!RPC_NAMES.has(name)) throw bad();
@@ -207,15 +215,59 @@ function invitationDeliveryProjection(result, payload) {
   return { ok: true, result: "ok", delivery_state: result.state, invitation_id: result.invitation_id, expires_at: result.expires_at };
 }
 
-export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitation, rateFingerprint, clock = () => Date.now(), newToken = randomToken }) {
+export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitation, sendRecovery, defer, rateFingerprint, clock = () => Date.now(), newToken = randomToken }) {
   return async request => {
     const origin = request.headers.get("origin");
-    if (!ALLOWED_ORIGINS.has(origin)) return json(403, { ok: false, code: "ORIGIN_DENIED" }, origin);
+    if (!knownOrigin(origin)) return json(403, { ok: false, code: "ORIGIN_DENIED" }, origin);
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { "Access-Control-Allow-Origin": origin, "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "authorization, content-type, apikey", Vary: "Origin", "Cache-Control": "no-store" } });
     if (request.method !== "POST") return json(405, { ok: false, code: "METHOD_NOT_ALLOWED" }, origin);
     if (new URL(request.url).search) return json(400, { ok: false, code: "INVALID_REQUEST" }, origin);
     try {
-      const body = normalizeRequest(await readBody(request), clock());
+      const input = await readBody(request);
+      // An additional public site gets only its named action. It does not gain
+      // access to membership consent tokens, queues or operator commands.
+      if (!originAllowsAction(origin, input?.action)) return json(403, { ok: false, code: "ORIGIN_DENIED" }, origin);
+      const body = normalizeRequest(input, clock());
+      if (body.action === "auth_recovery_request") {
+        if (typeof sendRecovery !== "function" || typeof sendRecovery.configured !== "function" || typeof rateFingerprint !== "function" || typeof defer !== "function") throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
+        sendRecovery.configured();
+        const p = body.payload, day = new Date(clock()).toISOString().slice(0, 10);
+        const network = (request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown").slice(0, 200);
+        const fingerprint = async value => {
+          const result = await rateFingerprint(value);
+          if (typeof result !== "string" || !/^[0-9a-f]{64}$/.test(result)) throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
+          return result;
+        };
+        // Reuse the existing durable atomic budget. Its SQL maximum is 50;
+        // forwarded headers are supplemental, never the sole abuse control.
+        for (const [scope, value, limit] of [["address", p.email, 3], ["network", network, 40], ["global", "all", 50]]) {
+          const allowed = await rpc("kapukai_claim_signup_attempt", { p_fingerprint: await fingerprint(`auth-recovery-${scope}|${day}|${value}`), p_limit: limit });
+          if (allowed === false) return json(202, GENERIC, origin);
+          if (allowed !== true) throw new MemberError("TEMPORARILY_UNAVAILABLE", 503);
+        }
+        const claim = await rpc("kapukai_auth_recovery_claim", { p_request_id: p.request_id, p_address_fingerprint: await fingerprint(`auth-recovery-recipient|${p.email}`) });
+        if (["duplicate", "idempotency_conflict"].includes(claim?.result)) return json(202, GENERIC, origin);
+        if (claim?.result !== "claimed") throw new MemberError("TEMPORARILY_UNAVAILABLE", 503);
+        // The durable claim precedes both token generation and provider handoff.
+        // Even a crash or lost receipt leaves the request locked against resend.
+        const deliver = async () => {
+          let receipt = { state: "unknown", providerMessageId: null };
+          try {
+            const sent = await sendRecovery({ email: p.email });
+            if (["accepted", "failed", "unknown"].includes(sent?.state)) receipt = { state: sent.state === "accepted" && !uuid(sent.providerMessageId) ? "unknown" : sent.state, providerMessageId: sent.state === "accepted" && uuid(sent.providerMessageId) ? sent.providerMessageId : null };
+          } catch { /* No automatic retry after a claimed recovery request. */ }
+          try { await rpc("kapukai_auth_recovery_mail_result", { p_request_id: p.request_id, p_state: receipt.state, p_provider_message_id: receipt.providerMessageId }); }
+          catch { /* Pending remains for private reconciliation, never resend. */ }
+        };
+        // Register before starting. The account-dependent lookup and delivery are
+        // never awaited by the HTTP response and never run without registration.
+        // Worker interruption can leave pending: no background retry is allowed.
+        let start;
+        const task = new Promise(resolve => { start = resolve; }).then(run => run ? deliver() : undefined);
+        try { defer(task); start(true); }
+        catch { start(false); /* Durable pending claim remains nonreplayable. */ }
+        return json(202, GENERIC, origin);
+      }
       if (body.action === "access_status") {
         if (typeof sendConfirmation !== "function" || typeof sendConfirmation.configured !== "function") throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
         sendConfirmation.configured();
@@ -291,3 +343,4 @@ export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitat
     }
   };
 }
+

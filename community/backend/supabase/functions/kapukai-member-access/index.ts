@@ -1,4 +1,5 @@
 import { createAuthenticator } from "../kapukai-members/auth.mjs";
+import { createRecoverySender } from "../kapukai-members/auth-code-delivery.mjs";
 import { createHandler, createRpc, createRateFingerprint, createConfirmationSender, createInvitationSender } from "./handler.mjs";
 
 const env = (name: string) => Deno.env.get(name) || "";
@@ -15,4 +16,8 @@ async function authenticate(request: Request) {
   return authenticator(request);
 }
 const mailConfig = { providerToken: env("POSTMARK_SERVER_TOKEN"), from: env("POSTMARK_FROM") || env("POSTMARK_FROM_EMAIL") };
-Deno.serve(createHandler({ authenticate, rpc: createRpc({ baseUrl, serviceKey }), rateFingerprint: createRateFingerprint({ baseUrl, serviceKey }), sendConfirmation: createConfirmationSender(mailConfig), sendInvitation: createInvitationSender(mailConfig) }));
+// Missing background support fails recovery before a durable send claim. Other
+// actions retain their existing behavior. waitUntil does not extend hard limits.
+const defer = typeof EdgeRuntime !== "undefined" && typeof EdgeRuntime.waitUntil === "function" ? (task: Promise<void>) => EdgeRuntime.waitUntil(task) : undefined;
+Deno.serve(createHandler({ authenticate, rpc: createRpc({ baseUrl, serviceKey }), rateFingerprint: createRateFingerprint({ baseUrl, serviceKey }), sendConfirmation: createConfirmationSender(mailConfig), sendInvitation: createInvitationSender(mailConfig), sendRecovery: createRecoverySender({ ...mailConfig, baseUrl, serviceKey }), defer }));
+
