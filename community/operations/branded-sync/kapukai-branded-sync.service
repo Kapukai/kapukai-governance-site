@@ -1,0 +1,25 @@
+[Unit]
+Description=Publish verified Kapukai Join and Remedy Brief pages
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 -E -s -B /usr/local/lib/kapukai-branded-sync/sync.py sync
+TimeoutStartSec=12min
+UMask=0022
+StateDirectory=kapukai-branded-sync
+StateDirectoryMode=0700
+ProtectSystem=strict
+ReadWritePaths=/var/www/kapukai.org/public_html/join /var/www/kapukai.org/public_html/newsletter
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+NoNewPrivileges=true
+CapabilityBoundingSet=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LockPersonality=true
