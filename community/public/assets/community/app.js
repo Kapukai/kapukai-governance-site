@@ -15,7 +15,7 @@ window.setTimeout(() => {
   button.textContent = 'Request another confirmation link';
   button.disabled = false;
 }, 5 * 60 * 1000);
-}catch(error){status.textContent=error.message;status.className='status error';button.disabled=false;}});
+}catch(error){status.textContent=(error instanceof TypeError || ['AbortError','TimeoutError'].includes(error.name)) ? 'We couldn’t confirm your request. Your choices are still here. Check your connection and try again.' : error.message;status.className='status error';button.disabled=false;}});
 }
 const manageStatus=document.getElementById('manage-status');
 if(manageStatus){const token=new URLSearchParams(location.hash.slice(1)).get('token');if(token)history.replaceState(null,'',location.pathname);let inspected;const details=document.getElementById('manage-details');const confirmButton=document.getElementById('confirm');const revokeButton=document.getElementById('revoke');
