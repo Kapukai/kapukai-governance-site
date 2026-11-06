@@ -1,0 +1,17 @@
+{
+  "reference": "https://kapukai-community.vercel.app",
+  "branded": "https://kapukai.org",
+  "managed": [
+    "/join/",
+    "/newsletter/",
+    "/newsletter/archive/"
+  ],
+  "monthly_archive": "/newsletter/archive/",
+  "outside_this_mirror": {
+    "/bills/": "Marketplace Bills application: separate publisher and acceptance suite.",
+    "/first-circle/": "First Circle pilot workspace: separate publisher and invitation flow."
+  },
+  "observe_only": [
+    "/evidence/decision-failures/"
+  ]
+}
