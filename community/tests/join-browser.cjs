@@ -17,14 +17,9 @@ const { chromium } = require('playwright-core');
       await page.goto(process.env.JOIN_URL);
       assert.equal(await page.locator('h1').count(),1);
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'horizontal overflow at '+width);
-      await page.getByRole('link',{name:'Find a way to help',exact:true}).click();
-      const all=page.getByText('See all 16 volunteer roles',{exact:true});
-      await all.focus();await page.keyboard.press('Enter');
-      const roles=await all.locator('..').locator('a').evaluateAll(as=>as.map(a=>a.href));
-      assert.equal(new Set(roles).size,16);
-      assert.ok(roles.every(h=>new URL(h).pathname==='courtbinderapp@gmail.com' && new URL(h).searchParams.get('subject').startsWith('Change the Board volunteer interest: ')));
-      await page.keyboard.press('Enter');
-      await page.getByRole('link',{name:'Explore Kapukai',exact:true}).click();
+      assert.equal(await page.locator('h1').innerText(),'Join Kapukai Governance Lab');
+      assert.equal(await page.locator('a[href^="mailto:courtbinderapp"]').count(),0);
+      assert.equal(await page.getByRole('link',{name:'Visit Human Liberty Ledger'}).getAttribute('href'),'https://www.humanlibertyledger.org/movement/volunteer/');
       const submit=page.locator('#signup-form button[type=submit]');
       await submit.click();assert.equal(requests.length,0);
       await page.locator('#email').fill('invalid');await page.locator('#adult').check();await submit.click();assert.equal(requests.length,0);
@@ -43,8 +38,7 @@ const { chromium } = require('playwright-core');
       await page.close(); console.log('PASS: choices, role targets, keyboard, layout, validation, retry and resend at '+width+'px');
     }
     const p=await browser.newPage({javaScriptEnabled:false});await p.goto(process.env.JOIN_URL);
-    await p.getByText('Help from home',{exact:true}).click();
-    assert.ok(await p.getByRole('link',{name:'Social media and design',exact:true}).isVisible());
+    assert.ok(await p.getByRole('link',{name:'Visit Human Liberty Ledger'}).isVisible());
     assert.ok(await p.getByText(/Enable JavaScript to submit/).isVisible());console.log('PASS: no-JS discovery and fallback');
   } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1});
