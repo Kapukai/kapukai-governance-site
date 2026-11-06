@@ -67,9 +67,11 @@
     "confirm/index.html": "020a38d0aea12041f877793f21ea6de608676a062303f727e40a11d9c78f3cb6",
     "contact/index.html": "29837e977f0fb369b74b013b3f78663bf104d4c0e47cae5536c65ba540538db8",
     "join/index.html": "8da63de4887f51aa52d01c5945c7d2558d446f4fdfc4146e78803066cce885ac",
-    "newsletter/index.html": "8545304965f66165d49010fcacff10746ee927cce276cb3d1e20506af5c1ca47",
+    "newsletter/index.html": "0870cac1f195498fc07bfb93fc25872863986ec1ec5763a037428aeb9cefb1d7",
     "testers/index.html": "4ac8fba7500c41422549b4c3e14e2cc6e871d2b3efc5027c95d27751be06c97b",
-    "tort/index.html": "30f764b34ecadd0f6a9ee3fd72323df836f537f7604376e59af2bea82d327313"
+    "tort/index.html": "30f764b34ecadd0f6a9ee3fd72323df836f537f7604376e59af2bea82d327313",
+    "newsletter/archive/index.html": "9eeaab9b7d40d1236406e581d7421a9be7ccffdf1bfdd1488eeb5ee683286429",
+    "newsletter/archive/2026-11/index.html": "c5dacb293dc755a76309918b8536d347821292f2c8b72b6bfc0f407e0ce4791d"
   },
   "member_pilot_release": {
     "status": "production_invitation_only_enabled",
@@ -119,5 +121,12 @@
     "real_recipient_inbox_delivery_verified": false,
     "git_commit": "3d8b876646ab7a6687f5812561849b76ccd30730",
     "vercel_deployment": "dpl_AxqwhNkCCm2oco9v5TkUcWfM6zQB"
+  },
+  "remedy_brief_archive_release": {
+    "issue": "November 1–5, 2026",
+    "canonical": "/newsletter/archive/2026-11/",
+    "vercel": "https://kapukai-community.vercel.app/newsletter/archive/2026-11/",
+    "scope": "journal pages and archive links only",
+    "host_installation": "pending verification; check the public URL before advertising"
   }
 }
