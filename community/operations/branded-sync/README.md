@@ -1,48 +1,36 @@
-# Publish Join and The Remedy Brief on kapukai.org
+# Keep Kapukai Join and The Remedy Brief current
 
-Run this package once on the Mac that already has administrator SSH access to the Kapukai host. The host then checks Vercel production approximately every 15 minutes and publishes verified releases at the familiar kapukai.org addresses. Closing the Mac afterwards is fine.
-
-**Install.** Open the ZIP, open the extracted folder, then double-click **Install-Kapukai-Branded-Sync.command**. If using Terminal, run the following from inside that folder. Use the Mac's existing trusted SSH connection to the Kapukai host. Verify an unfamiliar server key with the host administrator before accepting it.
+Use this package on the Mac with administrator SSH access to the existing Kapukai host. Unzip the complete folder in Downloads. The first command checks the server, the published source and the current branded responses. The second installs the verified release and enables the timer.
 
 ```sh
-./Install-Kapukai-Branded-Sync.command check
-./Install-Kapukai-Branded-Sync.command install
-./Install-Kapukai-Branded-Sync.command status
+cd ~/Downloads/Kapukai-Branded-Community-Sync-v2
+/bin/bash ./Install-Kapukai-Branded-Sync.command check
+/bin/bash ./Install-Kapukai-Branded-Sync.command install
 ```
 
-A successful install ends with “Branded pages verified.” Visit the [Join page](https://kapukai.org/join/), [newsletter](https://kapukai.org/newsletter/) and [public issue archive](https://kapukai.org/newsletter/archive/). On Join, open the section for the Document Studio and the link for Human Liberty Ledger as a visitor. On the newsletter, open the latest issue and its illustration. These are public page checks. Checking an actual email receipt requires a separate signup test.
+Double-clicking **Install-Kapukai-Branded-Sync.command** runs the same install. The package uses the Mac’s existing host key and login. A successful install prints that the branded pages were verified. Visit [Join](https://kapukai.org/join/), [The Remedy Brief](https://kapukai.org/newsletter/) and the [issue archive](https://kapukai.org/newsletter/archive/). Afterwards the server checks about every 15 minutes, including when the Mac is off.
 
-**Restore the original pages.** From the same extracted folder, run:
+To see the timer or return the routes to the original site:
 
 ```sh
-./Install-Kapukai-Branded-Sync.command rollback
+/bin/bash ./Install-Kapukai-Branded-Sync.command status
+/bin/bash ./Install-Kapukai-Branded-Sync.command rollback
 ```
 
-Rollback disables the timer, waits for an in-progress release, restores the original files across all releases, verifies public responses, and removes the installed worker and units. It preserves receipts and backups. If a previous rollback lost connectivity, rerun the same command to finish verification.
+**If the check stops**, read the final `Stopped` line. The old installer expected a completely root-owned site. On the verified host, the web root and Join directory belong to `www-data`, while other files and the newsletter directory belong to root. This version uses its own release directory, so that ownership is supported. A broken nginx include, competing route, unsupported vhost or unknown public page still requires review. If `nginx -t` reports a missing include, address that pre-existing configuration issue before retrying. Keep this installer for rollback. A failed first check from v1 leaves the host eligible for v2. If v1 was successfully installed, use its original installer to roll it back first.
 
-## How this release works
+## What the host serves
 
-The community module is already published to Vercel. The broader installer in `community/deploy.py` uses `community/release-manifest.json`. This independently scoped worker uses GitHub's immutable tree for the current `main` commit because the broader manifest covers many additional module paths and may omit recently added files. It requires a successful production deployment for the same commit from the Vercel GitHub app, checks file types and sizes, and compares the bytes served by the production alias with Git's blob IDs. It verifies shared icons and social thumbnails on both origins. Receipts link the commit, deployment URL, release inputs and the installed SHA-256 hashes.
+The release worker matches the GitHub `main` commit to a successful Kapukai Community Vercel production deployment and checks the production alias bytes against Git blob IDs. It verifies shared thumbnails and icons on both domains. The Git commit, deployment and installed SHA-256 hashes are recorded. Join, the newsletter, the archive and supported monthly issues are published in a dedicated, root-controlled tree under `/srv/kapukai-branded-sync/`. The only edits to upstream HTML replace the two shared CSS/JavaScript references with versioned copies in the newsletter namespace. These keep readers’ existing tabs working across updates.
 
-The only pages it publishes are `/join/`, `/newsletter/`, `/newsletter/archive/` and monthly issue pages under `/newsletter/archive/YYYY-MM/`, including supported issue illustrations. The two HTML attributes selecting `app.js` and `style.css` point to byte-identical, versioned copies under `/newsletter/_community-assets/`. Everything else in those documents retains the Vercel source bytes. Existing shared scripts and styles on kapukai.org continue serving their other consumers. Each new issue is discovered from the committed archive. A new dependency or file type outside the supported scope blocks the release for review.
+The installer locates the active HTTPS vhost, checks the baseline nginx configuration and backs up its exact bytes outside the active nginx include directories. It installs narrowly scoped locations and tests the resulting configuration before a graceful reload. Supported paths include the known page destinations and monthly issue illustrations. Other applications, HTTP services, the legacy web root and email configuration remain under their existing owners. The installer checks public content hashes, media types and existing page security headers after cutover. A mismatch triggers restoration. Once installed, the restricted recurring service changes a single release pointer, rechecks the public URLs and restores the prior release if verification fails. Subsequent releases require no nginx reload.
 
-The worker checks the original disk and public bytes for every proposed target before writing. It accepts the known November 5 Join and newsletter pages as starting points, including the standalone Join logo patch. A conflicting proxy, local edit, symlink, unexpected file, unsafe permissions or unpublished source makes the check stop and identify the route. The worker leaves nginx and DNS configuration, the homepage, the Bills and Marketplace applications, and email services under their existing owners.
+Rollback disables the timer, waits for an ongoing update, validates the managed vhost and restores the prior configuration. It checks the original public responses before removing the service. If an administrator independently edited the vhost, or the original pages changed while the new routes were active, recovery stops for review. Stored release files, backups and receipts remain available under `/srv/kapukai-branded-sync` and `/var/lib/kapukai-branded-sync`.
 
-Each changed file is backed up and replaced atomically, with assets published before pages. A release touching several URLs consists of several file replacements. A hard interruption can leave some URLs at the newer version until recovery. The durable journal records the pending work; the next invocation restores and verifies it before continuing. A concurrent outside edit blocks restoration of that file and requires a host administrator to review it.
+## Operations
 
-## Host requirements and records
+Requires Linux with user namespace support, systemd 247 or later, nginx at its standard path, root SSH, Python 3.9+, GNU tar/coreutils, `flock`, and outbound HTTPS to GitHub, Vercel and kapukai.org. The accepted layout is a single HTTPS vhost for kapukai.org with optional www.kapukai.org alias, and supported static configuration on port 443. Existing overlapping locations or unsupported access/rewrite rules stop the preflight. Replacing live configuration requires a graceful reload on initial cutover and rollback. Run a deployment while other administrators are not editing or reloading nginx.
 
-The target is the existing 1984 host, with root SSH, Linux/systemd, Python 3.9+, GNU tar and coreutils, `flock`, outbound HTTPS to the public GitHub API, the Vercel production alias and kapukai.org. The worker expects the existing web root at `/var/www/kapukai.org/public_html` and real, root-owned `join` and `newsletter` directories. The path ancestors and managed files must be root-owned without group or public write permission. An administrator should investigate an ownership conflict before onboarding a different host layout. The installer uses the Mac's normal SSH key and host verification.
+The source rules currently allow up to 250 release files, 6 MiB per file, 64 MiB total, and 40 referenced shared assets. They include monthly HTML pages and PNG, JPG and WebP issue illustrations. The overlay keeps the active release and recent releases, with a cap on immutable asset storage. The first publication and recurring updates require the GitHub API and end-to-end public HTTPS verification. DNS, rate limits or deployment delays can postpone an update. This release does not test account creation or email delivery.
 
-Systemd runs the fixed local worker. Fetched content is treated as static site data. A first verified publication succeeds before the timer is enabled. If the first service run fails after setup has staged components, run `status`, correct the reported cause and rerun `install`, or use `rollback`. Another package version or a foreign unit with the same name requires review.
-
-The systemd journal shows the outcome of each pass. On the host:
-
-```sh
-systemctl list-timers --all kapukai-branded-sync.timer
-journalctl -u kapukai-branded-sync.service -n 40 --no-pager
-```
-
-Worker receipts and original bytes are retained under `/var/lib/kapukai-branded-sync/worker/`. Retain that directory as long as rollback is needed. Keep the exact installer for recovery. The current scope supports up to 250 release files (6 MiB per file, 64 MiB total), plus up to 40 referenced shared assets. Dependency changes, a new archive format or a busy unauthenticated GitHub API can postpone publication until the next successful pass.
-
-Run the offline regression tests from this directory with `python3 -m unittest -v test_sync.py`; run `systemd-analyze verify kapukai-branded-sync.service kapukai-branded-sync.timer` on a systemd host.
+On the host, use `journalctl -u kapukai-branded-sync.service -n 40 --no-pager` to inspect recorded results. Maintainers can run `python3 -B -m unittest discover -v` from the corresponding repository directory and `systemd-analyze verify kapukai-branded-sync.service kapukai-branded-sync.timer` on Linux.

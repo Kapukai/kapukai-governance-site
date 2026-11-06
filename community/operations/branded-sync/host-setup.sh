@@ -15,8 +15,8 @@ state="/var/lib/$unit"
 receipt="$state/host-setup"
 lockdir="/run/$unit-setup"
 staged=$(pwd -P)
-names=(sync.py source.py "$unit.service" "$unit.timer")
-targets=("$code/sync.py" "$code/source.py" "$units/$unit.service" "$units/$unit.timer")
+names=(sync.py source.py overlay.py nginx_route.py "$unit.service" "$unit.timer")
+targets=("$code/sync.py" "$code/source.py" "$code/overlay.py" "$code/nginx_route.py" "$units/$unit.service" "$units/$unit.timer")
 
 trusted_dir() {
   # Every ancestor must be a real directory owned by root with no group/public write.
@@ -58,6 +58,23 @@ if ! absent "$lockdir/lock"; then regular "$lockdir/lock" || fail "Unexpected se
 exec 9>>"$lockdir/lock"
 flock -w 60 9 || fail "Another setup operation is active."
 [[ -d /run/systemd/system ]] || fail "This installer requires a running systemd host."
+# Verify the actual manager/kernel combination before installing or touching nginx.
+if [[ "$mode" == check || "$mode" == install ]]; then
+  manager_version=$(systemctl show --property=Version --value)
+  if [[ ! "$manager_version" =~ ^([0-9]+) ]] || (( 10#${BASH_REMATCH[1]} < 247 )); then
+    fail "The running systemd manager must be version 247 or later for this restricted timer."
+  fi
+  host_userns=$(readlink /proc/self/ns/user)
+  systemd-run --quiet --wait --collect --pipe \
+    --property=PrivateUsers=yes --property=ProtectProc=invisible --property=ProcSubset=pid \
+    --property=CapabilityBoundingSet= --property=NoNewPrivileges=yes \
+    /usr/bin/python3 -I -B -c '
+import os, pathlib, sys
+isolated = os.readlink("/proc/self/ns/user") != sys.argv[1]
+mounts = pathlib.Path("/proc/self/mountinfo").read_bytes()
+sys.exit(0 if isolated and mounts else 1)' "$host_userns" ||
+    fail "This server must support systemd private user namespaces and a readable per-process mount table. Preflight stopped."
+fi
 /usr/bin/python3 -c 'import sys; sys.exit(sys.version_info < (3, 9))' ||
   fail "Python 3.9 or later is required."
 for item in "${names[@]}"; do
@@ -73,7 +90,7 @@ manifest="$receipt/package.sha256"
 if ! absent "$manifest"; then
   regular "$manifest" || fail "Unexpected setup receipt."
   (cd -- "$staged"; sha256sum -- "${names[@]}") | cmp -s - "$manifest" ||
-    fail "A different package owns this installation. Use its original installer to roll back first."
+    fail "Another installer version owns this installation. Use that original package for status or rollback before switching versions."
   managed=1
 fi
 
@@ -81,7 +98,7 @@ if ! absent "$code"; then
   (( managed )) || fail "Unmanaged code directory exists: $code"
   trusted_dir "$code"
   # Refuse unfamiliar files, including hidden names, before claiming this directory.
-  [[ -z $(find "$code" -mindepth 1 -maxdepth 1 ! -name sync.py ! -name source.py -print -quit) ]] ||
+  [[ -z $(find "$code" -mindepth 1 -maxdepth 1 ! -name sync.py ! -name source.py ! -name overlay.py ! -name nginx_route.py -print -quit) ]] ||
     fail "Unexpected files in $code; review before continuing."
 fi
 for i in "${!names[@]}"; do
@@ -120,7 +137,7 @@ disable_timer_and_wait() {
     while true; do
       activity=$(service_info "$unit.service" ActiveState)
       case "$activity" in inactive|failed) break;; esac
-      (( attempts++ < 400 )) || fail "Timer disabled. Service is still busy; run rollback again once it finishes."
+      (( attempts++ < 400 )) || fail "Timer disabled. Service is still busy; rerun this command once it finishes."
       sleep 2
     done
   fi
@@ -140,7 +157,7 @@ if [[ "$mode" == rollback ]]; then
   exit
 fi
 
-# Stage validates the source, target web root and conflicts before installing units.
+# Verify the source, baseline nginx configuration and scoped routes before installing any units.
 # An interrupted setup can resume with the same command and package.
 if (( ! managed )); then
   /usr/bin/python3 -E -s -B "$staged/sync.py" check
@@ -166,12 +183,33 @@ for item in "$unit.service" "$unit.timer"; do
   [[ $(service_info "$item" FragmentPath) == "$units/$item" && -z $(service_info "$item" DropInPaths) ]] ||
     fail "Unit resolution for $item changed after installation. Review systemd before starting."
 done
+# The administrator action stages a verified release in the protected overlay and
+# performs the one-time nginx cutover. The regular service has no nginx access.
+# A repeat installation must not tear down working routes or their schedule.
+previously_active=$(/usr/bin/python3 -E -s -B -c '
+import sys
+sys.path.insert(0, sys.argv[1])
+from nginx_route import Routes
+print(int(Routes(sys.argv[2]).active()))' "$code" "$state")
+[[ "$previously_active" == 0 || "$previously_active" == 1 ]] || fail "Unexpected route status."
+if [[ "$previously_active" == 0 ]]; then disable_timer_and_wait; fi
+if ! /usr/bin/python3 -E -s -B "$code/sync.py" install; then
+  echo "Publication did not finish. Rerun install or inspect the failure before using rollback." >&2
+  exit 1
+fi
+# Exercise the actual restricted timer entry point before enabling the schedule.
 if ! systemctl start "$unit.service"; then
-  echo "Initial verification failed. The timer was not newly enabled. Inspect: journalctl -u $unit.service -n 30" >&2
-  echo "Rerun this package to resume, or run rollback to restore the previous pages." >&2
+  if [[ "$previously_active" == 0 ]]; then
+    /usr/bin/python3 -E -s -B "$code/sync.py" rollback ||
+      fail "The restricted worker failed. Route restoration needs review; rerun rollback. The timer is disabled."
+    echo "The restricted worker failed. Original public routes were restored and the timer is disabled." >&2
+  else
+    echo "The restricted worker failed on a repeat installation. The existing route installation and schedule were retained." >&2
+  fi
+  echo "Inspect journalctl -u $unit.service -n 30 --no-pager before retrying." >&2
   exit 1
 fi
 systemctl enable --now "$unit.timer"
 systemctl is-active --quiet "$unit.timer" && systemctl is-enabled --quiet "$unit.timer" ||
   fail "Pages verified. Timer activation failed; rerun install or use rollback."
-echo "Branded pages verified. The server checks for new releases every 15 minutes."
+echo "Branded pages verified. The server checks for new releases about every 15 minutes."

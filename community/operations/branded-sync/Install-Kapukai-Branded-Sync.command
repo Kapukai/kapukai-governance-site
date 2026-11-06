@@ -6,7 +6,7 @@ case "${1:-install}" in
   *) echo "Usage: $0 [check|install|status|rollback]" >&2; exit 2;;
 esac
 cd -- "$(dirname -- "$0")"
-files=(host-setup.sh sync.py source.py kapukai-branded-sync.service kapukai-branded-sync.timer)
+files=(host-setup.sh sync.py source.py overlay.py nginx_route.py kapukai-branded-sync.service kapukai-branded-sync.timer)
 for file in "${files[@]}"; do
   if [[ ! -f "$file" || -L "$file" ]]; then
     echo "Extract the whole ZIP first. Missing or unexpected file: $file" >&2
@@ -24,6 +24,6 @@ trap '\''rm -rf -- "$stage"'\'' 0
 cd -- "$stage"
 tar --no-same-owner --no-same-permissions -xzf -
 /bin/bash ./host-setup.sh'
-tar -czf - "${files[@]}" |
+tar --format=ustar -czf - "${files[@]}" |
   ssh -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
     root@195.246.230.42 "$remote $mode"

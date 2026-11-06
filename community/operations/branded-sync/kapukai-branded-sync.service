@@ -1,5 +1,5 @@
 [Unit]
-Description=Publish verified Kapukai Join and Remedy Brief pages
+Description=Verify and publish Kapukai community pages in their dedicated static overlay
 Wants=network-online.target
 After=network-online.target
 
@@ -8,10 +8,12 @@ Type=oneshot
 ExecStart=/usr/bin/python3 -E -s -B /usr/local/lib/kapukai-branded-sync/sync.py sync
 TimeoutStartSec=12min
 UMask=0022
-StateDirectory=kapukai-branded-sync
-StateDirectoryMode=0700
 ProtectSystem=strict
-ReadWritePaths=/var/www/kapukai.org/public_html/join /var/www/kapukai.org/public_html/newsletter
+ReadWritePaths=/srv/kapukai-branded-sync /var/lib/kapukai-branded-sync/overlay
+InaccessiblePaths=-/var/www -/etc/nginx -/run/nginx.pid -/run/systemd/private -/run/dbus/system_bus_socket
+PrivateUsers=yes
+ProtectProc=invisible
+ProcSubset=pid
 ProtectHome=true
 PrivateTmp=true
 PrivateDevices=true
@@ -19,7 +21,12 @@ ProtectKernelTunables=true
 ProtectKernelModules=true
 ProtectControlGroups=true
 NoNewPrivileges=true
-CapabilityBoundingSet=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER
+CapabilityBoundingSet=
+AmbientCapabilities=
 RestrictSUIDSGID=true
-RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictAddressFamilies=AF_INET AF_INET6
+SystemCallArchitectures=native
+SystemCallFilter=~@privileged @mount @debug kill tkill tgkill pidfd_send_signal rt_sigqueueinfo rt_tgsigqueueinfo
+SystemCallErrorNumber=EPERM
 LockPersonality=true
