@@ -45,7 +45,7 @@ print('Article, community signup, homepage and discovery metadata built.')
 import shutil
 assets_out=P/'assets'/'community'
 assets_out.mkdir(parents=True,exist_ok=True)
-for name in ['style.css','applications.js','operations.js','members.js','members.css','favicon.svg']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
+for name in ['style.css','applications.js','operations.js','members.js','members.css','favicon.svg','navigation.css','navigation.js']: shutil.copy(Path(__file__).parent/'assets'/name, assets_out/name)
 for route,target in [('', '/community/'), ('tort','/articles/tort-law-and-accountability/')]:
     d=P/route;d.mkdir(parents=True,exist_ok=True)
     (d/'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url='+target+'"><title>Kapukai Governance Lab</title><link rel="canonical" href="'+ORIGIN+target+'"><a href="'+target+'">Continue to Kapukai</a></html>')
@@ -53,3 +53,17 @@ for route,target in [('', '/community/'), ('tort','/articles/tort-law-and-accoun
 # Repair the public contact destination without replacing the primary homepage.
 contact=P/'contact';contact.mkdir(parents=True,exist_ok=True)
 contact.joinpath('index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=/community/contact/"><title>Contact Kapukai</title><link rel="canonical" href="https://kapukai.org/community/contact/"></head><body><p><a href="/community/contact/">Contact Kapukai Governance Lab</a></p></body></html>')
+
+# Preserve reviewed cross-links previously authored directly in generated pages.
+for route, fragment in json.loads(Path('navigation-content-preservation.json').read_text()).items():
+    target = P / route / 'index.html'
+    content = target.read_text()
+    if fragment['html'] not in content:
+        if fragment['position'] == 'prepend':
+            content = content.replace('<main id="main-content">', '<main id="main-content">' + fragment['html'], 1)
+        else:
+            content = content.replace('</main>', fragment['html'] + '</main>', 1)
+        target.write_text(content)
+
+from discovery import build_discovery
+print("Public sitemap pages:", build_discovery(page, P, ORIGIN))

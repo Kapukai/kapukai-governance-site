@@ -1,0 +1,130 @@
+{
+  "version": "navigation-2026-11-07",
+  "files": [
+    {
+      "path": "architecture-of-power/atlas/index.html",
+      "sha256": "e861d4846015b839fed4f7834e74ff081111df54ae0fff8845234ffc3b56263f",
+      "previous_sha256": "d9887680f31d628fda9db2e2f77a0f8c0acdc16ec9bf5cf6ea8e1249c4fcc86a"
+    },
+    {
+      "path": "architecture-of-power/index.html",
+      "sha256": "b84d33c000d6158b2cc504f3520cf00877891249840405c1991486e1b4a8c18b",
+      "previous_sha256": "3af54f685410be8674c43dc5561294cac810dcf4ab3a3fd1ccd93813d84d05a7"
+    },
+    {
+      "path": "architecture-of-power/patterns/index.html",
+      "sha256": "5c38eb7638013f6a7ca39571da8afd0860b759901fc60b6055e72660e559b1bf",
+      "previous_sha256": "645ae66bfa62a59789e09d079c6d51a029f6a800d0856506c23e5ac755f4f742"
+    },
+    {
+      "path": "articles/tort-law-and-accountability/index.html",
+      "sha256": "6dd89293e4c02f78758196e61be50e3c7ebd3ef2e981b9c605013af876e721b3",
+      "previous_sha256": "b5b96f4fa4740cb1aebb084670a17a99952b38406720c2ecf9d0225368e0f39f"
+    },
+    {
+      "path": "assets/community/navigation.css",
+      "sha256": "cd5d488274849d94462c4b73d857a4f420e67d31e94147151b93b692af3f5765",
+      "previous_sha256": null
+    },
+    {
+      "path": "assets/community/navigation.js",
+      "sha256": "033013f5be3566267334e5f9d91830bb14bbed38922678875f3f0b15714e4c98",
+      "previous_sha256": null
+    },
+    {
+      "path": "community/about/index.html",
+      "sha256": "d0e93884d11bd6068a1dbbf624ec5aedf27052835c944c2b10b7989a014cf431",
+      "previous_sha256": "254cef985e737d466f98a7f1e19cfeb674a7a3cf8c8182b1bfe06730c2e0e317"
+    },
+    {
+      "path": "community/apply/index.html",
+      "sha256": "b56912298e41c05a6cf3cef83017764a7359a6a978a3412c035007d0a9120b6a",
+      "previous_sha256": "d4cd81c13fc8f18d0c5dff87efc1d7db26812fbef455d42f1285dbd721cc557e"
+    },
+    {
+      "path": "community/assistance/index.html",
+      "sha256": "3cb8047c4dd0b53fb0f4f9496a997bde56afe359372f80ef7ad34914be875b76",
+      "previous_sha256": "b90ffcccd074d6e5f269fd1b546e21c7b38d6a6afa01907478b4d25a8130d85b"
+    },
+    {
+      "path": "community/contact/index.html",
+      "sha256": "b4a5a36ca683c13ba5bd459b371fa6cfec7ac6ead87de1db1f8789ee35bde6e0",
+      "previous_sha256": "e31a90ec38f4bafa66e9b331804685ab2447b1f2295e1c4fa433b4d6b5809ece"
+    },
+    {
+      "path": "community/index.html",
+      "sha256": "077d646fc27c3fd23242d95aef31976348fe8297bd768a4683650aa66663eed5",
+      "previous_sha256": "85c7a8cb56ac7681e559b01fb54a3afda254512a897c57e584eb92ac71c99cd8"
+    },
+    {
+      "path": "community/learn/index.html",
+      "sha256": "d0a3039ebf636063e5c3fc228fdb8fdff4df4ddf141a9ff72f6af881e5c2228b",
+      "previous_sha256": "be00fd4cf05c211b205885dc351164f4df91c22d7e801e56f8fc346326e62717"
+    },
+    {
+      "path": "community/lifecycle/index.html",
+      "sha256": "2d96fb653d21241c7cb149010a97ff629b93819b884234b4306565ca5c465483",
+      "previous_sha256": "04fc1bddfe3ada21c3ed7912109310afa0367a4e1d842a104714b3c4903a0b87"
+    },
+    {
+      "path": "community/members/index.html",
+      "sha256": "dd55ea1aebb31aaf7ed1d12e915092a064005fb906567c28c88203127b861fe6",
+      "previous_sha256": "425e79db947450572f88da52c7b7b3cf4344ef813c3a1ff67a5781e9f48d3e16"
+    },
+    {
+      "path": "community/operate/index.html",
+      "sha256": "5a4bb15bc1c31eca707ecea0c937ce77cab068c3b272179adc249ebffceefcab",
+      "previous_sha256": "a4d999caea0264410bf716c663e644089da35ae1c1e41211bcb323369c052696"
+    },
+    {
+      "path": "community/practice/index.html",
+      "sha256": "9cf91b5682177929f1f98c2fcffa5a6b1ed33fa5615ba16794eeef20362864f2",
+      "previous_sha256": "c820f7eafa2b8233a23fd729acecf484eff7f9510674f55e290d9b7a092c1ce6"
+    },
+    {
+      "path": "community/privacy/index.html",
+      "sha256": "63f5703ee52ac8bb5ea0cac2d1bfc20fbdfcedfbd94022a4f6b8ad1549dce861",
+      "previous_sha256": "302bb5e1b196425a8a5bca25bd83ea359db5bf00c7871745b5d63839acc90cfb"
+    },
+    {
+      "path": "community/reviewers/index.html",
+      "sha256": "2ee5d9ae4a435ea140db00f3801d0cc590cff713b16aa25592af8a44fd46e094",
+      "previous_sha256": "d7f0633924acd70112e4c8f025c891bdd14bc264383fc1fe6ef203d7d9bbd921"
+    },
+    {
+      "path": "community/sitemap.xml",
+      "sha256": "ed4aef30ce9e3805c538c147092b7294be89774860512d34932984841e5e53c4",
+      "previous_sha256": "61a03e1e4df8bf8c4b054ac1a83c769bb59a85051d0125ae04227b830b5f1893"
+    },
+    {
+      "path": "community/sitemap/index.html",
+      "sha256": "753616fb72d2bc6b0b7ff97304ef38bf899287e085eacb133655d4537a33e0d1",
+      "previous_sha256": null
+    },
+    {
+      "path": "community/status/index.html",
+      "sha256": "8855474f2d7ab9c2ac6e1c18487412075585c4e8fafbcf2e555994962da1a851",
+      "previous_sha256": "5d86db64f536794afa7beee81c4e4e04dbb08c71603f7429874b5369db5efde1"
+    },
+    {
+      "path": "community/voices/index.html",
+      "sha256": "ea23c1311b2a9896fcac120515e73653f40894d31cb73c427de0392ef2b52cea",
+      "previous_sha256": "4b3a262e8e79e22068cb7d73d46aa9eb558b9dd19e705c9da18481d52cfc000a"
+    },
+    {
+      "path": "confirm/index.html",
+      "sha256": "1651cd8b4647070696a22452f178615fe57a234bb668194de074806a57a17f1e",
+      "previous_sha256": "020a38d0aea12041f877793f21ea6de608676a062303f727e40a11d9c78f3cb6"
+    },
+    {
+      "path": "newsletter/index.html",
+      "sha256": "55290af410110ee2ecabae59c7492b2b60aa36786e58f898f2e43db59d5838b9",
+      "previous_sha256": "0870cac1f195498fc07bfb93fc25872863986ec1ec5763a037428aeb9cefb1d7"
+    },
+    {
+      "path": "testers/index.html",
+      "sha256": "0573cf53d2dd88d8a7aca751a370335032abee14003a5c004fab125e4397dc1e",
+      "previous_sha256": "8649a6d7d0e955408487dff886e666f19521d3b57fade4ec8a91e1d9a95ffdb3"
+    }
+  ]
+}

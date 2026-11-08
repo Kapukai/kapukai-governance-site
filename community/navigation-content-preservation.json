@@ -1,0 +1,14 @@
+{
+  "architecture-of-power/atlas": {
+    "html": "<p><a href=\"/evidence/decision-failures/\">Explore the Decision Failures Atlas: cases, courts, documented roles and remedies \u2192</a></p>",
+    "position": "append"
+  },
+  "community/contact": {
+    "html": "<section class=\"panel\"><p class=\"eyebrow\">The public portfolio</p><h2>Solutions, prototypes and resources.</h2><p>Browse the collection by purpose and stage.</p><a class=\"button\" href=\"/solutions/\">Explore the solutions portfolio</a></section>",
+    "position": "prepend"
+  },
+  "newsletter": {
+    "html": "<section aria-labelledby=\"read-brief\"><h2 id=\"read-brief\">Read The Remedy Brief</h2><p><a href=\"/newsletter/archive/2026-11/\">November 1\u20135, 2026: Where did the correction go?</a></p><p><a href=\"/newsletter/archive/\">Browse the issue archive</a></p></section>",
+    "position": "append"
+  }
+}

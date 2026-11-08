@@ -27,7 +27,7 @@ test('community form sends only explicit choices, keeps a stable retry ID and sh
   assert.equal(calls[1].source_path,'/community');
   assert.equal(calls[1].consent_version,'kapukai-scoped-v2-2026-10-08');
   assert.deepEqual(calls[1].tool_interests,[]);
-  assert.match(d.querySelector('#status').textContent,/only after you confirm/);
+  assert.match(d.querySelector('#status').textContent,/select Confirm within 48 hours to activate your choices/);
  } finally {dom.window.close();}
 });
 test('confirmation page requires a click, displays new purposes and can withdraw them',async()=>{
