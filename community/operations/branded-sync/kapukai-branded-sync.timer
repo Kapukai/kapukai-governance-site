@@ -1,0 +1,11 @@
+[Unit]
+Description=Check for verified Kapukai Join and Remedy Brief releases
+
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=15min
+RandomizedDelaySec=60s
+Unit=kapukai-branded-sync.service
+
+[Install]
+WantedBy=timers.target
