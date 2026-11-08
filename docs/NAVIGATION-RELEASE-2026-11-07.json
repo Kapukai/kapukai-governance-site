@@ -1,0 +1,17 @@
+{
+  "source_commit": "0ebe27916f1fa4e4f33693efd2a732656e8b8664",
+  "production_deployment": "dpl_5Et8nua6adFkKohdSeYhc6qF7zHK",
+  "production_url": "https://kapukai-community.vercel.app/community/members/",
+  "directory_url": "https://kapukai-community.vercel.app/community/sitemap/",
+  "vercel_state": "READY",
+  "verification": {
+    "python_tests": 14,
+    "backend_tests": "238/239 passed initially; pre-existing outdated signup copy expectation corrected and both affected tests passed",
+    "browser": "Rendered live member page, Explore disclosure, Escape closure, directory navigation",
+    "broad_existing_html_audit": "Blocked by existing duplicate h1 on unchanged evidence/carol-woods page"
+  },
+  "canonical_status": "PENDING_SERVER_INSTALL",
+  "installer": "ops/navigation/install.py",
+  "canonical_root": "/var/www/kapukai.org/public_html",
+  "scope": "Generated community shared shell; independent root homepage and separately authored Join/archive retain layouts"
+}
