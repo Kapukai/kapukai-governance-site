@@ -72,3 +72,11 @@ Tests cover the existing signup/auth/access/invitation contracts, action-scoped 
 Local result on 2026-11-05, Node 24.22.1 and PGlite 0.5.8: **85 passed, 0 failed** (64 existing contract regressions, 14 recovery Edge tests, 7 isolated SQL tests). This focused run is not the repository's full suite and does not establish deployed recovery or real delivery.
 
 Official background-runtime guidance verified on 2026-11-05: [Supabase background tasks](https://supabase.com/docs/guides/functions/background-tasks) and [worker timeouts](https://supabase.com/kb/troubleshooting/edge-functions-worker-timeouts-and-websocket-drops). The documented API keeps registered work active after the response but does not bypass CPU, memory or wall-clock limits.
+
+## 2026-11-08 Unified signup extension
+
+This candidate now accepts `auth_signup_request` from the exact canonical Human Liberty Ledger origin, alongside recovery. Existing Kapukai invitation and membership rules are unchanged. Signup uses the same transport and private durable receipt RPCs, with purpose-separated rate fingerprints and fixed Unified instructions. Passwords remain only in the request/provider handoff, never SQL, email or receipt logs.
+
+The receipt migration is applied to the existing project. Isolated function `unified-account-access-preview` is deployed with this candidate; production `kapukai-member-access` is unchanged. A designated owned-inbox signup message was accepted by Postmark and received at 2026-11-08T13:46:05Z. The email connector withheld its authentication code, so confirmation and recovery end-to-end acceptance remain blocked on user entry. Do not mark mail acceptance as a successful account journey.
+
+Validation: 81 Edge tests pass, including three new Unified signup tests. The shared receipt database test count is recorded separately when executed. Existing operator roles have not been broadened and no real users were admitted as members by this change. Frontend release evidence is in `Kapukai/human-liberty-ledger-web`, `docs/unified/COMPLETION-2026-11-08.md`.

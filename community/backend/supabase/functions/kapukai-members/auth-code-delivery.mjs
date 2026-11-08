@@ -23,7 +23,7 @@ function recoveryMessage(code) {
   return { subject, textBody, htmlBody, tag: "kapukai-auth-recovery" };
 }
 
-function createAuthCodeSender({ baseUrl, serviceKey, providerToken, from, fetchImpl = fetch }, purpose) {
+function createAuthCodeSender({ baseUrl, serviceKey, providerToken, from, fetchImpl = fetch }, purpose, audience = "member") {
   const configured = () => {
     if (typeof providerToken !== "string" || !providerToken || typeof from !== "string" || !from || from.length > 320 || /[\r\n]/.test(from)) throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
     return serviceHeaders({ baseUrl, serviceKey });
@@ -52,7 +52,7 @@ function createAuthCodeSender({ baseUrl, serviceKey, providerToken, from, fetchI
     if (typeof code !== "string" || !/^\d{6,10}$/.test(code) || generated.verification_type !== purpose || (generated.email && (typeof generated.email !== "string" || generated.email.toLowerCase() !== address.toLowerCase()))) return { state: "unknown", providerMessageId: null };
     // Only a validated numeric OTP enters the message. Generated links, passwords
     // and provider user metadata never enter HTML, responses, logs or receipts.
-    const message = purpose === "signup" ? signupMessage(code) : recoveryMessage(code);
+    const message = purpose === "signup" ? (audience === "unified" ? unifiedSignupMessage(code) : signupMessage(code)) : recoveryMessage(code);
     try {
       response = await fetchImpl("https://api.postmarkapp.com/email", {
         method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json", "X-Postmark-Server-Token": providerToken },
@@ -89,3 +89,18 @@ export function createRecoverySender(config) {
   return Object.assign(send, { configured: deliver.configured });
 }
 
+
+function unifiedSignupMessage(code) {
+  return { subject: 'Confirm your Unified account',
+    textBody: `Your Unified confirmation code is:\n\n${code}\n\nReturn to https://www.humanlibertyledger.org/unified and choose Enter confirmation code. This confirms your shared Kapukai account email. It does not grant organization authority or community membership. Never share this code. If you did not request this, ignore this email.`,
+    htmlBody: `<h1>Confirm your Unified account</h1><p>Enter this code on Unified:</p><p style="font-size:32px;letter-spacing:6px">${code}</p><p>This confirms your shared Kapukai account email. Organization permissions and publication review remain separate. Never share this code. Ignore this email if you did not request it.</p>`,
+    tag: 'unified-account-confirmation' };
+}
+export function createUnifiedSignupSender(config) {
+  const deliver = createAuthCodeSender(config, 'signup', 'unified');
+  const send = async payload => {
+    const receipt = await deliver(payload);
+    return receipt.state === 'not_created' ? { state: 'failed', providerMessageId: null } : receipt;
+  };
+  return Object.assign(send, { configured: deliver.configured });
+}

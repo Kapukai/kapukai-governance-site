@@ -1,0 +1,47 @@
+name: Verify published Kapukai routes
+
+on:
+  deployment_status:
+  schedule:
+    - cron: '23 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kapukai-public-route-check
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: >-
+      github.event_name != 'deployment_status' ||
+      (github.event.deployment_status.state == 'success' &&
+      (github.event.deployment.production_environment == true ||
+      github.event.deployment.environment == 'Production' ||
+      github.event.deployment.environment == 'production'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - name: Test checker with offline fixtures
+        run: python3 -m unittest discover -s tests -p 'test_production_routes.py' -v
+      - name: Record route ownership and gaps
+        run: |
+          echo '### Route ownership and coverage' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          python3 ops/check-production-routes.py --inventory >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Check public pages and assets
+        shell: bash
+        run: |
+          # Give an independent branded-host publish timer time to pick up the release.
+          for attempt in 1 2 3 4 5 6; do
+            python3 ops/check-production-routes.py && exit 0
+            if [[ "$attempt" != 6 ]]; then sleep 60; fi
+          done
+          exit 1

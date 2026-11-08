@@ -5,7 +5,7 @@ export const MEMBER_PAGE = "https://kapukai-community.vercel.app/community/membe
 export const ALLOWED_ORIGINS = new Set(["https://kapukai.org", "https://www.kapukai.org", "https://kapukai-community.vercel.app"]);
 export const RECOVERY_ORIGIN = "https://www.humanlibertyledger.org";
 const knownOrigin = origin => ALLOWED_ORIGINS.has(origin) || origin === RECOVERY_ORIGIN;
-export const originAllowsAction = (origin, action) => action === "auth_recovery_request" ? origin === RECOVERY_ORIGIN : ALLOWED_ORIGINS.has(origin);
+export const originAllowsAction = (origin, action) => ["auth_recovery_request", "auth_signup_request"].includes(action) ? origin === RECOVERY_ORIGIN : ALLOWED_ORIGINS.has(origin);
 export const MAX_BODY_BYTES = 4096;
 export const TOKEN_RE = /^[A-Za-z0-9_-]{43}$/;
 export const INVITATION_TOKEN_RE = /^[a-f0-9]{64}$/;
@@ -30,10 +30,12 @@ export function randomToken() {
 export function normalizeRequest(body, now = Date.now()) {
   if (!exactKeys(body, ["action", "payload"]) || typeof body.action !== "string" || !isObject(body.payload)) throw bad();
   const p = body.payload;
-  if (body.action === "auth_recovery_request") {
+  if (["auth_recovery_request", "auth_signup_request"].includes(body.action)) {
+    const signup = body.action === "auth_signup_request";
     const address = typeof p.email === "string" ? p.email.trim().toLowerCase() : "";
-    if (!exactKeys(p, ["email", "request_id"]) || typeof p.email !== "string" || p.email.length > 254 || /[\u0000-\u001f\u007f]/.test(p.email) || !email(address) || !uuid(p.request_id)) throw bad();
-    return { action: body.action, payload: { email: address, request_id: p.request_id.toLowerCase() } };
+    if (!exactKeys(p, signup ? ["email", "request_id", "password"] : ["email", "request_id"]) || typeof p.email !== "string" || p.email.length > 254 || /[\u0000-\u001f\u007f]/.test(p.email) || !email(address) || !uuid(p.request_id)) throw bad();
+    if (signup && (typeof p.password !== "string" || p.password.length < 12 || p.password.length > 256)) throw bad();
+    return { action: body.action, payload: { email: address, request_id: p.request_id.toLowerCase(), ...(signup ? { password: p.password } : {}) } };
   }
   if (body.action === "access_status" && exactKeys(p, [])) return { action: body.action, payload: {} };
   if (body.action === "access_request") {
@@ -215,7 +217,7 @@ function invitationDeliveryProjection(result, payload) {
   return { ok: true, result: "ok", delivery_state: result.state, invitation_id: result.invitation_id, expires_at: result.expires_at };
 }
 
-export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitation, sendRecovery, defer, rateFingerprint, clock = () => Date.now(), newToken = randomToken }) {
+export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitation, sendRecovery, sendSignup, defer, rateFingerprint, clock = () => Date.now(), newToken = randomToken }) {
   return async request => {
     const origin = request.headers.get("origin");
     if (!knownOrigin(origin)) return json(403, { ok: false, code: "ORIGIN_DENIED" }, origin);
@@ -228,9 +230,12 @@ export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitat
       // access to membership consent tokens, queues or operator commands.
       if (!originAllowsAction(origin, input?.action)) return json(403, { ok: false, code: "ORIGIN_DENIED" }, origin);
       const body = normalizeRequest(input, clock());
-      if (body.action === "auth_recovery_request") {
-        if (typeof sendRecovery !== "function" || typeof sendRecovery.configured !== "function" || typeof rateFingerprint !== "function" || typeof defer !== "function") throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
-        sendRecovery.configured();
+      if (["auth_recovery_request", "auth_signup_request"].includes(body.action)) {
+        const signup = body.action === "auth_signup_request";
+        const sender = signup ? sendSignup : sendRecovery;
+        const purpose = signup ? "signup" : "recovery";
+        if (typeof sender !== "function" || typeof sender.configured !== "function" || typeof rateFingerprint !== "function" || typeof defer !== "function") throw new MemberError("SERVICE_NOT_CONFIGURED", 503);
+        sender.configured();
         const p = body.payload, day = new Date(clock()).toISOString().slice(0, 10);
         const network = (request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown").slice(0, 200);
         const fingerprint = async value => {
@@ -241,11 +246,11 @@ export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitat
         // Reuse the existing durable atomic budget. Its SQL maximum is 50;
         // forwarded headers are supplemental, never the sole abuse control.
         for (const [scope, value, limit] of [["address", p.email, 3], ["network", network, 40], ["global", "all", 50]]) {
-          const allowed = await rpc("kapukai_claim_signup_attempt", { p_fingerprint: await fingerprint(`auth-recovery-${scope}|${day}|${value}`), p_limit: limit });
+          const allowed = await rpc("kapukai_claim_signup_attempt", { p_fingerprint: await fingerprint(`auth-${purpose}-${scope}|${day}|${value}`), p_limit: limit });
           if (allowed === false) return json(202, GENERIC, origin);
           if (allowed !== true) throw new MemberError("TEMPORARILY_UNAVAILABLE", 503);
         }
-        const claim = await rpc("kapukai_auth_recovery_claim", { p_request_id: p.request_id, p_address_fingerprint: await fingerprint(`auth-recovery-recipient|${p.email}`) });
+        const claim = await rpc("kapukai_auth_recovery_claim", { p_request_id: p.request_id, p_address_fingerprint: await fingerprint(`auth-${purpose}-recipient|${p.email}`) });
         if (["duplicate", "idempotency_conflict"].includes(claim?.result)) return json(202, GENERIC, origin);
         if (claim?.result !== "claimed") throw new MemberError("TEMPORARILY_UNAVAILABLE", 503);
         // The durable claim precedes both token generation and provider handoff.
@@ -253,7 +258,7 @@ export function createHandler({ authenticate, rpc, sendConfirmation, sendInvitat
         const deliver = async () => {
           let receipt = { state: "unknown", providerMessageId: null };
           try {
-            const sent = await sendRecovery({ email: p.email });
+            const sent = await sender({ email: p.email, ...(signup ? { password: p.password } : {}) });
             if (["accepted", "failed", "unknown"].includes(sent?.state)) receipt = { state: sent.state === "accepted" && !uuid(sent.providerMessageId) ? "unknown" : sent.state, providerMessageId: sent.state === "accepted" && uuid(sent.providerMessageId) ? sent.providerMessageId : null };
           } catch { /* No automatic retry after a claimed recovery request. */ }
           try { await rpc("kapukai_auth_recovery_mail_result", { p_request_id: p.request_id, p_state: receipt.state, p_provider_message_id: receipt.providerMessageId }); }

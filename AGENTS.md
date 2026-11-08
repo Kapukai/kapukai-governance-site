@@ -7,6 +7,8 @@ Christine's publishing convention, October 8, 2026:
 - Use kapukai.org links in public calls to action after those paths are live. Vercel URLs are the deployment and review addresses.
 - Preserve existing kapukai.org pages and email DNS. Do not point the whole domain at a partial site.
 - Keep one release manifest linking the Git commit, Vercel deployment and the files installed on kapukai.org.
+- For every Vercel production change, identify each affected branded slug (including added issues, media and dependent assets), its canonical owner, and how it is published. A Vercel-only rollout is pending public release. Close a release only after fetching the exact branded URL and verifying the changed content, asset and primary action on the intended host. Log the checked version or digest, UTC timestamp, and any blockers. If a public URL remains stale, keep its distribution on hold until checked again.
+- Honor the design approved for the public slug. For Join, retain the introductory column and signup panel, with mobile stacking, when refreshing the gold K or applying backend fixes. Partner destinations retain their own domains and contact boundaries.
 - Keep private platform data and credentials out of this public repository.
 - The `community` module owns the public article, signup, email confirmation, tester, newsletter and practice pages. The existing `public-assurance` module is separate.
 - Existing ChatGPT Sites confirmation links must remain usable until a verified migration preserves their private URL fragments.
