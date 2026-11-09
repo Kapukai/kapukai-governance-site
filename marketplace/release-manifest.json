@@ -1,0 +1,56 @@
+{
+  "module": "marketplace-entry",
+  "canonical_url": "https://kapukai.org/marketplace/",
+  "canonical_status": "pending host installation and public verification",
+  "mode": "static entry with immediate navigation to the existing app origin",
+  "entry_release": {
+    "source_commit": "417d7ef1aa7f851d5f56fe6bf4508a6337db603c",
+    "vercel_deployment": "dpl_HAVHUwwna3QyvaaA3wt3BYCfE1VD",
+    "verified_origin": "https://kapukai-community-emp096m2b-kapukais-projects.vercel.app",
+    "bundle_path": "marketplace/release.json",
+    "bundle_sha256": "67971d7dc3aecac4ff096d0b54c7814c94958ca566ed965999aab8828643dfd0",
+    "files": {
+      "marketplace/index.html": "a41afd6de74e7b3e2614d85bb2929b251d74bc2dec79df0f26df07fd9ad39f86"
+    }
+  },
+  "app": {
+    "url": "https://kapukai-marketplace-pilot-git-work-pub-d328a2-kapukais-projects.vercel.app/",
+    "target_kind": "mutable_branch_alias",
+    "observed_deployment_url": "https://kapukai-marketplace-pilot-cko4g0i3h-kapukais-projects.vercel.app/",
+    "observed_vercel_deployment": "dpl_J4kR8fLT1ZmWWNPymtBxJAeosUKH",
+    "observed_source_commit": "8a3e210e5d003561246a27e6cc4cb8f757e467f8",
+    "source_repository": "Kapukai/kapukai-platform",
+    "build_pin_scope": "Entry bytes are pinned; the operational app alias may serve a newer build later.",
+    "release_status": "existing preview; planned offers are visible and live sales are not open; this entry does not enable sales or migrate private records"
+  },
+  "owner": {
+    "entry": "Kapukai/kapukai-governance-site: marketplace/install.py",
+    "application": "Kapukai/kapukai-platform: existing preview branch"
+  },
+  "host_installation": {
+    "status": "pending",
+    "reason": "This session cannot reach 195.246.230.42 TCP port 22: Network is unreachable.",
+    "destination": "https://kapukai.org/marketplace/",
+    "observed_before_installation": "HTTP 404 on 2026-11-09",
+    "operation": "Only marketplace/index.html under the existing web root; no DNS or nginx changes."
+  },
+  "verification": {
+    "checked_at_utc": "2026-11-09T15:09:23.199056+00:00",
+    "installer_fixtures": {
+      "passed": 9,
+      "failed": 0,
+      "scope": "Temporary local web roots; actual remote installer code."
+    },
+    "immutable_bundle_hash": "PASS: anonymous HTTPS fetch and exact SHA-256 check",
+    "entry_html": "PASS: exact source bytes, with only platform preview toolbar permitted after the document",
+    "browser_navigation": "PASS: entry preview opened the original app alias and rendered its storefront",
+    "catalog_search": "PASS: redaction query filtered the marketplace results and clearing restored the catalog",
+    "live_origin_ssh": "BLOCKED: Network is unreachable",
+    "branded_url": "PENDING: pre-install HTTP 404; owner-run installation required",
+    "unverified": [
+      "Origin SSH installation",
+      "Branded-browser navigation after installation",
+      "Customer login and checkout under this release"
+    ]
+  }
+}
