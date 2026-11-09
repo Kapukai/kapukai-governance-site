@@ -8,6 +8,7 @@
   ],
   "monthly_archive": "/newsletter/archive/",
   "outside_this_mirror": {
+    "/marketplace/": "Kapukai Marketplace entry: marketplace/install.py owns an exact static handoff to the pinned platform preview; separate release manifest and public verification. Native app, login, API and commerce release remain with kapukai-platform.",
     "/bills/": "Marketplace Bills application: separate publisher and acceptance suite.",
     "/first-circle/": "First Circle pilot workspace: separate publisher and invitation flow."
   },
