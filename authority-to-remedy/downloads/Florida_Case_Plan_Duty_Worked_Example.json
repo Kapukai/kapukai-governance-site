@@ -1,0 +1,142 @@
+{
+  "card_id": "ART-FL-EXAMPLE-01",
+  "version": "0.1",
+  "purpose": "fictional_training",
+  "decision": {
+    "actor": "Social service agency in a fictional Florida dependency proceeding",
+    "office": "Agency responsible for specified written case-plan obligation",
+    "action_or_omission": "Alleged failure to deliver an expressly assigned case-plan service",
+    "event_date": null,
+    "observed_consequence": "Participant reports inability to access the assigned service; consequences require evidence",
+    "evidence_status": "unknown",
+    "source_ids": [],
+    "contrary_evidence": [],
+    "unknowns": [
+      "Actual case plan",
+      "Service records",
+      "Barriers and actor responsible",
+      "Current orders",
+      "Party status"
+    ]
+  },
+  "authority": {
+    "jurisdiction": "Florida Chapter 39 proceeding, applicability must be established",
+    "source_ids": [
+      "fl_39_013",
+      "fl_39_701"
+    ],
+    "scope": "Judicial review of case-plan performance",
+    "delegation_or_appointment": null,
+    "predicates": [
+      {
+        "condition": "Court concludes agency failed obligations specified in the written case plan",
+        "evidence_ids": [],
+        "status": "unknown"
+      }
+    ],
+    "status": "applicability_unresolved"
+  },
+  "duties": [
+    {
+      "duty_id": "FL-39.701-PLANS",
+      "holder": "Dependency court",
+      "required_act": "Order agency to submit its plans for compliance",
+      "classification": "conditional_mandatory",
+      "source_id": "fl_39_701",
+      "pinpoint": "39.701(2)(d)3",
+      "trigger": "In the opinion of the court, agency has not complied with obligations specified in the written case plan",
+      "trigger_evidence": [],
+      "expected_output": "Court direction for agency compliance plans and ensuing agency submission",
+      "exceptions": [
+        "Verify complete provision and applicable procedural context"
+      ],
+      "status": "applicability_unresolved"
+    },
+    {
+      "duty_id": "FL-39.701-SHOWING",
+      "holder": "Dependency court",
+      "required_act": "Require agency to show why the child could not safely be returned home",
+      "classification": "conditional_mandatory",
+      "source_id": "fl_39_701",
+      "pinpoint": "39.701(2)(d)3",
+      "trigger": "Same judicial determination of written case-plan noncompliance",
+      "trigger_evidence": [],
+      "expected_output": "Required agency showing for court evaluation; no automatic return",
+      "exceptions": [],
+      "status": "applicability_unresolved"
+    },
+    {
+      "duty_id": "FL-39.701-CONTEMPT",
+      "holder": "Dependency court",
+      "required_act": "Consider any properly presented contempt request within applicable authority",
+      "classification": "discretionary",
+      "source_id": "fl_39_701",
+      "pinpoint": "39.701(2)(d)3",
+      "trigger": "Statutory predicate and all separate applicable contempt procedures",
+      "trigger_evidence": [],
+      "expected_output": "Discretionary disposition; sanction not guaranteed",
+      "exceptions": [
+        "Applicable contempt law and due process"
+      ],
+      "status": "applicability_unresolved"
+    }
+  ],
+  "routes": [
+    {
+      "forum": "Court exercising jurisdiction in existing Florida dependency case",
+      "route_type": "existing_case_motion",
+      "requested_relief": "Judicial consideration of documented agency performance and statutory outputs if the predicate is found",
+      "source_ids": [
+        "fl_39_701",
+        "fl_juvenile_rules"
+      ],
+      "prerequisites": [
+        "Verify party status, operative plan, actual facts, applicable rule, notice/service and current docket",
+        "Identify exact permissible vehicle and preserve independent review clocks"
+      ],
+      "document_sequence": [
+        {
+          "actor": "Eligible requesting party or court through scheduled review",
+          "document": "Applicable judicial-review request, evidentiary materials and notice/service",
+          "required_or_optional": "Case-specific vehicle requires verification",
+          "source_id": "fl_39_701",
+          "receipt_or_service": "Docketed filing and required service separately verified"
+        },
+        {
+          "actor": "Social service agency",
+          "document": "Required judicial-review report",
+          "required_or_optional": "As applicable under statute",
+          "source_id": "fl_39_701",
+          "receipt_or_service": "Applicable distribution requirements"
+        },
+        {
+          "actor": "Court",
+          "document": "Judicial-review order addressing statutory findings and relief",
+          "required_or_optional": "Per applicable findings and procedural requirements",
+          "source_id": "fl_39_701",
+          "receipt_or_service": "Operative entered order"
+        }
+      ],
+      "status": "applicability_unresolved"
+    }
+  ],
+  "deadlines": [],
+  "remedy": {
+    "requested_result": "Usable service and accurate assessment of case-plan performance, subject to applicable findings and orders",
+    "legally_required_outputs": [
+      "Conditional court directives specified in 39.701(2)(d)3 when predicate is met"
+    ],
+    "additional_assurance_checks": [
+      "Verify actual accessible service delivery",
+      "Reconcile relevant downstream records and consequences"
+    ],
+    "known_recipients": [],
+    "dependent_decisions": [],
+    "implementation_status": "not_requested",
+    "verification_evidence": [],
+    "remaining_gaps": [
+      "This example supplies no real case facts, filing-ready document or calculated deadline"
+    ]
+  },
+  "notes": "Real statutory source paired with explicitly hypothetical context. Source verification does not establish the trigger in an actual proceeding."
+}
