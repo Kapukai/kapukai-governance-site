@@ -1,0 +1,38 @@
+name: Public evidence or correction
+description: Propose a source-linked addition or correct a specific claim.
+title: '[Evidence] '
+body:
+  - type: markdown
+    attributes:
+      value: 'This issue is PUBLIC. Do not include private identifiers, confidential case files, child records, medical records, sealed material, passwords, or unredacted personal evidence.'
+  - type: input
+    id: case
+    attributes:
+      label: Case ID
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Exact statement and proposed correction
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Public source URL, title, date and exact locator
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: What this supports, its limits, and conflicting evidence
+    validations:
+      required: true
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Publication review
+      options:
+        - label: This contribution contains only public, appropriately redacted material and no private case records.
+          required: true
