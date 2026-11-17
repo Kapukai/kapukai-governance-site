@@ -1,0 +1,49 @@
+
+
+.audit-constitution{padding-top:58px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.audit-constitution h2{max-width:1000px}
+.audit-constitution-lead{max-width:1040px;color:var(--muted)}
+.constitutional-visual-intro{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0 18px}
+.constitutional-visual-intro>div{padding:19px 20px;border:1px solid var(--line);background:#fff}
+.constitutional-visual-intro .constitutional-inference-note{border-left:4px solid var(--gold);background:#fbf8ef}
+.constitutional-visual-intro h3{margin:8px 0;font-size:21px}
+.constitutional-visual-intro p{margin:0;font-size:13px;line-height:1.5;color:var(--muted)}
+.constitutional-kicker{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--teal)}
+.constitutional-lanes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.constitutional-lane{padding:19px;border:1px solid var(--line);background:#fff}
+.constitutional-source-lane{border-top:4px solid var(--teal)}
+.constitutional-inversion-lane{border-top:4px solid #b54708}
+.constitutional-lane-title{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;margin-bottom:15px}
+.constitutional-lane-title>span{display:grid;place-items:center;width:34px;height:34px;background:#102536;color:#e8c875;font-size:14px;font-weight:800}
+.constitutional-lane-title h3{margin:7px 0 0;font-size:21px;line-height:1.2}
+.constitutional-lane ol{display:grid;gap:10px;padding:0;margin:0;list-style:none;counter-reset:arch-step}
+.constitutional-lane li{display:grid;grid-template-columns:31px 1fr;gap:10px;padding:12px;border-left:3px solid #d9e4e0;background:#f6f8f7;counter-increment:arch-step}
+.constitutional-source-lane li{border-left-color:var(--teal)}
+.constitutional-inversion-lane li{border-left-color:#b54708;background:#fff8ef}
+.constitutional-step{display:grid;place-items:center;width:25px;height:25px;background:#e3ece9;color:#075f58;font-size:10px;font-weight:800}
+.constitutional-inversion-lane .constitutional-step{background:#f9e4cc;color:#8b4b08}
+.constitutional-card-label{display:block;font-size:10px;letter-spacing:.08em;font-weight:800;color:#5c6c70}
+.constitutional-lane h4{margin:5px 0 7px;font-size:16px;line-height:1.25}
+.constitutional-lane blockquote{margin:8px 0;padding-left:11px;border-left:2px solid #d6ad57;font-family:Georgia,serif;font-size:15px;line-height:1.4;color:#243c42}
+.constitutional-lane p{margin:7px 0;font-size:12px;line-height:1.45;color:var(--muted)}
+.constitutional-lane a{font-size:11px;font-weight:800;color:#075f58}
+.constitutional-test{padding:9px 10px;border-top:1px solid #efd4b5;color:#6e3b05!important}
+.constitutional-test strong{color:#8b4b08}
+.constitutional-bridge{display:grid;grid-template-columns:minmax(170px,.4fr) 1fr;gap:20px;align-items:center;padding:17px 20px;margin:19px 0;border-left:4px solid #b54708;background:#fff1df}
+.constitutional-bridge strong{font-size:15px;letter-spacing:.07em;color:#7e3e04}
+.constitutional-bridge span{font-size:14px;line-height:1.5;color:#6e3b05}
+.constitutional-priority{padding:20px;margin-top:24px;border:1px solid var(--line);background:#fff}
+.constitutional-subhead{max-width:950px}
+.constitutional-subhead h3{margin:8px 0;font-size:24px}
+.constitutional-subhead p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.constitutional-priority>ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:0;margin:20px 0 0;list-style:none;counter-reset:priority}
+.constitutional-priority>ol>li{display:grid;grid-template-columns:28px 1fr;gap:9px;padding:13px;border-top:3px solid var(--teal);background:#f6f8f7;counter-increment:priority}
+.constitutional-priority>ol>li>span{font-size:12px;font-weight:800;color:var(--teal)}
+.constitutional-priority h4{margin:0 0 5px;font-size:15px}
+.constitutional-priority p{margin:0;font-size:12px;line-height:1.45;color:var(--muted)}
+.constitutional-quote-strip{padding:17px 20px;margin:18px 0;border-left:4px solid var(--gold);background:#fbf8ef;font-size:15px;line-height:1.5;color:#304449}
+.constitutional-quote-strip strong{color:var(--ink)}
+.constitutional-sources{display:flex;gap:9px 18px;flex-wrap:wrap;align-items:baseline;padding-top:14px;border-top:1px solid var(--line)}
+.constitutional-sources a{font-size:12px;font-weight:800;color:#075f58}
+@media(max-width:900px){.constitutional-lanes,.constitutional-visual-intro{grid-template-columns:1fr}.constitutional-priority>ol{grid-template-columns:repeat(2,minmax(0,1fr))}.constitutional-bridge{grid-template-columns:1fr;gap:8px}}
+@media(max-width:620px){.audit-constitution{padding-top:38px}.constitutional-priority>ol{grid-template-columns:1fr}.constitutional-lane{padding:16px}.constitutional-bridge{padding:15px}}
