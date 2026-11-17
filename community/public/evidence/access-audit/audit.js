@@ -193,6 +193,34 @@
     });
     parent.appendChild(list);
   }
+  function renderAuthorityProfile(root, profile) {
+    const section = document.createElement('section');
+    section.className = 'audit-authority-profile';
+    appendText(section, 'h4', 'Authority on the books / operations documented separately');
+    appendText(section, 'p', profile.summary);
+    const fields = [
+      ['constitutionalStructure', 'Constitutional structure'],
+      ['selectionAndSupervision', 'Selection and supervision'],
+      ['recordDuties', 'Record duties'],
+      ['correctionRoute', 'Correction route'],
+      ['technologyAndOperations', 'Technology and actual operation'],
+      ['limitations', 'What remains unverified']
+    ];
+    const grid = document.createElement('dl');
+    grid.className = 'authority-profile-grid';
+    fields.forEach(([key, label]) => {
+      const value = profile[key];
+      if (!value) return;
+      const term = document.createElement('dt');
+      term.textContent = label;
+      const description = document.createElement('dd');
+      description.textContent = value;
+      grid.append(term, description);
+    });
+    section.appendChild(grid);
+    appendSources(section, profile.sources);
+    root.appendChild(section);
+  }
   function showState(code) {
     const state = window.ATLAS_MAP.states.find(item => item.abbr === code);
     if (!state) return;
@@ -215,6 +243,8 @@
     root.appendChild(scope);
     const topic = data.topics.find(item => item.id === currentTopic);
     appendText(root, 'p', 'Topic: ' + (topic ? topic.label : 'Selected audit dimension'));
+    const authorityProfile = data.authorityProfiles && data.authorityProfiles[code];
+    if (authorityProfile) renderAuthorityProfile(root, authorityProfile);
     if (finding) {
       appendText(root, 'p', finding.summary);
       if (finding.period) appendText(root, 'p', 'Time period: ' + finding.period);
