@@ -72,8 +72,8 @@
         "temporary-relief",
         "service-hearing"
       ],
-      "reviewStatus": "First-pass statutory clerk-role and procedure sources collected",
-      "summary": "Oklahoma statutes identify a court clerk elected in each county (19 O.S. §19-131) and consolidate certain court-clerk offices (19 O.S. §19-221). This is a statutory role source; the Oklahoma Constitution’s relevant provisions and local implementation still need review. The official Title 22 compilation also lists two 2025 versions of 22 O.S. §60.4. Version 1, tied to SB 623 and effective 3 May 2025, expressly requires an initial service attempt within 24 hours. Version 2, tied to HB 2104 and effective 1 January 2026, requires priority service and allows service 24 hours a day when the defendant’s location is known, without that express initial-attempt deadline. Both versions provide for a full hearing within 14 days when the petition states sufficient grounds. The operative version must be matched to the relevant case date. None of these texts establishes operational compliance.",
+      "reviewStatus": "First-pass constitutional and statutory clerk-role sources plus procedure sources collected",
+      "summary": "Oklahoma’s Constitution creates the office of Clerk of the District Court, subject to legislative change (Article XVII, §2). Statutes provide for an elected court clerk and consolidate specified court-clerk offices (19 O.S. §§19-131 and 19-221). Title 12 assigns docket and record duties; Title 20 §91.2 places case-to-docket assignment under the direction and supervision of the presiding judge. For protective-order procedure, the official Title 22 compilation lists two 2025 versions of §60.4: version 1, tied to SB 623 and effective 3 May 2025, expressly requires an initial service attempt within 24 hours; version 2, tied to HB 2104 and effective 1 January 2026, requires priority service and permits service 24 hours a day when the defendant’s location is known, without that express initial-attempt deadline. Both versions provide for a full hearing within 14 days when the petition states sufficient grounds. The operative version must be matched to the case date; none of these legal texts establishes operational compliance.",
       "sources": [
         {
           "id": "OK-ROLE-1",
@@ -377,7 +377,7 @@
           "id": "OK-ROLE-3",
           "title": "Oklahoma Statutes, Title 12, §§22–23, 696.3, and 1031 (official compilation)",
           "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os12.pdf",
-          "supports": "Docket/record duties, filing endorsement requirements, and court relief for clerk mistake/omission."
+          "supports": "Title 12 docket/record duties, filing endorsement requirements, judicial relief for clerk mistake/omission, and Appendix 1 Rule 1.32 procedures for correcting a record on appeal."
         },
         {
           "id": "OK-ROLE-4",
