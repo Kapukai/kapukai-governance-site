@@ -22,9 +22,9 @@
 .audit-map-svg{display:block;width:100%;height:auto;min-height:300px;margin-top:12px}
 .audit-state-shape{fill:#7c898d;stroke:#fff;stroke-width:1.15;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .14s ease,stroke .14s ease}
 .audit-state-group:hover .audit-state-shape{fill:#a6cfc6}
-.audit-state-group.audit-selected .audit-state-shape{fill:#08766e;stroke:#102536;stroke-width:2.4}
+.audit-state-group.audit-selected .audit-state-shape{stroke:#d6ad57;stroke-width:3}
 .audit-state-group.audit-progress .audit-state-shape{fill:#08766e}
-.audit-state-group.audit-progress.audit-selected .audit-state-shape{fill:#d6ad57;stroke:#102536}
+.audit-state-group.audit-progress.audit-selected .audit-state-shape{stroke:#d6ad57;stroke-width:3}
 .audit-state-group:focus{outline:none}
 .audit-state-group:focus-visible .audit-state-shape{stroke:#102536;stroke-width:3}
 .audit-state-label{fill:#fff;font:700 9px Arial,Helvetica,sans-serif;text-anchor:middle;dominant-baseline:central;pointer-events:none;paint-order:stroke;stroke:#34444a;stroke-width:1.5px;stroke-linejoin:round}
