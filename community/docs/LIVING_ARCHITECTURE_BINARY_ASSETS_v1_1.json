@@ -1,0 +1,33 @@
+{
+  "version": "living-architecture-v1.1",
+  "status": "source-bytes-recovered-not-yet-in-repository",
+  "staging_resource_route": "/living-architecture/",
+  "release_gate": "STOP until exact binaries uploaded, hashes verified on preview and production",
+  "assets": [
+    {
+      "path": "community/public/living-architecture/files/Kapukai_Living_Architecture_v1_1_Carousel.pdf",
+      "sha256": "d4e1860e8ff25457db5213e708f8f1b486e32c1119fb7b7b7b000f982f50055d",
+      "bytes": 34458,
+      "pages": 7,
+      "mime": "application/pdf"
+    },
+    {
+      "path": "community/public/living-architecture/files/Kapukai_Living_Architecture_Assessment_v1_1.xlsx",
+      "sha256": "10d82bb45b10f8b36d30790e4e7116cf48f76e8197bc835bf48651148c9422bf",
+      "bytes": 6998,
+      "worksheets": [
+        "Assessment",
+        "Evidence register",
+        "Instructions"
+      ],
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "path": "community/public/living-architecture/files/Kapukai_Living_Architecture_Field_Guide_v1_1.pdf",
+      "sha256": "4dd110a27ed020eaf5539c25b5877c808e7c219db8873deb39bf68306a8159ce",
+      "bytes": 29644,
+      "pages": 2,
+      "mime": "application/pdf"
+    }
+  ]
+}
