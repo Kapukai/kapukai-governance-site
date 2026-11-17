@@ -197,7 +197,7 @@
     const section = document.createElement('section');
     section.className = 'audit-authority-profile';
     appendText(section, 'h4', 'Authority on the books / operations documented separately');
-    appendText(section, 'p', profile.summary);
+    appendText(section, 'p', profile.status, 'audit-authority-status');
     const fields = [
       ['constitutionalStructure', 'Constitutional structure'],
       ['selectionAndSupervision', 'Selection and supervision'],
