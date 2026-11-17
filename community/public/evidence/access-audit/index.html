@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="audit.css">
   <script defer src="../decision-failures/states.js"></script>
   <script defer src="audit.js"></script>
+  <script defer src="logic-lab.js"></script>
 </head>
 <body>
   <a class="skip" href="#audit-map">Skip to the audit map</a>
@@ -18,6 +19,7 @@
       <a href="../decision-failures/">Documented cases</a>
       <a href="#task-boundary">Task boundary</a>
       <a href="#logic-model">Systems view</a>
+      <a href="#cyber-lab">Cybersecurity lab</a>
       <a href="#audit-map">Jurisdiction map</a>
       <a href="#method">Method</a>
       <a href="#sources">Pilot sources</a>
@@ -124,6 +126,147 @@
       </div>
       <p class="audit-narrative-rule"><strong>High-signal public label:</strong> “Allegation filed; evidence status and court finding shown separately.” A narrative becomes traceable when each material proposition links to its supporting and contrary sources, provenance, challenge status, and any authorized finding. “No exhibit attached to this packet” means exactly that; it does not prove no evidence exists elsewhere.</p>
       <p class="audit-async-note">This is not one rigid linear pipeline. Parties may submit at different times; service, responses, emergencies, amendments, and appeals can branch or repeat. Preserve the event sequence, causal links, actor and authority, applicable rule version, and every status change. Access to file remains a legal question; a machine check is not a truth gate.</p>
+    </section>
+
+    <section class="wrap audit-lab" id="cyber-lab" aria-labelledby="lab-title">
+      <p class="eyebrow">CYBERSECURITY MODEL / TIME, EVENTS, AND HUMAN CONTEXT</p>
+      <h2 id="lab-title">Watch an event move through the system.</h2>
+      <p class="audit-lab-lead">Choose a hypothetical threat and step through its event trace. The demo separates source time, system receipt time, the rule-defined legal clock, and human-reported time. These are design scenarios—not reports that any named court experienced an attack.</p>
+
+      <div class="lab-controls">
+        <label for="lab-scenario">Illustrative scenario
+          <select id="lab-scenario">
+            <option value="baseline">Baseline: trace a normal submission</option>
+            <option value="clock-replay">Clock skew and replayed event</option>
+            <option value="payload-tamper">Content changed in a handoff</option>
+            <option value="role-mismatch">Valid login, wrong authority</option>
+            <option value="availability">Portal outage and missing receipt</option>
+          </select>
+        </label>
+        <label for="lab-speed">Playback rate
+          <select id="lab-speed">
+            <option value="2000">0.5 event / second</option>
+            <option value="1000" selected>1 event / second</option>
+            <option value="500">2 events / second</option>
+          </select>
+        </label>
+      </div>
+
+      <ol class="lab-pipeline" aria-label="System actors and trust boundaries">
+        <li data-stage="person"><strong>PERSON</strong><span>Claim and lived context</span></li>
+        <li data-stage="device"><strong>DEVICE</strong><span>Source clock and payload</span></li>
+        <li data-stage="intake"><strong>INTAKE</strong><span>Identity and bounded checks</span></li>
+        <li data-stage="record"><strong>RECORDS</strong><span>Docket, links, protected log</span></li>
+        <li data-stage="decision"><strong>AUTHORIZED HUMAN</strong><span>Context, law, reasons</span></li>
+      </ol>
+
+      <div class="lab-scenario-card" aria-live="polite">
+        <p class="lab-threat-label"><strong>Threat model:</strong> <span id="lab-threat-name">Baseline / no injected threat</span></p>
+        <p id="lab-threat-summary">A submission is received and its technical checks are logged. The claim remains an assertion until an authorized decision-maker acts.</p>
+        <p><strong>Control question:</strong> <span id="lab-control-question">Can each actor trace the same event through source, receipt, record, and later review?</span></p>
+      </div>
+
+      <div class="lab-clock-grid" aria-label="Four distinct clocks">
+        <article class="lab-clock" data-clock="source">
+          <span>01 / SOURCE CLOCK</span><strong id="clock-source">Not supplied</strong>
+          <p>Time asserted by a person, device, or sending system. Preserve it, but do not silently treat it as trusted.</p>
+        </article>
+        <article class="lab-clock" data-clock="receipt">
+          <span>02 / RECEIPT CLOCK</span><strong id="clock-receipt">Awaiting event</strong>
+          <p>Receiving-system time, time zone or UTC offset, clock health, and sequence number.</p>
+        </article>
+        <article class="lab-clock" data-clock="rule">
+          <span>03 / RULE CLOCK</span><strong id="clock-rule">Not computed</strong>
+          <p>Requires the operative jurisdiction, trigger event, rule version, calendar, and time zone.</p>
+        </article>
+        <article class="lab-clock lab-human-clock" data-clock="human">
+          <span>04 / HUMAN LIVED TIME</span><strong id="clock-human">Not recorded</strong>
+          <p>Reported delay, access barrier, accommodation, or other context. The software does not infer or score it.</p>
+        </article>
+      </div>
+
+      <div class="lab-human-inputs">
+        <div>
+          <label for="human-context">Human context in this simulation</label>
+          <select id="human-context">
+            <option value="not-recorded">Not recorded / unknown</option>
+            <option value="access-barrier">Person reports an access interruption</option>
+            <option value="accommodation">Person reports an accommodation request</option>
+            <option value="after-hours">Person reports an after-hours attempt</option>
+          </select>
+        </div>
+        <div>
+          <label for="human-minutes">Reported elapsed time: <output id="human-minutes-value" for="human-minutes">0 minutes</output></label>
+          <input id="human-minutes" type="range" min="0" max="120" step="5" value="0">
+        </div>
+        <p id="human-context-note">Unknown means not recorded here. It does not mean no barrier occurred. These controls change only this local illustration; nothing is submitted or stored.</p>
+      </div>
+
+      <div class="lab-playback-bar">
+        <button id="lab-step" type="button">Step one event</button>
+        <button id="lab-play" type="button" aria-pressed="false">Play trace</button>
+        <button id="lab-reset" type="button" class="lab-secondary-button">Reset trace</button>
+        <span id="lab-progress" role="status">Event 0 of 4 · paused</span>
+      </div>
+
+      <div class="lab-trace-grid">
+        <section class="lab-event-panel" aria-labelledby="event-trace-title">
+          <h3 id="event-trace-title">Event trace</h3>
+          <p class="lab-small-note">Synthetic UTC timestamps. Playback speed is only for viewing; it is not a real-world event frequency or legal deadline.</p>
+          <ol id="lab-event-list" class="lab-event-list" aria-live="polite" aria-relevant="additions text"></ol>
+        </section>
+        <aside class="lab-state-panel" aria-labelledby="current-state-title">
+          <p class="eyebrow">CURRENT STATE</p>
+          <h3 id="current-state-title">Awaiting first event</h3>
+          <p id="lab-current-state">The trace has not started.</p>
+          <div class="lab-state-seal"><span>CLAIM STATUS</span><strong id="lab-claim-status">NOT YET RECORDED</strong></div>
+          <div class="lab-state-seal"><span>FACTUAL FINDING</span><strong id="lab-finding-status">NONE SIMULATED</strong></div>
+        </aside>
+      </div>
+
+      <section class="lab-kmap-panel" aria-labelledby="kmap-title">
+        <p class="eyebrow">BOUNDED BOOLEAN EXAMPLE / K-MAP</p>
+        <h3 id="kmap-title">Map one technical check—not the truth of a claim.</h3>
+        <p>This Karnaugh map only models whether a submitted payload triggers a technical exception. Set each check to <strong>pass</strong>, <strong>fail</strong>, or <strong>unknown</strong>. Unknown is not false. If no payload is attached, the check is “not run,” not “no evidence exists.”</p>
+        <div class="kmap-inputs">
+          <label for="kmap-payload">P / payload attached here
+            <select id="kmap-payload"><option value="yes">Yes</option><option value="no">No</option></select>
+          </label>
+          <label for="kmap-hash">H / hash matches prior upload
+            <select id="kmap-hash"><option value="pass">Pass</option><option value="fail">Fail</option><option value="unknown">Unknown</option></select>
+          </label>
+          <label for="kmap-metadata">M / required metadata complete
+            <select id="kmap-metadata"><option value="pass">Pass</option><option value="fail">Fail</option><option value="unknown">Unknown</option></select>
+          </label>
+          <label for="kmap-sequence">Q / event ID is unique
+            <select id="kmap-sequence"><option value="pass">Pass</option><option value="fail">Fail</option><option value="unknown">Unknown</option></select>
+          </label>
+        </div>
+        <div id="kmap-result" class="kmap-result" role="status" aria-live="polite">NOT RUN — no payload attached to this submission.</div>
+        <div class="kmap-table-wrap">
+          <table class="kmap-table" aria-describedby="kmap-explainer">
+            <caption>Technical exception T for a present payload. Columns are M Q in Gray-code order.</caption>
+            <thead><tr><th scope="col">H \ M Q</th><th scope="col" data-kmap-column="00">00</th><th scope="col" data-kmap-column="01">01</th><th scope="col" data-kmap-column="11">11</th><th scope="col" data-kmap-column="10">10</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" data-kmap-row="0">H = 0 / fail</th><td data-kmap-cell="0-00">1</td><td data-kmap-cell="0-01">1</td><td data-kmap-cell="0-11">1</td><td data-kmap-cell="0-10">1</td></tr>
+              <tr><th scope="row" data-kmap-row="1">H = 1 / pass</th><td data-kmap-cell="1-00">1</td><td data-kmap-cell="1-01">1</td><td data-kmap-cell="1-11">0</td><td data-kmap-cell="1-10">1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="kmap-equation"><strong>For P = 1 and all checks known:</strong> T = ¬H ∨ ¬M ∨ ¬Q</p>
+        <p id="kmap-explainer" class="lab-small-note">T=1 means a defined technical exception is flagged; T=0 means these three checks passed. It says nothing about truth, admissibility, credibility, or whether relevant evidence exists elsewhere. Identity/authority checks and clock trust need their own predicates.</p>
+      </section>
+
+      <div class="lab-stack-note">
+        <strong>Best implementation stack for this site:</strong> the current page uses lightweight browser JavaScript, HTML/CSS, and native SVG/DOM—no visualization framework is needed for this focused demo. For a growing, data-backed state-machine tool, use <strong>TypeScript</strong> to type-check event names, statuses, and transitions before runtime; add <strong>D3</strong> only if time-series and map interactions become dense. Keep K-map truth tables generated from explicit, reviewable logic. Use Python for offline source normalization and data-quality checks, not the public interface.
+        <ul class="lab-sources">
+          <li><a href="https://www.typescriptlang.org/docs/handbook/intro.html" target="_blank" rel="noopener">TypeScript Handbook ↗</a></li>
+          <li><a href="https://d3js.org/api" target="_blank" rel="noopener">D3 API and timers ↗</a></li>
+          <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP threat modeling and trust boundaries ↗</a></li>
+          <li><a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" target="_blank" rel="noopener">NIST SP 800-53: audit timestamps and protection ↗</a></li>
+        </ul>
+      </div>
+      <p class="lab-disclaimer">Every injected scenario is a design exercise, not an allegation or operational finding about a court, state, clerk, vendor, or person. A rule clock must be sourced for the specific jurisdiction and case type before any deadline can be calculated.</p>
     </section>
 
     <section class="wrap audit-history" aria-labelledby="history-title">
