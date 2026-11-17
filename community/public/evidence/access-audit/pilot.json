@@ -1,71 +1,248 @@
 {
   "asOf": "2026-11-17",
-  "scope": "Initial source baseline for protective-order evidence access and adjacent procedural safeguards. State-level operational practice, recurring patterns, and systemic findings have not been audited.",
+  "scope": "Initial research register for constitutional and statutory court roles, court-record provenance, evidence access, deterministic technology checks, human decision authority, system oversight, and correction. No statewide operational audit or systemic finding has been completed.",
   "topics": [
-    {"id":"evidence-intake","label":"Evidence intake and filing"},
-    {"id":"temporary-relief","label":"Preliminary and ex parte relief"},
-    {"id":"hearing-access","label":"Full hearing and opportunity to challenge"},
-    {"id":"clerk-judge","label":"Clerk intake and judicial decision"},
-    {"id":"service-continuance","label":"Service and continuance"},
-    {"id":"correction-appeal","label":"Correction and appeal"},
-    {"id":"interoperability","label":"Interagency records and correction"}
+    {
+      "id": "institutional-roles",
+      "label": "Constitution and clerk authority"
+    },
+    {
+      "id": "record-entry",
+      "label": "Record intake and provenance"
+    },
+    {
+      "id": "automation-boundary",
+      "label": "Automated checks and human review"
+    },
+    {
+      "id": "temporary-relief",
+      "label": "Emergency and preliminary relief"
+    },
+    {
+      "id": "service-hearing",
+      "label": "Notice, service, and hearing access"
+    },
+    {
+      "id": "records-correction",
+      "label": "Record access, correction, and appeal"
+    },
+    {
+      "id": "interoperability",
+      "label": "Cross-system records and handoffs"
+    },
+    {
+      "id": "technology-oversight",
+      "label": "Technology governance, security, and audit"
+    }
   ],
+  "sourceLevels": {
+    "constitution": "State or federal constitutional text",
+    "statute": "Enacted legislation",
+    "rule": "Statewide court rule",
+    "local": "Local court rule, order, or procedure",
+    "system": "System design, vendor, security, or audit documentation",
+    "operation": "Observed implementation or outcome data",
+    "case": "Individual case record"
+  },
+  "taskBoundaryLabels": {
+    "deterministic": "Deterministic technical validation",
+    "records": "Administrative record control",
+    "contextual": "Contextual legal judgment",
+    "hybrid": "Automated support with accountable human review"
+  },
   "classificationLabels": {
-    "A":"Documented failure in stated scope",
-    "B":"Safeguard documented in operation",
-    "C":"Mixed findings",
-    "D":"Insufficient evidence after defined review",
-    "E":"Not yet assessed"
+    "A": "Documented failure in stated scope",
+    "B": "Safeguard documented in operation",
+    "C": "Mixed findings",
+    "D": "Insufficient evidence after defined review",
+    "E": "Not yet assessed"
   },
   "findingScopeLabels": {
-    "systemic":"System-level finding",
-    "recurring":"Recurring pattern",
-    "case":"Single documented case",
-    "rule":"Law or official guidance only",
-    "unassessed":"Not assessed"
+    "systemic": "System-level finding",
+    "recurring": "Recurring pattern",
+    "case": "Single documented case",
+    "rule": "Law or official guidance only",
+    "unassessed": "Not assessed"
   },
   "ratings": {},
   "pilots": {
     "OK": {
-      "reviewStatus":"First-pass official statute review started",
-      "summary":"The official Oklahoma Legislature Title 22 compilation, updated 12 November 2026, lists two 2025 versions of 22 O.S. §60.4. Version 1, tied to SB 623 and effective 3 May 2025, expressly requires an initial service attempt within 24 hours. Version 2, tied to HB 2104 and effective 1 January 2026, requires priority service and allows service 24 hours a day when the defendant’s location is known, without that express initial-attempt deadline. Both versions provide for a full hearing within 14 days when the petition states sufficient grounds. The operative version must be matched to the relevant case date.",
-      "sources":[
-        {"id":"OK-1","title":"Oklahoma Statutes, Title 22, §§60.3–60.4 (official compilation updated 12 November 2026)","url":"https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os22.pdf","supports":"Official text of the emergency-order and full-hearing framework; the compilation identifies both 2025 versions of §60.4 and their text. The statute does not establish operational compliance."},
-        {"id":"OK-2","title":"Oklahoma SB 623 (2025), bill history","url":"https://www.oklegislature.gov/BillInfo.aspx?Bill=SB+623","supports":"Official legislative history; approved by the Governor on 3 May 2025. The enrolled measure is identified in the statute compilation as 22 O.S. §60.4 v1."},
-        {"id":"OK-3","title":"Oklahoma HB 2104 (2025), bill history","url":"https://www.oklegislature.gov/BillInfo.aspx?Bill=hb+2104","supports":"Official legislative history; approved by the Governor on 10 June 2025. The statute compilation identifies section 704 as §60.4 v2."}
+      "topics": [
+        "institutional-roles",
+        "temporary-relief",
+        "service-hearing"
+      ],
+      "reviewStatus": "First-pass statutory clerk-role and procedure sources collected",
+      "summary": "Oklahoma statutes identify a court clerk elected in each county (19 O.S. §19-131) and consolidate certain court-clerk offices (19 O.S. §19-221). This is a statutory role source; the Oklahoma Constitution’s relevant provisions and local implementation still need review. The official Title 22 compilation also lists two 2025 versions of 22 O.S. §60.4. Version 1, tied to SB 623 and effective 3 May 2025, expressly requires an initial service attempt within 24 hours. Version 2, tied to HB 2104 and effective 1 January 2026, requires priority service and allows service 24 hours a day when the defendant’s location is known, without that express initial-attempt deadline. Both versions provide for a full hearing within 14 days when the petition states sufficient grounds. The operative version must be matched to the relevant case date. None of these texts establishes operational compliance.",
+      "sources": [
+        {
+          "id": "OK-ROLE-1",
+          "title": "Oklahoma Statutes, Title 19, §§19-131 and 19-221 (official compilation)",
+          "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os19.pdf",
+          "supports": "Statutory sources for election of county court clerks and consolidation of certain court-clerk offices. These provisions are not a review of the Oklahoma Constitution or local office practice."
+        },
+        {
+          "id": "OK-1",
+          "title": "Oklahoma Statutes, Title 22, §§60.3–60.4 (official compilation updated 12 November 2026)",
+          "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os22.pdf",
+          "supports": "Official text of the emergency-order and full-hearing framework; the compilation identifies both 2025 versions of §60.4 and their text. The statute does not establish operational compliance."
+        },
+        {
+          "id": "OK-2",
+          "title": "Oklahoma SB 623 (2025), bill history",
+          "url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=SB+623",
+          "supports": "Official legislative history; approved by the Governor on 3 May 2025. The enrolled measure is identified in the statute compilation as 22 O.S. §60.4 v1."
+        },
+        {
+          "id": "OK-3",
+          "title": "Oklahoma HB 2104 (2025), bill history",
+          "url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb+2104",
+          "supports": "Official legislative history; approved by the Governor on 10 June 2025. The statute compilation identifies section 704 as §60.4 v2."
+        }
       ]
     },
     "CA": {
-      "reviewStatus":"First-pass statewide court-guidance source review started",
-      "summary":"The California Courts self-help guide tells parties to prepare evidence and witnesses for a restraining-order hearing and says the judge usually decides the request at that hearing. This is official public guidance, not proof that a particular clerk accepted or rejected evidence or that courts statewide followed the instructions.",
-      "sources":[
-        {"id":"CA-1","title":"California Courts Self-Help, Prepare for your restraining-order court date","url":"https://selfhelp.courts.ca.gov/DV-restraining-order/prepare-court-date","supports":"Official statewide self-help instructions on preparing evidence and witnesses for a hearing; not an operational audit."},
-        {"id":"CA-2","title":"Placer County Superior Court, evidence handout","url":"https://placer.courts.ca.gov/sites/default/files/PL-FL031%20-%20Getting%20Evidence%20Ready%20for%20Your%20Restraining%20Order%20Hearing.pdf","supports":"County-specific exhibit instructions. This local document must not be generalized to statewide procedure."}
+      "topics": [
+        "service-hearing"
+      ],
+      "reviewStatus": "First-pass statewide court-guidance source review started",
+      "summary": "The California Courts self-help guide tells parties to prepare evidence and witnesses for a restraining-order hearing and says the judge usually decides the request at that hearing. This is official public guidance, not proof that a particular clerk accepted or rejected evidence or that courts statewide followed the instructions.",
+      "sources": [
+        {
+          "id": "CA-1",
+          "title": "California Courts Self-Help, Prepare for your restraining-order court date",
+          "url": "https://selfhelp.courts.ca.gov/DV-restraining-order/prepare-court-date",
+          "supports": "Official statewide self-help instructions on preparing evidence and witnesses for a hearing; not an operational audit."
+        },
+        {
+          "id": "CA-2",
+          "title": "Placer County Superior Court, evidence handout",
+          "url": "https://placer.courts.ca.gov/sites/default/files/PL-FL031%20-%20Getting%20Evidence%20Ready%20for%20Your%20Restraining%20Order%20Hearing.pdf",
+          "supports": "County-specific exhibit instructions. This local document must not be generalized to statewide procedure."
+        }
       ]
     },
     "NY": {
-      "reviewStatus":"First-pass Family Court Act source review started",
-      "summary":"New York Family Court Act §828 says a temporary order of protection is not a finding of wrongdoing. Sections 832 and 834 define the fact-finding hearing by a fair-preponderance standard and limit admitted hearing evidence to competent, material, and relevant evidence. These statutory rules describe legal procedure; they do not establish how a court operated in a particular case.",
-      "sources":[
-        {"id":"NY-1","title":"New York Family Court Act §828, temporary orders of protection","url":"https://www.nysenate.gov/legislation/laws/FCT/828","supports":"Official statutory distinction between a temporary order and a finding of wrongdoing."},
-        {"id":"NY-2","title":"New York Family Court Act §832, fact-finding hearing","url":"https://www.nysenate.gov/legislation/laws/FCT/832","supports":"Official statutory definition of the fact-finding standard."},
-        {"id":"NY-3","title":"New York Family Court Act §834, evidence","url":"https://www.nysenate.gov/legislation/laws/FCT/834","supports":"Official statutory rule for evidence at fact-finding and dispositional hearings."}
+      "topics": [
+        "institutional-roles",
+        "temporary-relief",
+        "service-hearing"
+      ],
+      "reviewStatus": "First-pass constitutional and Family Court Act sources collected",
+      "summary": "New York’s constitution generally provides for election of county clerks, while the clerk of each New York City county is appointed and removable by the Appellate Division (Article XIII, §13). Family Court Act §828 says a temporary order of protection is not a finding of wrongdoing. Sections 832 and 834 define the fact-finding hearing and evidence standards. These are legal-text sources; they do not establish local clerk practice or court operation.",
+      "sources": [
+        {
+          "id": "NY-ROLE-1",
+          "title": "New York Constitution, Article XIII, §13 (official 2026 compilation)",
+          "url": "https://www.nysenate.gov/sites/default/files/admin/structure/media/manage/filefile/a/2026-07/ny-state-constitution-asc-jan-1-2026-final.pdf",
+          "supports": "Constitutional selection/removal structure for county clerks, including the distinct New York City provision. Local office functions and actual supervision still require separate research."
+        },
+        {
+          "id": "NY-1",
+          "title": "New York Family Court Act §828, temporary orders of protection",
+          "url": "https://www.nysenate.gov/legislation/laws/FCT/828",
+          "supports": "Official statutory distinction between a temporary order and a finding of wrongdoing."
+        },
+        {
+          "id": "NY-2",
+          "title": "New York Family Court Act §832, fact-finding hearing",
+          "url": "https://www.nysenate.gov/legislation/laws/FCT/832",
+          "supports": "Official statutory definition of the fact-finding standard."
+        },
+        {
+          "id": "NY-3",
+          "title": "New York Family Court Act §834, evidence",
+          "url": "https://www.nysenate.gov/legislation/laws/FCT/834",
+          "supports": "Official statutory rule for evidence at fact-finding and dispositional hearings."
+        }
       ]
     },
     "FL": {
-      "reviewStatus":"First-pass 2026 statute review started",
-      "summary":"Florida Statutes §741.30(1)(g) requires evidence or recommendations to be given to the court in writing with copies to each party and attorney, or under oath at a hearing at which all parties are present. The statute also requires clerk assistance and simplified petition forms. These provisions do not prove operational compliance.",
-      "sources":[
-        {"id":"FL-1","title":"Florida Statutes §741.30 (2026), domestic-violence injunctions","url":"https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0741/Sections/0741.30.html","supports":"Official 2026 statute, including evidence/recommendation handling and clerk-assistance duties."}
+      "topics": [
+        "institutional-roles",
+        "record-entry",
+        "service-hearing"
+      ],
+      "reviewStatus": "First-pass constitutional role and 2026 statute sources collected",
+      "summary": "Florida’s constitution provides for a clerk of the circuit court in each county, selected under Article VIII, §1; it also permits clerk duties to be divided by law (Article V, §16). The separate §741.30 statute addresses protective-order evidence/recommendation handling and clerk assistance. These provisions describe legal design, not day-to-day practice or statewide compliance.",
+      "sources": [
+        {
+          "id": "FL-ROLE-1",
+          "title": "Florida Constitution, Articles V, §16 and VIII, §1 (official text)",
+          "url": "https://www.leg.state.fl.us/Statutes/index.cfm?Mode=Constitution&Submenu=3",
+          "supports": "Constitutional creation and selection of county circuit-court clerks and authority to divide certain duties. County-specific implementation remains to be reviewed."
+        },
+        {
+          "id": "FL-1",
+          "title": "Florida Statutes §741.30 (2026), domestic-violence injunctions",
+          "url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0741/Sections/0741.30.html",
+          "supports": "Official 2026 statute, including evidence/recommendation handling and clerk-assistance duties."
+        }
       ]
     }
   },
   "federal": {
-    "reviewStatus":"Limited rule reference located",
-    "summary":"The current December 1, 2025 edition of the Federal Rules of Civil Procedure includes Rule 5(d)(4), which says a clerk must not refuse a paper solely because it is not in the form prescribed by the rules or local practice. This rule concerns filing; it does not itself determine evidence admissibility or judicial consideration and is not a state protective-order rule.",
-    "sources":[
-      {"id":"FED-1","title":"U.S. Courts, Federal Rules of Civil Procedure (December 1, 2025 edition), Rule 5(d)(4)","url":"https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf","supports":"Current official federal civil-rule text on clerk acceptance of filing papers."}
+    "reviewStatus": "Limited rule reference located",
+    "summary": "The current December 1, 2025 edition of the Federal Rules of Civil Procedure includes Rule 5(d)(4), which says a clerk must not refuse a paper solely because it is not in the form prescribed by the rules or local practice. This rule concerns filing; it does not itself determine evidence admissibility or judicial consideration and is not a state protective-order rule.",
+    "sources": [
+      {
+        "id": "FED-1",
+        "title": "U.S. Courts, Federal Rules of Civil Procedure (December 1, 2025 edition), Rule 5(d)(4)",
+        "url": "https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf",
+        "supports": "Current official federal civil-rule text on clerk acceptance of filing papers."
+      }
     ]
   },
-  "mapPolicy": "Every state and D.C. topic remains E until a scoped operational review supports a different code. A source review, legal rule, isolated case, or published allegation alone does not create a systemic state rating."
+  "mapPolicy": "Constitutional and statutory assignments are mapped separately from operational performance. A/B/C/D/E describes scoped evidence about operation, not a state's constitutional design. No isolated case, law-on-the-books, local pattern, or allegation creates a statewide systemic rating. Each entry records source level, jurisdiction, court type, topic, time period, evidence, limitations, and scope.",
+  "systemsModel": {
+    "type": "Event-driven asynchronous state machine",
+    "lanes": [
+      {
+        "id": "case-procedure",
+        "states": [
+          "submitted",
+          "received-or-docketed",
+          "notice-and-response",
+          "hearing-or-authorized-review",
+          "order-or-disposition",
+          "appeal-or-correction"
+        ]
+      },
+      {
+        "id": "claim-evidence",
+        "states": [
+          "assertion-recorded",
+          "items-linked",
+          "integrity-and-provenance-tracked",
+          "challenged-or-considered",
+          "finding-recorded-with-reasons"
+        ]
+      }
+    ],
+    "machineCheckResults": [
+      "PASS",
+      "FAIL",
+      "UNKNOWN",
+      "EXCEPTION"
+    ],
+    "invariants": [
+      "A filing receipt records submission; it is not a finding that the assertion is true.",
+      "A technical integrity check does not establish factual truth, admissibility, or legal sufficiency.",
+      "No attachment in one submission packet does not establish that no relevant evidence exists elsewhere.",
+      "A legal finding is attributed to an authorized decision-maker, with its stated basis and review path."
+    ],
+    "eventFields": [
+      "actor",
+      "authority-or-role",
+      "jurisdiction-and-court",
+      "case-identifier",
+      "event-time",
+      "source-or-payload",
+      "applicable-rule-version",
+      "check-result-or-decision",
+      "links-to-claims-and-evidence",
+      "correction-or-review-reference"
+    ],
+    "mappingNote": "Procedural status and claim/evidence status are separate but linked. Parties can generate asynchronous events, branches, corrections, and review events; the model is not a single mandatory linear sequence."
+  }
 }
