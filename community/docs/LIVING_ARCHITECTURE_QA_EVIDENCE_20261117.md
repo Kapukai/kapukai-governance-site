@@ -45,3 +45,16 @@ Do not merge draft PR or install this page until exact binary upload/hash checks
 ## Learning
 T+7: verify 200/asset availability and source-specific exposure, observable downloads, actual consent confirmations, feedback, accessibility defects, correction tickets; unknown is never zero.
 T+30: compare content consumption with voluntary tool use and documented, reproducible feedback; keep downloads, subscriber counts, engagement, and actual institutional remedy conceptually separate. Review human outcome and correction loop without profiling individuals.
+
+
+## Final branch preview smoke test (later on 2026-11-17)
+Verified Vercel deployment `dpl_G6Php6WqAor1zqr4LregsmZmv5dS`, commit `a13986b59694337a68a01aa1769df2b87726b766`:
+- `https://kapukai-community-qgavojyp8-kapukais-projects.vercel.app/living-architecture/` HTTP 200, 11,028 bytes HTML.
+- `.../living-architecture/style.css` HTTP 200, 5,198 bytes CSS.
+- Intended carousel binary path HTTP 404, correctly gated with 3 inert download placeholders and **zero active download links**.
+- Static code checks: all 15 control IDs present, optional join link present, noindex, language, skip link, responsive CSS and reduced-motion support present.
+- Production `https://kapukai.org/living-architecture/` still HTTP 404.
+- No Chromium or Playwright browser available in this QA sandbox; therefore no actual mobile-browser or assistive-technology certification completed.
+- Smoke sandbox stopped after probe to avoid ongoing charges.
+
+This static smoke gate **passes**, but binary, real-browser, actual consent, legacy production drift and 1984-origin install gates remain **HOLD**.
