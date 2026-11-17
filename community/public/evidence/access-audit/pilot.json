@@ -62,9 +62,9 @@
   },
   "federal": {
     "reviewStatus":"Limited rule reference located",
-    "summary":"Federal Rule of Civil Procedure 5(d)(4) limits a clerk’s ability to reject a paper solely for improper form. This rule concerns filing; it does not itself determine evidence admissibility or judicial consideration and is not a state protective-order rule.",
+    "summary":"The current December 1, 2025 edition of the Federal Rules of Civil Procedure includes Rule 5(d)(4), which says a clerk must not refuse a paper solely because it is not in the form prescribed by the rules or local practice. This rule concerns filing; it does not itself determine evidence admissibility or judicial consideration and is not a state protective-order rule.",
     "sources":[
-      {"id":"FED-1","title":"U.S. Courts, Federal Rules of Civil Procedure, Rule 5(d)(4)","url":"https://www.uscourts.gov/sites/default/files/federal_rules_of_civil_procedure_december_1_2022_0.pdf","supports":"Official federal civil-rule text on clerk acceptance of filing papers."}
+      {"id":"FED-1","title":"U.S. Courts, Federal Rules of Civil Procedure (December 1, 2025 edition), Rule 5(d)(4)","url":"https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf","supports":"Current official federal civil-rule text on clerk acceptance of filing papers."}
     ]
   },
   "mapPolicy": "Every state and D.C. topic remains E until a scoped operational review supports a different code. A source review, legal rule, isolated case, or published allegation alone does not create a systemic state rating."
