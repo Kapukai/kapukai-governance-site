@@ -258,10 +258,10 @@
     progress.className = 'audit-progress-tag';
     progress.textContent = pilot ? pilot.reviewStatus : 'No source review recorded for this topic';
     root.appendChild(progress);
-    if (!finding && pilot) {
+    if (!finding && pilot && !(currentTopic === 'institutional-roles' && authorityProfile)) {
       appendText(root, 'p', pilot.summary);
       appendSources(root, pilot.sources);
-    } else if (!finding && anyPilot) {
+    } else if (!finding && anyPilot && !(currentTopic === 'institutional-roles' && authorityProfile)) {
       appendText(root, 'p', 'This jurisdiction has first-pass sources in other audit dimensions. No source review is recorded for the selected topic yet.');
     } else if (!finding) {
       appendText(root, 'p', 'This jurisdiction remains in the national completion register. No state-specific rating or conclusion is published.');
