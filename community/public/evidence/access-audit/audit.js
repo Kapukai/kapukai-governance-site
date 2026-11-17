@@ -11,8 +11,8 @@
   };
   const colors = { A:'#b42318', B:'#08766e', C:'#b54708', D:'#76684e', E:'#7c898d' };
   let data;
-  let selected = 'OK';
-  let currentTopic = 'evidence-intake';
+  let selected = 'FL';
+  let currentTopic = 'institutional-roles';
   let currentMode = 'assessment';
 
   function makeSvg(tag, attrs, content) {
@@ -36,8 +36,16 @@
     link.textContent = source.title + ' ↗';
     return link;
   }
-  function currentPilot(code) {
+  function pilotForState(code) {
     return data.pilots[code] || null;
+  }
+  function topicPilot(code) {
+    const pilot = pilotForState(code);
+    return pilot && Array.isArray(pilot.topics) && pilot.topics.includes(currentTopic) ? pilot : null;
+  }
+  function currentTopicLabel() {
+    const topic = data.topics.find(item => item.id === currentTopic);
+    return topic ? topic.label : 'selected audit dimension';
   }
   function topicFinding(code) {
     return data.ratings && data.ratings[code] && data.ratings[code][currentTopic]
@@ -100,7 +108,7 @@
         stateLabels.appendChild(label);
       }
     });
-    byId('map-summary').textContent = '50 states and D.C. · Federal rules are shown separately · All state-topic ratings currently E';
+    byId('map-summary').textContent = '51 jurisdictions · Federal baseline separate · All state-topic ratings currently E';
     const selector = byId('jurisdiction-select');
     map.states.slice().sort((a,b) => a.name.localeCompare(b.name)).forEach(state => {
       const option = document.createElement('option');
@@ -118,10 +126,12 @@
   function drawLegend() {
     const legend = byId('map-legend');
     legend.replaceChildren();
+    const map = window.ATLAS_MAP;
+    const topicSourceCount = map.states.filter(state => topicPilot(state.abbr)).length;
     const items = currentMode === 'assessment'
       ? Object.entries(labels).map(([code,label]) => ({color:colors[code], text:code + ' — ' + label}))
       : [
-          {color:'#08766e', text:'First-pass official-source research started'},
+          {color:'#08766e', text:topicSourceCount + ' jurisdictions with first-pass sources for this topic'},
           {color:'#7c898d', text:'Research not yet started'}
         ];
     items.forEach(item => {
@@ -142,7 +152,7 @@
       const group = document.querySelector('.audit-state-group[data-code="' + state.abbr + '"]');
       if (!group) return;
       const path = group.querySelector('path');
-      const pilot = currentPilot(state.abbr);
+      const pilot = topicPilot(state.abbr);
       const finding = topicFinding(state.abbr);
       const code = currentClassification(state.abbr);
       const mapScoped = !finding || finding.extent === 'systemic';
@@ -158,9 +168,14 @@
       group.setAttribute('aria-pressed', state.abbr === selected ? 'true' : 'false');
     });
     byId('map-mode-title').textContent = currentMode === 'assessment' ? 'Assessment result' : 'Research progress';
+    const topicSourceCount = map.states.filter(state => topicPilot(state.abbr)).length;
     byId('map-mode-caption').textContent = currentMode === 'assessment'
       ? 'E — Not yet assessed'
-      : '4 pilot states have first-pass sources';
+      : topicSourceCount + ' jurisdiction' + (topicSourceCount === 1 ? '' : 's') + ' with sources for this topic';
+    byId('map-summary').textContent = '51 jurisdictions · Federal baseline separate · Topic: ' + currentTopicLabel();
+    byId('map-svg-desc').textContent = currentMode === 'assessment'
+      ? 'Map of the fifty states and the District of Columbia. Every state-topic rating is E, not yet assessed. Select a jurisdiction to inspect its source record.'
+      : 'Map of the fifty states and the District of Columbia. Highlighted states have first-pass official sources for ' + currentTopicLabel() + '. This indicates research progress, not a finding about performance.';
     drawLegend();
   }
   function appendSources(parent, sources) {
@@ -186,7 +201,8 @@
     updateMapStyles();
     const root = byId('detail-content');
     root.replaceChildren();
-    const pilot = currentPilot(code);
+    const pilot = topicPilot(code);
+    const anyPilot = pilotForState(code);
     const finding = topicFinding(code);
     const ratingCode = currentClassification(code);
     const rating = document.createElement('div');
@@ -210,11 +226,13 @@
     }
     const progress = document.createElement('span');
     progress.className = 'audit-progress-tag';
-    progress.textContent = pilot ? pilot.reviewStatus : 'Official-source review not yet started';
+    progress.textContent = pilot ? pilot.reviewStatus : 'No source review recorded for this topic';
     root.appendChild(progress);
     if (!finding && pilot) {
       appendText(root, 'p', pilot.summary);
       appendSources(root, pilot.sources);
+    } else if (!finding && anyPilot) {
+      appendText(root, 'p', 'This jurisdiction has first-pass sources in other audit dimensions. No source review is recorded for the selected topic yet.');
     } else if (!finding) {
       appendText(root, 'p', 'This jurisdiction remains in the national completion register. No state-specific rating or conclusion is published.');
     }
@@ -236,7 +254,7 @@
     root.replaceChildren();
     ['OK','CA','NY','FL'].forEach(code => {
       const state = window.ATLAS_MAP.states.find(item => item.abbr === code);
-      const pilot = currentPilot(code);
+      const pilot = pilotForState(code);
       if (!state || !pilot) return;
       const card = document.createElement('article');
       card.className = 'audit-source-card';
@@ -272,7 +290,7 @@
       renderPilotCards();
       showState(selected);
     } catch (error) {
-      byId('map-summary').textContent = 'The audit map could not load its jurisdiction data.';
+      byId('map-summary').textContent = 'The jurisdiction map could not load its source data.';
       appendText(byId('detail-content'),'p',error.message);
     }
   }
