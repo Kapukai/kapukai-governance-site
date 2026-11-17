@@ -7,9 +7,11 @@
   <meta name="description" content="Map who creates and maintains court records, what technology can verify, what court staff administer, and what authorized human decision-makers must decide.">
   <link rel="stylesheet" href="../decision-failures/atlas.css">
   <link rel="stylesheet" href="audit.css">
+  <link rel="stylesheet" href="flourishing.css">
   <script defer src="../decision-failures/states.js"></script>
   <script defer src="audit.js"></script>
   <script defer src="logic-lab.js"></script>
+  <script defer src="flourishing.js"></script>
 </head>
 <body>
   <a class="skip" href="#audit-map">Skip to the audit map</a>
@@ -19,6 +21,7 @@
       <a href="../decision-failures/">Documented cases</a>
       <a href="#task-boundary">Task boundary</a>
       <a href="#logic-model">Systems view</a>
+      <a href="#flourishing-model">Flourishing functions</a>
       <a href="#cyber-lab">Cybersecurity lab</a>
       <a href="#audit-map">Jurisdiction map</a>
       <a href="#method">Method</a>
@@ -73,6 +76,26 @@
       <p class="audit-core-question audit-risk-hypothesis"><strong>Failure mode to test:</strong> the workflow collapses “file accepted,” “technical check passed,” and “fact found”—or lets a deterministic rule trigger a context-sensitive, rights-affecting decision without accountable human review.</p>
       <p class="audit-core-question"><strong>Map test:</strong> Can a person trace who submitted what and when, which checks ran, what remains unverified, who had authority to act, and how the record or decision can be challenged and corrected?</p>
       <p class="audit-method-note">This is a testable system-design hypothesis, not a finding that every state uses the same clerk structure or that every court has the same defect.</p>
+    </section>
+
+
+    <section class="wrap audit-flourishing" id="flourishing-model" aria-labelledby="flourishing-title">
+      <p class="eyebrow">HUMAN FLOURISHING / CROSS-LIFE FUNCTION REGISTER</p>
+      <h2 id="flourishing-title">Test whether the system preserves the functions people need to flourish.</h2>
+      <p class="audit-flourishing-lead">The national map now has a way to compare law, social norms, technology, funding, and lived outcomes without treating them as the same kind of evidence. This register is modular across a person, infant, child, older child, partner, family, caregiver, community, service relationship, or public institution.</p>
+      <div class="flourishing-principle"><strong>High-signal verification rule:</strong> an allegation may be received, and a time-limited protective step may sometimes be lawful, but the system must label the assertion, evidence status, authority, scope, expiry, and review path. It must not silently convert “received” into “fact found.”</div>
+      <div class="flourishing-gates" aria-label="Priority logic">
+        <article><h3>01–04 / Foundation gates</h3><p>Safety, basic conditions, personhood, and safe attachment. A later administrative objective cannot excuse failure at a foundation gate.</p></article>
+        <article><h3>05–10 / Rights and agency</h3><p>Truth-preserving records, fair process, agency, opportunity, coordination, privacy, and dignity. These are tested together because each can constrain the others.</p></article>
+        <article><h3>11–12 / Growth and repair</h3><p>Development, belonging, correction, restoration, learning, and future continuity. Repair is a core function, not an optional afterthought.</p></article>
+      </div>
+      <div id="flourishing-relationship-scopes"></div>
+      <div class="flourishing-subhead"><p class="eyebrow">PRIORITY-ORDERED FUNCTIONS</p><h3>What must be tested first?</h3><p>Priority follows dependency and potential irreversibility. It does not rank one person’s worth above another’s. Each card gives the minimum test plus the law, technology, funding, and evidence questions needed for a real jurisdictional audit.</p></div>
+      <div id="flourishing-function-grid" class="flourishing-function-grid" aria-live="polite"><p class="audit-caveat">Loading the flourishing-function register…</p></div>
+      <div id="flourishing-technology-layers"></div>
+      <div id="flourishing-funding-lens"></div>
+      <div id="flourishing-audit-states"></div>
+      <div id="flourishing-evidence-protocol"></div>
     </section>
 
     <section class="wrap audit-systems" id="logic-model" aria-labelledby="logic-model-title">
