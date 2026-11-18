@@ -23,12 +23,13 @@ One interactive national coverage map with one accurately scoped Oklahoma OUCMS 
 - [ ] Identify the exact child-welfare intake form before rating that process.
 - [ ] Conduct an authorized walkthrough with synthetic data; do not use a live case.
 
-### M2 — Public prototype — implementation ready for preview
+### M2 — Public prototype — preview verified; release pending
 - [x] Add /case-entry/ as a static route in the existing community/public site.
 - [x] Reuse the state map and link it from the existing authority map.
 - [x] Add source cards, coverage states, receipt-state diagram, scope note, and privacy boundary.
 - [x] Link source suggestions to the existing contact page and reviewer interest to the existing reviewer application.
-- [ ] Validate the route and links in the Vercel preview.
+- [x] Verify the route, core links, source/status rendering, and state selection in the Vercel preview.
+- [x] Verify the code preview at commit d30e5cf8666e6a18253d1287d33e0a3a1a7963a1 (deployment dpl_8BaWX2B8YwQDkY7pPxSe4QinSd5v): https://kapukai-community-h2ku6bw74-kapukais-projects.vercel.app/case-entry/
 
 ### M3 — Independent review — protocol defined; human review pending
 - [x] Define source/scope and technical/process reviewer roles.
@@ -37,10 +38,10 @@ One interactive national coverage map with one accurately scoped Oklahoma OUCMS 
 - [ ] Publish signed review records with reviewer consent.
 - [ ] Keep the record unreviewed until both roles complete their checks.
 
-### M4 — Release and operations — blocked on release gates
-- [ ] Pass automated tests and static-page/browser checks.
-- [ ] Verify the exact Vercel preview and record its commit/deployment.
-- [ ] Install the exact tested release at the intended short path on kapukai.org. This requires authenticated access to the existing nginx host, which Vercel access does not provide.
+### M4 — Release and operations — preview gate passed; branded release blocked
+- [x] Pass four synthetic receipt-state tests, JavaScript syntax checks, JSON validation, static HTML parsing, and browser checks; no case-file upload input is present.
+- [x] Verify the exact Vercel preview commit/deployment above.
+- [ ] Install the exact tested release at the intended short path on kapukai.org. Blocked on authenticated access to the existing nginx host and its backup; Vercel access does not provide either.
 - [ ] Verify the branded URL, page content, key links, and assets after installation.
 - [ ] Set event-triggered source refresh plus a quarterly review date.
 
