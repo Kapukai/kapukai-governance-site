@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "checked_on": "2026-11-18",
   "next_review_due": "2027-02-18",
   "coverage_note": "The national map is a coverage index. Unreviewed states are unknown, not zero and not a finding of no safeguards.",
@@ -39,61 +39,85 @@
     {
       "id": "OK-OUCMS-DISTRICT-CIVIL",
       "state": "OK",
-      "name": "Oklahoma County, Oklahoma",
+      "name": "Oklahoma — OUCMS district-court civil e-filing",
       "coverage_status": "documented-limited",
-      "status_label": "Official sources located; live route not tested",
+      "status_label": "Official sources; filer-scope mismatch unresolved",
       "route_title": "OUCMS district-court civil e-filing",
-      "route_scope": "Published Oklahoma District Courts civil e-filing materials; Oklahoma County is listed in the January 2025 county FAQ. Current county-by-case-type availability was not tested.",
-      "claim_layer": "published-procedure",
+      "route_scope": "Oklahoma's published e-filing rules and Version 2 civil-filing guide, plus the current registration screen. District-court implementation and permitted case types vary; no current county-by-case-type route was live-tested.",
+      "claim_id": "OK-OUCMS-CIVIL-EFILING-001",
+      "checked_on": "2026-11-18",
+      "next_review_due": "2027-02-18",
+      "claim_status": "source-mismatch-unresolved",
+      "claim_text": "Official materials document a civil e-filing workflow with file attachments and clerk-issued receipt states, but the published rules, current registration screen, and new-case guide give different signals about unrepresented filers and eligible new civil cases. Current access and case-type coverage remain unverified.",
       "evidence_level": "source-documented",
       "operational_status": "not-tested",
       "independent_review": "not-recorded",
-      "summary": "The Version 2 guide documents new civil case filing and document attachments. The current registration page says pro se filing is not supported. These materials do not establish what a separate child-welfare intake form accepts or how that form routes evidence.",
+      "summary": "Public materials show a filer-scope mismatch: the indexed rules describe registration and filing by an unrepresented party in a specific case after required registration; the current registration page says pro se filings are not supported; and the Version 2 guide limits its listed new civil-case filings to Oklahoma registered attorneys and state agency representatives. The guide documents PDF/JPEG attachments and a separate submission/acceptance receipt flow. The controlling current route and county/case-type availability were not live-tested. This does not establish the workflow for child-welfare intake or verify the truth, source, or safety of submitted content.",
       "facts": {
         "access": [
-          "The current OUCMS registration page states that pro se filings are not supported.",
-          "The Oklahoma County Court Clerk page says its e-file system is available for attorneys and state agencies. The Version 2 guide also describes process-server use.",
-          "The FAQ dated January 28, 2025 says conventional paper filing remained available at that time. The current alternative path for self-represented people has not been independently confirmed."
+          "The indexed Oklahoma e-filing rules say an unrepresented party may register only for the case or cases in which that person is a party (Rule 2(q)(3), Rule 9(a)(3)); Rule 10(a) conditions e-filing on completing the required registration process.",
+          "The current OUCMS registration screen says: “Currently Pro Se filings are not supported.” This is an observed public-page statement, not a test of account registration or submission.",
+          "The October 14, 2025 Version 2 guide says Oklahoma registered attorneys and state agency representatives may file the listed new civil-case types; it excludes new Small Claims cases. Its separate existing-case list includes process servers.",
+          "The January 28, 2025 FAQ says new-case e-filing would be provided in a future release, but the FAQ itself directs readers to the rules as superseding its information. The later Version 2 guide documents a new-civil-case interface."
         ],
         "document_inputs": [
-          "The Version 2 guide calls for text-based PDFs. If the original cannot be converted, it says a non-text-searchable PDF may be submitted; it also allows a non-text image in the current JPEG standard.",
-          "Attachments and exhibits are associated with a principal filing; each document is submitted as a separate file, and the documents must be associated with the same case.",
-          "The guide states that confidential or sealed documents could not be filed through e-filing at the time of that version. Current handling needs confirmation."
+          "The Version 2 guide describes text-based PDF filings, non-text-searchable PDF when conversion is not possible, and non-text JPEG images; it shows file attachments and separate documents associated with the same case.",
+          "The Version 2 guide states that confidential documents or documents filed under seal cannot be filed through e-filing in that guide version. Current behavior has not been independently reproduced.",
+          "A documented file-upload option establishes that the guide describes file attachments. It does not establish content authenticity, source verification, malware controls, or whether a separate child-welfare intake form accepts evidence files."
         ],
         "receipt": [
-          "Pending Submission means the filing was created but not successfully submitted.",
-          "Submitted means it was successfully submitted but had not yet been reviewed by the court.",
-          "Filed, Partially Filed, and Not Filed are later clerk-processing outcomes defined by the guide.",
-          "For a new civil case, the guide says the first confirmation uses a temporary reference; an official case number follows clerk acceptance."
+          "Rule 5 distinguishes successful OUCMS receipt of the complete document and attachments, which triggers a date/time submission receipt, from later clerk acceptance.",
+          "Under Rule 5, a clerk-accepted document receives an electronic file stamp and an acceptance receipt; for covered district-court submissions accepted by the clerk, the rule says the submission and acceptance receipts serve as proof of filing.",
+          "The Version 2 guide documents Pending Submission, Submitted, Filed, Partially Filed, and Not Filed states. Its new-case flow initially uses a temporary reference; the official case number follows clerk acceptance."
         ]
       },
-      "scope_note": "The January 2025 FAQ says new-case e-filing was not yet available. The newer Version 2 guide, dated October 14, 2025, includes new civil-case filing. The map records this source timeline; it does not assume current availability for every county, case type, or filer. The child-welfare intake form remains a separate, unidentified process.",
+      "what_was_observed": [
+        "Reviewed the official Oklahoma Rules for E-Filing in Selected Pilot Courts indexed by OSCN, including Rules 1, 2, 5, 9, 10, and 12.",
+        "Inspected the current public OUCMS registration screen, which displays a pro se support notice.",
+        "Reviewed the OUCMS Version 2 filer guide dated October 14, 2025, including new-case eligibility, document formats, upload screens, and receipt states.",
+        "Reviewed the January 28, 2025 FAQ and its notice that the rules supersede its information."
+      ],
+      "what_was_tested": "Public-source desk review only. No account creation, login, filing, county-by-case-type submission, child-welfare intake, security-control test, or live OUCMS walkthrough was performed. Synthetic tests of Kapukai's separate receipt-state model are software tests, not OUCMS tests.",
+      "what_remains_unknown": [
+        "Whether later court orders or amendments resolve the difference between the indexed rules, current registration screen, and Version 2 guide.",
+        "Which counties and case types currently enable each new-civil-case filing option and what steps a self-represented party can use in a specific case.",
+        "The exact child-welfare intake form, its accepted inputs, evidence-handling controls, route, and receipt behavior.",
+        "Whether any OUCMS file-security, provenance, or content-verification controls operate in production."
+      ],
+      "scope_note": "This is a dated source comparison for OUCMS district-court civil e-filing, not a finding about a child-welfare petition, emergency-removal process, criminal-case initiation, or any individual filing. The FAQ predates the Version 2 guide and says the e-filing rules supersede FAQ information. Separately, the indexed rules, current registration screen, and new-case guide present different filer-eligibility signals. Keep that mismatch visible until an authoritative current interpretation and county/case-type scope are confirmed.",
       "sources": [
         {
-          "title": "OUCMS E-Filing User Guide, Version 2 (October 14, 2025)",
+          "title": "Oklahoma Rules for E-Filing in Selected Pilot Courts (SCAD-2012-36)",
+          "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=466069",
+          "pinpoint": "Order adopted June 21, 2012; Rules 1(b), 2(q)(3), 5(a)(1)–(2), 9(a)(3), 9(c), 10(a), and 12(b).",
+          "date_note": "Official OSCN rule text accessed November 18, 2026. The rules provide for phased court implementation and describe conditions for unrepresented-party registration. Later amendments or orders must be checked."
+        },
+        {
+          "title": "OUCMS E-Filing User Guide, Version 2",
           "url": "https://efile.oscn.net/docs/eFiling%20User%20Guide%20-%20Filer%20Interface.pdf",
-          "pinpoint": "Cover; pp. 15, 26–27, 32, 43–44; sections on document attachments, new civil cases, submission confirmation, and e-filing status.",
-          "date_note": "Official guide accessed November 18, 2026. The guide itself is dated October 14, 2025; portal behavior was not live-tested."
+          "pinpoint": "Document dated October 14, 2025; § Who May File Electronically (p. 3); Eligible Case Types (p. 14); document preparation (p. 15); new civil case flow (pp. 17–27); status and filing history sections (pp. 43–44).",
+          "date_note": "Official Oklahoma Supreme Court / Administrative Office of the Courts guide accessed November 18, 2026. The guide is documentation; portal behavior was not live-tested."
         },
         {
-          "title": "OUCMS E-Filing Registration and Terms",
+          "title": "Current OUCMS E-Filing registration screen and Terms of Use",
           "url": "https://idp2.oscn.net/Account/Register?AppID=eFiling",
-          "pinpoint": "Registration page and Terms of Use, sections C–F.",
-          "date_note": "Official registration page accessed November 18, 2026; it states that pro se filings are not supported."
+          "pinpoint": "Registration page, visible notice immediately below “Create a new account”; Terms of Use §§ A, C, and F.",
+          "date_note": "Public registration page inspected November 18, 2026. It displays “Currently Pro Se filings are not supported.” No account was created."
         },
         {
-          "title": "Oklahoma County Court Clerk: E-Filings",
-          "url": "https://www.oklahomacounty.org/elected-offices/court-clerk/e-filing",
-          "pinpoint": "E-Filings page.",
-          "date_note": "Official page search result accessed November 18, 2026 states the state e-file system is available for attorneys and state agencies; direct page retrieval was blocked in this research session."
-        },
-        {
-          "title": "OUCMS E-Filing FAQ (January 28, 2025)",
+          "title": "OUCMS E-Filing FAQ",
           "url": "https://efile.oscn.net/docs/EFILING_FAQ.pdf",
-          "pinpoint": "Questions on new cases, filer eligibility, conventional filing, and clerk status notifications.",
-          "date_note": "Older than the Version 2 guide. The map preserves the dated difference instead of treating the 2025 answer as current."
+          "pinpoint": "New-case e-filing question and answer; filer-registration questions; footer date January 28, 2025; introductory notice says the e-filing rules supersede FAQ information.",
+          "date_note": "Official FAQ dated January 28, 2025 and accessed November 18, 2026. Treat its new-case answer as dated documentation, not a current availability determination."
         }
       ]
     }
-  ]
+  ],
+  "public_metrics": {
+    "baseline_on": "2026-11-18",
+    "independent_review_records_published": 0,
+    "live_oucms_reproductions_completed": 0,
+    "public_correction_log_entries": 0,
+    "metrics_note": "Counts begin at this pilot baseline; they do not backfill earlier general inbox correspondence. Correction turnaround and reviewer disagreement are not measurable until qualifying events are logged."
+  }
 }

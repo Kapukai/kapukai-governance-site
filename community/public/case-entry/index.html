@@ -41,8 +41,8 @@
     </section>
     <section class="key-fact" aria-labelledby="key-fact-title">
       <p class="section-label">First pilot / Oklahoma OUCMS</p>
-      <h2 id="key-fact-title">The civil e-filing guide documents file uploads. The registration page says pro se filing is not supported.</h2>
-      <p>The October 2025 filer guide includes new civil cases and document attachments. That is a finding about the published OUCMS civil-filing route. It does not establish what a separate child-welfare intake form accepts.</p>
+      <h2 id="key-fact-title">The public rules and the live registration screen disagree about pro se access.</h2>
+      <p>The current registration screen says pro se filings are not supported. The indexed rules describe conditional registration for an unrepresented party in a specific case; the October 2025 guide separately limits listed new civil-case filings to attorneys and state agencies. The mismatch is unresolved. This is a public-source finding, not a live filing test.</p>
     </section>
     <section class="explore-section" id="explore" aria-labelledby="explore-title">
       <div class="section-heading">
@@ -54,7 +54,7 @@
           <label class="select-label" for="jurisdiction-select">Jurisdiction</label>
           <select id="jurisdiction-select" aria-controls="route-detail"></select>
           <div id="map-legend" class="map-legend" aria-label="Map legend">
-            <span><i class="legend-dot dot-documented" aria-hidden="true"></i>Official sources located; live route not tested</span>
+            <span><i class="legend-dot dot-documented" aria-hidden="true"></i>Official sources reviewed; filer-scope mismatch unresolved</span>
             <span><i class="legend-dot dot-unreviewed" aria-hidden="true"></i>Not yet reviewed</span>
           </div>
           <div id="map-error" class="map-error" role="status" hidden></div>
@@ -79,21 +79,28 @@
         <div><p class="eyebrow">03 / Scope and review</p><h2 id="method-title">Keep each claim inside its evidence.</h2></div>
       </div>
       <div class="method-grid">
-        <article><span class="method-index">A / SOURCE</span><h3>Published procedure</h3><p>The guide documents PDF/JPEG attachments and civil-case filing screens. The portal’s current county and case-type availability still needs confirmation.</p></article>
-        <article><span class="method-index">B / ACCESS</span><h3>Who can use the route</h3><p>The registration page currently says pro se filing is not supported. This page has not verified the complete alternative filing path for self-represented people.</p></article>
-        <article><span class="method-index">C / OPERATION</span><h3>Not live-tested</h3><p>No OUCMS account or real case was used. The specific child-welfare intake form and its evidence options have not been identified or tested.</p></article>
+        <article><span class="method-index">A / RULES</span><h3>Primary rule text</h3><p>The indexed rules describe registration for an unrepresented party in a specific case, subject to the required registration process.</p></article>
+        <article><span class="method-index">B / CURRENT SCREEN</span><h3>Access mismatch</h3><p>The current registration screen says pro se filings are not supported; the 2025 guide limits listed new civil-case filings to attorneys and state agencies. Scope remains unresolved.</p></article>
+        <article><span class="method-index">C / OPERATION</span><h3>Not live-tested</h3><p>No account or real case was used. Current county-by-case-type availability and the separate child-welfare intake workflow remain unknown.</p></article>
       </div>
       <div class="privacy-note"><strong>Public process claims are inspectable. People’s case details stay private.</strong><span>This page accepts no case files, names, case numbers, or personal evidence.</span></div>
       <div class="review-panel">
-        <div><p class="eyebrow">Independent review status</p><h3>Not independently reviewed yet.</h3><p>A source reviewer checks official materials and scope. A systems reviewer checks documented inputs and receipt transitions. Both record method, date, conflicts, limits, and disagreement. Review does not decide an individual case.</p></div>
-        <div class="review-links"><a class="review-link" href="review-protocol.md">Read the review protocol <span aria-hidden="true">↗</span></a><a class="review-link" href="../community/reviewers/">Apply to contribute review skills <span aria-hidden="true">↗</span></a></div>
+        <div><p class="eyebrow">Independent review status</p><h3>No independent review records published.</h3><p>Two roles are being recruited: source-and-scope accuracy, and technical/process reproducibility. Each reviewer checks the public map claim, records conflicts and method, and may disagree publicly. Reviewers do not assess a person’s individual case. Applying does not assign or certify a reviewer.</p></div>
+        <div class="review-links"><a class="review-link" href="review-protocol.md">Read the review protocol <span aria-hidden="true">↗</span></a><a class="review-link" href="../community/reviewers/">Apply for independent review interest <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
+    <section class="quality-section" id="quality" aria-labelledby="quality-title">
+      <p class="eyebrow">04 / Public quality checks</p>
+      <h2 id="quality-title">Measure accuracy, freshness, and correction.</h2>
+      <p id="quality-baseline" class="quality-baseline">Loading baseline…</p>
+      <div id="quality-metrics" class="quality-metrics" aria-live="polite"></div>
+      <p class="quality-ops"><a href="operations.md">How the map logs corrections and measures review quality</a> · <a href="correction-log.json">Public correction log</a></p>
+    </section>
     <section class="source-suggestion" id="source-suggestion" aria-labelledby="suggestion-title">
-      <div><p class="eyebrow">02 / Help check a source</p><h2 id="suggestion-title">Have a public source to add?</h2><p>Send the public URL and identify the map claim it supports or challenges. Please do not send case files, names, case numbers, children’s information, or confidential records.</p></div>
-      <a class="suggestion-button" href="../community/contact/">Suggest a public source <span aria-hidden="true">↗</span></a>
+      <div><p class="eyebrow">02 / Help check a source</p><h2 id="suggestion-title">Have a public source to add?</h2><p>Email the public URL, claim ID, pinpoint, and a short reason. Do not attach files or include personal filings, names, case numbers, children’s information, or confidential records. Suggestions are reviewed manually; the public log does not publish submitter identity.</p></div>
+      <a class="suggestion-button" href="mailto:architect@kapukai.org?subject=Case%20Entry%20Map%20public-source%20correction&amp;body=Claim%20ID%3A%0APublic%20source%20URL%3A%0APinpoint%3A%0AClaim%20to%20correct%3A%0AReason%3A%0A%0APlease%20do%20not%20attach%20files%20or%20include%20personal%20case%20information.">Suggest a public source <span aria-hidden="true">↗</span></a>
     </section>
   </main>
-  <footer class="site-footer"><a href="https://kapukai.org/">Kapukai Governance Lab</a><p>Sources checked November 18, 2026 · Next source review due February 18, 2027 · No live portal test</p></footer>
+  <footer class="site-footer"><a href="https://kapukai.org/">Kapukai Governance Lab</a><p>Source record checked November 18, 2026 · Next review due February 18, 2027 · No live OUCMS test · Public correction log is source-only</p></footer>
 </body>
 </html>

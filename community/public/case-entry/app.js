@@ -39,7 +39,7 @@ function renderMap() {
   const svg = document.createElementNS(SVG_NS, "svg");
   svg.setAttribute("viewBox", atlasMap.viewBox);
   svg.setAttribute("role", "group");
-  svg.setAttribute("aria-label", "Select a state. Oklahoma has official source documentation; its current live route and scope remain untested. Other jurisdictions are not yet reviewed.");
+  svg.setAttribute("aria-label", "Select a state. Oklahoma has public source documentation with an unresolved filer-scope mismatch; the live route remains untested. Other jurisdictions are not yet reviewed.");
   const title = document.createElementNS(SVG_NS, "title");
   title.textContent = "U.S. map by jurisdiction research coverage";
   svg.append(title);
@@ -51,7 +51,8 @@ function renderMap() {
     path.setAttribute("class", "state-shape " + (hasRecord ? "source-documented" : "not-reviewed"));
     path.setAttribute("tabindex", "0");
     path.setAttribute("role", "button");
-    path.setAttribute("aria-label", state.name + ": " + (hasRecord ? "official sources located; live route not tested" : "not yet reviewed"));
+    const record = selectedStateRecord(state.abbr);
+    path.setAttribute("aria-label", state.name + ": " + (record ? record.status_label + "; next review due " + record.next_review_due : "not yet reviewed; no finding about safeguards"));
     path.dataset.state = state.abbr;
     path.addEventListener("click", () => selectState(state.abbr));
     path.addEventListener("keydown", event => {
@@ -104,16 +105,25 @@ function renderRoute(code) {
 
   const meta = node("div", undefined, "route-metadata");
   meta.append(
-    metadata("Source scope", "Published district-court materials"),
+    metadata("Finding ID", record.claim_id),
+    metadata("Sources checked", record.checked_on),
+    metadata("Next review due", record.next_review_due),
     metadata("Live-system test", "Not tested"),
-    metadata("Independent review", "Not recorded"),
-    metadata("Next source check", data.next_review_due)
+    metadata("Independent review", "Not recorded")
   );
   routeBody.append(meta);
 
-  renderFactGroup("Filer access", record.facts.access);
-  renderFactGroup("Document inputs", record.facts.document_inputs);
+  const claim = node("section", undefined, "finding-group");
+  claim.append(node("h4", "Dated finding"));
+  claim.append(node("p", record.claim_text, "route-summary"));
+  routeBody.append(claim);
+
+  renderFactGroup("Filer access and source mismatch", record.facts.access);
+  renderFactGroup("Document inputs and limits", record.facts.document_inputs);
   renderFactGroup("Receipt states", record.facts.receipt);
+  renderFactGroup("What was observed", record.what_was_observed);
+  renderFactGroup("What was tested", [record.what_was_tested]);
+  renderFactGroup("What remains unknown", record.what_remains_unknown);
 
   const scope = node("div", undefined, "scope-note");
   scope.append(node("strong", "Scope and source timeline"));
@@ -131,6 +141,27 @@ function renderRoute(code) {
     sources.append(item);
   }
   routeBody.append(sources);
+}
+
+function renderQualityMetrics() {
+  const root = document.getElementById("quality-metrics");
+  const metrics = data.public_metrics;
+  if (!root || !metrics) return;
+  const record = data.jurisdictions[0];
+  const cards = [
+    ["Source freshness", data.jurisdictions.length + " source-documented jurisdiction; checked " + metrics.baseline_on + "; next review due " + record.next_review_due + "."],
+    ["Independent review", metrics.independent_review_records_published + " published review records. Two separate roles are being recruited."],
+    ["Reproducibility", metrics.live_oucms_reproductions_completed + " live OUCMS reproductions. Synthetic software tests do not count as portal tests."],
+    ["Corrections and disagreement", metrics.public_correction_log_entries + " public correction-log entries since baseline. Turnaround and disagreement are not yet measurable."]
+  ];
+  root.replaceChildren();
+  for (const [label, value] of cards) {
+    const card = node("article", undefined, "quality-card");
+    card.append(node("span", label, "quality-label"), node("p", value));
+    root.append(card);
+  }
+  const note = document.getElementById("quality-baseline");
+  if (note) note.textContent = "Baseline: " + metrics.baseline_on + ". Counts begin with this map pilot; earlier general inbox correspondence has not been backfilled.";
 }
 
 function flowStep(item, className) {
@@ -175,12 +206,14 @@ async function start() {
     if (!response.ok) throw new Error("Could not load map data (" + response.status + ").");
     data = await response.json();
     renderMap();
+    renderQualityMetrics();
     renderReceiptFlow();
 
     const states = [...(window.ATLAS_MAP ? window.ATLAS_MAP.states : [])].sort((a, b) => a.name.localeCompare(b.name));
     for (const state of states) {
       const hasRecord = Boolean(selectedStateRecord(state.abbr));
-      const label = hasRecord ? " — source-documented, not live-tested" : " — not yet reviewed";
+      const record = selectedStateRecord(state.abbr);
+      const label = record ? " — source mismatch; live route not tested" : " — not yet reviewed";
       const option = node("option", state.name + label);
       option.value = state.abbr;
       stateSelect.append(option);
