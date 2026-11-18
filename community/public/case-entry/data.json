@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.1.0",
+  "checked_on": "2026-11-18",
+  "next_review_due": "2027-02-18",
+  "coverage_note": "The national map is a coverage index. Unreviewed states are unknown, not zero and not a finding of no safeguards.",
+  "receipt_statuses": [
+    {
+      "key": "PENDING SUBMISSION",
+      "label": "Pending Submission",
+      "lane": "before",
+      "meaning": "The filing was created but has not been successfully submitted yet."
+    },
+    {
+      "key": "SUBMITTED",
+      "label": "Submitted",
+      "lane": "submitted",
+      "meaning": "The filing was successfully submitted but had not yet been reviewed by the court."
+    },
+    {
+      "key": "FILED",
+      "label": "Filed",
+      "lane": "outcome",
+      "meaning": "All documents and requests in the submission were accepted/filed by the court."
+    },
+    {
+      "key": "PARTIALLY FILED",
+      "label": "Partially Filed",
+      "lane": "outcome",
+      "meaning": "Some documents or requests were accepted/filed and some were not filed."
+    },
+    {
+      "key": "NOT FILED",
+      "label": "Not Filed",
+      "lane": "outcome",
+      "meaning": "All documents and requests in the submission were not filed."
+    }
+  ],
+  "jurisdictions": [
+    {
+      "id": "OK-OUCMS-DISTRICT-CIVIL",
+      "state": "OK",
+      "name": "Oklahoma County, Oklahoma",
+      "coverage_status": "documented-limited",
+      "status_label": "Official sources located; live route not tested",
+      "route_title": "OUCMS district-court civil e-filing",
+      "route_scope": "Published Oklahoma District Courts civil e-filing materials; Oklahoma County is listed in the January 2025 county FAQ. Current county-by-case-type availability was not tested.",
+      "claim_layer": "published-procedure",
+      "evidence_level": "source-documented",
+      "operational_status": "not-tested",
+      "independent_review": "not-recorded",
+      "summary": "The Version 2 guide documents new civil case filing and document attachments. The current registration page says pro se filing is not supported. These materials do not establish what a separate child-welfare intake form accepts or how that form routes evidence.",
+      "facts": {
+        "access": [
+          "The current OUCMS registration page states that pro se filings are not supported.",
+          "The Oklahoma County Court Clerk page says its e-file system is available for attorneys and state agencies. The Version 2 guide also describes process-server use.",
+          "The FAQ dated January 28, 2025 says conventional paper filing remained available at that time. The current alternative path for self-represented people has not been independently confirmed."
+        ],
+        "document_inputs": [
+          "The Version 2 guide calls for text-based PDFs. If the original cannot be converted, it says a non-text-searchable PDF may be submitted; it also allows a non-text image in the current JPEG standard.",
+          "Attachments and exhibits are associated with a principal filing; each document is submitted as a separate file, and the documents must be associated with the same case.",
+          "The guide states that confidential or sealed documents could not be filed through e-filing at the time of that version. Current handling needs confirmation."
+        ],
+        "receipt": [
+          "Pending Submission means the filing was created but not successfully submitted.",
+          "Submitted means it was successfully submitted but had not yet been reviewed by the court.",
+          "Filed, Partially Filed, and Not Filed are later clerk-processing outcomes defined by the guide.",
+          "For a new civil case, the guide says the first confirmation uses a temporary reference; an official case number follows clerk acceptance."
+        ]
+      },
+      "scope_note": "The January 2025 FAQ says new-case e-filing was not yet available. The newer Version 2 guide, dated October 14, 2025, includes new civil-case filing. The map records this source timeline; it does not assume current availability for every county, case type, or filer. The child-welfare intake form remains a separate, unidentified process.",
+      "sources": [
+        {
+          "title": "OUCMS E-Filing User Guide, Version 2 (October 14, 2025)",
+          "url": "https://efile.oscn.net/docs/eFiling%20User%20Guide%20-%20Filer%20Interface.pdf",
+          "pinpoint": "Cover; pp. 15, 26–27, 32, 43–44; sections on document attachments, new civil cases, submission confirmation, and e-filing status.",
+          "date_note": "Official guide accessed November 18, 2026. The guide itself is dated October 14, 2025; portal behavior was not live-tested."
+        },
+        {
+          "title": "OUCMS E-Filing Registration and Terms",
+          "url": "https://idp2.oscn.net/Account/Register?AppID=eFiling",
+          "pinpoint": "Registration page and Terms of Use, sections C–F.",
+          "date_note": "Official registration page accessed November 18, 2026; it states that pro se filings are not supported."
+        },
+        {
+          "title": "Oklahoma County Court Clerk: E-Filings",
+          "url": "https://www.oklahomacounty.org/elected-offices/court-clerk/e-filing",
+          "pinpoint": "E-Filings page.",
+          "date_note": "Official page search result accessed November 18, 2026 states the state e-file system is available for attorneys and state agencies; direct page retrieval was blocked in this research session."
+        },
+        {
+          "title": "OUCMS E-Filing FAQ (January 28, 2025)",
+          "url": "https://efile.oscn.net/docs/EFILING_FAQ.pdf",
+          "pinpoint": "Questions on new cases, filer eligibility, conventional filing, and clerk status notifications.",
+          "date_note": "Older than the Version 2 guide. The map preserves the dated difference instead of treating the 2025 answer as current."
+        }
+      ]
+    }
+  ]
+}

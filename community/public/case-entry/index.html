@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A source-led map of court entry routes, accepted document inputs, eligibility, receipt states, and what remains untested.">
+  <title>Case Entry Map | Kapukai</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="../evidence/decision-failures/states.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#explore">Skip to the map</a>
+  <header class="site-header">
+    <a class="brand" href="https://kapukai.org/" aria-label="Kapukai home">KAPUKAI</a>
+    <nav aria-label="Page navigation">
+      <a href="../evidence/access-audit/">Authority map</a>
+      <a href="../evidence/decision-failures/">Case atlas</a>
+      <a href="#method">Review method</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Open Authority / Case Entry Map</p>
+        <h1>A receipt shows a handoff.<br>It does not decide the facts.</h1>
+        <p class="hero-copy">Start with the entry route. See who can use it, what documents the published instructions accept, what the first receipt confirms, and what still needs testing.</p>
+        <div class="two-paths" aria-label="Choose how to use this map">
+          <a class="path-card path-primary" href="#explore">
+            <span class="path-number">01</span>
+            <span><strong>Explore a process</strong><small>Choose a jurisdiction and follow the documented route.</small></span>
+            <span class="path-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="path-card" href="#source-suggestion">
+            <span class="path-number">02</span>
+            <span><strong>Help check a source</strong><small>Suggest a public document or flag a specific claim.</small></span>
+            <span class="path-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="key-fact" aria-labelledby="key-fact-title">
+      <p class="section-label">First pilot / Oklahoma OUCMS</p>
+      <h2 id="key-fact-title">The civil e-filing guide documents file uploads. The registration page says pro se filing is not supported.</h2>
+      <p>The October 2025 filer guide includes new civil cases and document attachments. That is a finding about the published OUCMS civil-filing route. It does not establish what a separate child-welfare intake form accepts.</p>
+    </section>
+    <section class="explore-section" id="explore" aria-labelledby="explore-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / Explore a process</p><h2 id="explore-title">Start with a jurisdiction.</h2></div>
+        <p class="section-intro">This national map is a research index. Gray means the route has not been reviewed here; it does not mean the jurisdiction has no rules or safeguards.</p>
+      </div>
+      <div class="map-layout">
+        <div class="map-column">
+          <label class="select-label" for="jurisdiction-select">Jurisdiction</label>
+          <select id="jurisdiction-select" aria-controls="route-detail"></select>
+          <div id="map-legend" class="map-legend" aria-label="Map legend">
+            <span><i class="legend-dot dot-documented" aria-hidden="true"></i>Official sources located; live route not tested</span>
+            <span><i class="legend-dot dot-unreviewed" aria-hidden="true"></i>Not yet reviewed</span>
+          </div>
+          <div id="map-error" class="map-error" role="status" hidden></div>
+          <div id="us-map" class="us-map" aria-label="Interactive United States jurisdiction map"></div>
+          <p class="map-source">State geometry is reused from the Decision Failures Atlas. Shading shows research status, not risk or wrongdoing.</p>
+        </div>
+        <aside id="route-detail" class="route-card" aria-live="polite" aria-labelledby="route-title">
+          <p class="eyebrow">Selected jurisdiction</p><h3 id="route-title">Loading jurisdiction…</h3><div id="route-body"></div>
+        </aside>
+      </div>
+    </section>
+    <section class="receipt-section" id="receipt" aria-labelledby="receipt-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / Read the court's receipt</p><h2 id="receipt-title">“Submitted” is not the same as “filed.”</h2></div>
+        <p class="section-intro">OUCMS Version 2 describes a submission confirmation first, then a later status after court-clerk processing. This is a model from published documentation, not a live portal test.</p>
+      </div>
+      <div id="receipt-flow" class="receipt-flow" aria-label="OUCMS e-filing status model"></div>
+      <p class="receipt-note"><strong>New civil case detail:</strong> the guide says the first confirmation uses a temporary reference, not the official case number. If the clerk accepts the submission, a later message provides the official case number. A receipt documents a system event; it does not establish that a judge reviewed or adopted a factual claim.</p>
+    </section>
+    <section class="method-section" id="method" aria-labelledby="method-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / Scope and review</p><h2 id="method-title">Keep each claim inside its evidence.</h2></div>
+      </div>
+      <div class="method-grid">
+        <article><span class="method-index">A / SOURCE</span><h3>Published procedure</h3><p>The guide documents PDF/JPEG attachments and civil-case filing screens. The portal’s current county and case-type availability still needs confirmation.</p></article>
+        <article><span class="method-index">B / ACCESS</span><h3>Who can use the route</h3><p>The registration page currently says pro se filing is not supported. This page has not verified the complete alternative filing path for self-represented people.</p></article>
+        <article><span class="method-index">C / OPERATION</span><h3>Not live-tested</h3><p>No OUCMS account or real case was used. The specific child-welfare intake form and its evidence options have not been identified or tested.</p></article>
+      </div>
+      <div class="privacy-note"><strong>Public process claims are inspectable. People’s case details stay private.</strong><span>This page accepts no case files, names, case numbers, or personal evidence.</span></div>
+      <div class="review-panel">
+        <div><p class="eyebrow">Independent review status</p><h3>Not independently reviewed yet.</h3><p>A source reviewer checks official materials and scope. A systems reviewer checks documented inputs and receipt transitions. Both record method, date, conflicts, limits, and disagreement. Review does not decide an individual case.</p></div>
+        <div class="review-links"><a class="review-link" href="review-protocol.md">Read the review protocol <span aria-hidden="true">↗</span></a><a class="review-link" href="../community/reviewers/">Apply to contribute review skills <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+    <section class="source-suggestion" id="source-suggestion" aria-labelledby="suggestion-title">
+      <div><p class="eyebrow">02 / Help check a source</p><h2 id="suggestion-title">Have a public source to add?</h2><p>Send the public URL and identify the map claim it supports or challenges. Please do not send case files, names, case numbers, children’s information, or confidential records.</p></div>
+      <a class="suggestion-button" href="../community/contact/">Suggest a public source <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="site-footer"><a href="https://kapukai.org/">Kapukai Governance Lab</a><p>Sources checked November 18, 2026 · Next source review due February 18, 2027 · No live portal test</p></footer>
+</body>
+</html>
