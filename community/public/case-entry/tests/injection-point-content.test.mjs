@@ -32,3 +32,11 @@ test("the page prohibits live fabricated filings and protects case privacy", () 
   assert.match(html, /Do not submit fabricated information to a live court or agency/);
   assert.match(html, /No child-welfare portal, case file, or individual case has been accessed or tested/);
 });
+
+test("the proposed architecture coordinates records without collapsing branch authority", () => {
+  assert.match(html, /separate and distinct/);
+  assert.match(html, /Coordinate the handoff\. Preserve separate authority/);
+  assert.match(html, /Proposed shared record/);
+  assert.match(html, /judges retain legal and factual decision authority/);
+  assert.match(html, /Keep names, evidence, and case documents access-controlled/);
+});
