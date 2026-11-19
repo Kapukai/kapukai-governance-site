@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "routes": [
+    {
+      "id": "eagle-eyes-public",
+      "url": "https://kapukai.org/eagle-eyes/",
+      "owner": "Kapukai/kapukai-governance-site:eagle-eyes",
+      "publisher": "nginx-static",
+      "authentication": "public",
+      "release": "pending-production-install"
+    },
+    {
+      "id": "eagle-eyes-reference",
+      "url": "https://kapukai.org/eagle-eyes/reference/",
+      "owner": "Kapukai/kapukai-governance-site:eagle-eyes",
+      "publisher": "nginx-static",
+      "authentication": "public",
+      "release": "pending-production-install"
+    },
+    {
+      "id": "eagle-eyes-desk-entry",
+      "url": "https://kapukai.org/eagle-eyes/desk/",
+      "owner": "Kapukai/kapukai-governance-site:eagle-eyes",
+      "publisher": "nginx-static",
+      "authentication": "public-link-to-protected-workspace",
+      "release": "pending-production-install"
+    },
+    {
+      "id": "darpa-entry",
+      "url": "https://kapukai.org/darpa/",
+      "owner": "unassigned",
+      "publisher": "nginx-static-proposed",
+      "authentication": "public-entry-only",
+      "release": "not-implemented"
+    }
+  ]
+}
