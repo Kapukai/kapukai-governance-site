@@ -4,7 +4,7 @@ Status snapshot: November 18, 2026
 
 ## MVP definition
 
-A source-scoped national coverage map with one dated Oklahoma OUCMS pilot finding; two visitor paths (explore a documented process or suggest a public source); a distinct submission-versus-clerk-receipt explanation; independent review roles; a source-only correction log; visible freshness and review measures; and no personal-case upload.
+A source-scoped national coverage map with two separate Oklahoma pilots: (1) OUCMS district-court civil e-filing and its receipt/access documentation, and (2) a statutory child emergency-custody case-entry integrity map that traces rules, review clocks, and the conditional Title IV-E funding connection. The public map offers two visitor paths (explore a process or suggest a public source), distinguishes submission from clerk disposition, documents unknowns, and accepts no personal-case uploads.
 
 ## Milestones
 
@@ -14,6 +14,16 @@ A source-scoped national coverage map with one dated Oklahoma OUCMS pilot findin
 - [x] Label unreviewed jurisdictions as unknown, not safe or defective.
 - [x] Give the Oklahoma entry a stable claim ID, review date, next review date, observations, tests, unknowns, and source pinpoints.
 - [x] Keep statements about file attachments separate from claims about authenticity, cybersecurity, or truth.
+
+### M1b — Case-creation integrity layer — statutory path documented; operations untested
+- [x] Map Oklahoma Title 10A emergency-custody routes, source requirements, handoffs, and statutory clocks from the official statute publication.
+- [x] Separate legal rule text from portal behavior, operational compliance, and system-control evidence.
+- [x] Trace Title IV-E eligibility and reimbursement criteria without implying that case creation itself triggers payment.
+- [x] Label the false-injection concern as a testable threat model; no production vulnerability is claimed.
+- [ ] Identify and version the exact child-welfare intake and emergency-order forms.
+- [ ] Reproduce any system behavior only in a permitted non-production environment with synthetic inputs and written scope.
+- [ ] Obtain public or aggregate evidence for real operational and claim-level funding behavior.
+- [ ] Publish independent source/scope and technical/process review records.
 
 ### M1 — Oklahoma primary-source record — source comparison documented; authority question unresolved
 - [x] Add the official e-filing rules, the October 14, 2025 Version 2 guide, the current registration screen, and the dated January 28, 2025 FAQ.
