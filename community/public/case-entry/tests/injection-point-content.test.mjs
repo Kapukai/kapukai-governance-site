@@ -17,7 +17,7 @@ test("the entry route and emergency clocks have primary-source pinpoints", () =>
   assert.match(html, /within 23 hours/);
   assert.match(html, /within the next two judicial days/);
   assert.match(html, /1-4-205\(B\)/);
-  assert.match(html, /1-4-601–602/);
+  assert.match(html, /1-4-601–603/);
   assert.match(html, /oklegislature\.gov\/OK_Statutes/);
 });
 
