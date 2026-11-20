@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "files": {
+    "index.html": {
+      "sha256": "5153de7db7d02b70000058bec4b48082b9112619c70ac9296c765cb120465a9f",
+      "bytes": 18269
+    },
+    "styles.css": {
+      "sha256": "b661d32c44c9dfe9d06586d6b24e9d66fb7484824e662d7f64ad4726ac2aeb3c",
+      "bytes": 10758
+    },
+    "circuit.js": {
+      "sha256": "bda4c2d76b12d95fb796fd6e690576391ba4e4a62db174a83951ad0bd0c85cb1",
+      "bytes": 1219
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-20T10:58:56.547364+00:00",
+  "status": "preview-verified-awaiting-branded-installation",
+  "source": {
+    "repository": "Kapukai/kapukai-governance-site",
+    "branch": "proposal/circuit-strategy-m00-20261120",
+    "commit": "71a6d6f4345e73b30267b617a2f4043d04a6d0f4",
+    "pullRequest": "https://github.com/Kapukai/kapukai-governance-site/pull/35",
+    "selectedPrototypeSha256": "48e0c4860d84e479cdf29eb0563a83c9c5b95b856a1a15fecf1acb2e6d79ea7a"
+  },
+  "vercel": {
+    "teamId": "team_tbovlbWoR0wodNATt5uOuMuQ",
+    "projectId": "prj_Gd0G2q9xzdtYRfAcbRR0fdqYrOzx",
+    "deploymentId": "dpl_CBWRr8ZpXnxj9qreNZK4bND6WgW9",
+    "url": "https://kapukai-circuit-preview-k9mc5l073-kapukais-projects.vercel.app/circuit/",
+    "state": "READY",
+    "requestedTarget": "omitted (preview)",
+    "returnedTarget": null,
+    "assetBytesMatchTestedSource": true,
+    "protected": true,
+    "customDomains": []
+  },
+  "validation": {
+    "html": "passed",
+    "browserTestsPassed": 22,
+    "publicationTestsPassed": 14,
+    "axeAudits": 6,
+    "axeViolations": 0,
+    "ciRun": "https://github.com/Kapukai/kapukai-governance-site/actions/runs/44723330857",
+    "ciArtifactId": 14623031714,
+    "ciArtifactSha256": "6b23d62e5dd7baf0b3fd24a08c99f88e7248218fa7121fba3579c0b8922ffab2",
+    "liveBrowserReview": "Desktop layout; all pathways and keyboard states reviewed; final corrected logo name and hero verified. Responsive screenshots reviewed separately.",
+    "manualIncompleteReview": "accessibility-review.md",
+    "limits": [
+      "Chromium automated coverage; native VoiceOver/NVDA, native browser zoom and other engines remain.",
+      "Automated checks do not certify WCAG conformance.",
+      "Branded nginx response headers and live interactions remain to verify after installation."
+    ]
+  },
+  "assets": {
+    "index.html": {
+      "sha256": "5153de7db7d02b70000058bec4b48082b9112619c70ac9296c765cb120465a9f",
+      "bytes": 18269
+    },
+    "styles.css": {
+      "sha256": "b661d32c44c9dfe9d06586d6b24e9d66fb7484824e662d7f64ad4726ac2aeb3c",
+      "bytes": 10758
+    },
+    "circuit.js": {
+      "sha256": "bda4c2d76b12d95fb796fd6e690576391ba4e4a62db174a83951ad0bd0c85cb1",
+      "bytes": 1219
+    }
+  },
+  "publication": {
+    "brandedUrl": "https://kapukai.org/circuit/",
+    "lastObservedStatus": 404,
+    "installed": false,
+    "reasonPending": "Operator's Mac command verified the pinned helper, manifest, and three assets, then timed out while fetching a pre-install baseline for /, /eagle-eyes/, or /darpa/. The script's control flow places these reads before SSH; no SSH call, remote transaction, or site-file change occurred. The affected route is unknown; test all three before retrying.",
+    "helperSha256": "a5852e4e2fa54f9d3bf126019fabe43fb6a6d4a788efd5cb4c4b45b335ebe249",
+    "manifestSha256": "2bb3f4a64209207eddb9eac24df259a95b9d73bc3546a265dcb687f97483ac9c",
+    "commandFile": "publish-from-mac.sh",
+    "backupRoot": "/var/backups/kapukai-circuit",
+    "receipt": null,
+    "rollback": "Run the same verified helper with --rollback TRANSACTION_FROM_RECEIPT; verify branded results afterward.",
+    "lastAttempt": {
+      "reportedDate": "2026-11-20",
+      "source": "Operator-provided Mac Terminal output",
+      "result": "preflight-timeout",
+      "verifiedSteps": [
+        "pinned publisher SHA-256",
+        "manifest SHA-256",
+        "all three pinned source assets"
+      ],
+      "failedStep": "pre-install public baseline fetch",
+      "possibleRoutes": [
+        "/",
+        "/eagle-eyes/",
+        "/darpa/"
+      ],
+      "error": "STOP: <urlopen error timed out>",
+      "sshAttempted": false,
+      "remoteTransactionCreated": false,
+      "siteFilesChanged": false,
+      "nextAction": "Check all three existing routes from the Mac; rerun the pinned publisher only after they respond successfully."
+    }
+  }
+}

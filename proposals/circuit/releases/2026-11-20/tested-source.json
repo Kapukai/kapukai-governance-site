@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-20T10:56:18.686Z",
+  "sourceCommit": "71a6d6f4345e73b30267b617a2f4043d04a6d0f4",
+  "browser": "159.0.8154.6",
+  "axeVersion": "4.14.1",
+  "files": [
+    {
+      "path": "circuit/index.html",
+      "bytes": 18269,
+      "sha256": "5153de7db7d02b70000058bec4b48082b9112619c70ac9296c765cb120465a9f"
+    },
+    {
+      "path": "circuit/styles.css",
+      "bytes": 10758,
+      "sha256": "b661d32c44c9dfe9d06586d6b24e9d66fb7484824e662d7f64ad4726ac2aeb3c"
+    },
+    {
+      "path": "circuit/circuit.js",
+      "bytes": 1219,
+      "sha256": "bda4c2d76b12d95fb796fd6e690576391ba4e4a62db174a83951ad0bd0c85cb1"
+    }
+  ],
+  "limits": [
+    "Chromium only; manual VoiceOver/NVDA checks remain.",
+    "Viewport reflow is checked; native browser zoom is a separate manual check.",
+    "Tests use synthetic public content and a local HTTP server, not production.",
+    "Axe incomplete items require review; automated checks do not certify WCAG conformance."
+  ]
+}
