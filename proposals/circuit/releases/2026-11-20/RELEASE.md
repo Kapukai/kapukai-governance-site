@@ -62,6 +62,20 @@ has no custom domains. The apex site remains on its existing nginx host at 1984.
 
 ## Next operator action
 
+The operator's first Mac attempt on 2026-11-20 verified the pinned publisher,
+manifest and all three assets, then stopped with
+`STOP: <urlopen error timed out>`. In the helper's control flow, the next step
+reads the pre-install baselines for `/`, `/eagle-eyes/` and `/darpa/`; SSH is
+called only after those reads succeed. The output contained no installation
+transaction line. No SSH call, remote transaction or site-file change occurred.
+The affected endpoint is unknown; see `release.json`.
+
+Before retrying, check those three URLs from the Mac. If each returns promptly
+with the expected response, rerun the pinned publisher; it will repeat the
+full-response hash checks before SSH. Stop if any route times out or returns an
+unexpected response.
+
+
 Run `publish-from-mac.sh` on the Mac with the existing SSH access. It checks the
 downloaded helper's SHA-256 before execution, then the helper verifies the pinned
 manifest and all three assets. No working-directory change or repository clone is
