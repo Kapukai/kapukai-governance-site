@@ -26,7 +26,11 @@ async function openCircuit(page) {
 async function expectAllPathways(page) {
   await expect(page.getByRole("group", { name: "Choose a pathway" })).toBeHidden();
   for (const path of pathways) {
-    await expect(page.getByRole("heading", { name: path.title })).toBeVisible();
+    const panel = page.locator(".pathway-results article").filter({
+      has: page.getByRole("heading", { name: path.title }),
+    });
+    await expect(panel).toBeVisible();
+    await expect(panel).toContainText(path.detail);
   }
   await expect(page.locator(".pathway-results article:visible")).toHaveCount(5);
 }
@@ -134,13 +138,19 @@ test("skip link and native Enter/Space activation preserve keyboard access", asy
   expect(focus.width).toBeGreaterThanOrEqual(2);
 });
 
-test("all five pathways are readable without JavaScript", async ({ browser, baseURL }) => {
+test("all five pathways are readable without JavaScript", async ({ browser, baseURL }, testInfo) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 375, height: 900 }, baseURL });
   try {
     const page = await context.newPage();
     await openCircuit(page);
+    // Verify the complete guidance, not an incidental <noscript> message.
+    // Playwright's text matcher deliberately skips NOSCRIPT content.
     await expectAllPathways(page);
-    await expect(page.getByText("All five pathways are shown above.", { exact: false })).toBeVisible();
+    await page.screenshot({ path: testInfo.outputPath("circuit-no-javascript.png"), fullPage: true });
+    await testInfo.attach("circuit-no-javascript", {
+      path: testInfo.outputPath("circuit-no-javascript.png"),
+      contentType: "image/png",
+    });
   } finally {
     await context.close();
   }
