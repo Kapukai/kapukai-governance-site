@@ -1,5 +1,5 @@
 # M00 — People in the Circuit /circuit (proposed)
-Status: **review candidate; not published or approved for production**. 2026-11-20.
+Status: **implementation candidate; exact release verification required before claiming publication**. 2026-11-20.
 
 ## Purpose
 Add one compassionate, source-linked strategy overview to the existing Kapukai public site. Preserve /atlas, /standards, /bills and Eagle Eyes as separate bounded capabilities. No new database, user accounts, private case evidence, or autonomous institutional actions.
@@ -14,7 +14,7 @@ Add one compassionate, source-linked strategy overview to the existing Kapukai p
 - Public page: educational, not official or legal advice. Preserve contrary evidence and uncertainty.
 
 ## Integration decision
-Preferred slug: `/circuit`. **Do not create a parallel production deployment**. Confirm the actual domain-owning Vercel project and the site's route conventions before merging. Vercel project-domain lookup returned 403 for kapukai.org in this account context. Keep production untouched.
+Preferred slug: `/circuit/`. Keep source in this existing repository. Root `AGENTS.md` establishes the publishing boundary: verify the exact release on Vercel, then install the same assets at the branded path on the existing 1984 nginx host. Vercel does not serve the apex site. Preserve existing pages and mail DNS. Use an isolated circuit preview without changing the community project's root/output; its existing preview does not contain `/circuit/`. Record the source commit, deployment, installed asset hashes and branded-route verification.
 
 ## Gates
 G0 asset/repository inventory and routing owner; G1 content and legal terminology review; G2 accessibility and responsive browser QA; G3 no unauthorized external network calls or private data; G4 link and SEO QA; G5 independent production deploy/rollback plan and verified domain; G6 owner approval to publish.
@@ -50,3 +50,12 @@ Do not modify production DNS, auth, payment, private evidence, or Supabase polic
 - Generated assets must be labeled as AI-created internally, reviewed for geographic/architectural plausibility, licensing, and representation. Prefer licensed documentary photography for any image presented as an actual historic event.
 - An exploratory patriotic eagle/Capitol image was generated in this conversation, **not** committed to this repository, not approved as a factual photograph or production asset.
 - Do not use image files in the live website until human art-direction approval and rights/asset review.
+
+## Selected design implementation (2026-11-20)
+
+Christine selected the original People in the Circuit prototype (SHA-256 `48e0c4860d84e479cdf29eb0563a83c9c5b95b856a1a15fecf1acb2e6d79ea7a`) as the visual baseline. Preserve its two-column hero, ivory/navy/gold treatment, full ACA communication map, five need-based pathways and four component cards. Integrate the approved benefit headline and flourishing figure into that design. The earlier simplified branch page is not the chosen visual direction.
+
+The implementation separates HTML, CSS and JavaScript for a restrictive content policy. All pathway explanations remain in HTML; enhancement hides unselected panels only after successful initialization. Keyboard access, mobile navigation, darker text gold, reduced motion and print access are part of the release requirements. Current validation evidence belongs to the exact tested revision, not to historical prototype counts.
+
+`/atlas/` was HTTP 410 and `/legislation/` HTTP 404 on inspection. Use verified destinations and retain the Atlas component's descriptive status until a working directory exists. See `circuit/README.md` and the release evidence for details.
+
