@@ -56,12 +56,33 @@
     "brandedUrl": "https://kapukai.org/circuit/",
     "lastObservedStatus": 404,
     "installed": false,
-    "reasonPending": "Existing host requires the operator\u2019s Mac SSH credentials. No authenticated host access is available in this session.",
+    "reasonPending": "Operator's Mac command verified the pinned helper, manifest, and three assets, then timed out while fetching a pre-install baseline for /, /eagle-eyes/, or /darpa/. The script's control flow places these reads before SSH; no SSH call, remote transaction, or site-file change occurred. The affected route is unknown; test all three before retrying.",
     "helperSha256": "a5852e4e2fa54f9d3bf126019fabe43fb6a6d4a788efd5cb4c4b45b335ebe249",
     "manifestSha256": "2bb3f4a64209207eddb9eac24df259a95b9d73bc3546a265dcb687f97483ac9c",
     "commandFile": "publish-from-mac.sh",
     "backupRoot": "/var/backups/kapukai-circuit",
     "receipt": null,
-    "rollback": "Run the same verified helper with --rollback TRANSACTION_FROM_RECEIPT; verify branded results afterward."
+    "rollback": "Run the same verified helper with --rollback TRANSACTION_FROM_RECEIPT; verify branded results afterward.",
+    "lastAttempt": {
+      "reportedDate": "2026-11-20",
+      "source": "Operator-provided Mac Terminal output",
+      "result": "preflight-timeout",
+      "verifiedSteps": [
+        "pinned publisher SHA-256",
+        "manifest SHA-256",
+        "all three pinned source assets"
+      ],
+      "failedStep": "pre-install public baseline fetch",
+      "possibleRoutes": [
+        "/",
+        "/eagle-eyes/",
+        "/darpa/"
+      ],
+      "error": "STOP: <urlopen error timed out>",
+      "sshAttempted": false,
+      "remoteTransactionCreated": false,
+      "siteFilesChanged": false,
+      "nextAction": "Check all three existing routes from the Mac; rerun the pinned publisher only after they respond successfully."
+    }
   }
 }
