@@ -1,0 +1,18 @@
+{
+  "name": "kapukai-circuit-validation",
+  "private": true,
+  "description": "Scoped development-only checks for the public circuit page",
+  "scripts": {
+    "validate": "html-validate --config .htmlvalidate.json ../../circuit/index.html",
+    "test": "playwright test",
+    "test:list": "playwright test --list"
+  },
+  "engines": {
+    "node": ">=24.8.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "axe-core": "4.14.1",
+    "html-validate": "11.21.1"
+  }
+}

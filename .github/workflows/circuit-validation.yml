@@ -1,0 +1,71 @@
+name: Circuit validation
+
+on:
+  pull_request:
+    paths:
+      - 'circuit/**'
+      - 'tests/circuit/**'
+      - 'ops/circuit/**'
+      - 'ops/*circuit*'
+      - '.github/workflows/circuit-validation.yml'
+  push:
+    branches:
+      - main
+      - proposal/circuit-strategy-m00-20261120
+    paths:
+      - 'circuit/**'
+      - 'tests/circuit/**'
+      - 'ops/circuit/**'
+      - 'ops/*circuit*'
+      - '.github/workflows/circuit-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: circuit-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  circuit:
+    name: HTML, behavior and accessibility
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CI: true
+      CIRCUIT_SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+    defaults:
+      run:
+        working-directory: tests/circuit
+    steps:
+      - name: Check out the exact source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6; verified 2026-11-20
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6; verified 2026-11-20
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: tests/circuit/package-lock.json
+      - name: Install locked test dependencies
+        run: npm ci --ignore-scripts
+      - name: Validate HTML
+        run: npm run validate
+      - name: Check publication backups and rollback
+        working-directory: .
+        run: python3 -m unittest discover -s ops/circuit -p test_publish.py -v
+      - name: Install Chromium for the isolated test runner
+        run: npx playwright install --with-deps chromium
+      - name: Run browser checks
+        run: npm test
+      - name: Retain source evidence, results and screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4; verified 2026-11-20
+        with:
+          name: circuit-validation-${{ github.sha }}-${{ github.run_attempt }}
+          path: tests/circuit/artifacts/
+          if-no-files-found: warn
+          retention-days: 14
