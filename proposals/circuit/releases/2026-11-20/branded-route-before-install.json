@@ -1,0 +1,31 @@
+[
+  {
+    "url": "https://kapukai.org/circuit/",
+    "status": 404,
+    "checked_at": "2026-11-20T10:57:20.471118+00:00"
+  },
+  {
+    "url": "https://kapukai.org/",
+    "final_url": "https://kapukai.org/",
+    "status": 200,
+    "sha256": "94f4d2d1c157873c5873e7b7c418f7ca11eac4e390e05c2572d2f770f9cb4973",
+    "bytes": 10831,
+    "checked_at": "2026-11-20T10:57:20.471136+00:00"
+  },
+  {
+    "url": "https://kapukai.org/eagle-eyes/",
+    "final_url": "https://kapukai.org/eagle-eyes/",
+    "status": 200,
+    "sha256": "6da80107417b421b15f1c1a4c2f0af28e49920736dcebad4ee3f56a05b9ce46e",
+    "bytes": 2841,
+    "checked_at": "2026-11-20T10:57:20.471140+00:00"
+  },
+  {
+    "url": "https://kapukai.org/darpa/",
+    "final_url": "https://kapukai.org/darpa/",
+    "status": 200,
+    "sha256": "e9433f0e399ca8f3c60c207b1e02b238831c08c5d26dededfc78a27fa12c6ff9",
+    "bytes": 836,
+    "checked_at": "2026-11-20T10:57:20.471141+00:00"
+  }
+]

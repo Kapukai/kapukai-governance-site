@@ -1,0 +1,86 @@
+{
+  "sourceCommit": "71a6d6f4345e73b30267b617a2f4043d04a6d0f4",
+  "runId": 44723330857,
+  "runUrl": "https://github.com/Kapukai/kapukai-governance-site/actions/runs/44723330857",
+  "jobId": 136244375969,
+  "jobConclusion": "success",
+  "htmlValidation": "passed",
+  "installerTests": {
+    "passed": 14
+  },
+  "browserTests": {
+    "startTime": "2026-11-20T10:56:17.664Z",
+    "duration": 10891.476,
+    "expected": 22,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "artifact": {
+    "id": 14623031714,
+    "sha256": "6b23d62e5dd7baf0b3fd24a08c99f88e7248218fa7121fba3579c0b8922ffab2",
+    "digestVerified": true
+  },
+  "axe": [
+    {
+      "file": "axe-desktop.json",
+      "violations": 0,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "nodes": 12
+        }
+      ]
+    },
+    {
+      "file": "axe-i-need-records.json",
+      "violations": 0,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    {
+      "file": "axe-i-need-to-challenge-a-decision.json",
+      "violations": 0,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    {
+      "file": "axe-i-need-urgent-help.json",
+      "violations": 0,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    {
+      "file": "axe-i-want-to-build-a-solution.json",
+      "violations": 0,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    },
+    {
+      "file": "axe-i-want-to-change-a-rule.json",
+      "violations": 0,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "nodes": 14
+        }
+      ]
+    }
+  ]
+}

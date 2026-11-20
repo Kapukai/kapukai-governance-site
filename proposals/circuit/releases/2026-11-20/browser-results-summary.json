@@ -1,0 +1,233 @@
+{
+  "sourceCommit": "71a6d6f4345e73b30267b617a2f4043d04a6d0f4",
+  "stats": {
+    "startTime": "2026-11-20T10:56:17.664Z",
+    "duration": 10891.476,
+    "expected": 22,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "pathway: I need urgent help",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 336
+        }
+      ]
+    },
+    {
+      "title": "pathway: I need records",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 271
+        }
+      ]
+    },
+    {
+      "title": "pathway: I need to challenge a decision",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 283
+        }
+      ]
+    },
+    {
+      "title": "pathway: I want to change a rule",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 258
+        }
+      ]
+    },
+    {
+      "title": "pathway: I want to build a solution",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 275
+        }
+      ]
+    },
+    {
+      "title": "skip link and native Enter/Space activation preserve keyboard access",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 329
+        }
+      ]
+    },
+    {
+      "title": "all five pathways are readable without JavaScript",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 508
+        }
+      ]
+    },
+    {
+      "title": "a failed script leaves the complete HTML fallback",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 270
+        }
+      ]
+    },
+    {
+      "title": "layout and navigation at 320px",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 540
+        }
+      ]
+    },
+    {
+      "title": "layout and navigation at 375px",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 527
+        }
+      ]
+    },
+    {
+      "title": "layout and navigation at 768px",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 579
+        }
+      ]
+    },
+    {
+      "title": "layout and navigation at 1440px",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 709
+        }
+      ]
+    },
+    {
+      "title": "reduced motion removes smooth scrolling",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 193
+        }
+      ]
+    },
+    {
+      "title": "print includes all pathways after selecting a different one",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 289
+        }
+      ]
+    },
+    {
+      "title": "reading and changing pathways sends no external requests or stored records",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 388
+        }
+      ]
+    },
+    {
+      "title": "internal links resolve and diagrams retain accessible meaning",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 242
+        }
+      ]
+    },
+    {
+      "title": "desktop automated WCAG 2.2 A/AA checks",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 622
+        }
+      ]
+    },
+    {
+      "title": "mobile automated accessibility: I need urgent help",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 592
+        }
+      ]
+    },
+    {
+      "title": "mobile automated accessibility: I need records",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 578
+        }
+      ]
+    },
+    {
+      "title": "mobile automated accessibility: I need to challenge a decision",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 569
+        }
+      ]
+    },
+    {
+      "title": "mobile automated accessibility: I want to change a rule",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 570
+        }
+      ]
+    },
+    {
+      "title": "mobile automated accessibility: I want to build a solution",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 573
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-11-20T10:56:14.613514+00:00",
+  "source_commit": "71a6d6f4345e73b30267b617a2f4043d04a6d0f4",
+  "helper_url": "https://raw.githubusercontent.com/Kapukai/kapukai-governance-site/71a6d6f4345e73b30267b617a2f4043d04a6d0f4/ops/circuit/publish.py",
+  "helper_http_status": 200,
+  "helper_bytes": 16468,
+  "helper_sha256": "a5852e4e2fa54f9d3bf126019fabe43fb6a6d4a788efd5cb4c4b45b335ebe249",
+  "manifest_sha256": "2bb3f4a64209207eddb9eac24df259a95b9d73bc3546a265dcb687f97483ac9c",
+  "command_mode": "--dry-run",
+  "exit_code": 0,
+  "stdout": "Verified the pinned manifest and all three source files.\nDry run complete. No SSH connection or installation attempted.\n",
+  "stderr": "",
+  "ssh_attempted": false,
+  "server_changed": false
+}
