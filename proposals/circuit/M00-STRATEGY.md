@@ -32,3 +32,21 @@ M00 strategy overview -> M01 versioned public decision recipe -> M02 synthetic i
 
 ## Do not
 Do not modify production DNS, auth, payment, private evidence, or Supabase policies as part of the public overview. Do not imply nationwide deployment, official endorsement, legal authority, or proven outcomes.
+
+## Approved direction for proposed public messaging (2026-11-20)
+- Primary public headline: **Government should work together. And work for you.**
+- Teaching line: **That's interoperability.**
+- Formal proposed technology: **PDIP — Public Decision Integrity Protocol**; ACA remains the authority architecture, Eagle Eyes the application, and Kapukai Atlas the map. Do not rename the established technical components.
+- Plain-language definition: Interoperability is the ability of different systems to exchange and meaningfully use information under agreed rules without becoming the same system. Introduce the benefit before the term.
+- Proposed hero sequence: headline -> teaching line -> “What are you trying to accomplish?” -> relevant authority pathway -> evidence, receipt, response, correction.
+- Human-centered outcome: whole-person, whole-family, whole-community flourishing; describe this as the intended outcome, not a validated result.
+- Branches remain independent and bounded by law; communication never creates jurisdiction or authority. Public site is independent and not an official government service.
+
+## Patriotic editorial photographic recipe — proposed hero asset
+- Restrained, historically respectful United States red, white, and deep navy. Authentic American flag, real civic architecture and people when appropriate. **Never** imply government sponsorship or use fabricated official seals.
+- Visual standard: National Geographic-caliber documentary photographic realism; historic-art editorial composition, authentic physical light and materials, not synthetic-looking CGI, glows, cartoons, overprocessing, or aggressive HDR.
+- Capture reference: full-frame high-resolution Nikon camera, high-quality NIKKOR prime lens selected for composition (e.g. 35mm for environmental civic context, 50mm for human-scale scenes, 85mm for intimate portraits); RAW, native base ISO when light permits, carefully controlled aperture/depth of field, highlight preservation, realistic white balance, tripod as appropriate. These are art-direction references, **not** assertions of actual camera EXIF for generated imagery.
+- Hero composition: dignified, emotionally resonant American civic scene; flag texture and architecture; preserve clear negative space for typography; test text legibility and accessible contrast on desktop/mobile.
+- Generated assets must be labeled as AI-created internally, reviewed for geographic/architectural plausibility, licensing, and representation. Prefer licensed documentary photography for any image presented as an actual historic event.
+- An exploratory patriotic eagle/Capitol image was generated in this conversation, **not** committed to this repository, not approved as a factual photograph or production asset.
+- Do not use image files in the live website until human art-direction approval and rights/asset review.
