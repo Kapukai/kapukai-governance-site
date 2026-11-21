@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A source-led red-team map of Oklahoma's child emergency-custody case-entry rules, handoffs, review clocks, and Title IV-E funding conditions.">
+  <title>Oklahoma Case-Entry Integrity | Kapukai</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="audit.css">
+</head>
+<body>
+  <a class="skip-link" href="#pathways">Skip to the entry pathways</a>
+  <header class="site-header">
+    <a class="brand" href="https://kapukai.org/" aria-label="Kapukai home">KAPUKAI</a>
+    <nav aria-label="Page navigation">
+      <a href="../">Case Entry Map</a>
+      <a href="../../evidence/access-audit/">Authority map</a>
+      <a href="#method">Red-team method</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Case-Entry Integrity / Oklahoma pilot</p>
+        <h1>Who can start the process—and what must the record preserve?</h1>
+        <p class="hero-copy">Trace the published rules from first custody action to court review and potential reimbursement. Then test whether each handoff is attributable, source-traceable, time-stamped, and independently reviewable.</p>
+        <div class="audit-status" role="status">
+          <span><strong>Rule map:</strong> documented from official statutes</span>
+          <span><strong>Portal controls:</strong> not tested</span>
+          <span><strong>Confirmed cyber vulnerability:</strong> none established</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="audit-intro">
+      <p class="section-label">Threat model / testable hypothesis</p>
+      <h2>Could unsupported or misattributed information enter an official record and later be treated as verified?</h2>
+      <p>This is the question to test, not a finding that Oklahoma has a broken control or that any person filed a false report. The public sources establish legal pathways and required decisions. They do not reveal whether production systems preserve source provenance, prevent alteration, or enforce every required handoff.</p>
+      <p class="scope-callout"><strong>Scope:</strong> this is a statutory process and control map for child emergency custody. It is separate from the neighboring OUCMS civil e-filing pilot. No child-welfare portal, case file, or individual case has been accessed or tested.</p>
+    </section>
+
+    <section class="audit-section" id="pathways" aria-labelledby="pathways-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / The entry paths</p><h2 id="pathways-title">There is more than one way in.</h2></div>
+        <p class="section-intro">Oklahoma law describes distinct prepetition paths. A public audit must map each path before drawing conclusions about a form or portal.</p>
+      </div>
+      <div class="pathway-grid">
+        <article class="audit-card">
+          <span class="method-index">PATH A / PROTECTIVE CUSTODY</span>
+          <h3>Officer or court employee</h3>
+          <p>A peace officer or court employee may take a child into custody without a court order when the statutory reasonable-suspicion and imminent-safety conditions are met.</p>
+          <p class="source-pinpoint"><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Title 10A, § 1-4-201(A)(1), p. 74</a></p>
+        </article>
+        <article class="audit-card">
+          <span class="method-index">PATH B / COURT ORDER</span>
+          <h3>District attorney application</h3>
+          <p>A district court may issue an order on a district attorney’s application. A supporting sworn affidavit may be based on information and belief; the application must still state facts sufficient for the court to assess the statutory reasonable-suspicion and imminent-safety criteria.</p>
+          <p class="source-pinpoint"><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Title 10A, § 1-4-201(A)(2), p. 74</a></p>
+        </article>
+        <article class="audit-card">
+          <span class="method-index">PATH C / TREATMENT ORDER</span>
+          <h3>Emergency medical or behavioral health care</h3>
+          <p>A separate court-order path applies when treatment is needed to protect the child and a parent or custodian is unwilling or unavailable to consent. The order must specify the authorized evaluation or treatment.</p>
+          <p class="source-pinpoint"><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Title 10A, § 1-4-201(A)(3), p. 74</a></p>
+        </article>
+      </div>
+      <p class="precision-note"><strong>Important distinction:</strong> “information and belief” is expressly permitted for the supporting affidavit in Path B. The test is whether the source, basis, author, timing, and required factual assertions remain traceable—not whether every emergency application must arrive with trial-admissible evidence attachments.</p>
+    </section>
+
+    <section class="audit-section timeline-section" aria-labelledby="clock-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / Statutory clocks and state changes</p><h2 id="clock-title">Follow each event to its required next record.</h2></div>
+        <p class="section-intro">A deadline is testable only when the triggering event and the required record can be compared.</p>
+      </div>
+      <div class="clock-list">
+        <article class="clock-row">
+          <span class="clock-number">1</span><div><h3>Protective custody begins</h3><p>For the officer route, the law provides for a joint-response safety evaluation. At a reception center, the evaluation protocol is due within 23 hours; if the evaluation finds no imminent safety threat, the child must be restored. For this route, the Department’s emergency-custody status requires the evaluation, an imminent-threat conclusion, and a court order.</p><p class="source-pinpoint"><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Title 10A, § 1-4-201(B), pp. 75–76</a></p></div>
+        </article>
+        <article class="clock-row">
+          <span class="clock-number">2</span><div><h3>Emergency court review</h3><p>The court must hold an emergency custody hearing within the next two judicial days. It may receive oral or written reports, affidavits, or testimony; information with probative value may be received even if it would not be admissible under the Oklahoma Evidence Code. The court must determine whether facts establish the statutory reasonable-suspicion and immediate-protection criteria.</p><p class="source-pinpoint"><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Title 10A, § 1-4-203(A), p. 79</a></p></div>
+        </article>
+        <article class="clock-row">
+          <span class="clock-number">3</span><div><h3>Petition or expiration</h3><p>A deprived-child petition is generally due within seven judicial days of custody. A limited extension may be granted for compelling reasons; if the petition is not timely filed, the emergency order expires and the district attorney must file a record stating why no petition was filed and to whom the child was released.</p><p class="source-pinpoint"><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Title 10A, § 1-4-205(B), p. 84</a></p></div>
+        </article>
+        <article class="clock-row">
+          <span class="clock-number">4</span><div><h3>Adjudication is a separate decision</h3><p>The later adjudication hearing has its own deadline and proof rules. A nonjury finding that a child is deprived must be based on sworn testimony and the statutory preponderance standard. An emergency-custody entry or receipt is not that adjudication.</p><p class="source-pinpoint"><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Title 10A, §§ 1-4-601–603, pp. 104–105</a></p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="audit-section" aria-labelledby="branches-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / Follow authority across branches</p><h2 id="branches-title">Coordinate the handoff. Preserve separate authority.</h2></div>
+        <p class="section-intro">The repair is a traceable interface between branches—not one office taking over another branch’s constitutional role.</p>
+      </div>
+      <div class="separation-note">
+        <p class="eyebrow">Constitutional boundary</p>
+        <h3>Share the audit trail; keep lawmaking, execution, and adjudication distinct.</h3>
+        <p>Oklahoma’s Constitution says its legislative, executive, and judicial departments are separate and distinct. That supports coordinated records and cross-branch auditability, while preserving who may enact a rule, carry it out, and decide a case. The Fourteenth Amendment limits state action through due process and equal protection; the procedure required depends on the context, so a single upload rule or proof threshold should not be assumed to govern every stage.</p>
+        <p class="source-pinpoint"><a href="https://oksenate.gov/sites/default/files/2022-05/oc4_1.pdf">Oklahoma Constitution, Article IV, § 1</a> · <a href="https://constitution.congress.gov/static/files/Literal_Print_of_Constitution_MCT_1.9.26.pdf">U.S. Constitution, Articles I–III and Amendment XIV</a></p>
+      </div>
+      <div class="branch-grid">
+        <article class="branch-card"><span>01 / LEGISLATURE</span><h3>Set the legal contract</h3><p>Define who may initiate an action, what facts and source information a submission must identify, which findings are required at each stage, the deadlines and expiration rules, correction rights, audits, and the funding conditions. Congress can define federal program conditions; Oklahoma’s Legislature can define state procedures within constitutional limits.</p></article>
+        <article class="branch-card"><span>02 / EXECUTIVE</span><h3>Implement and log each control</h3><p>Agencies, law enforcement, and prosecutors can preserve the actor’s role, the source and basis of assertions, timestamps, document versions, safety evaluations, and handoff receipts. They can separate an allegation from a verified fact and record exceptions for independent audit. They cannot replace a judge’s findings.</p></article>
+        <article class="branch-card"><span>03 / JUDICIARY</span><h3>Receive, decide, and review</h3><p>Courts can keep filing receipts, orders, hearings, and adjudication findings as distinct events; apply the governing rule at each stage; and ensure required notice, review, and written findings are recorded. Engineers can test system behavior and explain technical evidence; judges retain legal and factual decision authority.</p></article>
+      </div>
+      <div class="event-contract">
+        <p class="eyebrow">Proposed shared record / each handoff</p>
+        <h3>Make every transition traceable without making private case data public.</h3>
+        <ul>
+          <li>Authority and event type: report, custody action, application, clerk receipt, court order, finding, or funding claim.</li>
+          <li>Actor role, authorized signer, source of each assertion, and whether its basis is direct knowledge or information and belief.</li>
+          <li>Timestamp, artifact version, attachment/reference list, and a tamper-evident history of additions or corrections.</li>
+          <li>Required reviewer, decision, statutory clock, expiration or next action, and the record that proves the transition occurred.</li>
+          <li>For funding: child-specific eligibility finding, eligible placement, expense period, claim status, and any correction or disallowance.</li>
+        </ul>
+        <p>Keep names, evidence, and case documents access-controlled. Publish the rules, system test results, review dates, and properly aggregated measures.</p>
+      </div>
+      <div class="funding-panel">
+        <p class="eyebrow">Funding link / conditional, not automatic</p>
+        <h3>Trace eligibility and actual expenditures; do not treat case creation as a payment event.</h3>
+        <p>Federal Title IV-E foster-care maintenance eligibility includes statutory requirements such as an eligible child and placement, state-agency responsibility, and a judicial determination that remaining home would be contrary to the child’s welfare and that reasonable efforts were made. Federal payments are calculated from qualifying expenditures. A case opening, filing receipt, or custody allegation alone does not establish that a payment was claimed or received.</p>
+        <p class="source-pinpoint"><a href="https://uscode.house.gov/us/usc/t42/s672/">42 U.S.C. § 672(a)(1)–(2)</a> · <a href="https://uscode.house.gov/us/usc/t42/s674/">42 U.S.C. § 674(a)(1)</a></p>
+      </div>
+    </section>
+    <section class="audit-section" id="method" aria-labelledby="method-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">04 / Public red-team test plan</p><h2 id="method-title">Test the controls against the rules.</h2></div>
+        <p class="section-intro">Each public claim must say what the law requires, what artifact was inspected, what test was run, and what remains unknown.</p>
+      </div>
+      <div class="test-grid">
+        <article><h3>Attribution</h3><p>Can the entry be tied to an authorized actor, signer, role, and timestamp?</p><span class="test-status">System behavior: unknown / not tested</span></article>
+        <article><h3>Source provenance</h3><p>Can each factual assertion be traced to its source and distinguish direct knowledge from information and belief?</p><span class="test-status">Statute mapped / form behavior: unknown</span></article>
+        <article><h3>Record integrity</h3><p>Can the record show document version, additions, corrections, receipt state, and who made each change?</p><span class="test-status">No production control test</span></article>
+        <article><h3>Decision separation</h3><p>Can users distinguish report, protective custody, court order, adjudication finding, and funding eligibility?</p><span class="test-status">Public-source map only</span></article>
+        <article><h3>Time and correction</h3><p>Can the record show whether each statutory clock ran, what happened at the deadline, and whether custody ended when required?</p><span class="test-status">Rule documented / operations unknown</span></article>
+        <article><h3>Funding trace</h3><p>Can eligible expenditures and required court findings be linked to aggregate claims and reimbursement reports?</p><span class="test-status">Federal criteria documented / transaction trail unknown</span></article>
+      </div>
+      <div class="safe-test">
+        <strong>Test boundary</strong>
+        <p>Use public documents, synthetic records in Kapukai’s own test harness, and only a non-production system when written authorization and a defined test scope exist. Do not submit fabricated information to a live court or agency, probe production portals, or publish private child or family records.</p>
+      </div>
+      <div class="review-panel">
+        <div><p class="eyebrow">Finding status</p><h3>No system vulnerability has been confirmed.</h3><p>The current result is a source-based threat model and a list of reproducible control questions. A missing public explanation is labeled “not publicly verifiable,” not “control failed.”</p></div>
+        <div class="review-links"><a class="review-link" href="../review-protocol.md">Read the independent review protocol <span aria-hidden="true">↗</span></a><a class="review-link" href="../">Return to the national map <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="sources-section" aria-labelledby="sources-title">
+      <p class="eyebrow">Primary sources / checked November 18, 2026</p>
+      <h2 id="sources-title">The map cites the rules it tests.</h2>
+      <ol>
+        <li><a href="https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os10A.pdf">Oklahoma Statutes, Title 10A: Children and Juvenile Code</a> — §§ 1-4-201 through 203 (emergency custody routes, safety evaluation, hearing); § 1-4-205(B) (petition deadline and expiration); §§ 1-4-601–603 (adjudication timing and proof standard). The PDF is the official Oklahoma Legislature publication; section and printed-page pinpoints are stated in the cards above.</li>
+        <li><a href="https://oksenate.gov/sites/default/files/2022-05/oc4_1.pdf">Oklahoma Constitution, Article IV, § 1</a> — separation and distinction of the state departments.</li>
+        <li><a href="https://constitution.congress.gov/static/files/Literal_Print_of_Constitution_MCT_1.9.26.pdf">U.S. Constitution, Articles I–III and Amendment XIV</a> — legislative, executive, and judicial powers; due process and equal protection.</li>
+        <li><a href="https://uscode.house.gov/us/usc/t42/s672/">42 U.S.C. § 672</a> — foster-care maintenance eligibility and removal/placement conditions.</li>
+        <li><a href="https://uscode.house.gov/us/usc/t42/s674/">42 U.S.C. § 674</a> — federal payments to states, including the share of qualifying expenditures.</li>
+      </ol>
+      <p class="source-limit">The statute text establishes legal requirements, not proof that a specific agency followed them, a specific portal enforces them, or a specific funding claim was made. Those require separate evidence.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><a href="https://kapukai.org/">Kapukai Governance Lab</a><p>Rule map checked November 18, 2026 · Next source review due February 18, 2027 · System controls not tested · No individual case material used</p></footer>
+</body>
+</html>

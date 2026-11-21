@@ -1,0 +1,149 @@
+{
+  "version": "0.1",
+  "title": "Source of Power / Delegation / Inversion Test",
+  "principle": "The founding texts place people and rights at the source, government in a delegated role, and public officers under constitutional limits. The inversion panel is a testable system-design hypothesis: it appears when an institution’s representation of a person becomes more authoritative than the person, the source evidence, and the legal limits on the institution.",
+  "sourceLane": [
+    {
+      "step": "01",
+      "title": "People and rights",
+      "label": "DECLARATION · 1776",
+      "quote": "Governments are instituted among Men, deriving their just powers from the consent of the governed.",
+      "sourceUrl": "https://www.archives.gov/founding-docs/declaration-transcript",
+      "sourceName": "National Archives — Declaration of Independence",
+      "establishes": "Government is justified by the consent of the governed and exists to secure rights."
+    },
+    {
+      "step": "02",
+      "title": "Public correction power",
+      "label": "DECLARATION · 1776",
+      "quote": "It is the Right of the People to alter or to abolish it.",
+      "sourceUrl": "https://www.archives.gov/founding-docs/declaration-transcript",
+      "sourceName": "National Archives — Declaration of Independence",
+      "establishes": "The people retain a corrective principle when a form of government becomes destructive of its ends."
+    },
+    {
+      "step": "03",
+      "title": "Constitutional act",
+      "label": "CONSTITUTION · PREAMBLE",
+      "quote": "We the People of the United States ... do ordain and establish this Constitution.",
+      "sourceUrl": "https://www.archives.gov/founding-docs/constitution-transcript",
+      "sourceName": "National Archives — Constitution transcription",
+      "establishes": "The Constitution is framed as an act of the people establishing the governmental structure."
+    },
+    {
+      "step": "04",
+      "title": "Legislative delegation",
+      "label": "ARTICLE I · §1",
+      "quote": "All legislative Powers herein granted shall be vested in a Congress of the United States.",
+      "sourceUrl": "https://constitution.congress.gov/static/files/Literal_Print_of_Constitution_MCT_1.9.26.pdf",
+      "sourceName": "Congress.gov — Constitution literal print, Article I",
+      "establishes": "Legislative power is delegated through a defined institution and limited by the words “herein granted.”"
+    },
+    {
+      "step": "05",
+      "title": "Executive and judicial separation",
+      "label": "ARTICLES II–III",
+      "quote": "The executive Power shall be vested in a President ... The judicial Power ... in one supreme Court.",
+      "sourceUrl": "https://constitution.congress.gov/static/files/Literal_Print_of_Constitution_MCT_1.9.26.pdf",
+      "sourceName": "Congress.gov — Constitution literal print, Articles II–III",
+      "establishes": "Different governmental functions are assigned to different constitutional institutions."
+    },
+    {
+      "step": "06",
+      "title": "Officer accountability",
+      "label": "ARTICLE VI · CLAUSE 3",
+      "quote": "All executive and judicial Officers ... shall be bound by Oath or Affirmation, to support this Constitution.",
+      "sourceUrl": "https://constitution.congress.gov/static/files/Literal_Print_of_Constitution_MCT_1.9.26.pdf",
+      "sourceName": "Congress.gov — Constitution literal print, Article VI",
+      "establishes": "Officials are bound to support the constitutional structure rather than become its source."
+    }
+  ],
+  "inversionLane": [
+    {
+      "step": "A",
+      "title": "Institution becomes identity",
+      "body": "A docket, database entry, status code, or institutional narrative stands in for the person who originated the claim or authority.",
+      "test": "Can the person trace and correct the identity-bearing source record?"
+    },
+    {
+      "step": "B",
+      "title": "Delegated power becomes original power",
+      "body": "An office acts as if its role, data, or workflow is self-justifying instead of showing the legal source, limit, and purpose of the delegation.",
+      "test": "What exact power was delegated, to which role, under what limit, and for what public function?"
+    },
+    {
+      "step": "C",
+      "title": "Administration becomes adjudication",
+      "body": "Receipt, formatting, classification, or a clerk’s record is treated as a factual finding that only an authorized decision-maker can make.",
+      "test": "Is the item labeled received, checked, alleged, contested, or found?"
+    },
+    {
+      "step": "D",
+      "title": "Representation outranks the person",
+      "body": "The institutional copy is treated as more real than the person’s testimony, contrary evidence, or source documents.",
+      "test": "Can the affected person see the provenance, challenge the representation, and obtain a reasoned correction?"
+    },
+    {
+      "step": "E",
+      "title": "Procedure becomes a power barrier",
+      "body": "Notice, access, timing, or technical requirements make it impossible for the person to exercise the authority the architecture nominally preserves.",
+      "test": "Was notice meaningful, was access available, and was the response path usable in context?"
+    },
+    {
+      "step": "F",
+      "title": "Funding rewards the inversion",
+      "body": "Budgets and contracts reward throughput, closure, enforcement, or data capture while correction, care, independent review, and lived outcomes remain invisible.",
+      "test": "What function is paid, what metric triggers payment, and who bears the cost of error?"
+    }
+  ],
+  "priorityTests": [
+    {
+      "priority": "01",
+      "name": "Source",
+      "question": "Can every identity-bearing record point to a person, source, time, authority, and purpose?"
+    },
+    {
+      "priority": "02",
+      "name": "Delegation",
+      "question": "What power was delegated, by whom, to which role, with what limit and review path?"
+    },
+    {
+      "priority": "03",
+      "name": "Function",
+      "question": "Is this actor administering a record, running a deterministic check, or making a contextual legal finding?"
+    },
+    {
+      "priority": "04",
+      "name": "Evidence",
+      "question": "Is a claim still labeled as a claim, or did the record silently become a finding?"
+    },
+    {
+      "priority": "05",
+      "name": "Return path",
+      "question": "Can the person see, contest, correct, appeal, and obtain a remedy?"
+    },
+    {
+      "priority": "06",
+      "name": "Incentive",
+      "question": "Does funding support care, accuracy, correction, and oversight—or only throughput and closure?"
+    }
+  ],
+  "sourceLinks": [
+    {
+      "label": "Declaration of Independence",
+      "url": "https://www.archives.gov/founding-docs/declaration-transcript"
+    },
+    {
+      "label": "Constitution transcription",
+      "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+    },
+    {
+      "label": "Constitution literal print",
+      "url": "https://constitution.congress.gov/static/files/Literal_Print_of_Constitution_MCT_1.9.26.pdf"
+    },
+    {
+      "label": "Congress.gov Constitution Annotated — meaningful hearing",
+      "url": "https://constitution.congress.gov/static/files/GPO-CONAN-2024-SUPP.pdf"
+    }
+  ]
+}

@@ -1,0 +1,458 @@
+{
+  "asOf": "2026-11-17",
+  "scope": "Initial research register for constitutional and statutory court roles, court-record provenance, evidence access, deterministic technology checks, human decision authority, system oversight, and correction. No statewide operational audit or systemic finding has been completed.",
+  "topics": [
+    {
+      "id": "institutional-roles",
+      "label": "Constitution and clerk authority"
+    },
+    {
+      "id": "record-entry",
+      "label": "Record intake and provenance"
+    },
+    {
+      "id": "automation-boundary",
+      "label": "Automated checks and human review"
+    },
+    {
+      "id": "temporary-relief",
+      "label": "Emergency and preliminary relief"
+    },
+    {
+      "id": "service-hearing",
+      "label": "Notice, service, and hearing access"
+    },
+    {
+      "id": "records-correction",
+      "label": "Record access, correction, and appeal"
+    },
+    {
+      "id": "interoperability",
+      "label": "Cross-system records and handoffs"
+    },
+    {
+      "id": "technology-oversight",
+      "label": "Technology governance, security, and audit"
+    }
+  ],
+  "sourceLevels": {
+    "constitution": "State or federal constitutional text",
+    "statute": "Enacted legislation",
+    "rule": "Statewide court rule",
+    "local": "Local court rule, order, or procedure",
+    "system": "System design, vendor, security, or audit documentation",
+    "operation": "Observed implementation or outcome data",
+    "case": "Individual case record"
+  },
+  "taskBoundaryLabels": {
+    "deterministic": "Deterministic technical validation",
+    "records": "Administrative record control",
+    "contextual": "Contextual legal judgment",
+    "hybrid": "Automated support with accountable human review"
+  },
+  "classificationLabels": {
+    "A": "Documented failure in stated scope",
+    "B": "Safeguard documented in operation",
+    "C": "Mixed findings",
+    "D": "Insufficient evidence after defined review",
+    "E": "Not yet assessed"
+  },
+  "findingScopeLabels": {
+    "systemic": "System-level finding",
+    "recurring": "Recurring pattern",
+    "case": "Single documented case",
+    "rule": "Law or official guidance only",
+    "unassessed": "Not assessed"
+  },
+  "ratings": {},
+  "pilots": {
+    "OK": {
+      "topics": [
+        "institutional-roles",
+        "temporary-relief",
+        "service-hearing"
+      ],
+      "reviewStatus": "First-pass constitutional and statutory clerk-role sources plus procedure sources collected",
+      "summary": "Oklahoma’s Constitution creates the office of Clerk of the District Court, subject to legislative change (Article XVII, §2). Statutes provide for an elected court clerk and consolidate specified court-clerk offices (19 O.S. §§19-131 and 19-221). Title 12 assigns docket and record duties; Title 20 §91.2 places case-to-docket assignment under the direction and supervision of the presiding judge. For protective-order procedure, the official Title 22 compilation lists two 2025 versions of §60.4: version 1, tied to SB 623 and effective 3 May 2025, expressly requires an initial service attempt within 24 hours; version 2, tied to HB 2104 and effective 1 January 2026, requires priority service and permits service 24 hours a day when the defendant’s location is known, without that express initial-attempt deadline. Both versions provide for a full hearing within 14 days when the petition states sufficient grounds. The operative version must be matched to the case date; none of these legal texts establishes operational compliance.",
+      "sources": [
+        {
+          "id": "OK-ROLE-1",
+          "title": "Oklahoma Statutes, Title 19, §§19-131 and 19-221 (official compilation)",
+          "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os19.pdf",
+          "supports": "Statutory sources for election of county court clerks and consolidation of certain court-clerk offices. These provisions are not a review of the Oklahoma Constitution or local office practice."
+        },
+        {
+          "id": "OK-1",
+          "title": "Oklahoma Statutes, Title 22, §§60.3–60.4 (official compilation updated 12 November 2026)",
+          "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os22.pdf",
+          "supports": "Official text of the emergency-order and full-hearing framework; the compilation identifies both 2025 versions of §60.4 and their text. The statute does not establish operational compliance."
+        },
+        {
+          "id": "OK-2",
+          "title": "Oklahoma SB 623 (2025), bill history",
+          "url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=SB+623",
+          "supports": "Official legislative history; approved by the Governor on 3 May 2025. The enrolled measure is identified in the statute compilation as 22 O.S. §60.4 v1."
+        },
+        {
+          "id": "OK-3",
+          "title": "Oklahoma HB 2104 (2025), bill history",
+          "url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb+2104",
+          "supports": "Official legislative history; approved by the Governor on 10 June 2025. The statute compilation identifies section 704 as §60.4 v2."
+        }
+      ],
+      "authorityStatus": "Initial constitutional/statutory source profile; county-by-county systems review remains open"
+    },
+    "CA": {
+      "topics": [
+        "service-hearing",
+        "institutional-roles"
+      ],
+      "reviewStatus": "First-pass constitutional, clerk-authority, and procedure sources collected",
+      "summary": "The California Courts self-help guide tells parties to prepare evidence and witnesses for a restraining-order hearing and says the judge usually decides the request at that hearing. This is official public guidance, not proof that a particular clerk accepted or rejected evidence or that courts statewide followed the instructions.",
+      "sources": [
+        {
+          "id": "CA-1",
+          "title": "California Courts Self-Help, Prepare for your restraining-order court date",
+          "url": "https://selfhelp.courts.ca.gov/DV-restraining-order/prepare-court-date",
+          "supports": "Official statewide self-help instructions on preparing evidence and witnesses for a hearing; not an operational audit."
+        },
+        {
+          "id": "CA-2",
+          "title": "Placer County Superior Court, evidence handout",
+          "url": "https://placer.courts.ca.gov/sites/default/files/PL-FL031%20-%20Getting%20Evidence%20Ready%20for%20Your%20Restraining%20Order%20Hearing.pdf",
+          "supports": "County-specific exhibit instructions. This local document must not be generalized to statewide procedure."
+        }
+      ],
+      "authorityStatus": "Initial statewide source profile; county-level role and systems review remains open"
+    },
+    "NY": {
+      "topics": [
+        "institutional-roles",
+        "temporary-relief",
+        "service-hearing"
+      ],
+      "reviewStatus": "First-pass constitutional and Family Court Act sources collected",
+      "summary": "New York’s constitution generally provides for election of county clerks, while the clerk of each New York City county is appointed and removable by the Appellate Division (Article XIII, §13). Family Court Act §828 says a temporary order of protection is not a finding of wrongdoing. Sections 832 and 834 define the fact-finding hearing and evidence standards. These are legal-text sources; they do not establish local clerk practice or court operation.",
+      "sources": [
+        {
+          "id": "NY-ROLE-1",
+          "title": "New York Constitution, Article XIII, §13 (official 2026 compilation)",
+          "url": "https://www.nysenate.gov/sites/default/files/admin/structure/media/manage/filefile/a/2026-07/ny-state-constitution-asc-jan-1-2026-final.pdf",
+          "supports": "Constitutional selection/removal structure for county clerks, including the distinct New York City provision. Local office functions and actual supervision still require separate research."
+        },
+        {
+          "id": "NY-1",
+          "title": "New York Family Court Act §828, temporary orders of protection",
+          "url": "https://www.nysenate.gov/legislation/laws/FCT/828",
+          "supports": "Official statutory distinction between a temporary order and a finding of wrongdoing."
+        },
+        {
+          "id": "NY-2",
+          "title": "New York Family Court Act §832, fact-finding hearing",
+          "url": "https://www.nysenate.gov/legislation/laws/FCT/832",
+          "supports": "Official statutory definition of the fact-finding standard."
+        },
+        {
+          "id": "NY-3",
+          "title": "New York Family Court Act §834, evidence",
+          "url": "https://www.nysenate.gov/legislation/laws/FCT/834",
+          "supports": "Official statutory rule for evidence at fact-finding and dispositional hearings."
+        }
+      ],
+      "authorityStatus": "Initial constitutional/statutory source profile; court-by-court systems review remains open"
+    },
+    "FL": {
+      "topics": [
+        "institutional-roles",
+        "record-entry",
+        "service-hearing"
+      ],
+      "reviewStatus": "First-pass constitutional role and 2026 statute sources collected",
+      "summary": "Florida’s constitution provides for a clerk of the circuit court in each county, selected under Article VIII, §1; it also permits clerk duties to be divided by law (Article V, §16). The separate §741.30 statute addresses protective-order evidence/recommendation handling and clerk assistance. These provisions describe legal design, not day-to-day practice or statewide compliance.",
+      "sources": [
+        {
+          "id": "FL-ROLE-1",
+          "title": "Florida Constitution, Articles V, §16 and VIII, §1 (official text)",
+          "url": "https://www.leg.state.fl.us/Statutes/index.cfm?Mode=Constitution&Submenu=3",
+          "supports": "Constitutional creation and selection of county circuit-court clerks and authority to divide certain duties. County-specific implementation remains to be reviewed."
+        },
+        {
+          "id": "FL-1",
+          "title": "Florida Statutes §741.30 (2026), domestic-violence injunctions",
+          "url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0741/Sections/0741.30.html",
+          "supports": "Official 2026 statute, including evidence/recommendation handling and clerk-assistance duties."
+        }
+      ],
+      "authorityStatus": "Initial constitutional/statutory source profile; county-by-county systems review remains open"
+    }
+  },
+  "federal": {
+    "reviewStatus": "Limited rule reference located",
+    "summary": "The current December 1, 2025 edition of the Federal Rules of Civil Procedure includes Rule 5(d)(4), which says a clerk must not refuse a paper solely because it is not in the form prescribed by the rules or local practice. This rule concerns filing; it does not itself determine evidence admissibility or judicial consideration and is not a state protective-order rule.",
+    "sources": [
+      {
+        "id": "FED-1",
+        "title": "U.S. Courts, Federal Rules of Civil Procedure (December 1, 2025 edition), Rule 5(d)(4)",
+        "url": "https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf",
+        "supports": "Current official federal civil-rule text on clerk acceptance of filing papers."
+      }
+    ]
+  },
+  "mapPolicy": "Constitutional and statutory assignments are mapped separately from operational performance. A/B/C/D/E describes scoped evidence about operation, not a state's constitutional design. No isolated case, law-on-the-books, local pattern, or allegation creates a statewide systemic rating. Each entry records source level, jurisdiction, court type, topic, time period, evidence, limitations, and scope.",
+  "systemsModel": {
+    "type": "Event-driven asynchronous state machine",
+    "lanes": [
+      {
+        "id": "case-procedure",
+        "states": [
+          "submitted",
+          "received-or-docketed",
+          "notice-and-response",
+          "hearing-or-authorized-review",
+          "order-or-disposition",
+          "appeal-or-correction"
+        ]
+      },
+      {
+        "id": "claim-evidence",
+        "states": [
+          "assertion-recorded",
+          "items-linked",
+          "integrity-and-provenance-tracked",
+          "challenged-or-considered",
+          "finding-recorded-with-reasons"
+        ]
+      }
+    ],
+    "machineCheckResults": [
+      "PASS",
+      "FAIL",
+      "UNKNOWN",
+      "EXCEPTION"
+    ],
+    "invariants": [
+      "A filing receipt records submission; it is not a finding that the assertion is true.",
+      "A technical integrity check does not establish factual truth, admissibility, or legal sufficiency.",
+      "No attachment in one submission packet does not establish that no relevant evidence exists elsewhere.",
+      "A legal finding is attributed to an authorized decision-maker, with its stated basis and review path."
+    ],
+    "eventFields": [
+      "actor",
+      "authority-or-role",
+      "jurisdiction-and-court",
+      "case-identifier",
+      "event-time",
+      "source-or-payload",
+      "applicable-rule-version",
+      "check-result-or-decision",
+      "links-to-claims-and-evidence",
+      "correction-or-review-reference"
+    ],
+    "mappingNote": "Procedural status and claim/evidence status are separate but linked. Parties can generate asynchronous events, branches, corrections, and review events; the model is not a single mandatory linear sequence."
+  },
+  "authorityProgress": {
+    "jurisdictionsInScope": 51,
+    "initialProfiles": 4,
+    "profilesWithExplicitConstitutionalClerkText": 3,
+    "verifiedStatewideOperationalRatings": 0,
+    "scopeNote": "The four profiles are first-pass legal-source maps, not completed 51-jurisdiction comparisons. Public platform documentation is recorded separately from operational audit results."
+  },
+  "authorityProfiles": {
+    "CA": {
+      "courtType": "Superior courts / trial level",
+      "status": "Initial statewide source profile; county-level role and systems review remains open",
+      "summary": "The California Constitution speaks of officers and employees of each superior court; it does not prescribe one statewide county-elected court-clerk model. Government Code §69844 assigns the clerk responsibility for minutes and other court records and for entering required orders, judgments, and decrees. Rule 10.610 places the court executive officer’s administrative duties under the presiding judge. The Judicial Council says each of the 58 superior courts keeps its own records, in paper or electronic form. The published 2025 recodification of Code of Civil Procedure §473 marks its text operative January 1, 2027, so the operative version must be checked for a specific case date.",
+      "constitutionalStructure": "Article VI, §4 directs the Legislature to prescribe the number of superior-court judges and provide officers and employees for each superior court. This is a court-centered constitutional structure, not a constitutional office titled county court clerk.",
+      "selectionAndSupervision": "Rule 10.610 assigns court-executive-officer administrative duties under the presiding judge. Local rules and appointments must establish who serves as clerk, whether the roles are combined, and the county-specific reporting structure.",
+      "recordDuties": "Government Code §69844 requires the clerk to keep minutes and other court records and enter required orders, judgments, and decrees with entry dates.",
+      "correctionRoute": "The correction route is judicial: Code of Civil Procedure §473(d) authorizes the court to correct clerical mistakes in its judgment or orders to conform to what the court directed. The 2025 recodification is marked operative January 1, 2027; check the case-date version. This source does not establish a general clerk power to change a judicial decision.",
+      "technologyAndOperations": "The Judicial Council states that each of California’s 58 superior courts is responsible for keeping its own case and administrative records, in paper or electronic form. A statewide county-by-county inventory of case-management systems, e-filing providers, audit logs, outage handling, and correction workflows is not complete.",
+      "limitations": "A statewide rule or source does not establish how every superior court operates. Local rules, appointment structure, system vendor, e-filing path, and correction workflow need court-by-court verification. No statewide operational rating is verified.",
+      "sources": [
+        {
+          "id": "CA-ROLE-1",
+          "title": "California Constitution, Article VI, §4 (official text)",
+          "url": "https://clerk.assembly.ca.gov/sites/clerk.assembly.ca.gov/files/2023-24_Constitution_Final_wCover.pdf",
+          "supports": "Directs the Legislature to provide officers and employees for each superior court; does not name a single statewide county-elected court clerk."
+        },
+        {
+          "id": "CA-ROLE-2",
+          "title": "California Rules of Court, rule 10.610 (official)",
+          "url": "https://courts.ca.gov/cms/rules/index/ten/rule10_610",
+          "supports": "Court executive officer duties are performed under the direction of the presiding judge; includes uniform recordkeeping responsibilities."
+        },
+        {
+          "id": "CA-ROLE-3",
+          "title": "California Government Code §69844 (official code page)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=69844.",
+          "supports": "Clerk’s duty to keep minutes and other court records and enter orders, judgments, and decrees."
+        },
+        {
+          "id": "CA-ROLE-4",
+          "title": "California Code of Civil Procedure §473(d) (official code page)",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CCP&sectionNum=473.",
+          "supports": "Court correction authority for clerical mistakes in judgments or orders; the published 2025 recodification marks its text operative January 1, 2027, so case-date version control is required."
+        },
+        {
+          "id": "CA-OPS-1",
+          "title": "California Judicial Branch, Public Records",
+          "url": "https://courts.ca.gov/policy-administration/public-records",
+          "supports": "Each of the 58 superior courts keeps its own case and administrative records, which may be paper or electronic."
+        }
+      ]
+    },
+    "NY": {
+      "courtType": "County clerks serving as Supreme Court clerks; county-specific variations",
+      "status": "Initial constitutional/statutory source profile; court-by-court systems review remains open",
+      "summary": "New York’s Constitution assigns county clerks as clerks of the Supreme Court, with powers and duties prescribed by law. Outside New York City, county clerks are elected; the city’s county clerks are appointed and removable by the Appellate Division. County Law §525 assigns filing, recording, and document/deposit duties. CPLR §5019 distinguishes a court’s authority to require correction from the clerk’s duty to make specified docket entries. NYSCEF coverage is organized by authorized courts and case types; actual accuracy and correction performance have not been audited.",
+      "constitutionalStructure": "Article VI, §6(e) provides that the clerks of the several counties shall be clerks of the Supreme Court, with powers and duties prescribed by law. Article XIII, §13 sets a different selection/removal rule for counties outside New York City and counties within the city.",
+      "selectionAndSupervision": "Outside New York City, county clerks are elected; New York City county clerks are appointed and removable by the Appellate Division. The Constitution also provides a Governor removal process for elected clerks after charges and an opportunity to be heard. County Law §525 allows related duties prescribed by law and directed by the county board. No single statewide supervisor for all court-filing operations is inferred from these provisions.",
+      "recordDuties": "County Law §525 makes the county clerk clerk of the Supreme Court and County Court in the county and requires books, files, and other equipment for filing, recording, and depositing civil/criminal papers and dockets, as directed or authorized by law.",
+      "correctionRoute": "CPLR §5019(a) allows a trial or appellate court to require a mistake, defect, or irregularity to be cured. Under §5019(b), the clerk makes an appropriate docket entry after a specified subsequent order, judgment, or certificate is filed. This is not a general clerk authority to revise a judgment’s substance.",
+      "technologyAndOperations": "NYSCEF supports electronic filing and service in courts and case types listed by the state, with public search for e-filed cases. New York Courts says case data displayed in eCourts are entered by staff of the specific court. Coverage and rollout vary by court and case type; no statewide audit of data accuracy, audit logging, uptime, or correction response times is verified.",
+      "limitations": "County clerk selection, court assignments, and NYSCEF coverage vary by county, court, and case type. A state constitutional/statutory source profile is not a performance finding.",
+      "sources": [
+        {
+          "id": "NY-ROLE-1",
+          "title": "New York Constitution, Article VI, §6 (official)",
+          "url": "https://www.nysenate.gov/legislation/laws/CNS/A6S6",
+          "supports": "Assigns county clerks as clerks of the Supreme Court, with powers and duties prescribed by law."
+        },
+        {
+          "id": "NY-ROLE-2",
+          "title": "New York Constitution, Article XIII, §13 (official text)",
+          "url": "https://www.nysenate.gov/legislation/laws/CNS/A13S13",
+          "supports": "Sets election rules outside New York City and appointment/removal of city county clerks by the Appellate Division."
+        },
+        {
+          "id": "NY-ROLE-3",
+          "title": "New York County Law §525 (official)",
+          "url": "https://www.nysenate.gov/legislation/laws/CNT/525",
+          "supports": "Specifies county-clerk court role and filing/recording equipment duties."
+        },
+        {
+          "id": "NY-ROLE-4",
+          "title": "New York CPLR §5019 (official)",
+          "url": "https://www.nysenate.gov/legislation/laws/CVP/5019",
+          "supports": "Court may require correction; clerk makes specified docket entries after a qualifying order, judgment, or certificate."
+        },
+        {
+          "id": "NY-OPS-1",
+          "title": "New York State Courts Electronic Filing (NYSCEF)",
+          "url": "https://www.nycourts.gov/efile/",
+          "supports": "Describes electronic filing/service and lists authorized courts and case types."
+        },
+        {
+          "id": "NY-OPS-2",
+          "title": "New York Courts, eCourts contact and data information",
+          "url": "https://www.nycourts.gov/e-courts/ecourts-contact-us",
+          "supports": "States that staff of a specific court enter case data displayed in eCourts; directs correction questions to that court."
+        }
+      ]
+    },
+    "OK": {
+      "courtType": "County court clerk / district-court record administration",
+      "status": "Initial constitutional/statutory source profile; county-by-county systems review remains open",
+      "summary": "Oklahoma’s Constitution creates the office of Clerk of the District Court, subject to legislative change. Statutes make the court clerk an elected county office and consolidate specified clerk offices. Title 12 assigns appearance/trial docket and journal duties; Title 20 §91.2 places the discrete task of assigning cases to dockets under direction and supervision of the presiding judge. Title 12 §1031(3) gives the district court, not the clerk, authority to vacate or modify its judgment/order for mistake, neglect, or omission of the clerk. OSCN publicly describes records as close to real time after clerk entry but says availability varies by county.",
+      "constitutionalStructure": "Article XVII, §2 creates county offices including Clerk of the District Court, expressly subject to change by the Legislature.",
+      "selectionAndSupervision": "Title 19 §19-131 provides for an elected court clerk; §19-221 consolidates specified clerk offices into the court clerk. Title 20 §91.2 expressly puts case-to-docket assignments under the direction and supervision of the presiding judge. That discrete supervision clause does not by itself establish general administrative supervision of the elected county office.",
+      "recordDuties": "Title 12 §§22–23 require the district-court clerk to keep appearance and trial dockets, a journal, other required records, and specified entries of filings, process, and orders. Title 12 §696.3 separately requires the clerk to endorse a filed judgment/order with filing date and clerk name/title.",
+      "correctionRoute": "Title 12 §1031(3) allows the district court to vacate or modify its own judgment or order for mistake, neglect, or omission of the clerk or irregularity in obtaining it. Oklahoma Supreme Court Rule 1.32 routes disputes over record correctness through the trial court before transmission and requires appellate-court leave for amendment after transmission. The sources describe judicial correction, not unrestricted clerk alteration.",
+      "technologyAndOperations": "The Administrative Office of the Courts describes OCIS as an in-house case-management system and OSCN as the public web layer. OSCN says docket data comes from working dockets and is usually close to real time after clerk entry, while document availability varies by county based in part on computerization and scanning. Its e-filing FAQ distinguishes the filing system from the public official court file. No independent audit of accuracy, security, completeness, outage handling, or correction turnaround is verified.",
+      "limitations": "The Constitution permits legislative change to the office structure. County implementation and public-record availability vary. Public-facing system descriptions are documentation, not a reliability or compliance audit.",
+      "sources": [
+        {
+          "id": "OK-ROLE-1",
+          "title": "Oklahoma Constitution, Article XVII, §2 (official)",
+          "url": "https://oksenate.gov/sites/default/files/2022-05/oc17.pdf",
+          "supports": "Creates county offices including Clerk of the District Court, subject to change by the Legislature."
+        },
+        {
+          "id": "OK-ROLE-2",
+          "title": "Oklahoma Statutes, Title 19, §§19-131 and 19-221 (official compilation)",
+          "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os19.pdf",
+          "supports": "Court-clerk election and statutory consolidation of specified clerk offices."
+        },
+        {
+          "id": "OK-ROLE-3",
+          "title": "Oklahoma Statutes, Title 12, §§22–23, 696.3, and 1031 (official compilation)",
+          "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os12.pdf",
+          "supports": "Title 12 docket/record duties, filing endorsement requirements, judicial relief for clerk mistake/omission, and Appendix 1 Rule 1.32 procedures for correcting a record on appeal."
+        },
+        {
+          "id": "OK-ROLE-4",
+          "title": "Oklahoma Statutes, Title 20, §91.2 (official compilation)",
+          "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os20.pdf",
+          "supports": "Case assignment to dockets by clerk under direction and supervision of presiding judge."
+        },
+        {
+          "id": "OK-OPS-1",
+          "title": "Oklahoma State Courts Network, Court Records Help",
+          "url": "https://www.oscn.net/applications/oscn/simplehelp.asp?helpcontextid=5",
+          "supports": "Describes working-docket data, near-real-time display after clerk entry, and county variation in record availability."
+        },
+        {
+          "id": "OK-OPS-2",
+          "title": "Oklahoma State Courts Network, E-Filing FAQ",
+          "url": "https://efile.oscn.net/docs/EFILING_FAQ.pdf",
+          "supports": "Distinguishes e-filing workflow from the public official court file and describes document access before/after clerk processing."
+        },
+        {
+          "id": "OK-OPS-3",
+          "title": "Oklahoma Office of Management and Enterprise Services, 2025 budget program details",
+          "url": "https://oklahoma.gov/content/dam/ok/en/omes/documents/bud25.pdf",
+          "supports": "Describes statewide court network support, in-house OCIS case management, and OSCN public website."
+        }
+      ]
+    },
+    "FL": {
+      "courtType": "Circuit-court clerk / county constitutional office",
+      "status": "Initial constitutional/statutory source profile; county-by-county systems review remains open",
+      "summary": "Florida’s Constitution provides for a clerk in each county, selected under Article VIII, §1, and gives the clerk custody of circuit-court records and duties for the circuit court. Chapter 28 requires care/security of paper and electronic filings and a filing date/time stamp; §28.222 designates the clerk as court-record custodian, subject to a county-recorder exception. Rule 1.540(a) assigns clerical correction of judgments and records to the court. Florida has a statewide e-filing portal, but the trial-court technology environment also includes multiple state and county systems; those systems have not been operationally audited.",
+      "constitutionalStructure": "Article V, §16 creates a clerk of the circuit court in each county, selected under Article VIII, §1, and assigns custody of circuit-court records and court duties. Article VIII, §1(d) provides county-officer election rules. Special laws and authorized duty divisions may alter particular county arrangements.",
+      "selectionAndSupervision": "The circuit-court clerk is selected as a county constitutional officer under Article VIII, §1. The office performs court duties alongside county functions. Duties and assignments are statutory and may vary under special law. The statewide sources reviewed do not establish one blanket judge-to-clerk administrative reporting line for every county.",
+      "recordDuties": "Florida Statutes §28.13 requires the clerk to maintain paper and electronic filings with care/security, store them with related case files, and apply a date/time filing stamp. Section 28.222 designates the clerk as custodian of court records, with an exception where another county office maintains official records.",
+      "correctionRoute": "Florida Rule of Civil Procedure 1.540(a) authorizes the court to correct clerical mistakes in judgments, decrees, or other parts of the record arising from oversight or omission. During appeal, timing and leave requirements apply. The rule does not give the clerk general authority to change the substance of a judicial decision.",
+      "technologyAndOperations": "The Florida Courts E-Filing Portal is a statewide transmission point for filings to courts and clerks. The Office of the State Courts Administrator describes multiple statewide and local/vendor systems; CCIS was developed by the Florida Association of Court Clerks. A central filing portal does not establish one statewide trial-court case-management database or prove consistent county operation.",
+      "limitations": "Portal documentation describes intended architecture, not county-level performance. County system integrations, log retention, access controls, outage alternatives, correction paths, and user outcomes remain to be audited. No statewide operational rating is verified.",
+      "sources": [
+        {
+          "id": "FL-ROLE-1",
+          "title": "Florida Constitution, Articles V, §16 and VIII, §1 (official)",
+          "url": "https://www.leg.state.fl.us/Statutes/index.cfm?Mode=Constitution&Submenu=3",
+          "supports": "Establishes the circuit-court clerk in each county, assigns circuit-court record duties, and provides selection under county-officer provisions."
+        },
+        {
+          "id": "FL-ROLE-2",
+          "title": "Florida Statutes §28.13 (2026), Papers and electronic filings",
+          "url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0028/Sections/0028.13.html",
+          "supports": "Requires care/security, case-file storage, and filing date/time stamp for each submission."
+        },
+        {
+          "id": "FL-ROLE-3",
+          "title": "Florida Statutes §28.222 (2026), Clerk to be county recorder / court-record custodian",
+          "url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0028/Sections/0028.222.html",
+          "supports": "Designates clerk as custodian of court records, with county-level official-records exception."
+        },
+        {
+          "id": "FL-ROLE-4",
+          "title": "Florida Rules of Civil Procedure, Rule 1.540(a) (November 12, 2026 edition)",
+          "url": "https://www-media.floridabar.org/uploads/2026/11/Civil-Procedure-Rules-11-12-26.pdf",
+          "supports": "Court authority to correct clerical mistakes in judgments and other parts of the record arising from oversight or omission."
+        },
+        {
+          "id": "FL-OPS-1",
+          "title": "Florida Courts, Trial Court Integrated Management Solution",
+          "url": "https://www.flcourts.gov/Services/court-services/Performance-Accountability/Trial-Court-Integrated-Management-Solution",
+          "supports": "Describes a combination of OSCA systems, county/association systems, CCIS, and statewide E-Filing Court Records Portal."
+        },
+        {
+          "id": "FL-OPS-2",
+          "title": "Florida Supreme Court, About the E-Filing Portal",
+          "url": "https://supremecourt.flcourts.gov/Practice-Procedures/About-E-Filing-Portal",
+          "supports": "Describes the statewide portal and links official filing procedure resources."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>National Court Records &amp; Decision Architecture | Kapukai</title>
+  <meta name="description" content="Map who creates and maintains court records, what technology can verify, what court staff administer, and what authorized human decision-makers must decide.">
+  <link rel="stylesheet" href="../decision-failures/atlas.css">
+  <link rel="stylesheet" href="audit.css">
+  <link rel="stylesheet" href="flourishing.css">
+  <link rel="stylesheet" href="constitutional-architecture.css">
+  <script defer src="../decision-failures/states.js"></script>
+  <script defer src="audit.js"></script>
+  <script defer src="logic-lab.js"></script>
+  <script defer src="flourishing.js"></script>
+  <script defer src="constitutional-architecture.js"></script>
+</head>
+<body>
+  <a class="skip" href="#audit-map">Skip to the audit map</a>
+  <header class="site-header wrap">
+    <a class="brand" href="https://kapukai.org/">KAPUKAI</a>
+    <nav aria-label="Main">
+      <a href="../decision-failures/">Documented cases</a>
+      <a href="#task-boundary">Task boundary</a>
+      <a href="#logic-model">Systems view</a>
+      <a href="#flourishing-model">Flourishing functions</a>
+      <a href="#constitutional-architecture">Constitutional architecture</a>
+      <a href="#cyber-lab">Cybersecurity lab</a>
+      <a href="#audit-map">Jurisdiction map</a>
+      <a href="../../case-entry/">Case-entry pilot</a>
+      <a href="#method">Method</a>
+      <a href="#sources">Pilot sources</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero audit-hero">
+      <div class="wrap">
+        <p class="eyebrow">National Court Records &amp; Decision Architecture / United States</p>
+        <h1>A record is not a finding.<br><span>Make every decision traceable.</span></h1>
+        <p class="lead">Map who creates and maintains court records, what technology can verify, what court staff administer, and what an authorized human must decide—state by state and source by source.</p>
+        <div class="audit-hero-links">
+          <a class="action" href="#audit-map">Explore the jurisdiction map <span aria-hidden="true">↓</span></a>
+          <a href="../../case-entry/">Open the Oklahoma case-entry pilot ↗</a>
+          <a href="#task-boundary">See the task boundary</a>
+          <a href="../decision-failures/">Open the documented-case atlas ↗</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="wrap audit-constitution" id="constitutional-architecture" aria-labelledby="constitutional-architecture-title">
+      <p class="eyebrow">SOURCE OF POWER / DELEGATION / INVERSION TEST</p>
+      <h2 id="constitutional-architecture-title">The people are the source. Government is the delegated instrument.</h2>
+      <p class="audit-constitution-lead">Read the left lane as direct source text. Read the right lane as a systems-engineering hypothesis about what happens when an institution’s representation of a person starts acting like the source of identity, authority, or fact. The visual is designed to make the difference testable.</p>
+      <div id="constitutional-architecture-visual" aria-live="polite"><p class="audit-caveat">Loading the constitutional architecture visual…</p></div>
+    </section>
+
+    <section class="wrap audit-architecture" id="task-boundary" aria-labelledby="architecture-title">
+      <p class="eyebrow">THE SYSTEM DESIGN QUESTION / FUNCTIONS MUST MATCH AUTHORITY</p>
+      <h2 id="architecture-title">Check the data. Preserve the claim. Decide the context.</h2>
+      <p class="audit-architecture-lead">A filing can establish that a claim was submitted. A successful file check does not establish that the claim is true. The audit follows provenance, authority, review, and correction across the full record lifecycle.</p>
+      <div class="audit-status-chain" aria-label="Three distinct record statuses">
+        <div><span>RECORD</span><strong>Claim submitted</strong></div>
+        <div><span>SYSTEM CHECK</span><strong>Specific file rule passed</strong></div>
+        <div><span>LEGAL FINDING</span><strong>Authorized decision under law</strong></div>
+      </div>
+      <div class="audit-role-grid">
+        <article>
+          <span class="audit-role-kicker">01 / COMPUTER</span>
+          <h3>Deterministic checks</h3>
+          <p>Validate file structure, required fields, signature integrity, hashes, timestamps, permissions, routing, and exact duplicates under published rules. Explain and log each result. Give people a correction path. A technically valid file is not a verified factual claim.</p>
+        </article>
+        <article>
+          <span class="audit-role-kicker">02 / CLERK &amp; RECORDS</span>
+          <h3>Record administration</h3>
+          <p>Receive, timestamp, docket, preserve, serve, disclose or seal, and correct records as the jurisdiction’s constitution, statutes, and court rules provide. Map who appoints or elects the clerk, who supervises the work, and who controls the technology and records.</p>
+        </article>
+        <article>
+          <span class="audit-role-kicker">03 / AUTHORIZED HUMAN</span>
+          <h3>Contextual legal judgment</h3>
+          <p>Assess contested facts, credibility, relevance, legal standards, urgency, rights, and remedies through the decision-maker authorized by law. The map identifies which decisions belong to a judge or another legally authorized official at each stage.</p>
+        </article>
+      </div>
+      <div class="audit-engineering-note">
+        <strong>Engineering belongs in the review loop.</strong>
+        <span>Engineers and technologists should test the data model, handoffs, permissions, cybersecurity, audit logs, exception paths, and correction mechanisms alongside judges, court administrators, legal experts, access advocates, and court users. Technical specialists verify system behavior; legal authority remains defined by law.</span>
+      </div>
+      <p class="audit-core-question audit-risk-hypothesis"><strong>Failure mode to test:</strong> the workflow collapses “file accepted,” “technical check passed,” and “fact found”—or lets a deterministic rule trigger a context-sensitive, rights-affecting decision without accountable human review.</p>
+      <p class="audit-core-question"><strong>Map test:</strong> Can a person trace who submitted what and when, which checks ran, what remains unverified, who had authority to act, and how the record or decision can be challenged and corrected?</p>
+      <p class="audit-method-note">This is a testable system-design hypothesis, not a finding that every state uses the same clerk structure or that every court has the same defect.</p>
+    </section>
+
+
+    <section class="wrap audit-flourishing" id="flourishing-model" aria-labelledby="flourishing-title">
+      <p class="eyebrow">HUMAN FLOURISHING / CROSS-LIFE FUNCTION REGISTER</p>
+      <h2 id="flourishing-title">Test whether the system preserves the functions people need to flourish.</h2>
+      <p class="audit-flourishing-lead">The national map now has a way to compare law, social norms, technology, funding, and lived outcomes without treating them as the same kind of evidence. This register is modular across a person, infant, child, older child, partner, family, caregiver, community, service relationship, or public institution.</p>
+      <div class="flourishing-principle"><strong>High-signal verification rule:</strong> an allegation may be received, and a time-limited protective step may sometimes be lawful, but the system must label the assertion, evidence status, authority, scope, expiry, and review path. It must not silently convert “received” into “fact found.”</div>
+      <div class="flourishing-gates" aria-label="Priority logic">
+        <article><h3>01–04 / Foundation gates</h3><p>Safety, basic conditions, personhood, and safe attachment. A later administrative objective cannot excuse failure at a foundation gate.</p></article>
+        <article><h3>05–10 / Rights and agency</h3><p>Truth-preserving records, fair process, agency, opportunity, coordination, privacy, and dignity. These are tested together because each can constrain the others.</p></article>
+        <article><h3>11–12 / Growth and repair</h3><p>Development, belonging, correction, restoration, learning, and future continuity. Repair is a core function, not an optional afterthought.</p></article>
+      </div>
+      <div id="flourishing-relationship-scopes"></div>
+      <div class="flourishing-subhead"><p class="eyebrow">PRIORITY-ORDERED FUNCTIONS</p><h3>What must be tested first?</h3><p>Priority follows dependency and potential irreversibility. It does not rank one person’s worth above another’s. Each card gives the minimum test plus the law, technology, funding, and evidence questions needed for a real jurisdictional audit.</p></div>
+      <div id="flourishing-function-grid" class="flourishing-function-grid" aria-live="polite"><p class="audit-caveat">Loading the flourishing-function register…</p></div>
+      <div id="flourishing-technology-layers"></div>
+      <div id="flourishing-funding-lens"></div>
+      <div id="flourishing-audit-states"></div>
+      <div id="flourishing-evidence-protocol"></div>
+    </section>
+
+    <section class="wrap audit-systems" id="logic-model" aria-labelledby="logic-model-title">
+      <p class="eyebrow">SYSTEMS ENGINEERING VIEW / EVENT-DRIVEN, ASYNCHRONOUS</p>
+      <h2 id="logic-model-title">Track the case and the evidence on separate lanes.</h2>
+      <p class="audit-systems-lead">Court events arrive over time from different people and systems. Model the workflow as an asynchronous state machine: every submission, service event, response, correction, and decision is timestamped, attributed, and traceable. The case’s procedural state and each claim’s evidence status move in parallel; neither lane silently proves the other.</p>
+      <p class="audit-state-equation" aria-label="Different events and statuses must remain distinct">RECEIVED <span>≠</span> INTEGRITY-CHECKED <span>≠</span> EVIDENCE-ASSESSED <span>≠</span> FACT-FOUND</p>
+      <div class="audit-parallel-lanes">
+        <article class="audit-state-lane">
+          <span class="audit-lane-kicker">LANE 1 / PROCEDURE</span>
+          <h3>What happened in the case?</h3>
+          <ol>
+            <li><strong>Submitted</strong><span>Actor, time, court, case, rule version</span></li>
+            <li><strong>Received / docketed</strong><span>Record the event and its source</span></li>
+            <li><strong>Notice / response</strong><span>Service and responses arrive as separate events</span></li>
+            <li><strong>Hearing / order / review</strong><span>Authorized action, reasons, and review path</span></li>
+          </ol>
+        </article>
+        <article class="audit-state-lane">
+          <span class="audit-lane-kicker">LANE 2 / CLAIM + EVIDENCE</span>
+          <h3>What supports each proposition?</h3>
+          <ol>
+            <li><strong>Assertion recorded</strong><span>Label it as a claim, with source and author</span></li>
+            <li><strong>Items linked</strong><span>Connect supporting and contrary material to specific claims</span></li>
+            <li><strong>Status tracked</strong><span>Integrity, provenance, challenge, and consideration stay distinct</span></li>
+            <li><strong>Finding entered</strong><span>Authorized decision-maker records what was found and why</span></li>
+          </ol>
+        </article>
+      </div>
+      <div class="audit-logic-grid">
+        <article>
+          <h3>Computers can answer bounded questions</h3>
+          <ul>
+            <li>Was a file attached to this submission?</li>
+            <li>Does its hash or digital signature match a defined reference?</li>
+            <li>Are required fields present, and which rule version ran?</li>
+            <li>Were actor, event time, case identifier, and system result logged?</li>
+          </ul>
+          <p>Return a defined result such as <strong>PASS, FAIL, UNKNOWN, or EXCEPTION</strong>. A failure should identify the check and a correction path; it is not a finding about truth or the merits.</p>
+        </article>
+        <article>
+          <h3>People must decide contextual questions</h3>
+          <ul>
+            <li>Does an item support a particular factual proposition?</li>
+            <li>Is it admissible, reliable, relevant, or outweighed?</li>
+            <li>How do competing accounts, legal standards, urgency, and rights apply?</li>
+            <li>What finding or remedy is legally authorized, and what reasons support it?</li>
+          </ul>
+          <p>These judgments depend on evidence, procedure, context, and the law. A technical check can inform them; it cannot make them.</p>
+        </article>
+      </div>
+      <p class="audit-narrative-rule"><strong>High-signal public label:</strong> “Allegation filed; evidence status and court finding shown separately.” A narrative becomes traceable when each material proposition links to its supporting and contrary sources, provenance, challenge status, and any authorized finding. “No exhibit attached to this packet” means exactly that; it does not prove no evidence exists elsewhere.</p>
+      <p class="audit-async-note">This is not one rigid linear pipeline. Parties may submit at different times; service, responses, emergencies, amendments, and appeals can branch or repeat. Preserve the event sequence, causal links, actor and authority, applicable rule version, and every status change. Access to file remains a legal question; a machine check is not a truth gate.</p>
+    </section>
+
+    <section class="wrap audit-lab" id="cyber-lab" aria-labelledby="lab-title">
+      <p class="eyebrow">CYBERSECURITY MODEL / TIME, EVENTS, AND HUMAN CONTEXT</p>
+      <h2 id="lab-title">Watch an event move through the system.</h2>
+      <p class="audit-lab-lead">Choose a hypothetical threat and step through its event trace. The demo separates source time, system receipt time, the rule-defined legal clock, and human-reported time. These are design scenarios—not reports that any named court experienced an attack.</p>
+
+      <div class="lab-controls">
+        <label for="lab-scenario">Illustrative scenario
+          <select id="lab-scenario">
+            <option value="baseline">Baseline: trace a normal submission</option>
+            <option value="clock-replay">Clock skew and replayed event</option>
+            <option value="payload-tamper">Content changed in a handoff</option>
+            <option value="role-mismatch">Valid login, wrong authority</option>
+            <option value="availability">Portal outage and missing receipt</option>
+          </select>
+        </label>
+        <label for="lab-speed">Playback rate
+          <select id="lab-speed">
+            <option value="2000">0.5 event / second</option>
+            <option value="1000" selected>1 event / second</option>
+            <option value="500">2 events / second</option>
+          </select>
+        </label>
+      </div>
+
+      <ol class="lab-pipeline" aria-label="System actors and trust boundaries">
+        <li data-stage="person"><strong>PERSON</strong><span>Claim and lived context</span></li>
+        <li data-stage="device"><strong>DEVICE</strong><span>Source clock and payload</span></li>
+        <li data-stage="intake"><strong>INTAKE</strong><span>Identity and bounded checks</span></li>
+        <li data-stage="record"><strong>RECORDS</strong><span>Docket, links, protected log</span></li>
+        <li data-stage="decision"><strong>AUTHORIZED HUMAN</strong><span>Context, law, reasons</span></li>
+      </ol>
+
+      <div class="lab-scenario-card" aria-live="polite">
+        <p class="lab-threat-label"><strong>Threat model:</strong> <span id="lab-threat-name">Baseline / no injected threat</span></p>
+        <p id="lab-threat-summary">A submission is received and its technical checks are logged. The claim remains an assertion until an authorized decision-maker acts.</p>
+        <p><strong>Control question:</strong> <span id="lab-control-question">Can each actor trace the same event through source, receipt, record, and later review?</span></p>
+      </div>
+
+      <div class="lab-clock-grid" aria-label="Four distinct clocks">
+        <article class="lab-clock" data-clock="source">
+          <span>01 / SOURCE CLOCK</span><strong id="clock-source">Not supplied</strong>
+          <p>Time asserted by a person, device, or sending system. Preserve it, but do not silently treat it as trusted.</p>
+        </article>
+        <article class="lab-clock" data-clock="receipt">
+          <span>02 / RECEIPT CLOCK</span><strong id="clock-receipt">Awaiting event</strong>
+          <p>Receiving-system time, time zone or UTC offset, clock health, and sequence number.</p>
+        </article>
+        <article class="lab-clock" data-clock="rule">
+          <span>03 / RULE CLOCK</span><strong id="clock-rule">Not computed</strong>
+          <p>Requires the operative jurisdiction, trigger event, rule version, calendar, and time zone.</p>
+        </article>
+        <article class="lab-clock lab-human-clock" data-clock="human">
+          <span>04 / HUMAN LIVED TIME</span><strong id="clock-human">Not recorded</strong>
+          <p>Reported delay, access barrier, accommodation, or other context. The software does not infer or score it.</p>
+        </article>
+      </div>
+
+      <div class="lab-human-inputs">
+        <div>
+          <label for="human-context">Human context in this simulation</label>
+          <select id="human-context">
+            <option value="not-recorded">Not recorded / unknown</option>
+            <option value="access-barrier">Person reports an access interruption</option>
+            <option value="accommodation">Person reports an accommodation request</option>
+            <option value="after-hours">Person reports an after-hours attempt</option>
+          </select>
+        </div>
+        <div>
+          <label for="human-minutes">Reported elapsed time: <output id="human-minutes-value" for="human-minutes">0 minutes</output></label>
+          <input id="human-minutes" type="range" min="0" max="120" step="5" value="0">
+        </div>
+        <p id="human-context-note">Unknown means not recorded here. It does not mean no barrier occurred. These controls change only this local illustration; nothing is submitted or stored.</p>
+      </div>
+
+      <div class="lab-playback-bar">
+        <button id="lab-step" type="button">Step one event</button>
+        <button id="lab-play" type="button" aria-pressed="false">Play trace</button>
+        <button id="lab-reset" type="button" class="lab-secondary-button">Reset trace</button>
+        <span id="lab-progress" role="status">Event 0 of 4 · paused</span>
+      </div>
+
+      <div class="lab-trace-grid">
+        <section class="lab-event-panel" aria-labelledby="event-trace-title">
+          <h3 id="event-trace-title">Event trace</h3>
+          <p class="lab-small-note">Synthetic UTC timestamps. Playback speed is only for viewing; it is not a real-world event frequency or legal deadline.</p>
+          <ol id="lab-event-list" class="lab-event-list" aria-live="polite" aria-relevant="additions text"></ol>
+        </section>
+        <aside class="lab-state-panel" aria-labelledby="current-state-title">
+          <p class="eyebrow">CURRENT STATE</p>
+          <h3 id="current-state-title">Awaiting first event</h3>
+          <p id="lab-current-state">The trace has not started.</p>
+          <div class="lab-state-seal"><span>CLAIM STATUS</span><strong id="lab-claim-status">NOT YET RECORDED</strong></div>
+          <div class="lab-state-seal"><span>FACTUAL FINDING</span><strong id="lab-finding-status">NONE SIMULATED</strong></div>
+        </aside>
+      </div>
+
+      <section class="lab-kmap-panel" aria-labelledby="kmap-title">
+        <p class="eyebrow">BOUNDED BOOLEAN EXAMPLE / K-MAP</p>
+        <h3 id="kmap-title">Map one technical check—not the truth of a claim.</h3>
+        <p>This Karnaugh map only models whether a submitted payload triggers a technical exception. Set each check to <strong>pass</strong>, <strong>fail</strong>, or <strong>unknown</strong>. Unknown is not false. If no payload is attached, the check is “not run,” not “no evidence exists.”</p>
+        <div class="kmap-inputs">
+          <label for="kmap-payload">P / payload attached here
+            <select id="kmap-payload"><option value="yes">Yes</option><option value="no">No</option></select>
+          </label>
+          <label for="kmap-hash">H / hash matches prior upload
+            <select id="kmap-hash"><option value="pass">Pass</option><option value="fail">Fail</option><option value="unknown">Unknown</option></select>
+          </label>
+          <label for="kmap-metadata">M / required metadata complete
+            <select id="kmap-metadata"><option value="pass">Pass</option><option value="fail">Fail</option><option value="unknown">Unknown</option></select>
+          </label>
+          <label for="kmap-sequence">Q / event ID is unique
+            <select id="kmap-sequence"><option value="pass">Pass</option><option value="fail">Fail</option><option value="unknown">Unknown</option></select>
+          </label>
+        </div>
+        <div id="kmap-result" class="kmap-result" role="status" aria-live="polite">NOT RUN — no payload attached to this submission.</div>
+        <div class="kmap-table-wrap">
+          <table class="kmap-table" aria-describedby="kmap-explainer">
+            <caption>Technical exception T for a present payload. Columns are M Q in Gray-code order.</caption>
+            <thead><tr><th scope="col">H \ M Q</th><th scope="col" data-kmap-column="00">00</th><th scope="col" data-kmap-column="01">01</th><th scope="col" data-kmap-column="11">11</th><th scope="col" data-kmap-column="10">10</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" data-kmap-row="0">H = 0 / fail</th><td data-kmap-cell="0-00">1</td><td data-kmap-cell="0-01">1</td><td data-kmap-cell="0-11">1</td><td data-kmap-cell="0-10">1</td></tr>
+              <tr><th scope="row" data-kmap-row="1">H = 1 / pass</th><td data-kmap-cell="1-00">1</td><td data-kmap-cell="1-01">1</td><td data-kmap-cell="1-11">0</td><td data-kmap-cell="1-10">1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="kmap-equation"><strong>For P = 1 and all checks known:</strong> T = ¬H ∨ ¬M ∨ ¬Q</p>
+        <p id="kmap-explainer" class="lab-small-note">T=1 means a defined technical exception is flagged; T=0 means these three checks passed. It says nothing about truth, admissibility, credibility, or whether relevant evidence exists elsewhere. Identity/authority checks and clock trust need their own predicates.</p>
+      </section>
+
+      <div class="lab-stack-note">
+        <strong>Best implementation stack for this site:</strong> the current page uses lightweight browser JavaScript, HTML/CSS, and native SVG/DOM—no visualization framework is needed for this focused demo. For a growing, data-backed state-machine tool, use <strong>TypeScript</strong> to type-check event names, statuses, and transitions before runtime; add <strong>D3</strong> only if time-series and map interactions become dense. Keep K-map truth tables generated from explicit, reviewable logic. Use Python for offline source normalization and data-quality checks, not the public interface.
+        <ul class="lab-sources">
+          <li><a href="https://www.typescriptlang.org/docs/handbook/intro.html" target="_blank" rel="noopener">TypeScript Handbook ↗</a></li>
+          <li><a href="https://d3js.org/api" target="_blank" rel="noopener">D3 API and timers ↗</a></li>
+          <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP threat modeling and trust boundaries ↗</a></li>
+          <li><a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" target="_blank" rel="noopener">NIST SP 800-53: audit timestamps and protection ↗</a></li>
+        </ul>
+      </div>
+      <p class="lab-disclaimer">Every injected scenario is a design exercise, not an allegation or operational finding about a court, state, clerk, vendor, or person. A rule clock must be sourced for the specific jurisdiction and case type before any deadline can be calculated.</p>
+    </section>
+
+    <section class="wrap audit-history" aria-labelledby="history-title">
+      <p class="eyebrow">CONSTITUTIONAL BASELINE / A NECESSARY CORRECTION</p>
+      <h2 id="history-title">The founding-era story is not one uniform rule.</h2>
+      <p>The U.S. Constitution vests federal judicial power in courts; Article III does not prescribe a nationwide clerk–judge structure. The Judiciary Act of 1789 authorized federal judges to appoint clerks, assigned them recordkeeping duties, and clerks also screened filings for compliance with law and court rules. That is a distinct administrative role within the judiciary—not proof that every state constitution adopted one identical separation.</p>
+      <p>State structures differ. Florida’s constitution creates a circuit-court clerk in each county and ties selection to county-officer provisions. New York assigns county clerks to serve as Supreme Court clerks, with a special appointment/removal rule for New York City. Oklahoma’s constitution creates a district-court clerk office subject to legislative change. California’s constitution instead directs the Legislature to provide officers and employees for superior courts; statutes and court rules define clerk and executive functions. The map records appointment, supervision, record duties, correction authority, and actual systems as separate evidence fields.</p>
+      <ul class="audit-history-sources">
+        <li><a href="https://constitution.congress.gov/static/files/GPO-CONAN-2024-SUPP.pdf" target="_blank" rel="noopener">U.S. Constitution Annotated, Article III ↗</a></li>
+        <li><a href="https://www.fjc.gov/history/administration/court-officers-and-staff-clerks-court" target="_blank" rel="noopener">Federal Judicial Center, federal court clerks and the Judiciary Act of 1789 ↗</a></li>
+        <li><a href="https://www.leg.state.fl.us/Statutes/index.cfm?Mode=Constitution&amp;Submenu=3" target="_blank" rel="noopener">Florida Constitution, Articles V and VIII ↗</a></li>
+        <li><a href="https://www.nysenate.gov/sites/default/files/admin/structure/media/manage/filefile/a/2026-07/ny-state-constitution-asc-jan-1-2026-final.pdf" target="_blank" rel="noopener">New York Constitution, Article XIII, §13 ↗</a></li>
+        <li><a href="https://oksenate.gov/sites/default/files/2022-05/oc17.pdf" target="_blank" rel="noopener">Oklahoma Constitution, Article XVII, §2 ↗</a></li>
+        <li><a href="https://clerk.assembly.ca.gov/sites/clerk.assembly.ca.gov/files/2023-24_Constitution_Final_wCover.pdf" target="_blank" rel="noopener">California Constitution, Article VI, §4 ↗</a></li>
+      </ul>
+    </section>
+
+    <section class="wrap audit-status" aria-labelledby="status-title">
+      <p class="eyebrow">Research status / 17 November 2026</p>
+      <h2 id="status-title">The map tests the structure; it does not start with a verdict.</h2>
+      <p><strong>No statewide operational failure or safeguard rating has been verified.</strong> Four states now have first-pass procedure sources and four have initial authority profiles; three profiles include direct constitutional clerk-office language. California’s constitution instead directs the Legislature to provide officers and employees for superior courts. The 51-jurisdiction constitutional and operational comparison is incomplete. “Not yet assessed” means research is incomplete; it does not mean a system passed or failed.</p>
+      <div class="audit-metrics" aria-label="Current project coverage">
+        <div><span class="audit-metric">51</span><span class="audit-metric-label">state and D.C. jurisdictions in scope</span></div>
+        <div><span class="audit-metric">4</span><span class="audit-metric-label">first-pass authority profiles</span></div>
+        <div><span class="audit-metric">4</span><span class="audit-metric-label">first-pass procedure pilots</span></div>
+        <div><span class="audit-metric">0</span><span class="audit-metric-label">verified statewide operational ratings</span></div>
+      </div>
+      <p class="audit-caveat">The separate <a href="../decision-failures/">Decision Failures Atlas</a> is a curated map of documented cases. A case record does not establish a statewide pattern. This map keeps constitutional structure, procedure, operations, and case findings in separate evidence layers.</p>
+    </section>
+
+    <section class="wrap audit-map-section" id="audit-map" aria-labelledby="map-title">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">01 / Jurisdiction status</p>
+          <h2 id="map-title">One map.<br>Two kinds of status.</h2>
+        </div>
+      <p class="coverage" id="map-summary">51 jurisdictions · Federal baseline separate · Topic-specific review</p>
+      </div>
+
+      <div class="audit-controls">
+        <label for="topic">Audit dimension
+          <select id="topic"></select>
+        </label>
+        <label for="map-mode">Map view
+          <select id="map-mode">
+            <option value="assessment">Assessment result</option>
+            <option value="research">Research progress</option>
+          </select>
+        </label>
+        <label for="jurisdiction-select">Choose a state or D.C.
+          <select id="jurisdiction-select"></select>
+        </label>
+        <button id="federal-button" type="button">Federal procedure</button>
+      </div>
+
+      <div class="audit-map-grid">
+        <div class="audit-map-card">
+          <div class="audit-map-head">
+            <h3 id="map-mode-title">Assessment result</h3>
+            <span id="map-mode-caption">E — Not yet assessed</span>
+          </div>
+          <svg id="us-map" class="audit-map-svg" viewBox="0 0 975 610" role="group" aria-labelledby="map-svg-title map-svg-desc">
+            <title id="map-svg-title">Map of the fifty states and the District of Columbia</title>
+            <desc id="map-svg-desc">Map of the fifty states and the District of Columbia. Every state-topic rating is E, not yet assessed. Research-progress view highlights jurisdictions with first-pass official sources for the selected topic.</desc>
+            <g id="state-shapes"></g>
+            <g id="state-labels" aria-hidden="true"></g>
+          </svg>
+          <p class="audit-map-credit">Generalized national map from the U.S. Census Bureau 2025 state cartographic boundary file. Alaska and Hawaii are inset; this map is not for precise boundary or location determinations.</p>
+          <p class="audit-map-credit">Assessment fills are reserved for system-level findings. Individual cases and local patterns do not color an entire state.</p>
+          <div id="map-legend" class="audit-legend" aria-live="polite"></div>
+        </div>
+
+        <aside class="audit-detail-card" id="jurisdiction-detail" aria-live="polite" aria-labelledby="detail-title">
+          <p class="eyebrow">Selected jurisdiction</p>
+          <h3 id="detail-title">Oklahoma</h3>
+          <div id="detail-content"></div>
+        </aside>
+      </div>
+
+      <section class="audit-federal-card" id="federal-detail" aria-labelledby="federal-title">
+        <div>
+          <p class="eyebrow">Separate federal baseline</p>
+          <h3 id="federal-title">Federal filing is not a state rule</h3>
+          <p>Federal Rule of Civil Procedure 5(d)(4) bars refusing a paper solely because it is not in the form prescribed by the rules or local practice. It governs federal civil filing; it does not decide admissibility, factual truth, or state-court protective-order procedure.</p>
+        </div>
+        <a href="https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf" target="_blank" rel="noopener">Read the U.S. Courts rule text ↗</a>
+      </section>
+    </section>
+
+    <section class="wrap audit-method" id="method" aria-labelledby="method-title">
+      <p class="eyebrow">02 / How a map label earns its place</p>
+      <h2 id="method-title">A finding carries its scope.</h2>
+      <p>Each entry must identify its source level—constitution, statute, court rule, local procedure, system record, or observed operation—and name the jurisdiction, court type, procedure, time period, and evidence. Ratings describe what the sources establish within that scope; they are not a general grade for a state, court, judge, or party.</p>
+      <div class="audit-code-grid" aria-label="Assessment codes">
+        <article><strong>A</strong><h3>Documented failure</h3><p>Authoritative evidence establishes a specific failure within the stated scope.</p></article>
+        <article><strong>B</strong><h3>Safeguard documented in operation</h3><p>Evidence shows a specific safeguard functioning within the stated scope.</p></article>
+        <article><strong>C</strong><h3>Mixed findings</h3><p>Documented safeguards and documented failures coexist within the scope.</p></article>
+        <article><strong>D</strong><h3>Insufficient evidence</h3><p>The defined research is complete, but available evidence cannot support a reliable determination.</p></article>
+        <article><strong>E</strong><h3>Not yet assessed</h3><p>Research for the defined jurisdiction and procedure is not complete.</p></article>
+      </div>
+      <div class="audit-scope-note">
+        <h3>Severity and evidence scope stay separate</h3>
+        <p>A rating alone never proves that a failure is systemic. The public label must also say whether the evidence supports a <strong>system-level finding</strong>, a <strong>recurring pattern</strong>, a <strong>single documented case</strong>, or only a <strong>rule or official instruction</strong>. Only an assessed system-level finding receives the label “Systemic.” A single case stays case-level.</p>
+      </div>
+      <ol class="audit-flow" aria-label="Record and decision lifecycle">
+        <li><strong>SUBMITTED</strong><span>Claim, source, author, time</span></li>
+        <li><strong>CHECKED</strong><span>Integrity and rule-based fields</span></li>
+        <li><strong>RECORDED</strong><span>Clerk or authorized intake</span></li>
+        <li><strong>CHALLENGED</strong><span>Notice and evidence access</span></li>
+        <li><strong>DECIDED</strong><span>Authorized human applies law</span></li>
+        <li><strong>REVIEWED</strong><span>Service, correction, appeal</span></li>
+      </ol>
+      <p class="audit-method-note">This lifecycle is an analytical aid, not a claim that every procedure follows the same sequence. Filing access remains distinct from factual verification. Constitutional text, rules, actual system behavior, individual cases, recurring patterns, and systemic findings are recorded separately.</p>
+    </section>
+
+    <section class="wrap audit-sources" id="sources" aria-labelledby="sources-title">
+      <p class="eyebrow">03 / Pilot source notes</p>
+      <h2 id="sources-title">What the first-pass sources show</h2>
+      <p class="audit-source-limit">These are preliminary constitutional, statutory, and official-guidance notes. They do not establish how a clerk’s office, data system, or court operates in practice.</p>
+      <div id="pilot-source-cards" class="audit-source-grid"></div>
+    </section>
+  </main>
+
+  <footer class="wrap audit-footer">
+    <p>Kapukai Governance Lab · National Court Records &amp; Decision Architecture · Initial research baseline · 17 November 2026</p>
+    <p><a href="../decision-failures/">Return to the documented-case atlas</a></p>
+  </footer>
+</body>
+</html>

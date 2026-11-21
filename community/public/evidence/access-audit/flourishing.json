@@ -1,0 +1,413 @@
+{
+  "version": "0.1",
+  "title": "Flourishing Function Register",
+  "framing": "Kapukai analytical proposal for testing whether law, norms, technology, and funding preserve human flourishing across relationships and life stages. It is not a legal standard or a claim that every institution follows the same design.",
+  "priorityRule": "Priority is based on dependency and potential irreversibility, not on the moral worth of one person or relationship. Foundation functions are gating conditions; later functions must not be used to excuse a failure at an earlier gate.",
+  "highSignalLabel": "ASSERTION RECEIVED · EVIDENCE STATUS: UNKNOWN · FINDING: NONE",
+  "provisionalLabel": "PROVISIONAL SAFETY ACTION · BASIS RECORDED · SCOPE AND EXPIRY SHOWN · REVIEW DUE",
+  "auditStates": [
+    {
+      "id": "preserved",
+      "label": "Preserved",
+      "meaning": "Evidence shows the function was supported within the defined scope."
+    },
+    {
+      "id": "constrained",
+      "label": "Constrained",
+      "meaning": "The function was limited; the scope, reason, duration, and review path are documented."
+    },
+    {
+      "id": "harm-signal",
+      "label": "Harm signal",
+      "meaning": "Evidence indicates a material risk or adverse effect, without claiming a system-wide finding."
+    },
+    {
+      "id": "unknown",
+      "label": "Unknown",
+      "meaning": "The required evidence is not available or not yet assessed."
+    },
+    {
+      "id": "not-in-scope",
+      "label": "Not in scope",
+      "meaning": "The function is not part of the defined decision or relationship."
+    }
+  ],
+  "relationshipScopes": [
+    {
+      "id": "self",
+      "label": "Person ↔ self",
+      "purpose": "Body, identity, agency, privacy, meaning, and capacity to make or refuse choices.",
+      "test": "Can the person understand, participate, consent where required, correct the record, and obtain help without surrendering personhood?"
+    },
+    {
+      "id": "infant-child",
+      "label": "Infant / child ↔ caregiver",
+      "purpose": "Safety, attachment, developmental continuity, voice, and reliable care.",
+      "test": "Does the design protect the child while preserving safe relationships and giving age-appropriate voice and review?"
+    },
+    {
+      "id": "adolescent",
+      "label": "Older child / adolescent",
+      "purpose": "Increasing autonomy, identity formation, education, safety, and trusted support.",
+      "test": "Does decision authority expand with capacity while keeping protection, privacy, and a route to challenge?"
+    },
+    {
+      "id": "intimate",
+      "label": "Partners / intimate relationships",
+      "purpose": "Consent, bodily safety, reciprocity, privacy, and freedom from coercive control.",
+      "test": "Are risk signals evaluated separately for each person, without treating one unverified account as a permanent finding?"
+    },
+    {
+      "id": "kinship",
+      "label": "Family / kinship group",
+      "purpose": "Care continuity, belonging, conflict repair, and protection from collective punishment.",
+      "test": "Does the system preserve safe care and distinguish individual conduct from family membership or association?"
+    },
+    {
+      "id": "dependent",
+      "label": "Older adult / dependent person ↔ caregiver",
+      "purpose": "Dignity, supported decision-making, health, safety, and protection from neglect or exploitation.",
+      "test": "Are capacity and support assessed without turning dependence into a loss of rights?"
+    },
+    {
+      "id": "community",
+      "label": "Peers / community / cultural group",
+      "purpose": "Belonging, inclusion, mutual aid, cultural continuity, and collective voice.",
+      "test": "Can the group participate and see the rules, resources, and reasons that shape its conditions?"
+    },
+    {
+      "id": "service",
+      "label": "Professional / service relationship",
+      "purpose": "Role clarity, confidentiality, competence, fair access, and accountable handoffs.",
+      "test": "Are duties, authority, conflicts, data uses, and escalation paths visible to the person receiving service?"
+    },
+    {
+      "id": "public",
+      "label": "Institution ↔ public",
+      "purpose": "Non-arbitrary administration, reasons, transparency, equal treatment, and remedy.",
+      "test": "Can a resident trace the source, authority, data, decision, funding, and correction route that affected them?"
+    }
+  ],
+  "technologyLayers": [
+    {
+      "name": "Identity and eligibility gates",
+      "examples": "Identity proofing, benefits portals, DMV, eligibility engines, account recovery",
+      "behavior": "They decide which person or household is recognized and which services become reachable.",
+      "test": "Is identity provenance visible, correction possible, and uncertainty preserved rather than collapsed into denial?"
+    },
+    {
+      "name": "Intake and record systems",
+      "examples": "Court e-filing, case management, EHR, child-welfare and education records",
+      "behavior": "They decide what becomes a durable institutional object and what can be found later.",
+      "test": "Are source, author, time, version, attachments, access, and corrections preserved?"
+    },
+    {
+      "name": "Notification and scheduling",
+      "examples": "Service notices, hearing calendars, appointment systems, SMS/email portals",
+      "behavior": "They shape whether a person can know, attend, respond, and preserve a relationship.",
+      "test": "Is delivery distinct from attempted delivery, and is access context recorded without being inferred away?"
+    },
+    {
+      "name": "Decision support and risk flags",
+      "examples": "Scoring, triage queues, duplicate detection, fraud flags, recommendation tools",
+      "behavior": "They allocate attention and can make an unreviewed suspicion look official.",
+      "test": "Is the output advisory, explainable, contestable, time-limited, and separated from a factual finding?"
+    },
+    {
+      "name": "Funding, payment, and procurement systems",
+      "examples": "Appropriations, grants, contracts, reimbursements, vendor dashboards",
+      "behavior": "They reward what is counted, paid, reported, and closed.",
+      "test": "Does the metric track lived outcomes and correction capacity, or only throughput and administrative closure?"
+    },
+    {
+      "name": "Data exchange and analytics",
+      "examples": "APIs, shared identifiers, data warehouses, dashboards, data brokers",
+      "behavior": "They carry context across institutions and can amplify an error at scale.",
+      "test": "Is lineage, purpose, permission, retention, and cross-system reconciliation visible?"
+    },
+    {
+      "name": "Security, audit, and correction layer",
+      "examples": "Identity and access management, immutable logs, incident response, appeals and ticketing",
+      "behavior": "They determine whether a person can prove what happened and recover from an error.",
+      "test": "Are logs protected, accessible to authorized reviewers, and connected to a real remedy?"
+    }
+  ],
+  "functions": [
+    {
+      "id": "F01",
+      "priority": "01",
+      "tier": "Foundation gate",
+      "name": "Stay alive and physically safe",
+      "purpose": "Preserve life, bodily integrity, and freedom from preventable violence, coercion, and dangerous deprivation.",
+      "minimumTest": "Before an irreversible or rights-affecting action, did the system identify the risk basis, choose a proportionate protective response, record the authority, set a scope and expiry, and schedule review?",
+      "relationshipTest": "Does protection address the specific person and risk without treating an entire family, group, or relationship as dangerous by default?",
+      "lawLens": "Map emergency powers, criminal and civil protection, health and safety, child protection, elder protection, thresholds, duration, notice, review, and remedy.",
+      "technologyLens": "Dispatch, identity and risk flags, EHR, child-welfare systems, access control, alerts, and incident logging.",
+      "fundingLens": "Are prevention, response, staffing, review, and recovery funded—or only enforcement and case closure?",
+      "evidence": "Time-stamped source, risk facts, actor, legal authority, action, duration, notice, review result, and outcome.",
+      "failureModes": [
+        "Unverified risk treated as a final fact",
+        "Protective action with no expiry or review",
+        "Throughput rewarded over actual safety"
+      ]
+    },
+    {
+      "id": "F02",
+      "priority": "02",
+      "tier": "Foundation gate",
+      "name": "Meet basic conditions for agency",
+      "purpose": "Maintain food, water, shelter, health care, medication, rest, mobility, communication, and reasonable accessibility.",
+      "minimumTest": "Can the person obtain the essentials needed to understand, respond, remain safe, and participate in the process?",
+      "relationshipTest": "Are care burdens and resource barriers visible across households, caregivers, children, elders, and people with disabilities?",
+      "lawLens": "Map benefits, housing, health, disability, education, labor, public-health, and accommodation duties, including eligibility and appeal rules.",
+      "technologyLens": "Eligibility engines, portals, payment cards, scheduling, EHR and claims systems, identity matching, and accessibility layers.",
+      "fundingLens": "Does funding reach prevention and direct support, or primarily administration, enforcement, and vendor volume?",
+      "evidence": "Eligibility inputs, notices, delivery and outage records, accommodation requests, resource availability, and appeal outcomes.",
+      "failureModes": [
+        "Administrative delay becomes deprivation",
+        "Digital-only access without an equivalent path",
+        "A missing field is treated as ineligibility"
+      ]
+    },
+    {
+      "id": "F03",
+      "priority": "03",
+      "tier": "Foundation gate",
+      "name": "Be recognized as a person with a voice",
+      "purpose": "Preserve accurate identity, legal status, capacity, consent, language, disability access, and the ability to speak for oneself or through a chosen supporter.",
+      "minimumTest": "Can the person see what identity or status the system used, correct errors, communicate, and understand who may act for them?",
+      "relationshipTest": "Does representation support the person instead of silently replacing their voice or turning association into authority?",
+      "lawLens": "Map due process, legal identity, consent, capacity, guardianship, language access, disability accommodation, and representation rules.",
+      "technologyLens": "Identity proofing, account recovery, biometric or demographic matching, legal-status databases, interpreters, and portal permissions.",
+      "fundingLens": "Are translation, accessibility, advocacy, and correction staffed and paid as core functions?",
+      "evidence": "Identity provenance, consent or appointment record, capacity assessment, notices, access logs, corrections, and representative authority.",
+      "failureModes": [
+        "Identity match mistaken for identity truth",
+        "Representative access without visible scope",
+        "Capacity inferred from disagreement or disability"
+      ]
+    },
+    {
+      "id": "F04",
+      "priority": "04",
+      "tier": "Foundation gate",
+      "name": "Maintain safe attachment and care continuity",
+      "purpose": "Preserve safe relationships, caregiving continuity, attachment, family connection, and stable support across life stages.",
+      "minimumTest": "When a relationship is restricted, is the safety basis specific, evidence-linked, proportionate, time-limited, and reviewable, with safe alternatives considered?",
+      "relationshipTest": "Does the system distinguish a child’s safety from a parent’s status, a partner’s allegation from a finding, and family membership from individual conduct?",
+      "lawLens": "Map custody, guardianship, child welfare, elder care, protection orders, visitation, placement, family preservation, and review duties.",
+      "technologyLens": "Child-welfare records, custody and visitation calendars, protection-order systems, placement databases, contact restrictions, and messaging systems.",
+      "fundingLens": "Are family preservation, kinship care, reunification, visitation support, and independent review funded alongside investigations and placements?",
+      "evidence": "Relationship history, safety evidence, contrary evidence, contact attempts, care plan, decision reasons, and review/repair records.",
+      "failureModes": [
+        "Temporary protection becomes permanent by inertia",
+        "Placement or access decision without a traceable safety basis",
+        "Contact failure hidden as noncompliance"
+      ]
+    },
+    {
+      "id": "F05",
+      "priority": "05",
+      "tier": "Rights and truth",
+      "name": "Keep claims, evidence, and findings distinct",
+      "purpose": "Protect epistemic integrity so narratives can be heard without being mistaken for verified facts.",
+      "minimumTest": "For every material proposition, can a reviewer identify the source, author, time, integrity status, contrary material, challenge status, and authorized finding?",
+      "relationshipTest": "Can each affected person see and answer the claims that may alter their relationship, liberty, care, or resources, subject to lawful protective limits?",
+      "lawLens": "Map filing and intake rules, evidence standards, disclosure, confidentiality, records custody, correction routes, and judicial fact-finding.",
+      "technologyLens": "E-filing, OCR, metadata, hashes, docketing, search, deduplication, redaction, audit logs, and retrieval interfaces.",
+      "fundingLens": "Is funding tied to reliable evidence handling and correction, or to volume, speed, and closure?",
+      "evidence": "Source document or recording, provenance, chain of custody where relevant, version, access history, challenge, finding, and remedy.",
+      "failureModes": [
+        "File accepted becomes fact found",
+        "No exhibit becomes no evidence",
+        "Narrative copied across systems without provenance"
+      ]
+    },
+    {
+      "id": "F06",
+      "priority": "06",
+      "tier": "Rights and truth",
+      "name": "Receive fair process and meaningful review",
+      "purpose": "Provide notice, understandable reasons, access, response time, impartial decision-making, accommodation, representation, and review before final deprivation.",
+      "minimumTest": "Did the person receive meaningful notice and a real chance to respond at a time and in a manner suited to the stakes, with a route to correction or appeal?",
+      "relationshipTest": "Does process protect each participant’s voice without forcing a false choice between safety and participation?",
+      "lawLens": "Map constitutional due process, service, hearings, counsel, impartiality, emergency procedures, appeals, and post-deprivation remedies.",
+      "technologyLens": "Service systems, calendars, remote hearings, case portals, language/accessibility tools, queueing, and transcript/record systems.",
+      "fundingLens": "Are hearing capacity, clerks, interpreters, counsel, record access, and appeals funded in proportion to caseload and stakes?",
+      "evidence": "Notice generation and delivery, access barriers, response opportunity, accommodations, decision reasons, and review disposition.",
+      "failureModes": [
+        "Attempted notice treated as received notice",
+        "A deadline runs while access is blocked",
+        "Appeal exists on paper but not in practice"
+      ]
+    },
+    {
+      "id": "F07",
+      "priority": "07",
+      "tier": "Agency and opportunity",
+      "name": "Exercise agency without coercion",
+      "purpose": "Support informed choice, bodily autonomy, privacy, refusal, self-direction, and freedom from retaliation or coercive control.",
+      "minimumTest": "Can the person choose, refuse, seek advice, and change course without hidden penalties or a system treating compliance as consent?",
+      "relationshipTest": "Are power differences, dependency, age, disability, money, and safety accounted for without erasing the person’s agency?",
+      "lawLens": "Map consent, bodily autonomy, speech, religion, privacy, disability, labor, family, and anti-coercion protections.",
+      "technologyLens": "Consent interfaces, defaults, surveillance, account permissions, recommender systems, data sharing, and automated enforcement.",
+      "fundingLens": "Do incentives reward informed support and voluntary participation, or enrollment, compliance, and measurable conversion?",
+      "evidence": "Consent language, choice architecture, refusal, coercion indicators, data uses, and consequences.",
+      "failureModes": [
+        "Click-through treated as informed consent",
+        "Safety justification used without necessity or expiry",
+        "Opt-out exists but is practically inaccessible"
+      ]
+    },
+    {
+      "id": "F08",
+      "priority": "08",
+      "tier": "Agency and opportunity",
+      "name": "Access opportunity and participation",
+      "purpose": "Enable education, work, housing, health, benefits, civic participation, culture, and meaningful inclusion.",
+      "minimumTest": "Can the person or group reach the opportunity, understand the criteria, compete fairly, and challenge exclusion with outcome data available?",
+      "relationshipTest": "Are opportunities distributed without requiring a person to abandon family, culture, disability needs, or caregiving responsibilities?",
+      "lawLens": "Map equal protection, civil rights, education, labor, housing, public benefits, voting, and public-access rules.",
+      "technologyLens": "Eligibility scoring, hiring and admissions systems, scheduling, digital identity, geofencing, and accessibility.",
+      "fundingLens": "Which outcomes receive appropriations, grants, reimbursements, tax incentives, or contracts—and who is left outside the denominator?",
+      "evidence": "Eligibility criteria, denominator, decisions, disparate impact signals, accessibility, appeals, and outcomes.",
+      "failureModes": [
+        "Administrative convenience becomes exclusion",
+        "Success measured only among people who reached the system",
+        "Funding rewards visible outputs while externalizing access costs"
+      ]
+    },
+    {
+      "id": "F09",
+      "priority": "09",
+      "tier": "Coordination and dignity",
+      "name": "Coordinate care without losing context",
+      "purpose": "Preserve continuity across institutions, handoffs, professions, and households while keeping responsibility visible.",
+      "minimumTest": "When information or responsibility moves, can the receiving actor see what was known, what was uncertain, what authority transferred, and what must happen next?",
+      "relationshipTest": "Do handoffs preserve the person’s relationships and preferences instead of reducing them to a transferable case number?",
+      "lawLens": "Map interagency duties, confidentiality, mandated reporting, records transfer, professional scope, and accountability for missed handoffs.",
+      "technologyLens": "APIs, shared identifiers, referrals, data warehouses, interoperability, task queues, and notification systems.",
+      "fundingLens": "Are coordination and follow-up funded, or is each organization paid only for its own completed transaction?",
+      "evidence": "Lineage, handoff receipt, responsible actor, unresolved items, escalation, and closure reason.",
+      "failureModes": [
+        "Context lost at the boundary",
+        "No one owns an unresolved task",
+        "Duplicate records create contradictory realities"
+      ]
+    },
+    {
+      "id": "F10",
+      "priority": "10",
+      "tier": "Coordination and dignity",
+      "name": "Protect privacy, security, and dignity",
+      "purpose": "Prevent unauthorized exposure, manipulation, surveillance, stigma, and use of personal data outside a legitimate purpose.",
+      "minimumTest": "Is collection necessary, access limited, use explained, security tested, retention bounded, and the person able to discover and challenge harmful processing?",
+      "relationshipTest": "Does confidentiality protect a person without blocking legitimate safety coordination or making family members jointly liable for one another’s data?",
+      "lawLens": "Map constitutional privacy, sector privacy laws, confidentiality, sealing, public-records exceptions, cybersecurity duties, and remedies.",
+      "technologyLens": "IAM, encryption, logging, data minimization, model training, vendor access, backups, and breach response.",
+      "fundingLens": "Are security, privacy engineering, audit, and incident response treated as funded operational functions rather than overhead to cut?",
+      "evidence": "Data inventory, purpose, access log, retention, control test, incident, notification, and remedy.",
+      "failureModes": [
+        "Broad access justified by convenience",
+        "Data copied without purpose or expiry",
+        "Security treated as a purchase checkbox"
+      ]
+    },
+    {
+      "id": "F11",
+      "priority": "11",
+      "tier": "Growth and belonging",
+      "name": "Learn, develop, and belong",
+      "purpose": "Support development, education, play, cultural identity, relationships, meaning, and participation across infancy, childhood, adulthood, and aging.",
+      "minimumTest": "Does the system account for developmental stage, culture, disability, and changing capacity while preserving connection and opportunities to learn?",
+      "relationshipTest": "Can the person remain connected to safe family, peers, mentors, community, and culture while gaining appropriate autonomy?",
+      "lawLens": "Map education, disability, child-development, elder services, cultural and religious protections, and public participation.",
+      "technologyLens": "Student information systems, learning platforms, care plans, recommendation systems, age gates, and social communication tools.",
+      "fundingLens": "Are long-term development and belonging funded, or only crisis response and short-term measurable outputs?",
+      "evidence": "Developmental context, preferences, participation, access, outcomes, and person or family feedback.",
+      "failureModes": [
+        "Age label substitutes for individual assessment",
+        "Engagement metric substitutes for well-being",
+        "Cultural connection omitted from the record"
+      ]
+    },
+    {
+      "id": "F12",
+      "priority": "12",
+      "tier": "Repair and future",
+      "name": "Repair error, restore trust, and sustain the future",
+      "purpose": "Make correction, appeal, reconciliation, compensation, learning, and intergenerational sustainability normal system functions.",
+      "minimumTest": "Can a person reverse a wrong record or decision, obtain a reasoned remedy, learn what failed, and prevent recurrence without retaliation?",
+      "relationshipTest": "Does repair restore safe relationships where possible and protect people where it is not, without forcing reconciliation?",
+      "lawLens": "Map correction, reconsideration, appeal, judicial review, complaints, compensation, records amendment, environmental and intergenerational duties.",
+      "technologyLens": "Correction workflows, immutable audit trails, incident management, model monitoring, versioning, and public dashboards.",
+      "fundingLens": "Is money allocated for appeals, independent oversight, remediation, maintenance, and prevention—not only initial delivery?",
+      "evidence": "Original state, error report, investigation, correction, outcome, recurrence analysis, and public accountability.",
+      "failureModes": [
+        "Correction changes the visible record but not downstream copies",
+        "Appeal is counted as closure",
+        "No budget or owner exists for repair"
+      ]
+    }
+  ],
+  "fundingQuestions": [
+    "What human function and relationship is the money intended to support?",
+    "What is purchased: a service, a decision, a data system, a throughput target, or an outcome?",
+    "What metric triggers payment, and what important harm or unmet need is outside the denominator?",
+    "Who can see the appropriation, grant, contract, vendor, subcontract, and performance report?",
+    "Who bears the risk when the funded system is wrong, delayed, inaccessible, or insecure?",
+    "Is correction, independent review, maintenance, and recovery funded as part of the function?"
+  ],
+  "evidenceProtocol": [
+    {
+      "label": "Law",
+      "text": "Constitution, statute, rule, regulation, contract, or official policy; record the jurisdiction, version, and date."
+    },
+    {
+      "label": "Norm",
+      "text": "Published standard, professional expectation, community value, or observed practice; label it as normative rather than binding law."
+    },
+    {
+      "label": "Technology",
+      "text": "Actual interface, data model, workflow, access log, vendor documentation, outage, or observed system behavior."
+    },
+    {
+      "label": "Funding",
+      "text": "Appropriation, award, contract, reimbursement, fee, performance measure, and recipient; trace the public dollars and obligations."
+    },
+    {
+      "label": "Lived outcome",
+      "text": "What happened to a person or relationship; preserve source, context, challenge, and scope instead of generalizing one case."
+    }
+  ],
+  "sourceLinks": [
+    {
+      "title": "Congress.gov Constitution Annotated: due process",
+      "url": "https://constitution.congress.gov/static/files/GPO-CONAN-2024-SUPP.pdf"
+    },
+    {
+      "title": "USAspending.gov: official federal award data",
+      "url": "https://www.usaspending.gov/"
+    },
+    {
+      "title": "OMB Federal Program Inventory",
+      "url": "https://fpi.omb.gov/about/fpi"
+    },
+    {
+      "title": "NIST AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    },
+    {
+      "title": "NIST Privacy Framework",
+      "url": "https://www.nist.gov/privacy-framework"
+    },
+    {
+      "title": "GAO AI accountability framework",
+      "url": "https://www.gao.gov/products/gao-21-519sp"
+    },
+    {
+      "title": "ACF Prevention Services Clearinghouse outcome domains",
+      "url": "https://preventionservices.acf.hhs.gov/faq"
+    }
+  ]
+}

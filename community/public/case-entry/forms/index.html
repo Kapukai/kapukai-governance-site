@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore official court forms, evidence opportunities, review clocks, and the separate time and money needed to participate. A source-led research prototype.">
+  <title>Forms, Evidence &amp; Access | Kapukai</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="../../evidence/decision-failures/states.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#explore">Skip to the catalog</a>
+  <header class="site-header wrap">
+    <a class="brand" href="https://kapukai.org/" aria-label="Kapukai home"><span class="brand-mark" aria-hidden="true">K</span><span>KAPUKAI</span></a>
+    <nav aria-label="Page navigation"><a href="../">Case Entry Map</a><a href="../../evidence/access-audit/">Authority map</a><a href="#method">Method &amp; sources</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Eagle Eyes / Case Entry</p>
+        <h1>What reaches<br>the decision?</h1>
+        <p class="hero-copy">Follow the forms, evidence channels and handoffs. See the time and money needed to participate—and where the answers remain unknown.</p>
+        <div class="hero-actions"><a class="button primary" href="#explore">Explore the catalog <span aria-hidden="true">↓</span></a><a class="button secondary" href="#cost-lab">Try the cost example <span aria-hidden="true">↓</span></a></div>
+        <p class="hero-note">Public-source research prototype · No personal case records</p>
+      </div>
+    </section>
+    <section class="principle wrap" aria-labelledby="principle-title">
+      <div><p class="eyebrow">Time and money are separate</p><h2 id="principle-title">A cost can stop a step<br>before a clock starts.</h2></div>
+      <p>Record what must be paid upfront, what is actually spent, and whether a step remains out of reach. A missing submission cannot tell us why someone could not proceed.</p>
+    </section>
+    <section class="catalog-section wrap" id="explore" aria-labelledby="explore-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / Choose a process</p><h2 id="explore-title">One map. Specific routes.</h2></div><p class="section-intro">Coverage describes this research. A gray state means its forms have not been cataloged here.</p></div>
+      <div id="load-error" class="notice error" role="alert" hidden></div>
+      <noscript><p class="notice">Enable JavaScript to explore the catalog. You can also <a href="catalog.json">download the catalog data</a> or return to the <a href="../">Case Entry Map</a>.</p></noscript>
+      <div class="explorer-grid">
+        <div class="map-panel">
+          <label for="state-select">Jurisdiction</label><select id="state-select" aria-controls="route-selection route-content" disabled><option>Loading jurisdictions…</option></select>
+          <div class="map-legend"><span><i class="legend-dot pilot" aria-hidden="true"></i>Draft source catalog</span><span><i class="legend-dot" aria-hidden="true"></i>Not yet cataloged</span></div>
+          <div id="state-map" class="state-map"></div>
+          <p class="map-caption">State geometry reused from the existing Atlas. Shading shows coverage, not performance or risk.</p>
+        </div>
+        <aside class="selection-panel" id="route-selection" aria-live="polite">
+          <p class="eyebrow">Selected jurisdiction</p><h3 id="state-title">Loading catalog…</h3>
+          <p id="coverage-summary" class="muted">Official sources and their editions will appear here.</p>
+          <div id="route-picker"><label for="route-select">Proceeding and local scope</label><select id="route-select" aria-controls="route-content" disabled><option>Loading routes…</option></select></div>
+          <dl class="selection-meta"><div><dt>Source review</dt><dd>AI-assisted; independent review not recorded</dd></div><div><dt>Operational observations</dt><dd>Not collected in this edition</dd></div></dl>
+          <p id="catalog-edition" class="small muted"></p>
+        </aside>
+      </div>
+      <p id="coverage-gap" class="notice" role="status" hidden></p>
+    </section>
+    <div id="route-content" hidden>
+      <section class="route-introduction wrap" aria-labelledby="route-title"><p class="eyebrow">Selected route</p><h2 id="route-title"></h2><p id="route-summary" class="route-summary"></p><div id="route-context" class="context-grid"></div><div class="route-jumps"><a href="#forms">Official forms</a><a href="#pathway">Evidence &amp; handoffs</a><a href="#money">Money &amp; access</a><a href="#clocks">Review clocks</a><a href="#observed">Observed results</a></div></section>
+      <section class="content-section wrap" id="forms" aria-labelledby="forms-title"><div class="section-heading"><div><p class="eyebrow">02 / Published documents</p><h2 id="forms-title">Start with the exact form.</h2></div><p class="section-intro">Applications, responses and orders play different roles. Follow each official source for the current document and instructions.</p></div><div id="form-cards" class="form-grid"></div></section>
+      <section class="content-section wrap" id="pathway" aria-labelledby="pathway-title"><div class="section-heading"><div><p class="eyebrow">03 / Evidence and handoffs</p><h2 id="pathway-title">Who can provide what?</h2></div><p class="section-intro">Published steps and opportunities are shown separately from observed events. Read the cited sources for their conditions and branches.</p></div><ol id="route-steps" class="route-steps"></ol><h3 class="subheading">Documented evidence channels</h3><div id="channel-cards" class="channel-grid"></div><p class="notice quiet">Submission, acceptance, availability to a decision maker, consideration and factual findings are separate events. A recorded file hash establishes byte integrity; it does not establish the truth of its contents.</p></section>
+      <section class="money-band" id="money" aria-labelledby="money-title"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">04 / Money and access</p><h2 id="money-title">What does participation require?</h2></div><p class="section-intro">Published charges, upfront requirements and actual expense have separate fields. An unknown amount stays unknown.</p></div><div id="cost-items" class="cost-items"></div><div class="money-distinction"><article><h3>Required upfront</h3><p>The payment needed before a particular step can proceed, including the scope of any assistance or alternative.</p></article><article><h3>Actual expense</h3><p>What a participant spent, with the currency, category, source and observation period retained.</p></article><article><h3>Unable to proceed</h3><p>A separately documented access barrier. The absence of a completed step does not establish its cause.</p></article></div><p class="small muted">A published $0 court charge does not establish $0 total participation cost.</p></div></section>
+      <section class="content-section wrap" id="clocks" aria-labelledby="clocks-title"><div class="section-heading"><div><p class="eyebrow">05 / Time and review</p><h2 id="clocks-title">Which clock applies?</h2></div><p class="section-intro">Record the trigger, effective date and jurisdiction. Published review windows are not measurements of actual court performance.</p></div><div id="clock-cards" class="clock-grid"></div></section>
+      <section class="observed-section wrap" id="observed" aria-labelledby="observed-title"><p class="eyebrow">06 / Observed operation</p><h2 id="observed-title">What happened in practice?</h2><p class="section-copy">This edition contains public-source descriptions. Actual submission rates, timing and participant spending remain unmeasured.</p><div id="metric-cards" class="metric-grid"></div><p class="small muted">Future rates need a population, observation window, denominator and missing-data count. Unfinished cases must remain visible.</p></section>
+    </div>
+    <section class="lab-section" id="cost-lab" aria-labelledby="lab-title"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Try a synthetic example</p><h2 id="lab-title">Zero minutes.<br>A funding gap.</h2></div><p class="section-intro">These fictional values illustrate a rule. They are not court fees, a case assessment or an affordability determination.</p></div><div class="lab-grid"><form id="cost-form" class="lab-controls"><label for="lab-preset">Choose an illustration</label><select id="lab-preset"><option value="gap">Funding gap, no elapsed time</option><option value="support">Confirmed support covers the payment</option><option value="unknown">Payment requirement is unknown</option><option value="zero">The listed charge is zero</option><option value="" disabled>Custom illustration</option></select><div class="input-grid"><div><label for="required-amount">Required upfront (USD)</label><input id="required-amount" inputmode="decimal" type="text" value="80.00" autocomplete="off"></div><div><label for="available-amount">Available funds (USD)</label><input id="available-amount" inputmode="decimal" type="text" value="50.00" autocomplete="off"></div><div><label for="support-amount">Confirmed support (USD)</label><input id="support-amount" inputmode="decimal" type="text" value="0.00" autocomplete="off"></div><div><label for="elapsed-minutes">Elapsed minutes</label><input id="elapsed-minutes" type="number" min="0" max="525600" step="1" value="0" autocomplete="off"></div></div><p class="small muted">Use fictional values. Leave a field blank to represent unknown. Calculations stay in this browser tab; no entries are saved or submitted.</p></form><div id="lab-results" class="lab-results" aria-live="polite" aria-atomic="true"><div class="result-pair"><article><span class="result-label">Elapsed time</span><strong id="time-result">—</strong><span id="time-result-note">Illustrative interval</span></article><article><span class="result-label">Funding shortfall</span><strong id="funding-result">—</strong><span id="funding-result-note">Calculating…</span></article></div><p id="lab-reason"></p><p class="lab-limit">A funding shortfall identifies a gap in the stated amounts. Alternatives, assistance eligibility and the cause of a missing submission need their own evidence.</p></div></div></div></section>
+    <section class="method-section wrap" id="method" aria-labelledby="method-title"><div class="section-heading"><div><p class="eyebrow">Methods and provenance</p><h2 id="method-title">Follow the source. Keep the unknowns.</h2></div><a class="download-link" href="catalog.json" download>Download this catalog (JSON) <span aria-hidden="true">↓</span></a></div><p class="section-copy">Sources were compiled with AI assistance. Independent source and technical reviews are not recorded. This catalog does not test a live court system or determine an individual case.</p><details id="check-details"><summary>Reproducible catalog checks</summary><p class="small muted">This edition records official form metadata and published instructions. Original PDF bytes and their hashes have not been acquired, and field-level form extraction has not been performed. Source entries disclose indexed-text access where direct retrieval was unavailable.</p><p class="small muted">These checks concern the catalog's structure and source references. A successful check does not establish legal correctness or operational compliance.</p><ul id="catalog-checks" class="check-list"></ul></details><details open><summary>Official sources for the selected route</summary><ol id="source-list" class="source-list"></ol></details><div class="source-cta"><div><h3>Help check a public source.</h3><p>Suggest an official document or flag a specific claim through the existing source-review path.</p></div><a class="button dark" href="../#source-suggestion">Suggest a source <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="site-footer wrap"><a href="../">Kapukai / Case Entry Map</a><p id="footer-edition">Research prototype · Source-linked forms and process records</p></footer>
+</body>
+</html>
