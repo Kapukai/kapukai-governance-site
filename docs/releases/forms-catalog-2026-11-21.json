@@ -1,0 +1,111 @@
+{
+  "release_id": "forms-catalog-2026-11-21",
+  "status": "draft-preview-verified",
+  "verified_at_utc": "2026-11-21T18:02:58Z",
+  "repository": "https://github.com/Kapukai/kapukai-governance-site",
+  "branch": "codex/evidence-access-audit-map-20261117",
+  "draft_pull_request": "https://github.com/Kapukai/kapukai-governance-site/pull/33",
+  "tested_runtime": {
+    "commit": "3cafc7afc802ee4b9f68c461492e4193ff3eec7c",
+    "tree": "37b85a1b768f5012f0095b3ac04236db9dd47ffa",
+    "implementation_commit": "ec9128d0d0546b05368792acf6021639dfe757bf",
+    "note": "The final runtime changes only the cost illustration's unknown-value explanation and an anchor icon after the initial implementation checks."
+  },
+  "catalog": {
+    "version": "2026-11-21.v0.1.0",
+    "sha256": "79c3eb6c9bc5df2f8ae7a7a84a3a15912328f699cc076071c546d5454861c284",
+    "hash_scope": "Exact catalog JSON bytes only. Official source PDF bytes were not acquired or authenticated.",
+    "selected_form_records": 6,
+    "selected_process_routes": 2,
+    "official_source_records": 12,
+    "jurisdiction_scope": "Selected California routes; civil DV with San Diego procedure and a separate police EPO route.",
+    "independent_source_review": "not-recorded",
+    "operational_observations": "not-collected"
+  },
+  "preview": {
+    "project_id": "prj_1N60v57J07z0og2hJRzL0UkkT6kU",
+    "deployment_id": "dpl_6j8oMzc8rTYoUefJ2Qkw9Tk8Mdt9",
+    "state": "READY",
+    "target": "preview",
+    "url": "https://kapukai-community-k7tu00uzn-kapukais-projects.vercel.app/case-entry/forms/?state=CA#explore",
+    "inspector_url": "https://vercel.com/kapukais-projects/kapukai-community/6j8oMzc8rTYoUefJ2Qkw9Tk8Mdt9"
+  },
+  "validation": {
+    "node_tests": {
+      "passed": 32,
+      "failed": 0,
+      "command": "node --test community/public/case-entry/tests/*.test.mjs"
+    },
+    "catalog_snapshot": "Exact catalog and edition bytes match the recorded SHA-256.",
+    "syntax_and_diff": "Both app scripts passed syntax checks; git diff --check passed.",
+    "github_checks": [
+      {
+        "name": "validate",
+        "status": "success",
+        "url": "https://github.com/Kapukai/kapukai-governance-site/actions/runs/44933178487/job/136934035230"
+      },
+      {
+        "name": "validate",
+        "status": "success",
+        "url": "https://github.com/Kapukai/kapukai-governance-site/actions/runs/44933178470/job/136934034993"
+      }
+    ],
+    "branded_route_workflow": {
+      "status": "skipped",
+      "reason": "Deployment-triggered branded verification runs only for production; this is a preview.",
+      "url": "https://github.com/Kapukai/kapukai-governance-site/actions/runs/44933184304/job/136934053479"
+    }
+  },
+  "deployed_file_checks": [
+    {
+      "path": "/case-entry/forms/catalog.json",
+      "sha256": "79c3eb6c9bc5df2f8ae7a7a84a3a15912328f699cc076071c546d5454861c284",
+      "matches_local": true
+    },
+    {
+      "path": "/case-entry/forms/edition-manifest.json",
+      "sha256": "a2d6c4e242c21f47f2ea8e819c39074560fd1a6339aed4f25501f97a8d581caa",
+      "matches_local": true
+    },
+    {
+      "path": "/case-entry/forms/app.js",
+      "sha256": "ef0bca4272909427f721afeb296fbacacd238adefd750001f5186851aa48822c",
+      "matches_local": true
+    },
+    {
+      "path": "/case-entry/forms/index.html",
+      "sha256": "fc4bd1a39b33ed244d651f22e0ea018f8dcdf2cac94edc253816361b9a05271f",
+      "matches_local": true
+    }
+  ],
+  "browser_checks": {
+    "environment": "Hosted preview in cloud Chrome; desktop viewport.",
+    "initial_preview": "https://kapukai-community-bg91fxqno-kapukais-projects.vercel.app/case-entry/forms/?state=CA",
+    "initial_checks": [
+      "Six selected form records appear across two distinct routes; civil and police scope remain separate.",
+      "New York shows an explicit research gap, with no invented form or performance finding.",
+      "The synthetic funding gap is USD 30 at zero elapsed minutes.",
+      "Confirmed support covers the specified payment; unknown payment remains unknown; a zero listed charge does not mean zero total burden.",
+      "A blank elapsed-time input remains unknown.",
+      "Existing Case Entry map retains the Oklahoma entry and links California to its forms catalog."
+    ],
+    "final_preview_checks": [
+      "Final preview loads the same catalog edition and selected California route.",
+      "Unknown-value explanation uses plain language.",
+      "Funding-gap illustration still shows USD 30 and zero minutes.",
+      "Catalog and cost anchor navigation update the live page URL.",
+      "Final preview tab marked for review."
+    ],
+    "mobile_viewport": "Not exercised in a live browser in this verification.",
+    "limitation": "Local headless Chromium could not launch because the environment denied its singleton socket; live checks used the hosted preview."
+  },
+  "public_installation": {
+    "status": "not-performed",
+    "installed_files": [],
+    "branded_url_verified": false,
+    "release_closed": false,
+    "owner": "Existing Kapukai repository; case-entry publication needs an explicitly scoped path on the current branded host.",
+    "boundary": "kapukai.org is served by the existing nginx host. Vercel access alone does not grant deployment access. The community/deploy.py allowed-prefix list does not currently include case-entry/.",
+    "next_release_step": "Prepare the scoped case-entry install and backup on the authenticated existing host, then verify exact branded content, dependent assets, and primary actions before distributing branded links."
+  }
+}
