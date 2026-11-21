@@ -1,0 +1,32 @@
+name: Case Entry catalog validation
+
+on:
+  pull_request:
+    paths:
+      - 'community/public/case-entry/**'
+      - '.github/workflows/case-entry-validation.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'community/public/case-entry/**'
+      - '.github/workflows/case-entry-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, matching repository validation
+        with:
+          persist-credentials: false
+      - name: Check deterministic rules and claim boundaries
+        run: node --test community/public/case-entry/tests/*.test.mjs
+      - name: Verify catalog references and frozen edition
+        run: node community/public/case-entry/forms/validate-catalog.mjs
+      - name: Check browser script syntax
+        run: |
+          node --check community/public/case-entry/app.js
+          node --check community/public/case-entry/forms/app.js

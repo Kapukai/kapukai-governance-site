@@ -20,6 +20,9 @@ The receipt tests exercise Kapukai’s deterministic status model. The injection
 
 ## Current scope
 
+- The [Forms, time and cost catalog](forms/) adds six selected California form records, a San Diego civil-request overlay, a separate police EPO route, explicit monetary-barrier fields, and a local synthetic affordability illustration. Read [the implementation contract](../../../docs/forms-evidence-catalog-v0.1.md) for scope and limits.
+- Check its frozen edition with `node community/public/case-entry/forms/validate-catalog.mjs` from the repository root. Actual rates, expenses, and court delays remain unknown; software test results do not fill those gaps.
+
 - The national map is a coverage index; unreviewed jurisdictions remain unknown.
 - The Oklahoma OUCMS entry is specifically about district-court civil e-filing. It documents published access, attachment, and receipt materials and an unresolved filer-scope mismatch.
 - The separate [Oklahoma emergency-custody integrity audit](oklahoma-emergency-custody/) maps statutory prepetition custody routes, required review clocks, and the conditional Title IV-E funding connection.

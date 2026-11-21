@@ -1,0 +1,649 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_version": "2026-11-21.v0.1.0",
+  "checked_on": "2026-11-21",
+  "scope": "Selected California protective-order sources; San Diego civil-request overlay plus a separate police EPO comparison. All other jurisdictions remain unreviewed in this forms catalog.",
+  "independent_review": "not-recorded",
+  "operational_data_status": "not-collected",
+  "sources": [
+    {
+      "id": "SRC-CA-DV100",
+      "title": "Request for Domestic Violence Restraining Order (DV-100)",
+      "url": "https://selfhelp.courts.ca.gov/jcc-form/DV-100",
+      "kind": "official_form_metadata",
+      "scope": "California statewide guidance",
+      "effective_date": "2025-01-01",
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Form title and effective-date metadata",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Direct open returned403; official indexed landing-page text inspected."
+    },
+    {
+      "id": "SRC-CA-DV109",
+      "title": "Notice of Court Hearing (Domestic Violence Prevention) (DV-109)",
+      "url": "https://selfhelp.courts.ca.gov/jcc-form/DV-109",
+      "kind": "official_form_metadata",
+      "scope": "California statewide guidance",
+      "effective_date": "2025-01-01",
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Form title and effective-date metadata",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-CA-DV110",
+      "title": "Temporary Restraining Order (CLETS-TRO) (DV-110)",
+      "url": "https://selfhelp.courts.ca.gov/jcc-form/DV-110",
+      "kind": "official_form_metadata",
+      "scope": "California statewide guidance",
+      "effective_date": "2025-01-01",
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Form title and effective-date metadata",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-CA-DV120",
+      "title": "Response to Request for Domestic Violence Restraining Order (DV-120)",
+      "url": "https://www.selfhelp.courts.ca.gov/jcc-form/DV-120",
+      "kind": "official_form_metadata",
+      "scope": "California statewide guidance",
+      "effective_date": "2026-01-01",
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Form title and effective-date metadata",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Direct open returned403; official indexed landing-page text and current forms index inspected."
+    },
+    {
+      "id": "SRC-CA-DV520",
+      "title": "Get Ready for Your Restraining Order Court Hearing (DV-520-INFO)",
+      "url": "https://selfhelp.courts.ca.gov/jcc-form/DV-520-INFO",
+      "kind": "official_form_metadata",
+      "scope": "California statewide guidance",
+      "effective_date": "2023-01-01",
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Form title and effective-date metadata",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-CA-EPO001",
+      "title": "Emergency Protective Order (CLETS-EPO) (EPO-001)",
+      "url": "https://selfhelp.courts.ca.gov/jcc-form/EPO-001",
+      "kind": "official_form_metadata",
+      "scope": "California statewide guidance",
+      "effective_date": "2025-01-01",
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Form title and effective-date metadata",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-CA-INITIAL-INSTRUCTIONS",
+      "title": "Fill out domestic violence restraining order forms",
+      "url": "https://selfhelp.courts.ca.gov/DV-restraining-order/fill-forms",
+      "kind": "official_procedure",
+      "scope": "California statewide guidance",
+      "effective_date": null,
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Fill out all required forms; DV-100 Describe Abuse guidance",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-CA-RESPONSE-INSTRUCTIONS",
+      "title": "Respond to domestic violence restraining order",
+      "url": "https://www.selfhelp.courts.ca.gov/respond-to-DV-restraining-order/fill-file-response",
+      "kind": "official_procedure",
+      "scope": "California statewide guidance",
+      "effective_date": null,
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Fill out the Response; Copy and file your forms",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-CA-HEARING-INSTRUCTIONS",
+      "title": "DV-520-INFO hearing instructions",
+      "url": "https://courts.ca.gov/documents/dv520info.pdf",
+      "kind": "official_procedure",
+      "scope": "California statewide guidance",
+      "effective_date": "2023-01-01",
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Page1; Bring evidence or witnesses",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-CA-PROTECTIVE-GUIDE",
+      "title": "Guide to Protective Orders",
+      "url": "https://selfhelp.courts.ca.gov/protective-orders",
+      "kind": "official_procedure",
+      "scope": "California statewide guidance",
+      "effective_date": null,
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Protective orders requested by police; EPO-001",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-SD-CUTOFF-NOTICE",
+      "title": "Change in cut-off time for same-day processing of DVTRO requests",
+      "url": "https://www.sdcourt.ca.gov/news/public-notice-change-cut-time-same-day-processing-requests-domestic-violence-temporary",
+      "kind": "official_procedure",
+      "scope": "Superior Court of California, County of San Diego",
+      "effective_date": "2026-11-16",
+      "published_date": "2026-10-15",
+      "last_checked": "2026-11-21",
+      "pinpoint": "Notice body",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "official_search_index",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    },
+    {
+      "id": "SRC-SD-DVTRO-FAQ",
+      "title": "Domestic Violence Temporary Restraining Order e-Filing Frequently Asked Questions",
+      "url": "https://www.sdcourt.ca.gov/sdcourt/familyandchildren2/generalfamilyfaq/dvtroefilingfaq",
+      "kind": "official_procedure",
+      "scope": "Superior Court of California, County of San Diego",
+      "effective_date": null,
+      "published_date": null,
+      "last_checked": "2026-11-21",
+      "pinpoint": "Questions6,10,12,28",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "retrieval_method": "web_open_full_text",
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "access_note": "Official published text inspected; retained source bytes are not available in this edition."
+    }
+  ],
+  "forms": [
+    {
+      "id": "CA-DV100",
+      "title": "Request for Domestic Violence Restraining Order",
+      "form_number": "DV-100",
+      "jurisdiction": "US-CA",
+      "document_role": "application",
+      "effective_date": "2025-01-01",
+      "source_ids": [
+        "SRC-CA-DV100"
+      ],
+      "landing_url": "https://selfhelp.courts.ca.gov/jcc-form/DV-100",
+      "pdf_url": null,
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "field_extraction_status": "not-performed",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded"
+    },
+    {
+      "id": "CA-DV109",
+      "title": "Notice of Court Hearing",
+      "form_number": "DV-109",
+      "jurisdiction": "US-CA",
+      "document_role": "hearing_notice",
+      "effective_date": "2025-01-01",
+      "source_ids": [
+        "SRC-CA-DV109"
+      ],
+      "landing_url": "https://selfhelp.courts.ca.gov/jcc-form/DV-109",
+      "pdf_url": null,
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "field_extraction_status": "not-performed",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded"
+    },
+    {
+      "id": "CA-DV110",
+      "title": "Temporary Restraining Order",
+      "form_number": "DV-110",
+      "jurisdiction": "US-CA",
+      "document_role": "temporary_order_form",
+      "effective_date": "2025-01-01",
+      "source_ids": [
+        "SRC-CA-DV110"
+      ],
+      "landing_url": "https://selfhelp.courts.ca.gov/jcc-form/DV-110",
+      "pdf_url": null,
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "field_extraction_status": "not-performed",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded"
+    },
+    {
+      "id": "CA-DV120",
+      "title": "Response to Request for Domestic Violence Restraining Order",
+      "form_number": "DV-120",
+      "jurisdiction": "US-CA",
+      "document_role": "response",
+      "effective_date": "2026-01-01",
+      "source_ids": [
+        "SRC-CA-DV120"
+      ],
+      "landing_url": "https://www.selfhelp.courts.ca.gov/jcc-form/DV-120",
+      "pdf_url": null,
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "field_extraction_status": "not-performed",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded"
+    },
+    {
+      "id": "CA-DV520",
+      "title": "Get Ready for Your Restraining Order Court Hearing",
+      "form_number": "DV-520-INFO",
+      "jurisdiction": "US-CA",
+      "document_role": "instruction_sheet",
+      "effective_date": "2023-01-01",
+      "source_ids": [
+        "SRC-CA-DV520"
+      ],
+      "landing_url": "https://selfhelp.courts.ca.gov/jcc-form/DV-520-INFO",
+      "pdf_url": null,
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "field_extraction_status": "not-performed",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded"
+    },
+    {
+      "id": "CA-EPO001",
+      "title": "Emergency Protective Order",
+      "form_number": "EPO-001",
+      "jurisdiction": "US-CA",
+      "document_role": "officer_application_and_emergency_order",
+      "effective_date": "2025-01-01",
+      "source_ids": [
+        "SRC-CA-EPO001"
+      ],
+      "landing_url": "https://selfhelp.courts.ca.gov/jcc-form/EPO-001",
+      "pdf_url": null,
+      "sha256": null,
+      "archive_status": "not-acquired",
+      "field_extraction_status": "not-performed",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded"
+    }
+  ],
+  "routes": [
+    {
+      "id": "CA-SD-DV-REQUEST",
+      "title": "Civil domestic-violence request / San Diego procedure",
+      "jurisdiction": {
+        "state": "CA",
+        "court": "Superior Court of California, County of San Diego",
+        "county": "San Diego",
+        "level": "county",
+        "time_zone": "America/Los_Angeles"
+      },
+      "proceeding": "Civil domestic-violence restraining order request",
+      "initiating_actor": "Person requesting protection",
+      "first_consequential_decision": "Judicial decision on requested temporary protection",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "source_ids": [
+        "SRC-CA-INITIAL-INSTRUCTIONS",
+        "SRC-CA-RESPONSE-INSTRUCTIONS",
+        "SRC-CA-HEARING-INSTRUCTIONS",
+        "SRC-SD-CUTOFF-NOTICE",
+        "SRC-SD-DVTRO-FAQ"
+      ],
+      "form_ids": [
+        "CA-DV100",
+        "CA-DV109",
+        "CA-DV110",
+        "CA-DV120",
+        "CA-DV520"
+      ],
+      "scope_note": "Selected statewide forms with a San Diego submission overlay. This is not a complete filing packet or a statewide performance finding. Conditional and local forms still require a separate inventory.",
+      "steps": [
+        {
+          "id": "DV-REQUEST",
+          "title": "Request and supporting material",
+          "actor": "Person requesting protection",
+          "description": "The published instructions permit supporting emails or texts with the initial request. Actual use and delivery to a reviewer have not been measured.",
+          "source_ids": [
+            "SRC-CA-INITIAL-INSTRUCTIONS"
+          ],
+          "source_status": "source-documented"
+        },
+        {
+          "id": "DV-RECEIPT",
+          "title": "Submit through a documented channel",
+          "actor": "Filer, approved provider, and court receiving staff",
+          "description": "The San Diego FAQ describes optional electronic filing and an in-person alternative. Receipt, clerk processing, and judicial consideration must retain distinct meanings.",
+          "source_ids": [
+            "SRC-SD-DVTRO-FAQ"
+          ],
+          "source_status": "source-documented"
+        },
+        {
+          "id": "DV-TEMPORARY",
+          "title": "Temporary protection decision",
+          "actor": "Judicial officer",
+          "description": "The local notice distinguishes same-court-day processing from next-court-day review. No actual review timestamps or legal compliance results are available.",
+          "source_ids": [
+            "SRC-SD-CUTOFF-NOTICE"
+          ],
+          "source_status": "source-documented"
+        },
+        {
+          "id": "DV-RESPONSE",
+          "title": "Written response and supporting material",
+          "actor": "Responding person",
+          "description": "DV-120 and its instructions document a written response route, including supporting pictures or texts. This is one documented opportunity; the universal earliest response opportunity is not established here.",
+          "source_ids": [
+            "SRC-CA-DV120",
+            "SRC-CA-RESPONSE-INSTRUCTIONS"
+          ],
+          "source_status": "source-documented"
+        },
+        {
+          "id": "DV-HEARING",
+          "title": "Hearing and evidence consideration",
+          "actor": "Participants and judicial officer",
+          "description": "The hearing guidance describes statements and optional supporting material. The judge decides which documents may be considered.",
+          "source_ids": [
+            "SRC-CA-HEARING-INSTRUCTIONS"
+          ],
+          "source_status": "source-documented"
+        },
+        {
+          "id": "DV-CORRECTION",
+          "title": "Review or correction route",
+          "actor": "Responsible role not yet mapped in this edition",
+          "description": "A complete post-decision challenge, modification, appeal, service, and correction pathway has not been source-mapped in this selected pilot.",
+          "source_ids": [],
+          "source_status": "not-yet-mapped"
+        }
+      ],
+      "channels": [
+        {
+          "id": "DV-INITIAL-MATERIAL",
+          "title": "Material with the initial request",
+          "participant_role": "Person requesting protection",
+          "stage_id": "DV-REQUEST",
+          "description": "Emails and texts may accompany the request. The submission rate and time to decision-maker availability remain unknown.",
+          "source_ids": [
+            "SRC-CA-INITIAL-INSTRUCTIONS"
+          ]
+        },
+        {
+          "id": "DV-RESPONSE-MATERIAL",
+          "title": "Material with a written response",
+          "participant_role": "Responding person",
+          "stage_id": "DV-RESPONSE",
+          "description": "The response guidance permits supporting pictures and texts. This record does not establish every possible response channel or its practical accessibility.",
+          "source_ids": [
+            "SRC-CA-RESPONSE-INSTRUCTIONS"
+          ]
+        },
+        {
+          "id": "DV-HEARING-MATERIAL",
+          "title": "Material and statements at a hearing",
+          "participant_role": "Both participants",
+          "stage_id": "DV-HEARING",
+          "description": "Statements can be proof; additional exhibits and witnesses are optional. Sharing, admissibility, and recorded consideration are distinct questions.",
+          "source_ids": [
+            "SRC-CA-HEARING-INSTRUCTIONS"
+          ]
+        }
+      ],
+      "review_clocks": [
+        {
+          "id": "SD-CUTOFF-20261116",
+          "label": "Published cutoff: on or before 3 p.m.",
+          "description": "Effective November 16, 2026, the San Diego notice assigns requests submitted on or before 3 p.m. to same-court-day processing, and later requests to next-court-day review. This applies to the stated in-person and approved-provider channels.",
+          "effective_date": "2026-11-16",
+          "source_ids": [
+            "SRC-SD-CUTOFF-NOTICE"
+          ],
+          "trigger": "request_submitted",
+          "cutoff_local": "15:00:00",
+          "cutoff_inclusive": true,
+          "time_zone": "America/Los_Angeles",
+          "time_zone_basis": "Engineering normalization of court local time",
+          "calendar": "court_days",
+          "calendar_loaded": false,
+          "execution_status": "not-computed",
+          "conditions": "Court calendar, submission completeness, applicable exceptions, and actual event timestamps must be established before any deadline calculation."
+        }
+      ],
+      "cost_items": [
+        {
+          "id": "DV-COURT-FEE",
+          "label": "Court charge for this electronic request",
+          "amount_minor": 0,
+          "currency": "USD",
+          "amount_status": "published",
+          "mandatory": false,
+          "payment_timing": "submission",
+          "source_ids": [
+            "SRC-SD-DVTRO-FAQ"
+          ],
+          "notes": "The FAQ publishes no court e-filing charge for this request. This describes one charge, not the total burden."
+        },
+        {
+          "id": "DV-PROVIDER-FEE",
+          "label": "Possible electronic filing provider charge",
+          "amount_minor": null,
+          "currency": "USD",
+          "amount_status": "variable",
+          "mandatory": false,
+          "payment_timing": "provider-dependent",
+          "source_ids": [
+            "SRC-SD-DVTRO-FAQ"
+          ],
+          "notes": "A provider may charge. The amount and payment timing are not established here; electronic filing is optional."
+        },
+        {
+          "id": "DV-PARTICIPANT-COST",
+          "label": "Preparation, travel, childcare, or lost work",
+          "amount_minor": null,
+          "currency": "USD",
+          "amount_status": "unknown",
+          "mandatory": null,
+          "payment_timing": null,
+          "source_ids": [],
+          "notes": "Proposed measurement categories. No participant expenses or affordability have been observed."
+        },
+        {
+          "id": "DV-UPFRONT-GAP",
+          "label": "Funds needed before the next step",
+          "amount_minor": null,
+          "currency": "USD",
+          "amount_status": "unknown",
+          "mandatory": null,
+          "payment_timing": null,
+          "source_ids": [],
+          "notes": "Measure any required upfront amount, confirmed assistance, available funds, waiver outcome, and alternative routes. Do not infer a barrier from a missing payment record."
+        }
+      ],
+      "operational_metrics": {
+        "observed_route_count": null,
+        "submission_rate": null,
+        "median_elapsed_hours": null,
+        "participant_out_of_pocket_minor": null
+      }
+    },
+    {
+      "id": "CA-POLICE-EPO",
+      "title": "Police-requested emergency protective order",
+      "jurisdiction": {
+        "state": "CA",
+        "court": "California courts / exact local operation not mapped",
+        "county": null,
+        "level": "state",
+        "time_zone": "America/Los_Angeles"
+      },
+      "proceeding": "Police-requested emergency protective order",
+      "initiating_actor": "Law-enforcement officer",
+      "first_consequential_decision": "Judicial decision on an officer-requested EPO",
+      "review_status": "ai-assisted-source-review",
+      "independent_review": "not-recorded",
+      "source_ids": [
+        "SRC-CA-PROTECTIVE-GUIDE",
+        "SRC-CA-EPO001"
+      ],
+      "form_ids": [
+        "CA-EPO001"
+      ],
+      "scope_note": "Separate officer-to-judge pathway. The civil DV request cutoff, attachment instructions, and fees are not transferred into this route.",
+      "steps": [
+        {
+          "id": "EPO-OFFICER",
+          "title": "Officer prepares the application",
+          "actor": "Law-enforcement officer",
+          "description": "The official guide identifies EPO-001 as the officer application used in this route.",
+          "source_ids": [
+            "SRC-CA-PROTECTIVE-GUIDE"
+          ],
+          "source_status": "source-documented"
+        },
+        {
+          "id": "EPO-JUDGE",
+          "title": "Officer contacts a judge",
+          "actor": "Law-enforcement officer and judge",
+          "description": "The guide describes a judge available around the clock to review emergency requests. Actual waiting time is not measured.",
+          "source_ids": [
+            "SRC-CA-PROTECTIVE-GUIDE"
+          ],
+          "source_status": "source-documented"
+        },
+        {
+          "id": "EPO-AFTER",
+          "title": "Later protection and review",
+          "actor": "Participants and court; local sequence not fully mapped",
+          "description": "The guide describes short duration and a possible later restraining-order request. This selected record has not mapped all response, review, service, or correction channels.",
+          "source_ids": [
+            "SRC-CA-PROTECTIVE-GUIDE"
+          ],
+          "source_status": "source-documented"
+        }
+      ],
+      "channels": [
+        {
+          "id": "EPO-OFFICER-CHANNEL",
+          "title": "Officer-to-judge application",
+          "participant_role": "Law-enforcement officer",
+          "stage_id": "EPO-OFFICER",
+          "description": "The officer-to-judge route is documented. Exact public attachment opportunities and each participant’s earliest response opportunity remain unestablished in this pilot.",
+          "source_ids": [
+            "SRC-CA-PROTECTIVE-GUIDE"
+          ]
+        }
+      ],
+      "review_clocks": [
+        {
+          "id": "EPO-AVAILABILITY",
+          "label": "Published availability: 24 hours a day",
+          "description": "The statewide guide describes a judge available 24/7 for officer requests. This is an availability statement, not a measured duration or a guaranteed result.",
+          "effective_date": null,
+          "source_ids": [
+            "SRC-CA-PROTECTIVE-GUIDE"
+          ],
+          "execution_status": "not-computed"
+        }
+      ],
+      "cost_items": [
+        {
+          "id": "EPO-COST-UNKNOWN",
+          "label": "Participant expenses and upfront barriers",
+          "amount_minor": null,
+          "currency": "USD",
+          "amount_status": "unknown",
+          "mandatory": null,
+          "payment_timing": null,
+          "source_ids": [],
+          "notes": "No fee schedule, observed expenses, or affordability measurements have been established for this route in the selected sources."
+        }
+      ],
+      "operational_metrics": {
+        "observed_route_count": null,
+        "submission_rate": null,
+        "median_elapsed_hours": null,
+        "participant_out_of_pocket_minor": null
+      }
+    }
+  ],
+  "measurement_contract": {
+    "unit": "Defined participant opportunity within a scoped proceeding; specify the unit and observation window before collecting a rate.",
+    "outcome_at_cutoff": [
+      "completed",
+      "delayed",
+      "blocked",
+      "abandoned",
+      "unknown"
+    ],
+    "cost_dimensions": [
+      "published_charge",
+      "required_upfront_payment",
+      "observed_spending",
+      "confirmed_assistance",
+      "available_funds",
+      "waiver_status",
+      "alternative_route",
+      "participant_hours",
+      "estimated_time_value"
+    ],
+    "barrier_attribution": "Record reported reason, supporting source, review status, and alternatives separately. A funding shortfall alone does not prove causation or that every channel is inaccessible.",
+    "unknown_policy": "Missing values are null. Zero requires evidence. Incomplete and unobserved opportunities remain visible in denominators and follow-up.",
+    "privacy_boundary": "Public exports contain aggregate or synthetic observations only. No private case intake is provided by this module."
+  }
+}

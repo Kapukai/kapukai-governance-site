@@ -9,6 +9,7 @@ const mapError = document.getElementById("map-error");
 const receiptFlow = document.getElementById("receipt-flow");
 let mapPaths = new Map();
 let data;
+let formsCatalog;
 
 function node(tag, text, className) {
   const element = document.createElement(tag);
@@ -19,6 +20,22 @@ function node(tag, text, className) {
 
 function selectedStateRecord(code) {
   return data.jurisdictions.find(record => record.state === code);
+}
+
+function formRoutes(code) {
+  return (formsCatalog?.routes || []).filter(route => route.jurisdiction.state === code);
+}
+
+function appendFormsLink(code) {
+  const routes = formRoutes(code);
+  if (!routes.length) return;
+  const section = node("section", undefined, "scope-note");
+  section.append(node("strong", "Forms, time and cost"));
+  section.append(node("p", routes.length + " selected pathways link official forms, documented submission opportunities, roles, clocks, and monetary questions. Independent review and operational measurements are not recorded."));
+  const link = node("a", "Open this jurisdiction’s forms catalog →");
+  link.href = "forms/?state=" + encodeURIComponent(code);
+  section.append(link);
+  routeBody.append(section);
 }
 
 function selectState(code) {
@@ -39,7 +56,7 @@ function renderMap() {
   const svg = document.createElementNS(SVG_NS, "svg");
   svg.setAttribute("viewBox", atlasMap.viewBox);
   svg.setAttribute("role", "group");
-  svg.setAttribute("aria-label", "Select a state. Oklahoma has public source documentation with an unresolved filer-scope mismatch; the live route remains untested. Other jurisdictions are not yet reviewed.");
+  svg.setAttribute("aria-label", "Select a state by research coverage. Oklahoma has an unresolved source mismatch; California has selected forms and procedure records. Neither is an operational performance rating.");
   const title = document.createElementNS(SVG_NS, "title");
   title.textContent = "U.S. map by jurisdiction research coverage";
   svg.append(title);
@@ -48,11 +65,12 @@ function renderMap() {
     const hasRecord = Boolean(selectedStateRecord(state.abbr));
     const path = document.createElementNS(SVG_NS, "path");
     path.setAttribute("d", state.path);
-    path.setAttribute("class", "state-shape " + (hasRecord ? "source-documented" : "not-reviewed"));
+    const hasForms = formRoutes(state.abbr).length > 0;
+    path.setAttribute("class", "state-shape " + (hasRecord ? "source-documented" : hasForms ? "forms-catalog" : "not-reviewed"));
     path.setAttribute("tabindex", "0");
     path.setAttribute("role", "button");
     const record = selectedStateRecord(state.abbr);
-    path.setAttribute("aria-label", state.name + ": " + (record ? record.status_label + "; next review due " + record.next_review_due : "not yet reviewed; no finding about safeguards"));
+    path.setAttribute("aria-label", state.name + ": " + (record ? record.status_label + "; next review due " + record.next_review_due : hasForms ? "selected forms catalog; independent review pending" : "not yet reviewed; no finding about safeguards"));
     path.dataset.state = state.abbr;
     path.addEventListener("click", () => selectState(state.abbr));
     path.addEventListener("keydown", event => {
@@ -91,6 +109,12 @@ function renderRoute(code) {
   routeBody.replaceChildren();
 
   if (!record) {
+    if (formRoutes(code).length) {
+      routeBody.append(node("span", "Selected forms and procedures", "status-pill"));
+      routeBody.append(node("p", "This catalog contains bounded source records for selected proceedings. It does not establish statewide operational coverage, actual submission rates, or measured expense.", "route-summary"));
+      appendFormsLink(code);
+      return;
+    }
     routeBody.append(node("span", "Not yet reviewed", "status-pill"));
     routeBody.append(node("p", "No detailed pathway has been source-checked for this jurisdiction in this prototype. That is a coverage gap, not a finding about the jurisdiction's law or safeguards.", "route-summary"));
     const meta = node("div", undefined, "route-metadata");
@@ -141,6 +165,7 @@ function renderRoute(code) {
     sources.append(item);
   }
   routeBody.append(sources);
+  appendFormsLink(code);
 }
 
 function renderQualityMetrics() {
@@ -205,6 +230,12 @@ async function start() {
     const response = await fetch("data.json", { cache: "no-store" });
     if (!response.ok) throw new Error("Could not load map data (" + response.status + ").");
     data = await response.json();
+    try {
+      const catalogResponse = await fetch("forms/catalog.json", { cache: "no-store" });
+      if (catalogResponse.ok) formsCatalog = await catalogResponse.json();
+    } catch (_) {
+      // The established receipt map remains available if the optional catalog fails.
+    }
     renderMap();
     renderQualityMetrics();
     renderReceiptFlow();
@@ -213,7 +244,7 @@ async function start() {
     for (const state of states) {
       const hasRecord = Boolean(selectedStateRecord(state.abbr));
       const record = selectedStateRecord(state.abbr);
-      const label = record ? " — source mismatch; live route not tested" : " — not yet reviewed";
+      const label = record ? " — source mismatch; live route not tested" : formRoutes(state.abbr).length ? " — selected forms catalog" : " — not yet reviewed";
       const option = node("option", state.name + label);
       option.value = state.abbr;
       stateSelect.append(option);
