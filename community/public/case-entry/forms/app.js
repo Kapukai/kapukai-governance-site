@@ -306,7 +306,9 @@ function updateLab() {
   $('funding-result').textContent = result.shortfallMinor === null || result.shortfallMinor === undefined ? 'Unknown' : money(result.shortfallMinor);
   $('funding-result-note').textContent = result.status === 'unmet' ? 'Known funding shortfall' : result.status === 'met' ? 'Listed payment covered' : 'Funding position unresolved';
   $('lab-results').dataset.status = result.status;
-  $('lab-reason').textContent = result.reason;
+  $('lab-reason').textContent = result.status === 'unknown'
+    ? 'A needed amount is unknown or cannot be used. Enter fictional amounts of zero or more, with no more than two decimal places, or leave a field blank to keep it unknown.'
+    : result.reason;
 }
 
 function setupLab() {
